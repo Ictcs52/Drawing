@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>ระบายสีหรรษา 🖍️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@500;600;700&family=Noto+Sans+Thai:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3D3562;
+    --card:#FFFFFF;
+    --pink:#FF6FA5; --sun:#FFC93C; --sky:#4FC3F7; --grape:#9C6FF3; --mint:#5BE0B3;
+    --shadow-soft:0 18px 40px -12px rgba(140,110,255,.22);
+    --shadow-press:0 6px 0 rgba(61,53,98,.14);
+    --r-lg:32px; --r-md:22px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+  html,body{margin:0}
+  body{
+    font-family:'Mali',sans-serif;color:var(--ink);min-height:100vh;
+    background:
+      radial-gradient(600px 400px at 8% 0%, rgba(255,190,225,.45), transparent 70%),
+      radial-gradient(700px 500px at 100% 12%, rgba(180,225,255,.5), transparent 70%),
+      radial-gradient(600px 500px at 90% 95%, rgba(190,255,225,.45), transparent 70%),
+      radial-gradient(500px 400px at 0% 100%, rgba(225,205,255,.5), transparent 70%),
+      linear-gradient(150deg,#FDF7FF,#F2F8FF 55%,#F4FFF9);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:24px clamp(16px,3vw,36px) 60px}
+
+  /* ================= app bar ================= */
+  .appbar{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+  .logo{
+    width:64px;height:64px;border-radius:22px;display:grid;place-items:center;font-size:2rem;
+    background:linear-gradient(140deg,#FF9AC0,#9C6FF3);
+    box-shadow:0 12px 24px -8px rgba(156,111,243,.45);
+    transform:rotate(-6deg);
+  }
+  .appbar h1{margin:0;font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:700;line-height:1.1}
+  .appbar h1 span{background:linear-gradient(90deg,#FF6FA5,#9C6FF3 55%,#4FC3F7);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .appbar p{margin:2px 0 0;font-family:'Noto Sans Thai',sans-serif;font-size:.95rem;opacity:.65}
+
+  /* ================= category chips ================= */
+  .cats{display:flex;gap:12px;overflow-x:auto;padding:6px 2px 16px;scrollbar-width:none}
+  .cats::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;display:flex;align-items:center;gap:10px;cursor:pointer;
+    font-family:'Mali',sans-serif;font-weight:600;font-size:1.1rem;color:var(--ink);
+    background:rgba(255,255,255,.75);backdrop-filter:blur(8px);
+    border:none;border-radius:999px;padding:8px 22px 8px 8px;
+    box-shadow:0 8px 20px -8px rgba(120,100,200,.25);
+    transition:transform .2s cubic-bezier(.34,1.56,.64,1), background .2s;
+  }
+  .chip .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:1.4rem;background:var(--tint,#FFE3F0)}
+  .chip.on{background:linear-gradient(120deg,#FF8FB8,#A17BF5);color:#fff;transform:scale(1.06)}
+  .chip:active{transform:scale(.95)}
+
+  /* ================= gallery ================= */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px}
+  .card{
+    background:var(--card);border-radius:var(--r-lg);padding:18px 18px 14px;cursor:pointer;
+    box-shadow:var(--shadow-soft);text-align:center;position:relative;
+    transition:transform .25s cubic-bezier(.34,1.56,.64,1);
+  }
+  .card:hover{transform:translateY(-8px) rotate(-1deg)}
+  .card:active{transform:scale(.96)}
+  .card svg{width:100%;height:auto;pointer-events:none}
+  .card .nm{font-weight:600;font-size:1.2rem;margin-top:6px}
+  .card .bar{height:10px;border-radius:99px;background:#F0ECFA;margin-top:8px;overflow:hidden}
+  .card .bar i{display:block;height:100%;width:0;border-radius:99px;
+    background:linear-gradient(90deg,#FFC93C,#FF6FA5,#9C6FF3);transition:width .4s}
+  .card .badge{position:absolute;top:10px;right:12px;font-size:1.5rem;filter:drop-shadow(0 3px 4px rgba(0,0,0,.15))}
+
+  /* ================= studio ================= */
+  #studio{display:none}
+  .topbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+  .picname{font-weight:700;font-size:clamp(1.4rem,2.6vw,1.9rem);margin-right:auto}
+  .count{font-family:'Noto Sans Thai',sans-serif;font-size:.9rem;background:rgba(255,255,255,.8);
+    padding:6px 14px;border-radius:99px;box-shadow:0 6px 16px -8px rgba(120,100,200,.3)}
+
+  .tool{
+    display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;border:none;
+    background:none;font-family:'Mali',sans-serif;color:var(--ink);
+  }
+  .tool .b{
+    width:60px;height:60px;border-radius:20px;display:grid;place-items:center;font-size:1.6rem;
+    background:var(--card);box-shadow:var(--shadow-press);
+    transition:transform .12s, box-shadow .12s;
+  }
+  .tool:active .b{transform:translateY(5px);box-shadow:0 1px 0 rgba(61,53,98,.14)}
+  .tool small{font-size:.85rem;font-weight:600}
+  .tool.back .b{background:#EDE7FF} .tool.undo .b{background:#DFF9EF}
+  .tool.clear .b{background:#FFE3EC} .tool.save .b{background:#FFF2C9}
+
+  .studioGrid{display:grid;grid-template-columns:1fr 168px;gap:24px;align-items:start}
+  .board{
+    position:relative;background:var(--card);border-radius:var(--r-lg);
+    box-shadow:var(--shadow-soft);padding:clamp(10px,2vw,22px);
+  }
+  .board svg{width:100%;height:auto;display:block;touch-action:manipulation;max-height:74vh;margin:0 auto}
+  .board svg .r{cursor:pointer;transition:fill .12s}
+  @media(hover:hover){.board svg .r:hover{filter:brightness(.93)}}
+
+  /* ================= crayon rack ================= */
+  .rack{
+    position:sticky;top:16px;background:rgba(255,255,255,.72);backdrop-filter:blur(10px);
+    border-radius:var(--r-lg);box-shadow:var(--shadow-soft);padding:18px 12px 14px;
+  }
+  .rack h3{margin:0 0 4px;text-align:center;font-size:1rem;font-weight:600}
+  .rackGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 8px;justify-items:center;padding-top:12px}
+  .crayon{
+    width:40px;height:66px;border-radius:6px 6px 10px 10px;background:var(--c);
+    position:relative;cursor:pointer;margin-top:14px;
+    box-shadow:inset -5px 0 0 rgba(0,0,0,.12), 0 5px 10px -4px rgba(61,53,98,.35);
+    transition:transform .18s cubic-bezier(.34,1.56,.64,1);
+  }
+  .crayon::before{content:"";position:absolute;left:0;top:-15px;
+    border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:16px solid var(--c);
+    filter:brightness(1.08)}
+  .crayon .band{position:absolute;left:0;right:0;top:16px;height:15px;background:rgba(255,255,255,.5)}
+  .crayon.on{transform:translateY(-8px) scale(1.16);
+    box-shadow:inset -5px 0 0 rgba(0,0,0,.12), 0 12px 18px -6px rgba(61,53,98,.4),0 0 0 4px #fff,0 0 0 7px var(--c)}
+  .eraser{
+    width:52px;height:66px;margin-top:14px;border-radius:14px;cursor:pointer;font-size:1.6rem;
+    display:grid;place-items:center;
+    background:repeating-linear-gradient(45deg,#fff 0 9px,#EFEAF9 9px 18px);
+    box-shadow:0 5px 10px -4px rgba(61,53,98,.35);
+    transition:transform .18s cubic-bezier(.34,1.56,.64,1);
+  }
+  .eraser.on{transform:translateY(-8px) scale(1.12);box-shadow:0 12px 18px -6px rgba(61,53,98,.4),0 0 0 4px #fff,0 0 0 7px var(--grape)}
+
+  /* ================= effects ================= */
+  .pop{position:absolute;font-size:1.6rem;pointer-events:none;animation:pop .75s ease-out forwards}
+  @keyframes pop{0%{transform:translate(-50%,-50%) scale(.4);opacity:1}
+    100%{transform:translate(-50%,-160%) scale(1.5) rotate(20deg);opacity:0}}
+  .cheer{
+    position:absolute;inset:0;display:grid;place-items:center;border-radius:var(--r-lg);
+    background:rgba(255,255,255,.55);backdrop-filter:blur(3px);pointer-events:none;
+    animation:cheerIn .5s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes cheerIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+  .cheer .msg{background:linear-gradient(120deg,#FF8FB8,#A17BF5);color:#fff;font-weight:700;
+    font-size:clamp(1.6rem,4vw,2.4rem);padding:18px 44px;border-radius:99px;
+    box-shadow:0 20px 40px -10px rgba(156,111,243,.55)}
+
+  footer{font-family:'Noto Sans Thai',sans-serif;text-align:center;font-size:.8rem;opacity:.5;margin-top:44px}
+
+  /* ================= responsive ================= */
+  @media (max-width:840px){
+    .studioGrid{grid-template-columns:1fr}
+    .rack{position:sticky;bottom:10px;top:auto;order:2}
+    .rackGrid{display:flex;overflow-x:auto;gap:10px;padding:12px 4px 4px;scrollbar-width:none}
+    .rackGrid::-webkit-scrollbar{display:none}
+    .crayon{flex:0 0 auto}.eraser{flex:0 0 auto}
+  }
+  @media (max-width:520px){
+    .grid{grid-template-columns:repeat(2,1fr);gap:14px}
+    .card{padding:12px 12px 10px}
+    .tool .b{width:52px;height:52px;font-size:1.35rem}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="appbar">
+    <div class="logo">🎨</div>
+    <div>
+      <h1><span>ระบายสีหรรษา</span></h1>
+      <p>เลือกภาพที่ชอบ แตะสีเทียน แล้วระบายเลย!</p>
+    </div>
+  </header>
+
+  <nav class="cats" id="cats"></nav>
+
+  <main>
+    <section id="gallery" class="grid"></section>
+
+    <section id="studio">
+      <div class="topbar">
+        <button class="tool back" id="backBtn"><span class="b">🏠</span><small>กลับ</small></button>
+        <span class="picname" id="picTitle"></span>
+        <span class="count" id="countLbl"></span>
+        <button class="tool undo" id="undoBtn"><span class="b">↩️</span><small>ย้อน</small></button>
+        <button class="tool clear" id="clearBtn"><span class="b">🧽</span><small>ล้างภาพ</small></button>
+        <button class="tool save" id="saveBtn"><span class="b">💾</span><small>บันทึก</small></button>
+      </div>
+
+      <div class="studioGrid">
+        <div class="board" id="board"></div>
+        <aside class="rack">
+          <h3>🖍️ สีเทียน</h3>
+          <div class="rackGrid" id="palette"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>ทำด้วย ❤️ สำหรับหนูน้อยนักระบายสี</footer>
+</div>
+
+<script>
+/* ================= ภาพระบายสี (SVG) ================= */
+const S = (inner) => `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#fff" stroke="#3D3562" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">${inner}</g></svg>`;
+
+const PICS = [
+/* ---------- 👑 เจ้าหญิง (6 แบบ) ---------- */
+{ id:"p_gown", cat:"princess", name:"เจ้าหญิงชุดราตรี", svg:S(`
+  <path class="r" d="M200 42 C145 42 120 85 122 135 C123 170 135 195 152 208 C142 160 148 118 200 118 C252 118 258 160 248 208 C265 195 277 170 278 135 C280 85 255 42 200 42 Z"/>
+  <circle class="r" cx="200" cy="135" r="48"/>
+  <path class="r" d="M176 58 L182 26 L200 46 L218 26 L224 58 Z"/>
+  <circle class="r" cx="140" cy="215" r="18"/><circle class="r" cx="260" cy="215" r="18"/>
+  <path class="r" d="M166 188 L234 188 L242 240 L158 240 Z"/>
+  <path class="r" d="M158 240 C132 288 118 324 112 352 L288 352 C282 324 268 288 242 240 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="132" r="5"/><circle cx="216" cy="132" r="5"/></g>
+  <path d="M188 152 Q200 162 212 152" fill="none"/>
+`)},
+{ id:"p_braid", cat:"princess", name:"เจ้าหญิงผมเปีย", svg:S(`
+  <path class="r" d="M200 42 C145 42 120 85 122 135 C123 170 135 195 152 208 C142 160 148 118 200 118 C252 118 258 160 248 208 C265 195 277 170 278 135 C280 85 255 42 200 42 Z"/>
+  <circle class="r" cx="136" cy="192" r="20"/><circle class="r" cx="130" cy="234" r="17"/>
+  <circle class="r" cx="126" cy="272" r="15"/><circle class="r" cx="124" cy="306" r="13"/>
+  <path class="r" d="M124 324 L98 310 L98 342 Z"/>
+  <path class="r" d="M124 324 L150 310 L150 342 Z"/>
+  <circle class="r" cx="200" cy="135" r="48"/>
+  <path class="r" d="M172 62 L179 32 L194 52 L200 28 L206 52 L221 32 L228 62 Z"/>
+  <circle class="r" cx="260" cy="215" r="18"/>
+  <path class="r" d="M168 188 L232 188 L240 238 L160 238 Z"/>
+  <path class="r" d="M160 238 C134 286 120 322 114 350 L286 350 C280 322 266 286 240 238 Z"/>
+  <path class="r" d="M180 238 L220 238 C225 288 223 320 217 348 L183 348 C177 320 175 288 180 238 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="132" r="5"/><circle cx="216" cy="132" r="5"/></g>
+  <path d="M188 152 Q200 162 212 152" fill="none"/>
+`)},
+{ id:"p_mermaid", cat:"princess", name:"เจ้าหญิงนางเงือก", svg:S(`
+  <path class="r" d="M200 38 C140 38 114 86 118 142 C120 188 130 232 122 266 C146 260 152 216 150 190 C147 152 154 110 200 110 C246 110 253 152 250 190 C248 216 254 260 278 266 C270 232 280 188 282 142 C286 86 260 38 200 38 Z"/>
+  <circle class="r" cx="200" cy="132" r="46"/>
+  <path class="r" d="M182 60 L189 38 L200 52 L211 38 L218 60 Z"/>
+  <path class="r" d="M172 178 L228 178 L236 242 L164 242 Z"/>
+  <circle class="r" cx="185" cy="198" r="13"/><circle class="r" cx="215" cy="198" r="13"/>
+  <path class="r" d="M164 242 C156 292 168 318 186 342 L214 342 C232 318 244 292 236 242 Z"/>
+  <path class="r" d="M186 342 C158 354 138 374 128 390 C158 386 178 384 200 376 C222 384 242 386 272 390 C262 374 242 354 214 342 Z"/>
+  <path d="M175 272 Q200 286 225 272 M172 302 Q200 316 228 302" fill="none" stroke-width="4"/>
+  <circle class="r" cx="320" cy="120" r="14"/><circle class="r" cx="345" cy="86" r="10"/><circle class="r" cx="303" cy="66" r="8"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="128" r="5"/><circle cx="216" cy="128" r="5"/></g>
+  <path d="M188 150 Q200 160 212 150" fill="none"/>
+`)},
+{ id:"p_flower", cat:"princess", name:"เจ้าหญิงดอกไม้", svg:S(`
+  <path class="r" d="M200 42 C145 42 120 85 122 135 C123 170 135 195 152 208 C142 160 148 118 200 118 C252 118 258 160 248 208 C265 195 277 170 278 135 C280 85 255 42 200 42 Z"/>
+  <circle class="r" cx="200" cy="135" r="48"/>
+  <circle class="r" cx="166" cy="68" r="12"/><circle class="r" cx="200" cy="56" r="12"/><circle class="r" cx="234" cy="68" r="12"/>
+  <circle class="r" cx="138" cy="212" r="20"/><circle class="r" cx="262" cy="212" r="20"/>
+  <path class="r" d="M168 188 L232 188 L240 240 L160 240 Z"/>
+  <path class="r" d="M158 240 C138 282 126 314 121 342 Q135 362 149 344 Q161 362 175 344 Q187 362 201 344 Q215 362 229 344 Q241 362 255 344 Q269 362 281 342 C275 314 263 282 242 240 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="132" r="5"/><circle cx="216" cy="132" r="5"/></g>
+  <path d="M188 152 Q200 162 212 152" fill="none"/>
+`)},
+{ id:"p_snow", cat:"princess", name:"เจ้าหญิงหิมะ", svg:S(`
+  <ellipse class="r" cx="200" cy="372" rx="170" ry="16"/>
+  <path class="r" d="M200 178 L96 356 L304 356 Z"/>
+  <path class="r" d="M200 42 C145 42 120 85 122 135 C123 170 135 195 152 208 C142 160 148 118 200 118 C252 118 258 160 248 208 C265 195 277 170 278 135 C280 85 255 42 200 42 Z"/>
+  <circle class="r" cx="200" cy="135" r="48"/>
+  <path class="r" d="M176 58 L182 26 L200 46 L218 26 L224 58 Z"/>
+  <circle class="r" cx="200" cy="26" r="9"/>
+  <circle class="r" cx="140" cy="215" r="18"/><circle class="r" cx="260" cy="215" r="18"/>
+  <path class="r" d="M166 188 L234 188 L240 240 L162 240 Z"/>
+  <path class="r" d="M162 240 C146 288 138 320 134 350 L266 350 C262 320 254 288 238 240 Z"/>
+  <path class="r" d="M84 92 L90 108 L106 114 L90 120 L84 136 L78 120 L62 114 L78 108 Z"/>
+  <path class="r" d="M314 128 L320 144 L336 150 L320 156 L314 172 L308 156 L292 150 L308 144 Z"/>
+  <path class="r" d="M66 222 L72 238 L88 244 L72 250 L66 266 L60 250 L44 244 L60 238 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="132" r="5"/><circle cx="216" cy="132" r="5"/></g>
+  <path d="M188 152 Q200 162 212 152" fill="none"/>
+`)},
+{ id:"p_fairy", cat:"princess", name:"เจ้าหญิงนางฟ้า", svg:S(`
+  <ellipse class="r" cx="118" cy="205" rx="55" ry="82" transform="rotate(20 118 205)"/>
+  <ellipse class="r" cx="282" cy="205" rx="55" ry="82" transform="rotate(-20 282 205)"/>
+  <ellipse class="r" cx="142" cy="292" rx="38" ry="52" transform="rotate(35 142 292)"/>
+  <ellipse class="r" cx="258" cy="292" rx="38" ry="52" transform="rotate(-35 258 292)"/>
+  <circle class="r" cx="200" cy="42" r="22"/>
+  <path class="r" d="M200 62 C152 62 132 96 134 136 C135 165 145 186 158 196 C150 158 156 122 200 122 C244 122 250 158 242 196 C255 186 265 165 266 136 C268 96 248 62 200 62 Z"/>
+  <circle class="r" cx="200" cy="138" r="46"/>
+  <circle class="r" cx="142" cy="212" r="17"/><circle class="r" cx="258" cy="212" r="17"/>
+  <path class="r" d="M168 190 L232 190 L238 238 L162 238 Z"/>
+  <path class="r" d="M162 238 C144 272 136 296 134 314 L266 314 C264 296 256 272 238 238 Z"/>
+  <rect class="r" x="178" y="314" width="12" height="42" rx="6"/>
+  <rect class="r" x="210" y="314" width="12" height="42" rx="6"/>
+  <ellipse class="r" cx="184" cy="362" rx="15" ry="8"/><ellipse class="r" cx="216" cy="362" rx="15" ry="8"/>
+  <path d="M258 212 L298 158" fill="none" stroke-width="5"/>
+  <path class="r" d="M300 136 L306 152 L322 158 L306 164 L300 180 L294 164 L278 158 L294 152 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="134" r="5"/><circle cx="216" cy="134" r="5"/></g>
+  <path d="M188 156 Q200 166 212 156" fill="none"/>
+`)},
+/* ---------- 🐱 สัตว์ (7 ชนิด) ---------- */
+{ id:"cat", cat:"animal", name:"แมวเหมียว", svg:S(`
+  <path class="r" d="M292 322 C350 312 366 262 342 236 C331 228 318 236 323 249 C336 263 326 294 288 300 Z"/>
+  <ellipse class="r" cx="198" cy="312" rx="96" ry="70"/>
+  <ellipse class="r" cx="198" cy="330" rx="48" ry="38"/>
+  <path class="r" d="M140 98 L118 26 L192 64 Z"/>
+  <path class="r" d="M256 98 L278 26 L204 64 Z"/>
+  <circle class="r" cx="198" cy="146" r="78"/>
+  <g fill="#3D3562" stroke="none">
+    <circle cx="170" cy="138" r="7"/><circle cx="226" cy="138" r="7"/>
+    <path d="M190 162 L206 162 L198 174 Z"/>
+  </g>
+  <path d="M198 174 L198 186 M198 186 Q186 196 176 188 M198 186 Q210 196 220 188" fill="none"/>
+  <path d="M120 150 L86 142 M120 165 L88 168 M276 150 L310 142 M276 165 L308 168" fill="none"/>
+`)},
+{ id:"rabbit", cat:"animal", name:"กระต่าย", svg:S(`
+  <ellipse class="r" cx="163" cy="88" rx="25" ry="72" transform="rotate(-8 163 88)"/>
+  <ellipse class="r" cx="163" cy="95" rx="11" ry="46" transform="rotate(-8 163 95)"/>
+  <ellipse class="r" cx="237" cy="88" rx="25" ry="72" transform="rotate(8 237 88)"/>
+  <ellipse class="r" cx="237" cy="95" rx="11" ry="46" transform="rotate(8 237 95)"/>
+  <ellipse class="r" cx="200" cy="335" rx="88" ry="58"/>
+  <circle class="r" cx="200" cy="205" r="72"/>
+  <ellipse class="r" cx="200" cy="348" rx="45" ry="32"/>
+  <ellipse class="r" cx="146" cy="384" rx="26" ry="13"/>
+  <ellipse class="r" cx="254" cy="384" rx="26" ry="13"/>
+  <g fill="#3D3562" stroke="none">
+    <circle cx="175" cy="196" r="6"/><circle cx="225" cy="196" r="6"/>
+    <path d="M192 220 L208 220 L200 231 Z"/>
+  </g>
+  <rect x="191" y="231" width="18" height="15" rx="4" fill="#fff" stroke-width="4"/>
+  <path d="M200 231 L200 246 M128 210 L100 202 M128 222 L100 226 M272 210 L300 202 M272 222 L300 226" fill="none" stroke-width="4"/>
+`)},
+{ id:"bear", cat:"animal", name:"หมีน้อย", svg:S(`
+  <circle class="r" cx="140" cy="82" r="28"/><circle class="r" cx="140" cy="84" r="13"/>
+  <circle class="r" cx="260" cy="82" r="28"/><circle class="r" cx="260" cy="84" r="13"/>
+  <ellipse class="r" cx="200" cy="322" rx="92" ry="64"/>
+  <ellipse class="r" cx="200" cy="334" rx="48" ry="34"/>
+  <ellipse class="r" cx="148" cy="378" rx="26" ry="13"/>
+  <ellipse class="r" cx="252" cy="378" rx="26" ry="13"/>
+  <circle class="r" cx="200" cy="145" r="80"/>
+  <ellipse class="r" cx="200" cy="176" rx="36" ry="26"/>
+  <g fill="#3D3562" stroke="none">
+    <circle cx="172" cy="132" r="7"/><circle cx="228" cy="132" r="7"/>
+    <ellipse cx="200" cy="168" rx="10" ry="7"/>
+  </g>
+  <path d="M200 175 L200 186 M200 186 Q190 194 182 188 M200 186 Q210 194 218 188" fill="none" stroke-width="4"/>
+`)},
+{ id:"unicorn", cat:"animal", name:"ยูนิคอร์น", svg:S(`
+  <path class="r" d="M120 120 C90 60 160 20 200 45 C240 20 310 60 280 120 C310 150 300 220 268 235 L132 235 C100 220 90 150 120 120 Z"/>
+  <path class="r" d="M200 15 L182 100 L218 100 Z"/>
+  <path d="M188 48 L212 42 M184 72 L216 66" fill="none" stroke-width="5"/>
+  <path class="r" d="M150 108 L133 55 L182 92 Z"/>
+  <path class="r" d="M250 108 L267 55 L218 92 Z"/>
+  <circle class="r" cx="200" cy="185" r="76"/>
+  <circle class="r" cx="112" cy="172" r="22"/><circle class="r" cx="108" cy="224" r="18"/>
+  <circle class="r" cx="288" cy="172" r="22"/><circle class="r" cx="292" cy="224" r="18"/>
+  <ellipse class="r" cx="200" cy="228" rx="42" ry="27"/>
+  <g fill="#3D3562" stroke="none">
+    <circle cx="170" cy="172" r="6"/><circle cx="230" cy="172" r="6"/>
+    <circle cx="188" cy="228" r="4"/><circle cx="212" cy="228" r="4"/>
+  </g>
+  <path d="M190 243 Q200 250 210 243" fill="none"/>
+`)},
+{ id:"butterfly", cat:"animal", name:"ผีเสื้อ", svg:S(`
+  <path d="M186 96 C170 72 150 62 132 62 M214 96 C230 72 250 62 268 62" fill="none"/>
+  <ellipse class="r" cx="116" cy="138" rx="80" ry="62" transform="rotate(-24 116 138)"/>
+  <ellipse class="r" cx="284" cy="138" rx="80" ry="62" transform="rotate(24 284 138)"/>
+  <ellipse class="r" cx="130" cy="268" rx="64" ry="54" transform="rotate(18 130 268)"/>
+  <ellipse class="r" cx="270" cy="268" rx="64" ry="54" transform="rotate(-18 270 268)"/>
+  <circle class="r" cx="112" cy="134" r="17"/><circle class="r" cx="288" cy="134" r="17"/>
+  <circle class="r" cx="128" cy="268" r="13"/><circle class="r" cx="272" cy="268" r="13"/>
+  <ellipse class="r" cx="200" cy="212" rx="21" ry="80"/>
+  <circle class="r" cx="200" cy="112" r="25"/>
+  <g fill="#3D3562" stroke="none"><circle cx="192" cy="108" r="4"/><circle cx="208" cy="108" r="4"/></g>
+`)},
+{ id:"fish", cat:"animal", name:"ปลาน้อย", svg:S(`
+  <path class="r" d="M282 200 L364 134 L346 200 L364 266 Z"/>
+  <path class="r" d="M132 136 C152 88 212 82 238 102 C202 108 166 122 142 146 Z"/>
+  <ellipse class="r" cx="176" cy="202" rx="114" ry="74"/>
+  <path class="r" d="M150 264 C160 302 196 314 222 302 C202 290 182 280 168 262 Z"/>
+  <ellipse class="r" cx="176" cy="216" rx="32" ry="18" transform="rotate(-20 176 216)"/>
+  <circle class="r" cx="330" cy="88" r="14"/><circle class="r" cx="356" cy="56" r="10"/><circle class="r" cx="306" cy="46" r="8"/>
+  <circle cx="112" cy="184" r="14" fill="#fff"/><circle cx="112" cy="184" r="6" fill="#3D3562" stroke="none"/>
+  <path d="M148 218 Q158 202 148 186" fill="none"/>
+`)},
+{ id:"turtle", cat:"animal", name:"เต่าน้อย", svg:S(`
+  <circle class="r" cx="340" cy="238" r="33"/>
+  <path class="r" d="M75 255 L44 245 L70 280 Z"/>
+  <ellipse class="r" cx="140" cy="315" rx="27" ry="18"/>
+  <ellipse class="r" cx="262" cy="315" rx="27" ry="18"/>
+  <path class="r" d="M90 250 A110 110 0 0 1 310 250 Z"/>
+  <circle class="r" cx="148" cy="208" r="21"/><circle class="r" cx="200" cy="182" r="23"/><circle class="r" cx="252" cy="208" r="21"/>
+  <rect class="r" x="72" y="250" width="256" height="30" rx="15"/>
+  <g fill="#3D3562" stroke="none"><circle cx="350" cy="228" r="5"/></g>
+  <path d="M340 252 Q352 258 362 250" fill="none" stroke-width="4"/>
+`)},
+/* ---------- 🌈 ธรรมชาติ ---------- */
+{ id:"flower", cat:"nature", name:"ดอกไม้", svg:S(`
+  <rect class="r" x="192" y="212" width="16" height="140" rx="8"/>
+  <ellipse class="r" cx="150" cy="304" rx="44" ry="20" transform="rotate(-28 150 304)"/>
+  <ellipse class="r" cx="250" cy="304" rx="44" ry="20" transform="rotate(28 250 304)"/>
+  <ellipse class="r" cx="200" cy="94" rx="32" ry="52"/>
+  <ellipse class="r" cx="200" cy="94" rx="32" ry="52" transform="rotate(60 200 150)"/>
+  <ellipse class="r" cx="200" cy="94" rx="32" ry="52" transform="rotate(120 200 150)"/>
+  <ellipse class="r" cx="200" cy="94" rx="32" ry="52" transform="rotate(180 200 150)"/>
+  <ellipse class="r" cx="200" cy="94" rx="32" ry="52" transform="rotate(240 200 150)"/>
+  <ellipse class="r" cx="200" cy="94" rx="32" ry="52" transform="rotate(300 200 150)"/>
+  <circle class="r" cx="200" cy="150" r="36"/>
+  <g fill="#3D3562" stroke="none"><circle cx="190" cy="146" r="4"/><circle cx="210" cy="146" r="4"/></g>
+  <path d="M191 160 Q200 168 209 160" fill="none"/>
+`)},
+{ id:"rainbow", cat:"nature", name:"สายรุ้ง", svg:S(`
+  <circle class="r" cx="338" cy="74" r="30"/>
+  <path d="M338 22 L338 6 M296 32 L284 20 M380 32 L392 20 M390 74 L399 74" fill="none" stroke-width="5"/>
+  <path class="r" d="M40 290 A160 160 0 0 1 360 290 L328 290 A128 128 0 0 0 72 290 Z"/>
+  <path class="r" d="M72 290 A128 128 0 0 1 328 290 L296 290 A96 96 0 0 0 104 290 Z"/>
+  <path class="r" d="M104 290 A96 96 0 0 1 296 290 L264 290 A64 64 0 0 0 136 290 Z"/>
+  <path class="r" d="M136 290 A64 64 0 0 1 264 290 L232 290 A32 32 0 0 0 168 290 Z"/>
+  <path class="r" d="M16 322 C4 300 22 278 44 284 C50 262 82 258 94 276 C114 268 132 288 122 306 C128 320 114 332 100 328 L34 330 C24 330 18 328 16 322 Z"/>
+  <path class="r" d="M282 322 C270 300 288 278 310 284 C316 262 348 258 360 276 C380 268 398 288 388 306 C394 320 380 332 366 328 L300 330 C290 330 284 328 282 322 Z"/>
+`)},
+{ id:"tree", cat:"nature", name:"ต้นไม้", svg:S(`
+  <ellipse class="r" cx="200" cy="342" rx="150" ry="26"/>
+  <path class="r" d="M178 190 L172 322 L228 322 L222 190 Z"/>
+  <path class="r" d="M110 190 C70 190 55 145 85 120 C75 80 120 50 155 68 C165 30 235 30 245 68 C280 50 325 80 315 120 C345 145 330 190 290 190 Z"/>
+  <circle class="r" cx="140" cy="130" r="14"/><circle class="r" cx="205" cy="95" r="14"/><circle class="r" cx="262" cy="140" r="14"/>
+`)},
+{ id:"mushroom", cat:"nature", name:"เห็ดยิ้ม", svg:S(`
+  <ellipse class="r" cx="200" cy="345" rx="140" ry="22"/>
+  <path class="r" d="M155 205 C155 262 148 302 138 332 L262 332 C252 302 245 262 245 205 Z"/>
+  <path class="r" d="M60 205 C60 110 135 58 200 58 C265 58 340 110 340 205 Z"/>
+  <circle class="r" cx="140" cy="120" r="18"/><circle class="r" cx="230" cy="95" r="15"/>
+  <circle class="r" cx="275" cy="160" r="14"/><circle class="r" cx="120" cy="170" r="12"/>
+  <g fill="#3D3562" stroke="none"><circle cx="180" cy="258" r="5"/><circle cx="220" cy="258" r="5"/></g>
+  <path d="M186 278 Q200 288 214 278" fill="none"/>
+`)},
+{ id:"sun", cat:"nature", name:"พระอาทิตย์", svg:S(`
+  <path class="r" d="M184 66 L200 8 L216 66 Z"/>
+  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(45 200 180)"/>
+  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(90 200 180)"/>
+  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(135 200 180)"/>
+  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(180 200 180)"/>
+  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(225 200 180)"/>
+  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(270 200 180)"/>
+  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(315 200 180)"/>
+  <circle class="r" cx="200" cy="180" r="85"/>
+  <g fill="#3D3562" stroke="none"><circle cx="172" cy="170" r="7"/><circle cx="228" cy="170" r="7"/></g>
+  <path d="M176 205 Q200 226 224 205" fill="none"/>
+  <path class="r" d="M292 330 C282 312 296 296 314 300 C319 284 345 281 354 295 C370 290 382 304 375 316 C380 326 371 334 361 331 L306 333 C298 333 294 331 292 330 Z"/>
+`)},
+/* ---------- 🚗 ยานพาหนะ ---------- */
+{ id:"car", cat:"vehicle", name:"รถเก๋ง", svg:S(`
+  <path class="r" d="M55 250 L55 215 C55 200 65 195 80 195 L110 195 L140 150 C145 142 152 138 162 138 L250 138 C258 138 265 142 270 150 L296 195 L330 199 C345 201 350 210 350 222 L350 250 C350 258 344 262 336 262 L64 262 C58 262 55 258 55 250 Z"/>
+  <path class="r" d="M150 152 L200 152 L200 192 L124 192 Z"/>
+  <path class="r" d="M214 152 L248 152 L272 192 L214 192 Z"/>
+  <circle class="r" cx="115" cy="266" r="34"/><circle class="r" cx="290" cy="266" r="34"/>
+  <circle class="r" cx="115" cy="266" r="13"/><circle class="r" cx="290" cy="266" r="13"/>
+  <circle class="r" cx="68" cy="222" r="9"/>
+  <path d="M20 322 L380 322" fill="none" stroke-dasharray="18 14"/>
+`)},
+{ id:"rocket", cat:"vehicle", name:"จรวด", svg:S(`
+  <path class="r" d="M60 84 L68 104 L88 112 L68 120 L60 140 L52 120 L32 112 L52 104 Z"/>
+  <path class="r" d="M340 200 L346 214 L360 220 L346 226 L340 240 L334 226 L320 220 L334 214 Z"/>
+  <circle class="r" cx="330" cy="80" r="18"/>
+  <path class="r" d="M152 200 L102 288 L152 262 Z"/>
+  <path class="r" d="M248 200 L298 288 L248 262 Z"/>
+  <path class="r" d="M200 32 C158 86 148 170 152 256 L248 256 C252 170 242 86 200 32 Z"/>
+  <circle class="r" cx="200" cy="140" r="32"/>
+  <circle class="r" cx="200" cy="140" r="18"/>
+  <path class="r" d="M168 256 L232 256 L224 282 L176 282 Z"/>
+  <path class="r" d="M178 284 C178 322 200 350 200 350 C200 350 222 322 222 284 Z"/>
+`)},
+{ id:"boat", cat:"vehicle", name:"เรือใบ", svg:S(`
+  <path d="M200 282 L200 62" fill="none"/>
+  <path class="r" d="M188 92 L188 268 L84 268 Z"/>
+  <path class="r" d="M212 78 L318 268 L212 268 Z"/>
+  <path class="r" d="M200 62 L248 74 L200 88 Z"/>
+  <path class="r" d="M62 282 L338 282 L296 346 L104 346 Z"/>
+  <circle class="r" cx="60" cy="70" r="26"/>
+  <path d="M30 372 Q50 358 70 372 T110 372 T150 372 T190 372 T230 372 T270 372 T310 372 T350 372" fill="none" stroke-width="5"/>
+`)},
+{ id:"balloon", cat:"vehicle", name:"บอลลูน", svg:S(`
+  <path class="r" d="M200 28 C118 28 88 100 94 158 C100 214 152 248 176 272 L224 272 C248 248 300 214 306 158 C312 100 282 28 200 28 Z"/>
+  <path class="r" d="M172 32 C152 95 152 215 180 270 L220 270 C248 215 248 95 228 32 C219 30 181 30 172 32 Z"/>
+  <path d="M176 272 L180 304 M224 272 L220 304" fill="none" stroke-width="5"/>
+  <rect class="r" x="170" y="304" width="60" height="48" rx="10"/>
+  <path d="M170 322 L230 322 M190 304 L190 352 M210 304 L210 352" fill="none" stroke-width="4"/>
+  <path class="r" d="M40 330 C28 312 44 294 62 299 C67 282 93 279 102 293 C118 288 130 304 122 317 C126 328 116 336 105 333 L52 335 C44 335 42 333 40 330 Z"/>
+  <circle class="r" cx="340" cy="90" r="22"/>
+`)},
+{ id:"plane", cat:"vehicle", name:"เครื่องบิน", svg:S(`
+  <path class="r" d="M72 176 L44 108 L98 108 L120 176 Z"/>
+  <path class="r" d="M48 206 C54 184 82 174 112 174 L282 174 C322 177 352 194 360 207 C352 221 322 234 286 234 L106 234 C76 234 54 226 48 206 Z"/>
+  <path class="r" d="M168 208 L98 296 L164 296 L236 210 Z"/>
+  <circle class="r" cx="150" cy="196" r="10"/><circle class="r" cx="190" cy="196" r="10"/>
+  <circle class="r" cx="230" cy="196" r="10"/><circle class="r" cx="268" cy="196" r="10"/>
+  <path class="r" d="M302 183 L340 198 L332 213 L296 202 Z"/>
+  <path class="r" d="M300 320 C290 304 302 290 318 294 C322 280 346 278 354 290 C368 286 378 298 372 308 C376 317 368 324 359 322 L312 323 C305 323 302 322 300 320 Z"/>
+  <path class="r" d="M56 60 C48 48 58 36 70 39 C73 28 92 27 98 36 C109 33 117 42 112 50 C115 57 109 62 102 61 L66 62 C60 62 58 61 56 60 Z"/>
+`)}
+];
+
+const CATS = [
+  {id:"all", name:"ทั้งหมด", emoji:"⭐", tint:"#FFF3C9"},
+  {id:"princess", name:"เจ้าหญิง", emoji:"👑", tint:"#FFE3F0"},
+  {id:"animal", name:"สัตว์", emoji:"🐱", tint:"#FFEede"},
+  {id:"nature", name:"ธรรมชาติ", emoji:"🌈", tint:"#E0F7EC"},
+  {id:"vehicle", name:"ยานพาหนะ", emoji:"🚗", tint:"#E3F0FF"}
+];
+
+const COLORS = ["#FF6B6B","#FFA94D","#FFD43B","#A9E34B","#51CF66","#63E6BE","#3BC9DB","#4DABF7",
+                "#5C7CFA","#845EF7","#BE4BDB","#F06595","#FFC9DE","#F8CBA6","#A9714B","#868E96",
+                "#343A40","#FFF3BF"];
+
+/* ================= สถานะ ================= */
+const fills = {};                       // fills[picId] = { regionIndex: color }
+const totals = {};                      // จำนวนส่วนทั้งหมดของแต่ละภาพ
+let currentPic = null, currentColor = COLORS[0], eraserOn = false, cheered = false;
+const undoStack = [];
+
+PICS.forEach(p => totals[p.id] = (p.svg.match(/class="r"/g)||[]).length);
+
+/* ================= หมวดหมู่ ================= */
+const catsEl = document.getElementById("cats");
+CATS.forEach((c,i)=>{
+  const b = document.createElement("button");
+  b.className = "chip" + (i===0?" on":"");
+  b.innerHTML = `<span class="ic" style="--tint:${c.tint}">${c.emoji}</span>${c.name}`;
+  b.onclick = ()=>{
+    document.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on");
+    renderGallery(c.id);
+    showGallery(false);
+  };
+  catsEl.appendChild(b);
+});
+const activeCat = ()=> CATS[[...catsEl.children].indexOf(document.querySelector(".chip.on"))].id;
+
+/* ================= แกลเลอรี ================= */
+const galleryEl = document.getElementById("gallery");
+function renderGallery(cat){
+  galleryEl.innerHTML = "";
+  PICS.filter(p=>cat==="all"||p.cat===cat).forEach(p=>{
+    const n = Object.keys(fills[p.id]||{}).length;
+    const pct = Math.round(n/totals[p.id]*100);
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = p.svg
+      + `<div class="nm">${p.name}</div>`
+      + `<div class="bar"><i style="width:${pct}%"></i></div>`
+      + (pct>=100 ? `<span class="badge">🌟</span>` : "");
+    applyFills(card.querySelector("svg"), p.id);
+    card.onclick = ()=>openPic(p);
+    galleryEl.appendChild(card);
+  });
+}
+function applyFills(svg, id){
+  const map = fills[id]||{};
+  svg.querySelectorAll(".r").forEach((el,i)=>{ if(map[i]) el.setAttribute("fill", map[i]); });
+}
+
+/* ================= ห้องระบายสี ================= */
+const studio = document.getElementById("studio");
+const boardEl = document.getElementById("board");
+const countLbl = document.getElementById("countLbl");
+
+function openPic(p){
+  currentPic = p; cheered = false;
+  undoStack.length = 0;
+  document.getElementById("picTitle").textContent = p.name;
+  boardEl.innerHTML = p.svg;
+  const svg = boardEl.querySelector("svg");
+  applyFills(svg, p.id);
+  svg.querySelectorAll(".r").forEach((el,i)=>{
+    el.addEventListener("pointerdown", (ev)=>paint(el, i, ev));
+  });
+  updateCount();
+  galleryEl.style.display = "none";
+  studio.style.display = "block";
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function showGallery(rerender=true){
+  studio.style.display = "none";
+  galleryEl.style.display = "grid";
+  if(rerender) renderGallery(activeCat());
+}
+document.getElementById("backBtn").onclick = ()=>showGallery();
+
+function updateCount(){
+  const n = Object.keys(fills[currentPic.id]||{}).length;
+  countLbl.textContent = `ระบายแล้ว ${n}/${totals[currentPic.id]} ส่วน`;
+  if(n >= totals[currentPic.id] && !cheered){ cheered = true; celebrate(); }
+}
+
+function paint(el, i, ev){
+  const id = currentPic.id;
+  fills[id] = fills[id]||{};
+  const prev = fills[id][i] || null;
+  const next = eraserOn ? null : currentColor;
+  if(prev === next) return;
+  undoStack.push({i, prev});
+  if(next){ fills[id][i]=next; el.setAttribute("fill", next); sparkle(ev); }
+  else { delete fills[id][i]; el.setAttribute("fill", "#fff"); }
+  updateCount();
+}
+function sparkle(ev){
+  const rect = boardEl.getBoundingClientRect();
+  const s = document.createElement("span");
+  s.className = "pop";
+  s.textContent = ["✨","⭐","💖","🌟","🎈"][Math.floor(Math.random()*5)];
+  s.style.left = (ev.clientX-rect.left)+"px";
+  s.style.top = (ev.clientY-rect.top)+"px";
+  boardEl.appendChild(s);
+  setTimeout(()=>s.remove(), 750);
+}
+function celebrate(){
+  const c = document.createElement("div");
+  c.className = "cheer";
+  c.innerHTML = `<div class="msg">🎉 เก่งมากเลย!</div>`;
+  boardEl.appendChild(c);
+  for(let k=0;k<18;k++){
+    setTimeout(()=>{
+      const s = document.createElement("span");
+      s.className = "pop";
+      s.textContent = ["🎉","⭐","💖","🌈","✨","🎈"][k%6];
+      s.style.left = (10+Math.random()*80)+"%";
+      s.style.top = (15+Math.random()*70)+"%";
+      boardEl.appendChild(s);
+      setTimeout(()=>s.remove(), 750);
+    }, k*90);
+  }
+  setTimeout(()=>c.remove(), 2600);
+}
+
+document.getElementById("undoBtn").onclick = ()=>{
+  const u = undoStack.pop(); if(!u) return;
+  const id = currentPic.id;
+  const el = boardEl.querySelectorAll(".r")[u.i];
+  if(u.prev){ fills[id][u.i]=u.prev; el.setAttribute("fill", u.prev); }
+  else { delete fills[id][u.i]; el.setAttribute("fill", "#fff"); }
+  updateCount();
+};
+document.getElementById("clearBtn").onclick = ()=>{
+  if(!confirm("ล้างสีทั้งภาพนี้เลยนะ?")) return;
+  fills[currentPic.id] = {}; undoStack.length = 0; cheered = false;
+  boardEl.querySelectorAll(".r").forEach(el=>el.setAttribute("fill","#fff"));
+  updateCount();
+};
+document.getElementById("saveBtn").onclick = ()=>{
+  const svg = boardEl.querySelector("svg");
+  const data = new XMLSerializer().serializeToString(svg);
+  const img = new Image();
+  img.onload = ()=>{
+    const c = document.createElement("canvas");
+    c.width = c.height = 1200;
+    const ctx = c.getContext("2d");
+    ctx.fillStyle = "#fff"; ctx.fillRect(0,0,1200,1200);
+    ctx.drawImage(img,0,0,1200,1200);
+    const a = document.createElement("a");
+    a.download = `ระบายสี-${currentPic.name}.png`;
+    a.href = c.toDataURL("image/png");
+    a.click();
+  };
+  img.src = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(data);
+};
+
+/* ================= สีเทียน ================= */
+const paletteEl = document.getElementById("palette");
+COLORS.forEach((c,i)=>{
+  const d = document.createElement("div");
+  d.className = "crayon" + (i===0?" on":"");
+  d.style.setProperty("--c", c);
+  d.innerHTML = '<div class="band"></div>';
+  d.onclick = ()=>{
+    currentColor = c; eraserOn = false;
+    document.querySelectorAll(".crayon,.eraser").forEach(x=>x.classList.remove("on"));
+    d.classList.add("on");
+  };
+  paletteEl.appendChild(d);
+});
+const er = document.createElement("div");
+er.className = "eraser"; er.textContent = "🧼"; er.title = "ยางลบ";
+er.onclick = ()=>{
+  eraserOn = true;
+  document.querySelectorAll(".crayon,.eraser").forEach(x=>x.classList.remove("on"));
+  er.classList.add("on");
+};
+paletteEl.appendChild(er);
+
+/* เริ่มต้น */
+renderGallery("all");
+</script>
+</body>
+</html>
