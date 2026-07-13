@@ -148,6 +148,38 @@
 
   footer{font-family:'Noto Sans Thai',sans-serif;text-align:center;font-size:.8rem;opacity:.5;margin-top:44px}
 
+  /* ================= fullscreen + tools ================= */
+  html,body{overscroll-behavior:none}
+  .fsbtn{
+    margin-left:auto;width:56px;height:56px;border:none;border-radius:18px;cursor:pointer;
+    font-size:1.4rem;color:var(--ink);background:rgba(255,255,255,.85);
+    box-shadow:var(--shadow-press);transition:transform .12s;
+  }
+  .fsbtn:active{transform:translateY(4px);box-shadow:none}
+  .rack h3{margin:10px 0 0;text-align:center;font-size:1rem;font-weight:600}
+  .toolRow{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:10px 0 2px}
+  .tbtn{
+    display:flex;flex-direction:column;align-items:center;gap:2px;border:none;cursor:pointer;
+    background:#fff;border-radius:16px;padding:8px 9px 6px;
+    box-shadow:0 4px 10px -4px rgba(61,53,98,.35);
+    font-family:'Mali',sans-serif;color:var(--ink);
+    transition:transform .15s cubic-bezier(.34,1.56,.64,1);
+  }
+  .tbtn span{font-size:1.45rem;line-height:1}
+  .tbtn small{font-size:.72rem;font-weight:600}
+  .tbtn.on{transform:scale(1.08);background:#F3EDFF;box-shadow:0 0 0 3px #fff,0 0 0 6px var(--grape)}
+  .sizeRow{display:flex;justify-content:center;gap:10px;padding:10px 0 2px}
+  .sizeBtn{width:44px;height:44px;border:none;border-radius:50%;cursor:pointer;
+    background:#fff;box-shadow:0 4px 10px -4px rgba(61,53,98,.35);display:grid;place-items:center;
+    transition:transform .15s}
+  .sizeBtn i{display:block;border-radius:50%;background:var(--ink)}
+  .sizeBtn.s1 i{width:8px;height:8px}.sizeBtn.s2 i{width:16px;height:16px}.sizeBtn.s3 i{width:26px;height:26px}
+  .sizeBtn.on{transform:scale(1.1);box-shadow:0 0 0 3px #fff,0 0 0 6px var(--grape)}
+  .paintWrap{position:relative;aspect-ratio:1/1;max-height:74vh;max-width:74vh;margin:0 auto;touch-action:none}
+  .paintWrap svg{position:absolute;inset:0;width:100%;height:100%;max-height:none}
+  .paintWrap canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;border-radius:18px}
+  .paintWrap svg.lineart{pointer-events:none}
+
   /* ================= responsive ================= */
   @media (max-width:840px){
     .studioGrid{grid-template-columns:1fr}
@@ -173,6 +205,7 @@
       <h1><span>ระบายสีหรรษา</span></h1>
       <p>เลือกภาพที่ชอบ แตะสีเทียน แล้วระบายเลย!</p>
     </div>
+    <button class="fsbtn" id="fsBtn" title="ขยายเต็มจอ">⛶</button>
   </header>
 
   <nav class="cats" id="cats"></nav>
@@ -193,6 +226,21 @@
       <div class="studioGrid">
         <div class="board" id="board"></div>
         <aside class="rack">
+          <h3>🧰 เครื่องมือ</h3>
+          <div class="toolRow">
+            <button class="tbtn on" data-tool="bucket"><span>🪣</span><small>ถังสี</small></button>
+            <button class="tbtn" data-tool="brush"><span>🖌️</span><small>พู่กัน</small></button>
+            <button class="tbtn" data-tool="pencil"><span>✏️</span><small>ดินสอ</small></button>
+            <button class="tbtn" data-tool="eraser"><span>🧼</span><small>ยางลบ</small></button>
+          </div>
+          <div class="sizes" id="brushSizes" style="display:none">
+            <h3>ขนาดหัวพู่กัน</h3>
+            <div class="sizeRow">
+              <button class="sizeBtn s1" data-size="6"><i></i></button>
+              <button class="sizeBtn s2 on" data-size="14"><i></i></button>
+              <button class="sizeBtn s3" data-size="26"><i></i></button>
+            </div>
+          </div>
           <h3>🖍️ สีเทียน</h3>
           <div class="rackGrid" id="palette"></div>
         </aside>
@@ -508,9 +556,11 @@ const COLORS = ["#FF6B6B","#FFA94D","#FFD43B","#A9E34B","#51CF66","#63E6BE","#3B
                 "#343A40","#FFF3BF"];
 
 /* ================= สถานะ ================= */
-const fills = {};                       // fills[picId] = { regionIndex: color }
-const totals = {};                      // จำนวนส่วนทั้งหมดของแต่ละภาพ
-let currentPic = null, currentColor = COLORS[0], eraserOn = false, cheered = false;
+const fills = {};        // fills[picId] = { regionIndex: color }  (สีจากถังสี)
+const strokes = {};      // strokes[picId] = [{color,size,erase,pts}] (เส้นพู่กัน/ดินสอ)
+const totals = {};
+let currentPic = null, currentColor = COLORS[0], currentTool = "bucket", brushSize = 14;
+let ctx = null, drawing = false, curStroke = null, regionEls = [], cheered = false;
 const undoStack = [];
 
 PICS.forEach(p => totals[p.id] = (p.svg.match(/class="r"/g)||[]).length);
@@ -563,13 +613,23 @@ function openPic(p){
   currentPic = p; cheered = false;
   undoStack.length = 0;
   document.getElementById("picTitle").textContent = p.name;
-  boardEl.innerHTML = p.svg;
-  const svg = boardEl.querySelector("svg");
-  applyFills(svg, p.id);
-  svg.querySelectorAll(".r").forEach((el,i)=>{
-    el.addEventListener("pointerdown", (ev)=>paint(el, i, ev));
-  });
+
+  /* ชั้นล่าง: ภาพที่เทสีได้ / ชั้นกลาง: แคนวาสพู่กัน / ชั้นบน: เส้นโครงคมชัด */
+  boardEl.innerHTML = `<div class="paintWrap">${p.svg}<canvas width="900" height="900"></canvas>${p.svg}</div>`;
+  const wrap = boardEl.querySelector(".paintWrap");
+  const svgs = wrap.querySelectorAll("svg");
+  const base = svgs[0], top = svgs[1];
+  top.classList.add("lineart");
+  top.querySelectorAll(".r").forEach(el=>{ el.setAttribute("fill","none"); el.classList.remove("r"); });
+
+  applyFills(base, p.id);
+  regionEls = [...base.querySelectorAll(".r")];
+  ctx = wrap.querySelector("canvas").getContext("2d");
+  strokes[p.id] = strokes[p.id] || [];
+  redraw();
+  bindPointer(wrap);
   updateCount();
+
   galleryEl.style.display = "none";
   studio.style.display = "block";
   window.scrollTo({top:0, behavior:"smooth"});
@@ -587,17 +647,119 @@ function updateCount(){
   if(n >= totals[currentPic.id] && !cheered){ cheered = true; celebrate(); }
 }
 
-function paint(el, i, ev){
+/* ================= เครื่องมือทั้ง 4 ================= */
+function bindPointer(wrap){
+  const cv = ctx.canvas;
+  const pos = (ev)=>{
+    const r = wrap.getBoundingClientRect();
+    return { x:(ev.clientX-r.left)/r.width*cv.width, y:(ev.clientY-r.top)/r.height*cv.height };
+  };
+  let startTarget = null, moved = 0, last = null;
+
+  wrap.addEventListener("pointerdown", (ev)=>{
+    ev.preventDefault();
+    startTarget = ev.target; moved = 0;
+
+    /* 🪣 ถังสี: กดครั้งเดียว เทสีทั้งส่วน */
+    if(currentTool === "bucket"){
+      if(ev.target.classList && ev.target.classList.contains("r")) fillRegion(ev.target, ev);
+      return;
+    }
+
+    /* 🖌️ พู่กัน / ✏️ ดินสอ / 🧼 ยางลบ: ลากเป็นเส้น */
+    wrap.setPointerCapture(ev.pointerId);
+    drawing = true;
+    last = pos(ev);
+    curStroke = {
+      color: currentColor,
+      size: currentTool === "pencil" ? 4 : brushSize,
+      erase: currentTool === "eraser",
+      pts: [last]
+    };
+    strokes[currentPic.id].push(curStroke);
+    undoStack.push({type:"stroke"});
+    drawSeg(curStroke, last, last);
+  });
+
+  wrap.addEventListener("pointermove", (ev)=>{
+    if(!drawing) return;
+    const p2 = pos(ev);
+    moved += Math.abs(p2.x-last.x) + Math.abs(p2.y-last.y);
+    curStroke.pts.push(p2);
+    drawSeg(curStroke, last, p2);
+    last = p2;
+  });
+
+  const end = ()=>{
+    /* 🧼 แตะเบาๆ ด้วยยางลบบนส่วนที่เทสีไว้ = ล้างสีส่วนนั้น */
+    if(drawing && currentTool === "eraser" && moved < 10
+       && startTarget && startTarget.classList && startTarget.classList.contains("r")){
+      const i = regionEls.indexOf(startTarget);
+      const id = currentPic.id;
+      if(i > -1 && fills[id] && fills[id][i]){
+        undoStack.push({type:"fill", i, prev:fills[id][i]});
+        delete fills[id][i];
+        startTarget.setAttribute("fill","#fff");
+        updateCount();
+      }
+    }
+    drawing = false; curStroke = null;
+  };
+  wrap.addEventListener("pointerup", end);
+  wrap.addEventListener("pointercancel", end);
+}
+
+function fillRegion(el, ev){
   const id = currentPic.id;
   fills[id] = fills[id]||{};
+  const i = regionEls.indexOf(el);
   const prev = fills[id][i] || null;
-  const next = eraserOn ? null : currentColor;
-  if(prev === next) return;
-  undoStack.push({i, prev});
-  if(next){ fills[id][i]=next; el.setAttribute("fill", next); sparkle(ev); }
-  else { delete fills[id][i]; el.setAttribute("fill", "#fff"); }
+  if(prev === currentColor) return;
+  undoStack.push({type:"fill", i, prev});
+  fills[id][i] = currentColor;
+  el.setAttribute("fill", currentColor);
+  sparkle(ev);
   updateCount();
 }
+
+function drawSeg(st, p1, p2){
+  ctx.globalCompositeOperation = st.erase ? "destination-out" : "source-over";
+  ctx.strokeStyle = st.color;
+  ctx.lineWidth = st.size * 2.4;
+  ctx.lineCap = "round"; ctx.lineJoin = "round";
+  ctx.beginPath(); ctx.moveTo(p1.x,p1.y); ctx.lineTo(p2.x,p2.y); ctx.stroke();
+}
+function redraw(){
+  if(!ctx) return;
+  const cv = ctx.canvas;
+  ctx.globalCompositeOperation = "source-over";
+  ctx.clearRect(0,0,cv.width,cv.height);
+  (strokes[currentPic.id]||[]).forEach(st=>{
+    if(st.pts.length === 1) drawSeg(st, st.pts[0], st.pts[0]);
+    for(let i=1;i<st.pts.length;i++) drawSeg(st, st.pts[i-1], st.pts[i]);
+  });
+}
+
+/* ปุ่มเลือกเครื่องมือ */
+document.querySelectorAll(".tbtn").forEach(b=>{
+  b.onclick = ()=>{
+    currentTool = b.dataset.tool;
+    document.querySelectorAll(".tbtn").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on");
+    document.getElementById("brushSizes").style.display =
+      (currentTool === "brush" || currentTool === "eraser") ? "block" : "none";
+  };
+});
+/* ปุ่มขนาดหัวพู่กัน */
+document.querySelectorAll(".sizeBtn").forEach(b=>{
+  b.onclick = ()=>{
+    brushSize = +b.dataset.size;
+    document.querySelectorAll(".sizeBtn").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on");
+  };
+});
+
+/* ================= เอฟเฟกต์ ================= */
 function sparkle(ev){
   const rect = boardEl.getBoundingClientRect();
   const s = document.createElement("span");
@@ -627,36 +789,52 @@ function celebrate(){
   setTimeout(()=>c.remove(), 2600);
 }
 
+/* ================= ปุ่มด้านบน ================= */
 document.getElementById("undoBtn").onclick = ()=>{
+  if(!currentPic) return;
   const u = undoStack.pop(); if(!u) return;
   const id = currentPic.id;
-  const el = boardEl.querySelectorAll(".r")[u.i];
-  if(u.prev){ fills[id][u.i]=u.prev; el.setAttribute("fill", u.prev); }
-  else { delete fills[id][u.i]; el.setAttribute("fill", "#fff"); }
+  if(u.type === "stroke"){
+    (strokes[id]||[]).pop(); redraw();
+  } else {
+    const el = regionEls[u.i];
+    if(u.prev){ fills[id][u.i] = u.prev; el.setAttribute("fill", u.prev); }
+    else { delete fills[id][u.i]; el.setAttribute("fill", "#fff"); }
+  }
   updateCount();
 };
 document.getElementById("clearBtn").onclick = ()=>{
-  if(!confirm("ล้างสีทั้งภาพนี้เลยนะ?")) return;
-  fills[currentPic.id] = {}; undoStack.length = 0; cheered = false;
-  boardEl.querySelectorAll(".r").forEach(el=>el.setAttribute("fill","#fff"));
+  if(!currentPic || !confirm("ล้างสีทั้งภาพนี้เลยนะ?")) return;
+  fills[currentPic.id] = {}; strokes[currentPic.id] = [];
+  undoStack.length = 0; cheered = false;
+  regionEls.forEach(el=>el.setAttribute("fill","#fff"));
+  redraw();
   updateCount();
 };
 document.getElementById("saveBtn").onclick = ()=>{
-  const svg = boardEl.querySelector("svg");
-  const data = new XMLSerializer().serializeToString(svg);
-  const img = new Image();
-  img.onload = ()=>{
-    const c = document.createElement("canvas");
-    c.width = c.height = 1200;
-    const ctx = c.getContext("2d");
-    ctx.fillStyle = "#fff"; ctx.fillRect(0,0,1200,1200);
-    ctx.drawImage(img,0,0,1200,1200);
+  const wrap = boardEl.querySelector(".paintWrap");
+  const svgs = wrap.querySelectorAll("svg");
+  const cv = wrap.querySelector("canvas");
+  const s1 = new XMLSerializer().serializeToString(svgs[0]);
+  const s2 = new XMLSerializer().serializeToString(svgs[1]);
+  const i1 = new Image(), i2 = new Image();
+  let loaded = 0;
+  const done = ()=>{
+    if(++loaded < 2) return;
+    const c = document.createElement("canvas"); c.width = c.height = 1200;
+    const x = c.getContext("2d");
+    x.fillStyle = "#fff"; x.fillRect(0,0,1200,1200);
+    x.drawImage(i1,0,0,1200,1200);   /* สีถัง + ภาพ */
+    x.drawImage(cv,0,0,1200,1200);   /* เส้นพู่กัน/ดินสอ */
+    x.drawImage(i2,0,0,1200,1200);   /* เส้นโครงคมชัดทับบนสุด */
     const a = document.createElement("a");
     a.download = `ระบายสี-${currentPic.name}.png`;
     a.href = c.toDataURL("image/png");
     a.click();
   };
-  img.src = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(data);
+  i1.onload = done; i2.onload = done;
+  i1.src = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(s1);
+  i2.src = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(s2);
 };
 
 /* ================= สีเทียน ================= */
@@ -667,20 +845,35 @@ COLORS.forEach((c,i)=>{
   d.style.setProperty("--c", c);
   d.innerHTML = '<div class="band"></div>';
   d.onclick = ()=>{
-    currentColor = c; eraserOn = false;
-    document.querySelectorAll(".crayon,.eraser").forEach(x=>x.classList.remove("on"));
+    currentColor = c;
+    document.querySelectorAll(".crayon").forEach(x=>x.classList.remove("on"));
     d.classList.add("on");
+    /* ถ้ากำลังใช้ยางลบอยู่ เลือกสีแล้วสลับกลับเป็นพู่กันให้อัตโนมัติ */
+    if(currentTool === "eraser") document.querySelector('.tbtn[data-tool="brush"]').click();
   };
   paletteEl.appendChild(d);
 });
-const er = document.createElement("div");
-er.className = "eraser"; er.textContent = "🧼"; er.title = "ยางลบ";
-er.onclick = ()=>{
-  eraserOn = true;
-  document.querySelectorAll(".crayon,.eraser").forEach(x=>x.classList.remove("on"));
-  er.classList.add("on");
+
+/* ================= ขยายเต็มจอ ================= */
+const fsBtn = document.getElementById("fsBtn");
+fsBtn.onclick = ()=>{
+  const doc = document, el = doc.documentElement;
+  const active = doc.fullscreenElement || doc.webkitFullscreenElement;
+  if(active){
+    (doc.exitFullscreen || doc.webkitExitFullscreen).call(doc);
+  } else {
+    const req = el.requestFullscreen || el.webkitRequestFullscreen;
+    if(req) req.call(el);
+    else alert("เบราว์เซอร์นี้ไม่รองรับโหมดเต็มจอ 🙏 แนะนำให้กดปุ่มแชร์ แล้วเลือก \"เพิ่มไปยังหน้าจอโฮม\" จะได้เต็มจอเหมือนแอปครับ");
+  }
 };
-paletteEl.appendChild(er);
+function updFs(){
+  const on = document.fullscreenElement || document.webkitFullscreenElement;
+  fsBtn.textContent = on ? "✕" : "⛶";
+  fsBtn.title = on ? "ออกจากเต็มจอ" : "ขยายเต็มจอ";
+}
+document.addEventListener("fullscreenchange", updFs);
+document.addEventListener("webkitfullscreenchange", updFs);
 
 /* เริ่มต้น */
 renderGallery("all");
