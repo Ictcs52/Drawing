@@ -77,6 +77,13 @@
   .answers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.answerBtn{min-height:82px;border:0;border-radius:24px;background:#fff;color:var(--ink);font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;cursor:pointer;box-shadow:0 7px 0 rgba(61,53,98,.11);transition:transform .15s}.answerBtn:hover{transform:translateY(-3px)}.answerBtn:active{transform:translateY(5px);box-shadow:0 2px 0 rgba(61,53,98,.11)}.answerBtn.correct{background:#5BE0B3;color:#174C3C;animation:cheerIn .35s}.answerBtn.wrong{background:#FFB4C8;animation:shake .3s}.answerBtn:disabled{cursor:default}
   .mathFeedback{height:34px;margin-top:13px;text-align:center;font-size:1.15rem;font-weight:700}.mathFeedback.good{color:#15966C}.mathFeedback.try{color:#E2527F}@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
 
+  /* ================= jigsaw ================= */
+  #jigsawGame{display:none}.jigsawShell{max-width:980px;margin:0 auto}.jigsawPanel{background:rgba(255,255,255,.82);border:1px solid #fff;border-radius:38px;padding:clamp(16px,3vw,30px);box-shadow:var(--shadow-soft);backdrop-filter:blur(12px)}
+  .jigsawControls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.jigsawControls strong{margin-right:auto}.difficulty{display:flex;gap:8px}.difficultyBtn{border:0;border-radius:15px;padding:10px 14px;background:#EEE9FA;color:var(--ink);cursor:pointer;font-weight:700}.difficultyBtn.on{background:linear-gradient(135deg,#8A5CF6,#FF6FA5);color:#fff}
+  .animalPicker{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 14px;scrollbar-width:thin;scrollbar-color:#CDBBF8 transparent}.animalChoice{flex:0 0 104px;border:0;border-radius:20px;background:#fff;padding:8px;cursor:pointer;color:var(--ink);box-shadow:0 7px 18px -12px #3D3562}.animalChoice svg{width:72px;height:72px;display:block;margin:auto}.animalChoice span{display:block;font-size:.76rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.animalChoice.on{box-shadow:0 0 0 4px #fff,0 0 0 7px #9C6FF3;background:#F4F0FF}
+  .puzzleArea{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:18px;align-items:start}.puzzleBoard{--puzzle-size:2;display:grid;grid-template-columns:repeat(var(--puzzle-size),1fr);gap:2px;width:min(100%,600px);aspect-ratio:1;margin:auto;padding:5px;border-radius:22px;background:linear-gradient(145deg,#DDD3F6,#CDEEFF);box-shadow:0 20px 40px -22px #3D3562}.puzzleSlot{border:1px dashed rgba(61,53,98,.32);border-radius:5px;background-color:rgba(255,255,255,.42);background-repeat:no-repeat;opacity:.28;filter:grayscale(1);transition:background .2s,transform .2s,opacity .2s,filter .2s}.puzzleSlot.dropReady{transform:scale(.98);background-color:#FFF4B8;border-color:#FFB52E;opacity:.7}.puzzleSlot.filled{border-style:solid;border-color:rgba(255,255,255,.8);box-shadow:inset 0 0 0 1px rgba(61,53,98,.08);opacity:1;filter:none}
+  .puzzleSide{background:#fff;border-radius:25px;padding:12px;box-shadow:0 12px 30px -20px #3D3562;text-align:center}.trayTitle{font-weight:700;margin-bottom:8px}.puzzleTray{--puzzle-size:2;display:grid;grid-template-columns:repeat(2,1fr);gap:6px;min-height:180px;padding:6px;border-radius:16px;background:#F8F6FD}.puzzlePiece{aspect-ratio:1;border:0;border-radius:7px;background-repeat:no-repeat;cursor:grab;touch-action:none;box-shadow:0 5px 10px -7px #3D3562,0 0 0 1px #fff;transition:transform .15s}.puzzlePiece:active{cursor:grabbing}.puzzlePiece.chosen{box-shadow:0 0 0 4px #FFD43B;transform:scale(.95)}.puzzleGhost{position:fixed;z-index:9999;pointer-events:none;border-radius:7px;box-shadow:0 18px 35px rgba(61,53,98,.35);opacity:.9}.puzzleMoves{font-size:1rem;font-weight:700;margin:12px 0 4px}.puzzleHelp{font-family:'Noto Sans Thai',sans-serif;font-size:.84rem;line-height:1.5;opacity:.62}.puzzleFeedback{min-height:52px;font-size:1.05rem;font-weight:700;color:#15966C;margin-top:8px}
+
   /* ================= category chips ================= */
   .cats{display:flex;gap:12px;overflow-x:auto;padding:6px 2px 16px;scrollbar-width:none}
   .cats::-webkit-scrollbar{display:none}
@@ -231,6 +238,7 @@
     .hero{padding:28px 22px;border-radius:30px}.heroCopy{max-width:100%}.heroArt{display:none}.hero h2{font-size:2.15rem}.sectionHead{align-items:start;margin-top:28px}.tinyPill{display:none}
     .activityGrid{grid-template-columns:1fr;gap:15px}.activity{min-height:0;padding:16px;display:grid;grid-template-columns:104px 1fr;align-items:center;gap:15px;border-radius:25px}.activityIcon{height:100px;margin:0;font-size:3.5rem;border-radius:20px}.activity h3{font-size:1.18rem}.activity p{font-size:.9rem}.go{right:15px;bottom:13px;width:36px;height:36px}.soon{top:9px;right:9px}
     .mathPanel{border-radius:28px;padding:15px}.mathBar{align-items:flex-start}.scoreBox{padding:8px 11px;font-size:.86rem}.levelBtn{padding:11px 4px;font-size:.88rem}.questionCard{border-radius:23px}.answers{gap:9px}.answerBtn{min-height:68px;border-radius:19px}
+    .jigsawPanel{border-radius:28px;padding:14px}.puzzleArea{grid-template-columns:1fr}.puzzleSide{text-align:center}.puzzleTray{grid-template-columns:repeat(3,1fr)}.animalChoice{flex-basis:88px}.animalChoice svg{width:60px;height:60px}
     .grid{grid-template-columns:repeat(2,1fr);gap:14px}
     .card{padding:12px 12px 10px}
     .tool .b{width:52px;height:52px;font-size:1.35rem}
@@ -265,7 +273,7 @@
       </div>
       <div class="sectionHead">
         <div><h2>เลือกกิจกรรมสนุก</h2><p>มีเกมใหม่ ๆ รอหนูอยู่อีกเพียบ</p></div>
-        <span class="tinyPill">🌟 2 กิจกรรมพร้อมเล่น</span>
+        <span class="tinyPill">🌟 3 กิจกรรมพร้อมเล่น</span>
       </div>
       <div class="activityGrid">
         <button class="activity" id="coloringCard">
@@ -274,9 +282,9 @@
         <button class="activity" id="mathCard">
           <div class="activityIcon">🔢</div><div><h3>คิดเลขแสนสนุก</h3><p>นับ บวก และลบ สำหรับอนุบาล 1–3</p></div><span class="go">→</span>
         </button>
-        <div class="activity locked">
-          <span class="soon">เร็ว ๆ นี้</span><div class="activityIcon">🧩</div><div><h3>จิ๊กซอว์</h3><p>ฝึกสังเกตและต่อภาพให้สมบูรณ์</p></div>
-        </div>
+        <button class="activity" id="jigsawCard">
+          <div class="activityIcon">🧩</div><div><h3>จิ๊กซอว์สัตว์</h3><p>สลับชิ้นส่วนเพื่อต่อภาพสัตว์ให้สมบูรณ์</p></div><span class="go">→</span>
+        </button>
         <div class="activity locked">
           <span class="soon">เร็ว ๆ นี้</span><div class="activityIcon">✏️</div><div><h3>ต่อจุด</h3><p>ลากเส้นตามลำดับ แล้วดูว่าเป็นรูปอะไร</p></div>
         </div>
@@ -304,6 +312,36 @@
           </div>
           <div class="answers" id="mathAnswers"></div>
           <div class="mathFeedback" id="mathFeedback" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="jigsawGame">
+      <div class="jigsawShell">
+        <div class="mathBar">
+          <button class="roundBack" id="jigsawHomeBtn" aria-label="กลับหน้าแรก">←</button>
+          <div><h2>จิ๊กซอว์สัตว์</h2><p>ลากชิ้นจากถาดด้านขวา ไปวางบนกระดานด้านซ้าย</p></div>
+          <div class="scoreBox">🧩 <span id="puzzleMoveTop">0</span> ครั้ง</div>
+        </div>
+        <div class="jigsawPanel">
+          <div class="jigsawControls">
+            <strong>🐾 เลือกสัตว์</strong>
+            <div class="difficulty" aria-label="เลือกระดับจิ๊กซอว์">
+              <button class="difficultyBtn on" data-size="2">ง่าย 2×2</button>
+              <button class="difficultyBtn" data-size="3">ท้าทาย 3×3</button>
+            </div>
+          </div>
+          <div class="animalPicker" id="animalPicker"></div>
+          <div class="puzzleArea">
+            <div class="puzzleBoard" id="puzzleBoard"></div>
+            <aside class="puzzleSide">
+              <div class="trayTitle">🧩 ชิ้นจิ๊กซอว์</div>
+              <div class="puzzleTray" id="puzzleTray"></div>
+              <div class="puzzleMoves">ขยับแล้ว <span id="puzzleMoves">0</span> ครั้ง</div>
+              <div class="puzzleHelp">ดูภาพร่างจาง ๆ บนกระดาน แล้วลากชิ้นที่ตรงกันไปวาง หรือแตะชิ้นแล้วแตะช่องก็ได้</div>
+              <div class="puzzleFeedback" id="puzzleFeedback" aria-live="polite"></div>
+            </aside>
+          </div>
         </div>
       </div>
     </section>
@@ -1172,7 +1210,88 @@ const CARTOON_PICS = [
   ["friendly_alien","มนุษย์ต่างดาวใจดี",3],["fluffy_monster","สัตว์ประหลาดขนฟู",3],["space_friend","เพื่อนจากอวกาศ",3],["robot_friend","เพื่อนหุ่นยนต์",3],
   ["little_explorer","นักสำรวจตัวน้อย",4],["junior_detective","นักสืบจิ๋ว",4],["young_pirate","โจรสลัดตัวน้อย",4],["forest_ranger","ผู้พิทักษ์ป่า",4]
 ].map((x,i)=>({id:x[0],cat:"cartoon",name:x[1],svg:cartoonSvg(x[2],i%4)}));
-PICS.push(...MORE_KIDS_PICS,...CARTOON_PICS);
+
+function spaceKidSvg(kind, variant){
+  const stars = variant%2
+    ? `<path class="r" d="M66 58 L74 78 L94 86 L74 94 L66 114 L58 94 L38 86 L58 78 Z"/><circle class="r" cx="334" cy="58" r="12"/>`
+    : `<circle class="r" cx="66" cy="74" r="15"/><path class="r" d="M330 48 L337 66 L356 73 L337 80 L330 99 L323 80 L304 73 L323 66 Z"/>`;
+  const shapes = [
+    `<circle class="r" cx="200" cy="210" r="118"/><ellipse class="r" cx="200" cy="210" rx="176" ry="42" transform="rotate(-15 200 210)"/><circle class="r" cx="164" cy="176" r="21"/><circle class="r" cx="244" cy="238" r="17"/>`,
+    `<path class="r" d="M200 40 C146 106 138 216 152 292 H248 C262 216 254 106 200 40 Z"/><circle class="r" cx="200" cy="154" r="36"/><path class="r" d="M152 224 L92 302 L154 278 Z"/><path class="r" d="M248 224 L308 302 L246 278 Z"/><path class="r" d="M176 292 H224 Q218 354 200 378 Q182 354 176 292 Z"/>`,
+    `<ellipse class="r" cx="200" cy="226" rx="158" ry="62"/><path class="r" d="M110 220 Q126 104 200 104 Q274 104 290 220 Z"/><circle class="r" cx="160" cy="218" r="21"/><circle class="r" cx="220" cy="218" r="21"/><circle class="r" cx="280" cy="218" r="21"/>`,
+    `<circle class="r" cx="200" cy="138" r="94"/><circle class="r" cx="200" cy="138" r="68"/><path class="r" d="M136 220 H264 L286 338 H114 Z"/><rect class="r" x="154" y="334" width="38" height="44" rx="10"/><rect class="r" x="208" y="334" width="38" height="44" rx="10"/><circle class="r" cx="176" cy="136" r="8"/><circle class="r" cx="224" cy="136" r="8"/>`,
+    `<path class="r" d="M88 330 L168 198 H232 L312 330 Z"/><rect class="r" x="172" y="126" width="56" height="72" rx="12"/><path d="M200 126 V72" fill="none"/><path class="r" d="M200 72 L294 38 L306 66 L212 100 Z"/><circle class="r" cx="294" cy="52" r="22"/>`
+  ];
+  const details = [
+    `<path class="r" d="M110 286 Q200 232 290 286"/><circle class="r" cx="250" cy="164" r="22"/>`,
+    `<path class="r" d="M112 206 Q200 150 288 206"/><path class="r" d="M144 260 Q200 304 256 260"/>`,
+    `<circle class="r" cx="142" cy="152" r="18"/><circle class="r" cx="270" cy="246" r="25"/>`,
+    `<path class="r" d="M126 250 L148 220 L170 250 L158 284 H138 Z"/><path class="r" d="M244 174 L262 146 L280 174 L270 202 H254 Z"/>`
+  ];
+  return S(shapes[kind]+details[variant]+stars);
+}
+function schoolKidSvg(kind, variant){
+  const deco = variant%2 ? `<circle class="r" cx="330" cy="66" r="16"/>` : `<path class="r" d="M64 54 L72 74 L92 82 L72 90 L64 110 L56 90 L36 82 L56 74 Z"/>`;
+  const shapes = [
+    `<path class="r" d="M46 188 L200 58 L354 188 V354 H46 Z"/><rect class="r" x="166" y="244" width="68" height="110" rx="8"/><rect class="r" x="78" y="216" width="62" height="62" rx="8"/><rect class="r" x="260" y="216" width="62" height="62" rx="8"/>`,
+    `<path class="r" d="M42 104 Q122 74 200 118 V346 Q122 302 42 330 Z"/><path class="r" d="M358 104 Q278 74 200 118 V346 Q278 302 358 330 Z"/><path d="M200 118 V346 M72 154 Q130 132 174 150 M226 150 Q278 132 330 154" fill="none"/>`,
+    `<path class="r" d="M98 326 L248 78 L302 112 L152 360 Z"/><path class="r" d="M248 78 L278 30 L332 64 L302 112 Z"/><path class="r" d="M98 326 L82 382 L152 360 Z"/><path d="M142 296 L196 330 M168 250 L222 284 M194 204 L248 238" fill="none"/>`,
+    `<path class="r" d="M116 154 Q126 72 200 72 Q274 72 284 154 L310 344 H90 Z"/><rect class="r" x="132" y="182" width="136" height="112" rx="24"/><path d="M160 154 Q166 112 200 112 Q234 112 240 154" fill="none"/><circle class="r" cx="200" cy="236" r="24"/>`,
+    `<rect class="r" x="58" y="92" width="284" height="196" rx="18"/><path class="r" d="M92 126 H308 V254 H92 Z"/><path d="M118 162 H210 M118 202 H270" fill="none"/><rect class="r" x="116" y="288" width="32" height="70"/><rect class="r" x="252" y="288" width="32" height="70"/>`
+  ];
+  const details = [
+    `<path class="r" d="M184 220 L200 184 L216 220 L254 224 L226 250 L234 288 L200 268 L166 288 L174 250 L146 224 Z"/>`,
+    `<path class="r" d="M174 220 C142 194 126 236 200 286 C274 236 258 194 226 220 C214 230 200 244 200 244 C200 244 186 230 174 220 Z"/>`,
+    `<circle class="r" cx="200" cy="236" r="42"/><path d="M176 236 H224 M200 212 V260" fill="none"/>`,
+    `<path class="r" d="M164 214 L184 214 L184 194 H216 V214 H236 V246 H216 V266 H184 V246 H164 Z"/>`
+  ];
+  return S(shapes[kind]+details[variant]+deco);
+}
+function careerSvg(index){
+  const props = [
+    `<path class="r" d="M182 230 H218 V246 H234 V278 H218 V294 H182 V278 H166 V246 H182 Z"/>`,
+    `<path class="r" d="M154 238 Q178 222 200 238 Q222 222 246 238 V294 Q222 280 200 296 Q178 280 154 294 Z"/>`,
+    `<path class="r" d="M162 232 H238 V292 H162 Z"/><path d="M200 232 V292" fill="none"/>`,
+    `<path class="r" d="M158 252 Q170 220 200 234 Q230 220 242 252 Q230 282 200 270 Q170 282 158 252 Z"/>`,
+    `<path class="r" d="M200 220 L214 248 L246 252 L222 274 L230 306 L200 288 L170 306 L178 274 L154 252 L186 248 Z"/>`,
+    `<path class="r" d="M200 224 L214 246 L240 252 L224 274 L226 302 L200 292 L174 302 L176 274 L160 252 L186 246 Z"/>`,
+    `<path class="r" d="M154 252 H246 L230 280 H170 Z"/><path class="r" d="M200 226 L218 252 H182 Z"/>`,
+    `<path class="r" d="M150 252 Q200 206 250 252 L236 278 H164 Z"/><path d="M200 220 V282" fill="none"/>`,
+    `<circle class="r" cx="200" cy="262" r="34"/><circle class="r" cx="174" cy="232" r="14"/><circle class="r" cx="200" cy="222" r="14"/><circle class="r" cx="226" cy="232" r="14"/>`,
+    `<path class="r" d="M182 222 H218 L212 246 L242 292 H158 L188 246 Z"/><circle class="r" cx="200" cy="266" r="12"/>`,
+    `<path d="M184 292 V226 L232 246 V278" fill="none"/><circle class="r" cx="174" cy="296" r="18"/><circle class="r" cx="222" cy="282" r="18"/>`,
+    `<ellipse class="r" cx="200" cy="260" rx="48" ry="38"/><circle class="r" cx="180" cy="248" r="8"/><circle class="r" cx="204" cy="238" r="8"/><circle class="r" cx="226" cy="254" r="8"/>`,
+    `<path class="r" d="M200 292 V238 M200 252 Q164 224 158 258 M200 266 Q236 234 244 268" fill="none"/><circle class="r" cx="158" cy="258" r="16"/><circle class="r" cx="244" cy="268" r="16"/>`,
+    `<circle class="r" cx="200" cy="264" r="42"/><path class="r" d="M200 222 L214 250 L244 254 L222 274 L228 304 L200 288 L172 304 L178 274 L156 254 L186 250 Z"/>`,
+    `<rect class="r" x="158" y="236" width="84" height="58" rx="12"/><circle class="r" cx="200" cy="265" r="20"/><rect class="r" x="182" y="222" width="36" height="14" rx="5"/>`,
+    `<circle class="r" cx="200" cy="260" r="44"/><ellipse class="r" cx="200" cy="260" rx="70" ry="18" transform="rotate(-18 200 260)"/>`,
+    `<circle class="r" cx="174" cy="268" r="27"/><circle class="r" cx="226" cy="268" r="27"/><path d="M148 300 H252" fill="none"/>`,
+    `<rect class="r" x="154" y="230" width="42" height="70" rx="6"/><rect class="r" x="204" y="220" width="42" height="80" rx="6"/>`,
+    `<path class="r" d="M146 250 Q200 218 254 250 Q240 302 200 310 Q160 302 146 250 Z"/><path d="M166 270 Q200 292 234 270" fill="none"/>`,
+    `<circle class="r" cx="200" cy="264" r="42"/><path d="M200 232 V264 L228 282 M158 264 H174 M226 264 H242 M200 306 V290" fill="none"/>`
+  ];
+  const base = cartoonSvg(index%5,index%4);
+  return base.replace("</g></svg>",props[index]+"</g></svg>");
+}
+const CAREER_PICS = [
+  "คุณหมอ","พยาบาล","ครู","เชฟ","นักดับเพลิง","ตำรวจ","นักบิน","ช่างก่อสร้าง","สัตวแพทย์","นักวิทยาศาสตร์",
+  "นักดนตรี","จิตรกร","ชาวสวน","นักฟุตบอล","ช่างภาพ","นักบินอวกาศ","คนขับรถไฟ","บรรณารักษ์","นักเต้น","นักสำรวจ"
+].map((name,i)=>({id:`career_${i+1}`,cat:"career",name,svg:careerSvg(i)}));
+const SPACE_PICS = [
+  "ดาวเสาร์","ดาวโลก","ดาวอังคาร","ดาวเคราะห์สีรุ้ง",
+  "จรวดสำรวจ","จรวดดวงดาว","ยานขึ้นดวงจันทร์","จรวดน้อย",
+  "จานบิน","ยานมนุษย์ต่างดาว","ยูเอฟโอยิ้ม","ยานจากดาวไกล",
+  "นักบินอวกาศ","ชุดอวกาศ","เพื่อนนักบิน","เดินบนดวงจันทร์",
+  "กล้องดูดาว","หอดูดาว","กล้องชมดวงจันทร์","สถานีดูดาว"
+].map((name,i)=>({id:`space_${i+1}`,cat:"space",name,svg:spaceKidSvg(Math.floor(i/4),i%4)}));
+const SCHOOL_PICS = [
+  "บ้านของฉัน","บ้านในสวน","โรงเรียนของหนู","บ้านสายรุ้ง",
+  "หนังสือนิทาน","สมุดวาดเขียน","หนังสือ ABC","หนังสือตัวเลข",
+  "ดินสอ","สีไม้แท่งใหญ่","ปากกาน่ารัก","ไม้บรรทัด",
+  "กระเป๋านักเรียน","กระเป๋ารูปดาว","กล่องดินสอ","กระเป๋าใบโปรด",
+  "โต๊ะเรียน","กระดานดำ","ห้องเรียน","กระดานวาดรูป"
+].map((name,i)=>({id:`school_${i+1}`,cat:"school",name,svg:schoolKidSvg(Math.floor(i/4),i%4)}));
+PICS.push(...MORE_KIDS_PICS,...CARTOON_PICS,...CAREER_PICS,...SPACE_PICS,...SCHOOL_PICS);
 
 const CATS = [
   {id:"all", name:"ทั้งหมด", emoji:"⭐", tint:"#FFF3C9"},
@@ -1183,7 +1302,10 @@ const CATS = [
   {id:"food", name:"ของกิน", emoji:"🍎", tint:"#FFF0D8"},
   {id:"toy", name:"ของเล่น", emoji:"🧸", tint:"#F0E8FF"},
   {id:"dino", name:"ไดโนเสาร์", emoji:"🦕", tint:"#E1F7DF"},
-  {id:"cartoon", name:"การ์ตูน", emoji:"🎭", tint:"#FFE5F2"}
+  {id:"cartoon", name:"การ์ตูน", emoji:"🎭", tint:"#FFE5F2"},
+  {id:"career", name:"อาชีพในฝัน", emoji:"🧑‍🚒", tint:"#E8F4FF"},
+  {id:"space", name:"โลกอวกาศ", emoji:"🚀", tint:"#EEE8FF"},
+  {id:"school", name:"บ้านและโรงเรียน", emoji:"🏫", tint:"#FFF2D8"}
 ];
 
 const COLORS = [
@@ -1221,10 +1343,11 @@ const catsEl = document.getElementById("cats");
 const homeEl = document.getElementById("home");
 const collectionEl = document.getElementById("collection");
 const mathEl = document.getElementById("mathGame");
+const jigsawEl = document.getElementById("jigsawGame");
 const appSubtitle = document.getElementById("appSubtitle");
 CATS.forEach((c,i)=>{
   const b = document.createElement("button");
-  b.className = "chip" + (i===0?" on":"");
+  b.className = "chip" + (i===1?" on":"");
   b.innerHTML = `<span class="ic" style="--tint:${c.tint}">${c.emoji}</span>${c.name}`;
   b.onclick = ()=>{
     document.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));
@@ -1316,6 +1439,7 @@ function openPic(p){
   collectionEl.style.display = "none";
   homeEl.style.display = "none";
   mathEl.style.display = "none";
+  jigsawEl.style.display = "none";
   studio.style.display = "block";
   appSubtitle.textContent = "แต่งแต้มภาพโปรดให้สวยสดใสในแบบของหนู";
   window.scrollTo({top:0, behavior:"smooth"});
@@ -1324,6 +1448,7 @@ function showGallery(rerender=true){
   studio.style.display = "none";
   homeEl.style.display = "none";
   mathEl.style.display = "none";
+  jigsawEl.style.display = "none";
   collectionEl.style.display = "block";
   galleryEl.style.display = "grid";
   if(rerender) renderGallery(activeCat());
@@ -1334,6 +1459,7 @@ function showHome(){
   studio.style.display = "none";
   collectionEl.style.display = "none";
   mathEl.style.display = "none";
+  jigsawEl.style.display = "none";
   homeEl.style.display = "block";
   appSubtitle.textContent = "สนามเล่นสร้างสรรค์ เติมความสนุกให้ทุกจินตนาการ";
   window.scrollTo({top:0, behavior:"smooth"});
@@ -1342,16 +1468,144 @@ function showMath(){
   studio.style.display = "none";
   collectionEl.style.display = "none";
   homeEl.style.display = "none";
+  jigsawEl.style.display = "none";
   mathEl.style.display = "block";
   appSubtitle.textContent = "ฝึกนับ บวก และลบอย่างสนุกสำหรับอนุบาล 1–3";
   resetMath();
   window.scrollTo({top:0, behavior:"smooth"});
 }
+function showJigsaw(){
+  studio.style.display = "none";
+  collectionEl.style.display = "none";
+  homeEl.style.display = "none";
+  mathEl.style.display = "none";
+  jigsawEl.style.display = "block";
+  appSubtitle.textContent = "ต่อภาพสัตว์แสนน่ารัก ฝึกสังเกตและแก้ปัญหา";
+  initJigsaw();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
 document.getElementById("coloringCard").onclick = ()=>showGallery();
 document.getElementById("mathCard").onclick = showMath;
+document.getElementById("jigsawCard").onclick = showJigsaw;
 document.getElementById("homeBtn").onclick = showHome;
 document.getElementById("mathHomeBtn").onclick = showHome;
+document.getElementById("jigsawHomeBtn").onclick = showHome;
 document.getElementById("backBtn").onclick = ()=>showGallery();
+
+/* ================= จิ๊กซอว์สัตว์ ================= */
+let puzzleReady = false, puzzleSize = 2, puzzleTrayOrder = [], puzzlePlaced = [], selectedPuzzlePiece = null;
+let puzzleMoves = 0, currentPuzzlePic = null, puzzleImage = "";
+const animalPuzzlePics = PICS.filter(p=>p.cat === "animal");
+const puzzleBoardEl = document.getElementById("puzzleBoard");
+const puzzleTrayEl = document.getElementById("puzzleTray");
+const animalPickerEl = document.getElementById("animalPicker");
+function colorfulPuzzleImage(pic){
+  const temp = document.createElement("div"); temp.innerHTML = pic.svg;
+  const colors = ["#FFD6E7","#CDEEFF","#FFF0B7","#CFF8EE","#E5DCFF","#FFC98B"];
+  temp.querySelectorAll(".r").forEach((el,i)=>el.setAttribute("fill",colors[i%colors.length]));
+  return "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(new XMLSerializer().serializeToString(temp.querySelector("svg")));
+}
+function initJigsaw(){
+  if(!puzzleReady){
+    animalPuzzlePics.forEach((pic,i)=>{
+      const btn = document.createElement("button"); btn.className = "animalChoice"+(i===0?" on":"");
+      btn.innerHTML = pic.svg+`<span>${pic.name}</span>`;
+      btn.setAttribute("aria-label",`เลือกจิ๊กซอว์ ${pic.name}`);
+      btn.onclick = ()=>{
+        document.querySelectorAll(".animalChoice").forEach(x=>x.classList.remove("on")); btn.classList.add("on");
+        startPuzzle(pic);
+      };
+      animalPickerEl.appendChild(btn);
+    });
+    document.querySelectorAll(".difficultyBtn").forEach(btn=>{
+      btn.onclick = ()=>{
+        puzzleSize = +btn.dataset.size;
+        document.querySelectorAll(".difficultyBtn").forEach(x=>x.classList.remove("on")); btn.classList.add("on");
+        startPuzzle(currentPuzzlePic || animalPuzzlePics[0]);
+      };
+    });
+    puzzleReady = true;
+  }
+  startPuzzle(currentPuzzlePic || animalPuzzlePics[0]);
+}
+function startPuzzle(pic){
+  currentPuzzlePic = pic; puzzleImage = colorfulPuzzleImage(pic);
+  puzzleMoves = 0; selectedPuzzlePiece = null;
+  const total = puzzleSize*puzzleSize;
+  puzzleTrayOrder = [...Array(total).keys()].sort(()=>Math.random()-.5);
+  puzzlePlaced = Array(total).fill(null);
+  document.getElementById("puzzleFeedback").textContent = "";
+  updatePuzzleMoves(); renderPuzzle();
+}
+function updatePuzzleMoves(){
+  document.getElementById("puzzleMoves").textContent = puzzleMoves;
+  document.getElementById("puzzleMoveTop").textContent = puzzleMoves;
+}
+function renderPuzzle(){
+  puzzleBoardEl.style.setProperty("--puzzle-size",puzzleSize);
+  puzzleTrayEl.style.setProperty("--puzzle-size",puzzleSize);
+  puzzleTrayEl.style.gridTemplateColumns = `repeat(${puzzleSize},1fr)`;
+  puzzleBoardEl.innerHTML = "";
+  puzzleTrayEl.innerHTML = "";
+  puzzlePlaced.forEach((piece,slotIndex)=>{
+    const slot = document.createElement("button");
+    slot.className = "puzzleSlot"+(piece!==null?" filled":"");
+    slot.dataset.slot = slotIndex;
+    slot.setAttribute("aria-label",piece===null?`ช่องว่างที่ ${slotIndex+1}`:`วางชิ้นที่ ${slotIndex+1} แล้ว`);
+    applyPuzzleBackground(slot,slotIndex);
+    slot.onclick = ()=>{ if(selectedPuzzlePiece!==null) placePuzzlePiece(selectedPuzzlePiece,slotIndex); };
+    puzzleBoardEl.appendChild(slot);
+  });
+  puzzleTrayOrder.filter(piece=>!puzzlePlaced.includes(piece)).forEach(piece=>{
+    const tile = document.createElement("button");
+    tile.className = "puzzlePiece"+(selectedPuzzlePiece===piece?" chosen":"");
+    tile.dataset.piece = piece; applyPuzzleBackground(tile,piece);
+    tile.setAttribute("aria-label",`ชิ้นจิ๊กซอว์ ${piece+1}`);
+    tile.onpointerdown = ev=>beginPuzzleDrag(ev,piece,tile);
+    puzzleTrayEl.appendChild(tile);
+  });
+}
+function applyPuzzleBackground(el,piece){
+  const col = piece%puzzleSize, row = Math.floor(piece/puzzleSize);
+  const pos = puzzleSize===1?0:100/(puzzleSize-1);
+  el.style.backgroundImage = `url('${puzzleImage}')`;
+  el.style.backgroundSize = `${puzzleSize*100}% ${puzzleSize*100}%`;
+  el.style.backgroundPosition = `${col*pos}% ${row*pos}%`;
+}
+function beginPuzzleDrag(ev,piece,source){
+  ev.preventDefault();
+  const startX=ev.clientX,startY=ev.clientY,rect=source.getBoundingClientRect();
+  let ghost=null,moved=false;
+  const move=e=>{
+    if(Math.abs(e.clientX-startX)+Math.abs(e.clientY-startY)>8) moved=true;
+    if(moved&&!ghost){ ghost=source.cloneNode(true); ghost.className="puzzleGhost"; ghost.style.width=rect.width+"px"; ghost.style.height=rect.height+"px"; document.body.appendChild(ghost); }
+    if(ghost){ ghost.style.left=(e.clientX-rect.width/2)+"px"; ghost.style.top=(e.clientY-rect.height/2)+"px"; document.querySelectorAll(".puzzleSlot").forEach(x=>x.classList.remove("dropReady")); const target=document.elementFromPoint(e.clientX,e.clientY)?.closest(".puzzleSlot"); if(target&&!target.classList.contains("filled")) target.classList.add("dropReady"); }
+  };
+  const end=e=>{
+    window.removeEventListener("pointermove",move); window.removeEventListener("pointerup",end); window.removeEventListener("pointercancel",end);
+    document.querySelectorAll(".puzzleSlot").forEach(x=>x.classList.remove("dropReady"));
+    if(ghost){ ghost.remove(); const target=document.elementFromPoint(e.clientX,e.clientY)?.closest(".puzzleSlot"); if(target) placePuzzlePiece(piece,+target.dataset.slot); }
+    else { selectedPuzzlePiece = selectedPuzzlePiece===piece?null:piece; renderPuzzle(); }
+  };
+  window.addEventListener("pointermove",move); window.addEventListener("pointerup",end); window.addEventListener("pointercancel",end);
+}
+function placePuzzlePiece(piece,slotIndex){
+  if(puzzlePlaced[slotIndex]!==null) return;
+  puzzleMoves++; updatePuzzleMoves();
+  if(piece===slotIndex){
+    puzzlePlaced[slotIndex]=piece; selectedPuzzlePiece=null;
+    document.getElementById("puzzleFeedback").textContent="วางถูกแล้ว! ⭐";
+    renderPuzzle();
+    if(puzzlePlaced.every(x=>x!==null)){
+      document.getElementById("puzzleFeedback").textContent=`ต่อสำเร็จแล้ว! เก่งมาก 🎉`;
+      [...puzzleBoardEl.children].forEach(x=>x.disabled=true);
+    }
+  } else {
+    selectedPuzzlePiece=piece;
+    document.getElementById("puzzleFeedback").textContent="ยังไม่ใช่ช่องนี้ ลองอีกครั้งนะ 💪";
+    renderPuzzle();
+  }
+}
 
 /* ================= คิดเลขแสนสนุก อนุบาล 1-3 ================= */
 let mathLevel = 1, mathScore = 0, mathQuestionIndex = 1, mathAnswer = 0, mathTimer = null;
@@ -1711,7 +1965,6 @@ document.addEventListener("fullscreenchange", updFs);
 document.addEventListener("webkitfullscreenchange", updFs);
 
 /* เริ่มต้น */
-renderGallery("all");
 showHome();
 </script>
 </body>
