@@ -72,14 +72,14 @@
   /* ================= math game ================= */
   #mathGame{display:none}.mathShell{max-width:850px;margin:0 auto}.mathPanel{background:rgba(255,255,255,.82);border:1px solid #fff;border-radius:38px;padding:clamp(18px,4vw,36px);box-shadow:var(--shadow-soft);backdrop-filter:blur(12px)}
   .mathBar{display:flex;align-items:center;gap:14px;margin-bottom:20px}.mathBar h2{margin:0;font-size:clamp(1.5rem,3vw,2rem)}.mathBar p{margin:2px 0 0;font-family:'Noto Sans Thai',sans-serif;opacity:.58}.scoreBox{margin-left:auto;background:linear-gradient(135deg,#FFF1B8,#FFE0F0);padding:10px 16px;border-radius:18px;font-weight:700;white-space:nowrap}
-  .levelTabs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 18px}.levelBtn{border:0;border-radius:18px;background:#F2EEFC;color:var(--ink);padding:13px 10px;cursor:pointer;font-weight:700;box-shadow:0 5px 0 rgba(61,53,98,.08);transition:.18s}.levelBtn.on{color:#fff;background:linear-gradient(135deg,#8A5CF6,#FF6FA5);transform:translateY(-2px)}
-  .questionCard{position:relative;overflow:hidden;text-align:center;border-radius:30px;padding:clamp(24px,5vw,44px) 18px;background:linear-gradient(145deg,#F3ECFF,#FFF3C9 55%,#E4FAFF);min-height:245px}.questionNo{display:inline-block;padding:6px 12px;border-radius:999px;background:#fff;font-size:.82rem;box-shadow:0 6px 16px -10px #3D3562}.mathVisual{min-height:72px;display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;font-size:clamp(2rem,6vw,3.6rem);margin:15px auto 4px}.mathQuestion{font-size:clamp(2rem,6vw,3.8rem);font-weight:700;line-height:1.25;margin:8px 0}.mathHint{font-family:'Noto Sans Thai',sans-serif;opacity:.58;margin:0}
+  .levelTabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 18px}.levelBtn{border:0;border-radius:18px;background:#F2EEFC;color:var(--ink);padding:13px 10px;cursor:pointer;font-weight:700;box-shadow:0 5px 0 rgba(61,53,98,.08);transition:.18s}.levelBtn.on{color:#fff;background:linear-gradient(135deg,#8A5CF6,#FF6FA5);transform:translateY(-2px)}
+  .questionCard{position:relative;overflow:hidden;text-align:center;border-radius:30px;padding:clamp(24px,5vw,44px) 18px;background:linear-gradient(145deg,#F3ECFF,#FFF3C9 55%,#E4FAFF);min-height:245px}.questionNo{display:inline-block;padding:6px 12px;border-radius:999px;background:#fff;font-size:.82rem;box-shadow:0 6px 16px -10px #3D3562}.mathVisual{min-height:72px;display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;font-size:clamp(2rem,6vw,3.6rem);margin:15px auto 4px}.mathQuestion{font-size:clamp(2rem,6vw,3.8rem);font-weight:700;line-height:1.25;margin:8px 0}.mathHint{font-family:'Noto Sans Thai',sans-serif;opacity:.58;margin:0}.speakBtn{margin-top:12px;border:0;border-radius:999px;padding:9px 18px;background:#fff;color:var(--ink);font-family:'Mali',sans-serif;font-weight:700;font-size:.92rem;cursor:pointer;box-shadow:0 6px 16px -10px #3D3562}.speakBtn:active{transform:translateY(3px);box-shadow:none}
   .answers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.answerBtn{min-height:82px;border:0;border-radius:24px;background:#fff;color:var(--ink);font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;cursor:pointer;box-shadow:0 7px 0 rgba(61,53,98,.11);transition:transform .15s}.answerBtn:hover{transform:translateY(-3px)}.answerBtn:active{transform:translateY(5px);box-shadow:0 2px 0 rgba(61,53,98,.11)}.answerBtn.correct{background:#5BE0B3;color:#174C3C;animation:cheerIn .35s}.answerBtn.wrong{background:#FFB4C8;animation:shake .3s}.answerBtn:disabled{cursor:default}
   .mathFeedback{height:34px;margin-top:13px;text-align:center;font-size:1.15rem;font-weight:700}.mathFeedback.good{color:#15966C}.mathFeedback.try{color:#E2527F}@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
 
   /* ================= jigsaw ================= */
   #jigsawGame{display:none}.jigsawShell{max-width:980px;margin:0 auto}.jigsawPanel{background:rgba(255,255,255,.82);border:1px solid #fff;border-radius:38px;padding:clamp(16px,3vw,30px);box-shadow:var(--shadow-soft);backdrop-filter:blur(12px)}
-  .jigsawControls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.jigsawControls strong{margin-right:auto}.difficulty{display:flex;gap:8px}.difficultyBtn{border:0;border-radius:15px;padding:10px 14px;background:#EEE9FA;color:var(--ink);cursor:pointer;font-weight:700}.difficultyBtn.on{background:linear-gradient(135deg,#8A5CF6,#FF6FA5);color:#fff}
+  .jigsawControls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.jigsawControls strong{margin-right:auto;font-size:1.15rem}.roundBack.small{width:40px;height:40px;font-size:1.05rem;border-radius:13px}.difficulty{display:flex;gap:8px}.difficultyBtn{border:0;border-radius:15px;padding:10px 14px;background:#EEE9FA;color:var(--ink);cursor:pointer;font-weight:700}.difficultyBtn.on{background:linear-gradient(135deg,#8A5CF6,#FF6FA5);color:#fff}
   .animalPicker{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 14px;scrollbar-width:thin;scrollbar-color:#CDBBF8 transparent}.animalChoice{flex:0 0 104px;border:0;border-radius:20px;background:#fff;padding:8px;cursor:pointer;color:var(--ink);box-shadow:0 7px 18px -12px #3D3562}.animalChoice svg{width:72px;height:72px;display:block;margin:auto}.animalChoice span{display:block;font-size:.76rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.animalChoice.on{box-shadow:0 0 0 4px #fff,0 0 0 7px #9C6FF3;background:#F4F0FF}
   .puzzleArea{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:18px;align-items:start}.puzzleBoard{--puzzle-size:2;display:grid;grid-template-columns:repeat(var(--puzzle-size),1fr);gap:2px;width:min(100%,600px);aspect-ratio:1;margin:auto;padding:5px;border-radius:22px;background:linear-gradient(145deg,#DDD3F6,#CDEEFF);box-shadow:0 20px 40px -22px #3D3562}.puzzleSlot{border:1px dashed rgba(61,53,98,.32);border-radius:5px;background-color:rgba(255,255,255,.42);background-repeat:no-repeat;opacity:.28;filter:grayscale(1);transition:background .2s,transform .2s,opacity .2s,filter .2s}.puzzleSlot.dropReady{transform:scale(.98);background-color:#FFF4B8;border-color:#FFB52E;opacity:.7}.puzzleSlot.filled{border-style:solid;border-color:rgba(255,255,255,.8);box-shadow:inset 0 0 0 1px rgba(61,53,98,.08);opacity:1;filter:none}
   .puzzleSide{background:#fff;border-radius:25px;padding:12px;box-shadow:0 12px 30px -20px #3D3562;text-align:center}.trayTitle{font-weight:700;margin-bottom:8px}.puzzleTray{--puzzle-size:2;display:grid;grid-template-columns:repeat(2,1fr);gap:6px;min-height:180px;padding:6px;border-radius:16px;background:#F8F6FD}.puzzlePiece{aspect-ratio:1;border:0;border-radius:7px;background-repeat:no-repeat;cursor:grab;touch-action:none;box-shadow:0 5px 10px -7px #3D3562,0 0 0 1px #fff;transition:transform .15s}.puzzlePiece:active{cursor:grabbing}.puzzlePiece.chosen{box-shadow:0 0 0 4px #FFD43B;transform:scale(.95)}.puzzleGhost{position:fixed;z-index:9999;pointer-events:none;border-radius:7px;box-shadow:0 18px 35px rgba(61,53,98,.35);opacity:.9}.puzzleMoves{font-size:1rem;font-weight:700;margin:12px 0 4px}.puzzleHelp{font-family:'Noto Sans Thai',sans-serif;font-size:.84rem;line-height:1.5;opacity:.62}.puzzleFeedback{min-height:52px;font-size:1.05rem;font-weight:700;color:#15966C;margin-top:8px}
@@ -189,6 +189,10 @@
     font-size:clamp(1.6rem,4vw,2.4rem);padding:18px 44px;border-radius:99px;
     box-shadow:0 20px 40px -10px rgba(156,111,243,.55)}
 
+  /* ================= success popup ================= */
+  .successPopup[hidden]{display:none}.successPopup{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:20px;background:rgba(53,40,94,.42);backdrop-filter:blur(7px);animation:fadePopup .25s ease-out}.successBox{position:relative;width:min(440px,100%);overflow:hidden;text-align:center;border:5px solid #fff;border-radius:42px;padding:34px 28px 28px;background:linear-gradient(145deg,#FFF9C9,#FFE3F0 48%,#E3F4FF);box-shadow:0 35px 80px -20px rgba(49,34,94,.6);animation:bouncePopup .55s cubic-bezier(.34,1.56,.64,1)}
+  .successBox::before,.successBox::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.55)}.successBox::before{width:150px;height:150px;left:-70px;top:-70px}.successBox::after{width:110px;height:110px;right:-45px;bottom:-45px}.successStars{position:absolute;inset:0;pointer-events:none}.successStars span{position:absolute;font-size:1.8rem;animation:twinkle 1.4s ease-in-out infinite}.successStars span:nth-child(1){left:9%;top:12%}.successStars span:nth-child(2){right:10%;top:18%;animation-delay:.35s}.successStars span:nth-child(3){left:15%;bottom:18%;animation-delay:.7s}.successStars span:nth-child(4){right:15%;bottom:20%;animation-delay:1s}.successEmoji{position:relative;font-size:6rem;line-height:1;margin-bottom:10px;animation:happyBounce 1.2s ease-in-out infinite}.successBox h2{position:relative;font-size:clamp(1.8rem,6vw,2.6rem);margin:0 0 7px;color:#6E4AD8}.successBox p{position:relative;font-family:'Noto Sans Thai',sans-serif;font-size:1.08rem;line-height:1.65;margin:0 auto 20px;max-width:330px;color:#625879}.successActions{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px}.successBtn{min-width:0;border:0;border-radius:999px;padding:14px 18px;color:#fff;background:linear-gradient(135deg,#8A5CF6,#FF6FA5);font-size:1.05rem;font-weight:700;cursor:pointer;box-shadow:0 7px 0 #6842BE}.successBtn.secondary{color:#6548B8;background:#fff;box-shadow:0 7px 0 #D8CDF3}.successBtn:active{transform:translateY(5px);box-shadow:0 2px 0 #6842BE}.successBtn.secondary:active{box-shadow:0 2px 0 #D8CDF3}@keyframes fadePopup{from{opacity:0}}@keyframes bouncePopup{from{opacity:0;transform:scale(.5) rotate(-5deg)}to{opacity:1;transform:scale(1)}}@keyframes happyBounce{50%{transform:translateY(-9px) rotate(5deg)}}
+
   footer{font-family:'Noto Sans Thai',sans-serif;text-align:center;font-size:.8rem;opacity:.5;margin-top:44px}
 
   /* ================= fullscreen + tools ================= */
@@ -199,6 +203,7 @@
     box-shadow:var(--shadow-press);transition:transform .12s;
   }
   .fsbtn:active{transform:translateY(4px);box-shadow:none}
+  .fsbtn + .fsbtn{margin-left:8px}
   .rack h3{margin:10px 0 0;text-align:center;font-size:1rem;font-weight:600}
   .toolRow{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:10px 0 2px}
   .tbtn{
@@ -255,6 +260,7 @@
       <h1><span>PUN&amp;PIN</span></h1>
       <p id="appSubtitle">สนามเล่นสร้างสรรค์ เติมความสนุกให้ทุกจินตนาการ</p>
     </div>
+    <button class="fsbtn" id="sndBtn" title="เปิด/ปิดเสียง">🔊</button>
     <button class="fsbtn" id="fsBtn" title="ขยายเต็มจอ">⛶</button>
   </header>
 
@@ -273,7 +279,7 @@
       </div>
       <div class="sectionHead">
         <div><h2>เลือกกิจกรรมสนุก</h2><p>มีเกมใหม่ ๆ รอหนูอยู่อีกเพียบ</p></div>
-        <span class="tinyPill">🌟 3 กิจกรรมพร้อมเล่น</span>
+        <span class="tinyPill">🌟 4 กิจกรรมพร้อมเล่น</span>
       </div>
       <div class="activityGrid">
         <button class="activity" id="coloringCard">
@@ -283,11 +289,11 @@
           <div class="activityIcon">🔢</div><div><h3>คิดเลขแสนสนุก</h3><p>นับ บวก และลบ สำหรับอนุบาล 1–3</p></div><span class="go">→</span>
         </button>
         <button class="activity" id="jigsawCard">
-          <div class="activityIcon">🧩</div><div><h3>จิ๊กซอว์สัตว์</h3><p>สลับชิ้นส่วนเพื่อต่อภาพสัตว์ให้สมบูรณ์</p></div><span class="go">→</span>
+          <div class="activityIcon">🧩</div><div><h3>จิ๊กซอว์แสนสนุก</h3><p>เลือกหมวดโปรด แล้วต่อภาพให้สมบูรณ์</p></div><span class="go">→</span>
         </button>
-        <div class="activity locked">
-          <span class="soon">เร็ว ๆ นี้</span><div class="activityIcon">✏️</div><div><h3>ต่อจุด</h3><p>ลากเส้นตามลำดับ แล้วดูว่าเป็นรูปอะไร</p></div>
-        </div>
+        <button class="activity" id="dotsCard">
+          <div class="activityIcon">✏️</div><div><h3>ลากเส้นตามรอยปะ</h3><p>เลือกหมวดโปรด แล้วลากตามเส้นประให้ครบภาพ</p></div><span class="go">→</span>
+        </button>
       </div>
     </section>
 
@@ -303,12 +309,14 @@
             <button class="levelBtn on" data-level="1">อนุบาล 1</button>
             <button class="levelBtn" data-level="2">อนุบาล 2</button>
             <button class="levelBtn" data-level="3">อนุบาล 3</button>
+            <button class="levelBtn" data-level="4">ป.1</button>
           </div>
           <div class="questionCard">
             <span class="questionNo" id="questionNo">ข้อที่ 1</span>
             <div class="mathVisual" id="mathVisual"></div>
             <div class="mathQuestion" id="mathQuestion"></div>
             <p class="mathHint" id="mathHint"></p>
+            <button class="speakBtn" id="mathSpeakBtn" aria-label="ฟังคำใบ้">🔊 ฟังคำใบ้</button>
           </div>
           <div class="answers" id="mathAnswers"></div>
           <div class="mathFeedback" id="mathFeedback" aria-live="polite"></div>
@@ -320,26 +328,68 @@
       <div class="jigsawShell">
         <div class="mathBar">
           <button class="roundBack" id="jigsawHomeBtn" aria-label="กลับหน้าแรก">←</button>
-          <div><h2>จิ๊กซอว์สัตว์</h2><p>ลากชิ้นจากถาดด้านขวา ไปวางบนกระดานด้านซ้าย</p></div>
-          <div class="scoreBox">🧩 <span id="puzzleMoveTop">0</span> ครั้ง</div>
+          <div><h2>จิ๊กซอว์แสนสนุก</h2><p id="jigsawSubHead">เลือกหมวดแล้วต่อภาพให้สมบูรณ์</p></div>
         </div>
-        <div class="jigsawPanel">
-          <div class="jigsawControls">
-            <strong>🐾 เลือกสัตว์</strong>
-            <div class="difficulty" aria-label="เลือกระดับจิ๊กซอว์">
-              <button class="difficultyBtn on" data-size="2">ง่าย 2×2</button>
-              <button class="difficultyBtn" data-size="3">ท้าทาย 3×3</button>
+
+        <div id="jigsawPicker">
+          <nav class="cats" id="jigsawCats" aria-label="หมวดภาพจิ๊กซอว์"></nav>
+          <section class="grid" id="jigsawGallery"></section>
+        </div>
+
+        <div id="jigsawPlay" style="display:none">
+          <div class="jigsawPanel">
+            <div class="jigsawControls">
+              <button class="roundBack small" id="jigsawBackBtn" aria-label="กลับไปเลือกภาพ">←</button>
+              <strong id="jigsawPicName">🧩</strong>
+              <div class="difficulty" aria-label="เลือกระดับจิ๊กซอว์">
+                <button class="difficultyBtn on" data-size="2">ง่าย 2×2</button>
+                <button class="difficultyBtn" data-size="3">ท้าทาย 3×3</button>
+              </div>
+              <div class="scoreBox">🧩 <span id="puzzleMoveTop">0</span> ครั้ง</div>
+            </div>
+            <div class="puzzleArea">
+              <div class="puzzleBoard" id="puzzleBoard"></div>
+              <aside class="puzzleSide">
+                <div class="trayTitle">🧩 ชิ้นจิ๊กซอว์</div>
+                <div class="puzzleTray" id="puzzleTray"></div>
+                <div class="puzzleHelp">ดูภาพร่างจาง ๆ บนกระดาน แล้วลากชิ้นที่ตรงกันไปวาง หรือแตะชิ้นแล้วแตะช่องก็ได้</div>
+                <div class="puzzleFeedback" id="puzzleFeedback" aria-live="polite"></div>
+              </aside>
             </div>
           </div>
-          <div class="animalPicker" id="animalPicker"></div>
-          <div class="puzzleArea">
-            <div class="puzzleBoard" id="puzzleBoard"></div>
-            <aside class="puzzleSide">
-              <div class="trayTitle">🧩 ชิ้นจิ๊กซอว์</div>
-              <div class="puzzleTray" id="puzzleTray"></div>
-              <div class="puzzleMoves">ขยับแล้ว <span id="puzzleMoves">0</span> ครั้ง</div>
-              <div class="puzzleHelp">ดูภาพร่างจาง ๆ บนกระดาน แล้วลากชิ้นที่ตรงกันไปวาง หรือแตะชิ้นแล้วแตะช่องก็ได้</div>
-              <div class="puzzleFeedback" id="puzzleFeedback" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+<section id="dotsGame">
+      <div class="jigsawShell">
+        <div class="mathBar">
+          <button class="roundBack" id="dotsHomeBtn" aria-label="กลับหน้าแรก">←</button>
+          <div><h2>ลากเส้นตามรอยปะ</h2><p id="dotsSubHead">เลือกหมวดแล้วลากตามเส้นประให้ครบภาพ</p></div>
+        </div>
+
+        <div id="dotsPicker">
+          <nav class="cats" id="dotsCats" aria-label="หมวดภาพลากเส้น"></nav>
+          <section class="grid" id="dotsGallery"></section>
+        </div>
+
+        <div id="dotsPlay" style="display:none">
+          <div class="topbar">
+            <button class="tool back" id="dotsBackBtn"><span class="b">←</span><small>กลับ</small></button>
+            <span class="picname" id="dotsPicName"></span>
+            <button class="tool undo" id="dotsUndoBtn"><span class="b">↩️</span><small>ย้อน</small></button>
+            <button class="tool clear" id="dotsClearBtn"><span class="b">🧽</span><small>ล้าง</small></button>
+            <button class="tool save" id="dotsDoneBtn"><span class="b">🎉</span><small>เสร็จแล้ว</small></button>
+          </div>
+          <div class="studioGrid">
+            <div class="board" id="dotsBoard"></div>
+            <aside class="rack">
+              <h3>✏️ เลือกสี</h3>
+              <div class="toolRow">
+                <button class="tbtn on" id="dotsPenBtn"><span>✏️</span><small>ปากกา</small></button>
+                <button class="tbtn" id="dotsEraserBtn"><span>🧼</span><small>ยางลบ</small></button>
+              </div>
+              <div class="rackGrid" id="dotsPalette"></div>
             </aside>
           </div>
         </div>
@@ -393,10 +443,75 @@
   <footer>PUN&amp;PIN • พื้นที่เล็ก ๆ สำหรับจินตนาการที่ยิ่งใหญ่ 🌈</footer>
 </div>
 
+<div class="successPopup" id="successPopup" hidden role="dialog" aria-modal="true" aria-labelledby="successTitle">
+  <div class="successBox">
+    <div class="successStars" aria-hidden="true"><span>⭐</span><span>✨</span><span>🌟</span><span>💖</span></div>
+    <div class="successEmoji" id="successEmoji">🎉</div>
+    <h2 id="successTitle">เก่งมาก!</h2>
+    <p id="successMessage">หนูทำสำเร็จแล้ว</p>
+    <div class="successActions">
+      <button class="successBtn secondary" id="successReplayBtn">↻ เล่นอีกครั้ง</button>
+      <button class="successBtn" id="successNextBtn">ถัดไป →</button>
+    </div>
+  </div>
+</div>
+
+<div class="successPopup" id="askPopup" hidden role="dialog" aria-modal="true" aria-labelledby="askTitle">
+  <div class="successBox">
+    <div class="successEmoji" id="askEmoji">🤔</div>
+    <h2 id="askTitle">แน่ใจนะ?</h2>
+    <p id="askMessage"></p>
+    <div class="successActions" id="askActions">
+      <button class="successBtn secondary" id="askCancelBtn">ไม่แล้ว</button>
+      <button class="successBtn" id="askOkBtn">ตกลง</button>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ================= ภาพระบายสี (SVG) ================= */
 const S = (inner) => `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
   <g fill="#fff" stroke="#3D3562" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">${inner}</g></svg>`;
+
+/* ================= เสียงประกอบ + อ่านออกเสียง ================= */
+const sfx = (()=>{
+  let ac = null;
+  let on = true;
+  try{ const saved = window.localStorage.getItem("punpin_sound"); if(saved !== null) on = saved === "1"; }catch(e){}
+  const ctx = ()=>{
+    try{
+      ac = ac || new (window.AudioContext||window.webkitAudioContext)();
+      if(ac.state === "suspended") ac.resume();
+      return ac;
+    }catch(e){ return null; }
+  };
+  function tone(f, type, dur=.12, vol=.16, delay=0){
+    const a = ctx(); if(!a) return;
+    const o = a.createOscillator(), g = a.createGain();
+    o.type = type; o.frequency.value = f;
+    g.gain.setValueAtTime(vol, a.currentTime + delay);
+    g.gain.exponentialRampToValueAtTime(.001, a.currentTime + delay + dur);
+    o.connect(g); g.connect(a.destination);
+    o.start(a.currentTime + delay); o.stop(a.currentTime + delay + dur);
+  }
+  return {
+    get on(){ return on; },
+    toggle(){ on = !on; try{ window.localStorage.setItem("punpin_sound", on?"1":"0"); }catch(e){} return on; },
+    pop(){ if(on){ tone(560,"triangle",.09,.14); tone(840,"triangle",.1,.11,.05); } },
+    good(){ if(on){ tone(660,"sine",.12,.17); tone(880,"sine",.16,.17,.09); } },
+    try(){ if(on) tone(210,"square",.15,.07); },
+    win(){ if(on) [523,659,784,1047].forEach((f,i)=>tone(f,"triangle",.22,.18,i*.13)); }
+  };
+})();
+function speakThai(text){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "th-TH"; u.rate = 0.92; u.pitch = 1.05;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
 
 const PICS = [
 /* ---------- 👑 เจ้าหญิง (12 แบบ) ---------- */
@@ -1138,160 +1253,1330 @@ const PICS = [
 ];
 
 /* ภาพชุดเสริมสำหรับเด็ก 3-6 ขวบ: สร้างจากทรงใหญ่ แตะระบายง่าย */
-function kidPicSvg(group, kind, variant){
-  const deco = variant === 0
-    ? `<circle class="r" cx="92" cy="82" r="18"/>`
-    : variant === 1
-      ? `<path class="r" d="M78 66 L86 88 L108 96 L86 104 L78 126 L70 104 L48 96 L70 88 Z"/>`
-      : `<circle class="r" cx="316" cy="76" r="13"/><circle class="r" cx="346" cy="48" r="8"/>`;
-  if(group === "food"){
-    const shapes = [
-      `<circle class="r" cx="200" cy="214" r="126"/><path class="r" d="M194 88 Q198 42 230 28 L248 48 Q214 64 208 94 Z"/><path class="r" d="M214 78 Q272 42 310 76 Q268 108 214 78 Z"/><circle class="r" cx="164" cy="210" r="14"/><circle class="r" cx="236" cy="210" r="14"/><path d="M174 250 Q200 272 226 250" fill="none"/>`,
-      `<path class="r" d="M200 54 C130 96 86 190 102 304 Q200 360 298 304 C314 190 270 96 200 54 Z"/><circle class="r" cx="160" cy="172" r="15"/><circle class="r" cx="236" cy="198" r="14"/><circle class="r" cx="188" cy="264" r="13"/><path class="r" d="M158 82 Q200 34 242 82 Z"/>`,
-      `<path class="r" d="M66 318 L200 64 L334 318 Z"/><path class="r" d="M66 318 Q200 368 334 318 L316 278 Q200 316 84 278 Z"/><circle class="r" cx="160" cy="238" r="18"/><circle class="r" cx="242" cy="220" r="18"/>`,
-      `<rect class="r" x="104" y="116" width="192" height="224" rx="24"/><path class="r" d="M92 116 H308 L282 72 H118 Z"/><rect class="r" x="142" y="164" width="116" height="86" rx="18"/><circle class="r" cx="200" cy="207" r="25"/><path d="M148 292 H252" fill="none"/>`,
-      `<ellipse class="r" cx="200" cy="224" rx="146" ry="112"/><ellipse class="r" cx="200" cy="224" rx="70" ry="46"/><circle class="r" cx="146" cy="178" r="17"/><circle class="r" cx="256" cy="188" r="16"/><path class="r" d="M160 292 Q200 256 240 292 Q200 332 160 292 Z"/>`
-    ];
-    return S(shapes[kind] + deco);
-  }
-  if(group === "toy"){
-    const shapes = [
-      `<path class="r" d="M58 270 V222 L118 210 L152 160 H256 L294 210 L342 220 V270 Z"/><circle class="r" cx="120" cy="280" r="38"/><circle class="r" cx="286" cy="280" r="38"/><rect class="r" x="166" y="174" width="72" height="38" rx="8"/>`,
-      `<circle class="r" cx="200" cy="190" r="94"/><circle class="r" cx="200" cy="190" r="30"/><path d="M200 284 Q200 344 250 362" fill="none"/><path class="r" d="M238 346 L274 338 L260 370 Z"/>`,
-      `<circle class="r" cx="200" cy="130" r="62"/><path class="r" d="M150 196 H250 L270 326 H130 Z"/><circle class="r" cx="176" cy="124" r="10"/><circle class="r" cx="224" cy="124" r="10"/><path d="M182 154 Q200 168 218 154" fill="none"/><circle class="r" cx="122" cy="234" r="25"/><circle class="r" cx="278" cy="234" r="25"/>`,
-      `<ellipse class="r" cx="200" cy="256" rx="120" ry="70"/><rect class="r" x="92" y="120" width="216" height="136" rx="24"/><path d="M116 158 H284 M116 198 H284" fill="none"/><circle class="r" cx="142" cy="158" r="12"/><circle class="r" cx="200" cy="198" r="12"/><circle class="r" cx="258" cy="158" r="12"/>`,
-      `<path class="r" d="M76 298 Q200 78 324 298 Z"/><path class="r" d="M200 78 V330" fill="none"/><circle class="r" cx="200" cy="78" r="24"/><path class="r" d="M118 300 Q200 256 282 300 L268 344 H132 Z"/>`
-    ];
-    return S(shapes[kind] + deco);
-  }
-  const dinoShapes = [
-    `<ellipse class="r" cx="184" cy="250" rx="128" ry="74"/><path class="r" d="M264 220 Q336 154 374 218 Q350 278 270 270 Z"/><path class="r" d="M70 238 L22 196 L30 258 Z"/><rect class="r" x="104" y="300" width="34" height="66" rx="10"/><rect class="r" x="224" y="300" width="34" height="66" rx="10"/><circle class="r" cx="330" cy="216" r="9"/>`,
-    `<path class="r" d="M62 270 C80 158 176 112 274 144 L350 112 L320 178 Q342 250 270 286 H160 L132 350 H86 L104 276 Z"/><path class="r" d="M166 172 L192 82 L222 170 Z"/><circle class="r" cx="292" cy="166" r="9"/><path class="r" d="M230 278 L278 346 H236 L198 286 Z"/>`,
-    `<ellipse class="r" cx="180" cy="274" rx="126" ry="70"/><path class="r" d="M236 274 C248 194 244 106 308 72 Q366 50 370 104 Q356 148 312 136 Q282 174 282 294 Z"/><path class="r" d="M66 266 L20 230 L30 286 Z"/><rect class="r" x="96" y="318" width="32" height="58" rx="10"/><rect class="r" x="214" y="318" width="32" height="58" rx="10"/>`,
-    `<ellipse class="r" cx="202" cy="250" rx="136" ry="76"/><path class="r" d="M84 226 L34 184 L42 248 Z"/><path class="r" d="M116 196 L140 112 L172 194 Z"/><path class="r" d="M172 180 L210 84 L238 186 Z"/><path class="r" d="M236 194 L270 120 L294 210 Z"/><circle class="r" cx="316" cy="236" r="9"/>`,
-    `<path class="r" d="M190 188 L44 82 Q72 184 154 236 Z"/><path class="r" d="M210 188 L356 82 Q328 184 246 236 Z"/><path class="r" d="M200 116 C168 148 162 226 180 286 L200 350 L220 286 C238 226 232 148 200 116 Z"/><path class="r" d="M200 116 L270 86 L222 146 Z"/><circle class="r" cx="224" cy="120" r="8"/>`
-  ];
-  return S(dinoShapes[kind] + deco);
-}
 
-const MORE_KIDS_PICS = [
-  ...[["orange","ส้ม",0],["strawberry","สตรอว์เบอร์รี",1],["watermelon","แตงโม",2],["milk","กล่องนม",3],["cookie","คุกกี้",4],["peach","ลูกพีช",0],["grapes","องุ่น",1],["cake","เค้ก",2],["popcorn","ป๊อปคอร์น",3],["egg","ไข่ดาว",4],["tomato","มะเขือเทศ",0],["cherries","เชอร์รี",1],["sandwich","แซนด์วิช",2],["fries","เฟรนช์ฟรายส์",3],["burger","แฮมเบอร์เกอร์",4]].map((x,i)=>({id:x[0],cat:"food",name:x[1],svg:kidPicSvg("food",x[2],i%3)})),
-  ...[["toy_car","รถของเล่น",0],["yoyo","โยโย่",1],["doll","ตุ๊กตา",2],["drum","กลอง",3],["spinning_top","ลูกข่าง",4],["toy_train","รถไฟของเล่น",0],["marbles","ลูกแก้ว",1],["rocking_horse","ม้าโยก",2],["xylophone","ระนาดของเล่น",3],["jump_rope","เชือกกระโดด",4],["toy_plane","เครื่องบินของเล่น",0],["magic_wand","ไม้กายสิทธิ์",1],["rubber_duck","เป็ดยาง",2],["trumpet","แตรของเล่น",3],["puzzle_piece","จิ๊กซอว์",4]].map((x,i)=>({id:x[0],cat:"toy",name:x[1],svg:kidPicSvg("toy",x[2],i%3)})),
-  ...[["ankylosaurus","แองคิโลซอรัส",0],["spinosaurus","สไปโนซอรัส",1],["diplodocus","ดิพลอโดคัส",2],["parasaurolophus","พาราซอโรโลฟัส",3],["archaeopteryx","อาร์คีออปเทอริกซ์",4],["iguanodon","อิกัวโนดอน",0],["allosaurus","อัลโลซอรัส",1],["brachiosaurus","แบรคิโอซอรัส",2],["pachycephalosaurus","แพคีเซฟาโลซอรัส",3],["pteranodon","เทอราโนดอน",4],["carnotaurus","คาร์โนทอรัส",0],["velociraptor","เวโลซีแรปเตอร์",1],["plesiosaurus","เพลสิโอซอรัส",2],["kentrosaurus","เคนโทรซอรัส",3],["baby_dino","ลูกไดโนเสาร์",4]].map((x,i)=>({id:x[0],cat:"dino",name:x[1],svg:kidPicSvg("dino",x[2],i%3)}))
+
+/* ================= ภาพชุดเสริม: วาดเฉพาะทีละภาพ ตรงตามชื่อ ================= */
+const KHEAD = `<circle class="r" cx="200" cy="130" r="60"/>`;
+const KFACE = `<circle cx="180" cy="126" r="6" fill="#3D3562" stroke="none"/><circle cx="220" cy="126" r="6" fill="#3D3562" stroke="none"/><path d="M184 152 Q200 164 216 152" fill="none"/>`;
+const KBODY = `<path class="r" d="M156 196 H244 L264 310 H136 Z"/><circle class="r" cx="122" cy="238" r="22"/><circle class="r" cx="278" cy="238" r="22"/><rect class="r" x="156" y="306" width="32" height="56" rx="12"/><rect class="r" x="212" y="306" width="32" height="56" rx="12"/>`;
+const KID = KHEAD + KBODY + KFACE;
+
+const EXTRA_PICS = [
+/* ---------- 🍎 ของกิน ---------- */
+{ id:"f_orange", cat:"food", name:"ส้ม", svg:S(`
+  <circle class="r" cx="200" cy="228" r="120"/>
+  <path class="r" d="M196 108 Q194 72 216 58 L230 74 Q210 84 208 108 Z"/>
+  <ellipse class="r" cx="254" cy="82" rx="38" ry="17" transform="rotate(-24 254 82)"/>
+  <circle class="r" cx="160" cy="204" r="12"/><circle class="r" cx="234" cy="200" r="12"/>
+  <path d="M172 262 Q200 282 228 262" fill="none"/>
+`)},
+{ id:"f_strawberry", cat:"food", name:"สตรอว์เบอร์รี", svg:S(`
+  <path class="r" d="M200 112 C120 136 96 218 200 340 C304 218 280 136 200 112 Z"/>
+  <path class="r" d="M148 120 L166 66 L200 106 L234 66 L252 120 Q200 142 148 120 Z"/>
+  <circle class="r" cx="168" cy="184" r="7"/><circle class="r" cx="232" cy="184" r="7"/>
+  <circle class="r" cx="200" cy="232" r="7"/><circle class="r" cx="172" cy="266" r="6"/><circle class="r" cx="228" cy="266" r="6"/>
+`)},
+{ id:"f_watermelon", cat:"food", name:"แตงโม", svg:S(`
+  <path class="r" d="M52 248 A148 148 0 0 1 348 248 Z"/>
+  <path class="r" d="M84 248 A116 116 0 0 1 316 248 Z"/>
+  <rect class="r" x="44" y="248" width="312" height="26" rx="13"/>
+  <g fill="#3D3562" stroke="none"><ellipse cx="150" cy="202" rx="7" ry="11"/><ellipse cx="200" cy="170" rx="7" ry="11"/><ellipse cx="250" cy="202" rx="7" ry="11"/></g>
+`)},
+{ id:"f_milk", cat:"food", name:"กล่องนม", svg:S(`
+  <path class="r" d="M240 70 L262 22 L290 32 L270 76 Z"/>
+  <path class="r" d="M118 128 H282 L258 70 H142 Z"/>
+  <rect class="r" x="118" y="128" width="164" height="220" rx="14"/>
+  <circle class="r" cx="200" cy="232" r="44"/>
+  <path d="M150 302 H250" fill="none"/>
+`)},
+{ id:"f_cookie", cat:"food", name:"คุกกี้", svg:S(`
+  <circle class="r" cx="200" cy="212" r="125"/>
+  <circle class="r" cx="160" cy="170" r="15"/><circle class="r" cx="246" cy="184" r="14"/>
+  <circle class="r" cx="186" cy="252" r="14"/><circle class="r" cx="256" cy="256" r="12"/><circle class="r" cx="144" cy="236" r="11"/>
+`)},
+{ id:"f_peach", cat:"food", name:"ลูกพีช", svg:S(`
+  <circle class="r" cx="200" cy="232" r="114"/>
+  <path d="M200 136 Q184 220 200 344" fill="none" stroke-width="5"/>
+  <path class="r" d="M200 122 Q198 84 224 68 L238 86 Q214 98 212 122 Z"/>
+  <ellipse class="r" cx="258" cy="94" rx="36" ry="16" transform="rotate(-22 258 94)"/>
+`)},
+{ id:"f_grapes", cat:"food", name:"องุ่น", svg:S(`
+  <path d="M200 100 Q196 62 218 40" fill="none"/>
+  <ellipse class="r" cx="252" cy="66" rx="34" ry="15" transform="rotate(-20 252 66)"/>
+  <circle class="r" cx="165" cy="142" r="38"/><circle class="r" cx="235" cy="142" r="38"/>
+  <circle class="r" cx="130" cy="202" r="38"/><circle class="r" cx="200" cy="202" r="38"/><circle class="r" cx="270" cy="202" r="38"/>
+  <circle class="r" cx="165" cy="262" r="38"/><circle class="r" cx="235" cy="262" r="38"/>
+  <circle class="r" cx="200" cy="318" r="38"/>
+`)},
+{ id:"f_cake", cat:"food", name:"เค้กวันเกิด", svg:S(`
+  <rect class="r" x="82" y="252" width="236" height="86" rx="14"/>
+  <path class="r" d="M112 188 H288 V206 Q266 226 244 206 Q222 226 200 206 Q178 226 156 206 Q134 226 112 206 Z"/>
+  <rect class="r" x="112" y="206" width="176" height="48"/>
+  <rect class="r" x="192" y="128" width="16" height="60" rx="6"/>
+  <path class="r" d="M200 94 Q216 112 200 128 Q184 112 200 94 Z"/>
+  <circle class="r" cx="130" cy="296" r="12"/><circle class="r" cx="200" cy="296" r="12"/><circle class="r" cx="270" cy="296" r="12"/>
+`)},
+{ id:"f_egg", cat:"food", name:"ไข่ดาว", svg:S(`
+  <path class="r" d="M96 208 Q84 128 168 112 Q232 60 292 128 Q352 176 306 244 Q322 308 244 310 Q160 340 122 282 Q72 262 96 208 Z"/>
+  <circle class="r" cx="205" cy="210" r="52"/>
+`)},
+{ id:"f_tomato", cat:"food", name:"มะเขือเทศ", svg:S(`
+  <circle class="r" cx="200" cy="234" r="114"/>
+  <path class="r" d="M200 132 L152 96 L186 126 L176 78 L200 120 L224 78 L214 126 L248 96 Z"/>
+  <path d="M170 268 Q200 290 230 268" fill="none"/>
+`)},
+{ id:"f_cherries", cat:"food", name:"เชอร์รี", svg:S(`
+  <path d="M204 58 Q152 110 150 208 M204 58 Q254 110 256 208" fill="none"/>
+  <ellipse class="r" cx="244" cy="54" rx="36" ry="16" transform="rotate(-15 244 54)"/>
+  <circle class="r" cx="148" cy="262" r="56"/><circle class="r" cx="256" cy="262" r="56"/>
+`)},
+{ id:"f_fries", cat:"food", name:"เฟรนช์ฟรายส์", svg:S(`
+  <rect class="r" x="130" y="96" width="26" height="130" rx="8"/><rect class="r" x="164" y="74" width="26" height="150" rx="8"/>
+  <rect class="r" x="198" y="88" width="26" height="140" rx="8"/><rect class="r" x="232" y="70" width="26" height="156" rx="8"/>
+  <path class="r" d="M108 200 L132 356 H268 L292 200 Z"/>
+  <path d="M168 302 Q184 272 200 302 Q216 272 232 302" fill="none" stroke-width="5"/>
+`)},
+{ id:"f_burger", cat:"food", name:"แฮมเบอร์เกอร์", svg:S(`
+  <path class="r" d="M72 178 Q200 62 328 178 V198 H72 Z"/>
+  <ellipse class="r" cx="150" cy="130" rx="11" ry="7"/><ellipse class="r" cx="212" cy="112" rx="11" ry="7"/><ellipse class="r" cx="264" cy="140" rx="11" ry="7"/>
+  <path class="r" d="M64 198 H336 L316 226 L296 204 L276 228 L256 204 L236 228 L216 204 L196 228 L176 204 L156 228 L136 204 L116 228 L96 204 L80 224 Z"/>
+  <rect class="r" x="80" y="228" width="240" height="34" rx="15"/>
+  <rect class="r" x="72" y="264" width="256" height="46" rx="20"/>
+`)},
+/* ---------- 🧸 ของเล่น ---------- */
+{ id:"t_car", cat:"toy", name:"รถของเล่น", svg:S(`
+  <path class="r" d="M58 270 V222 L118 210 L152 160 H256 L294 210 L342 220 V270 Z"/>
+  <rect class="r" x="166" y="174" width="72" height="38" rx="8"/>
+  <circle class="r" cx="120" cy="280" r="38"/><circle class="r" cx="286" cy="280" r="38"/>
+  <circle class="r" cx="120" cy="280" r="14"/><circle class="r" cx="286" cy="280" r="14"/>
+`)},
+{ id:"t_yoyo", cat:"toy", name:"โยโย่", svg:S(`
+  <circle class="r" cx="180" cy="226" r="100"/><circle class="r" cx="180" cy="226" r="34"/>
+  <path d="M180 126 Q262 62 322 94" fill="none"/>
+  <circle class="r" cx="334" cy="100" r="16"/>
+`)},
+{ id:"t_drum", cat:"toy", name:"กลอง", svg:S(`
+  <path d="M124 62 L188 132 M276 62 L212 132" fill="none"/>
+  <circle class="r" cx="116" cy="54" r="14"/><circle class="r" cx="284" cy="54" r="14"/>
+  <path class="r" d="M80 152 V282 Q200 332 320 282 V152 Z"/>
+  <ellipse class="r" cx="200" cy="152" rx="120" ry="42"/>
+  <path d="M80 204 L140 254 L200 204 L260 254 L320 204" fill="none" stroke-width="5"/>
+`)},
+{ id:"t_top", cat:"toy", name:"ลูกข่าง", svg:S(`
+  <circle class="r" cx="200" cy="72" r="16"/>
+  <rect class="r" x="188" y="86" width="24" height="30"/>
+  <path class="r" d="M110 152 Q200 98 290 152 L200 344 Z"/>
+  <path class="r" d="M118 190 Q200 230 282 190 L264 238 Q200 272 136 238 Z"/>
+`)},
+{ id:"t_train", cat:"toy", name:"รถไฟของเล่น", svg:S(`
+  <circle class="r" cx="322" cy="92" r="20"/><circle class="r" cx="352" cy="58" r="14"/>
+  <rect class="r" x="284" y="130" width="30" height="72" rx="8"/>
+  <rect class="r" x="60" y="150" width="120" height="112" rx="12"/>
+  <rect class="r" x="86" y="176" width="64" height="44" rx="8"/>
+  <rect class="r" x="180" y="198" width="150" height="64" rx="10"/>
+  <path class="r" d="M330 262 L376 302 H310 Z"/>
+  <circle class="r" cx="110" cy="302" r="30"/><circle class="r" cx="220" cy="302" r="26"/><circle class="r" cx="298" cy="302" r="26"/>
+`)},
+{ id:"t_marbles", cat:"toy", name:"ลูกแก้ว", svg:S(`
+  <circle class="r" cx="130" cy="172" r="66"/><path d="M96 152 Q130 124 164 152" fill="none" stroke-width="5"/>
+  <circle class="r" cx="270" cy="150" r="56"/><path d="M242 134 Q270 110 298 134" fill="none" stroke-width="5"/>
+  <circle class="r" cx="200" cy="292" r="70"/><path d="M164 270 Q200 240 236 270" fill="none" stroke-width="5"/>
+  <circle class="r" cx="318" cy="272" r="40"/>
+`)},
+{ id:"t_rockinghorse", cat:"toy", name:"ม้าโยก", svg:S(`
+  <path class="r" d="M108 210 Q64 198 58 238 Q88 246 112 230 Z"/>
+  <rect class="r" x="122" y="240" width="22" height="80" rx="8"/><rect class="r" x="256" y="240" width="22" height="80" rx="8"/>
+  <ellipse class="r" cx="200" cy="222" rx="95" ry="52"/>
+  <path class="r" d="M262 198 Q280 122 330 110 Q368 106 358 142 Q348 170 316 166 Q296 188 292 218 Z"/>
+  <path class="r" d="M320 110 L330 78 L346 106 Z"/>
+  <circle class="r" cx="286" cy="136" r="16"/><circle class="r" cx="272" cy="166" r="13"/>
+  <path class="r" d="M164 178 H238 L230 216 H172 Z"/>
+  <path class="r" d="M60 332 Q200 398 340 332 L332 308 Q200 368 68 308 Z"/>
+  <circle cx="332" cy="132" r="6" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"t_xylophone", cat:"toy", name:"ระนาดของเล่น", svg:S(`
+  <path d="M124 62 L172 132 M276 62 L228 132" fill="none"/>
+  <circle class="r" cx="116" cy="52" r="14"/><circle class="r" cx="284" cy="52" r="14"/>
+  <path class="r" d="M62 172 H338 L300 334 H100 Z"/>
+  <rect class="r" x="86" y="194" width="228" height="26" rx="11"/>
+  <rect class="r" x="96" y="230" width="208" height="26" rx="11"/>
+  <rect class="r" x="106" y="266" width="188" height="26" rx="11"/>
+  <rect class="r" x="116" y="302" width="168" height="24" rx="11"/>
+`)},
+{ id:"t_plane", cat:"toy", name:"เครื่องบินของเล่น", svg:S(`
+  <path class="r" d="M84 192 L48 130 H100 L124 184 Z"/>
+  <ellipse class="r" cx="200" cy="212" rx="130" ry="56"/>
+  <path class="r" d="M158 164 Q200 118 242 164 Z"/>
+  <path class="r" d="M150 228 L60 302 H150 L216 234 Z"/>
+  <circle class="r" cx="182" cy="202" r="12"/><circle class="r" cx="230" cy="202" r="12"/>
+  <ellipse class="r" cx="334" cy="168" rx="12" ry="34"/><ellipse class="r" cx="334" cy="256" rx="12" ry="34"/>
+  <circle class="r" cx="334" cy="212" r="14"/>
+`)},
+{ id:"t_duck", cat:"toy", name:"เป็ดยาง", svg:S(`
+  <ellipse class="r" cx="212" cy="272" rx="130" ry="72"/>
+  <path class="r" d="M330 244 Q368 220 358 262 Q346 276 326 266 Z"/>
+  <circle class="r" cx="120" cy="162" r="58"/>
+  <path class="r" d="M66 160 L20 178 L66 192 Z"/>
+  <ellipse class="r" cx="242" cy="272" rx="52" ry="34" transform="rotate(-20 242 272)"/>
+  <circle cx="132" cy="150" r="7" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"t_puzzle", cat:"toy", name:"จิ๊กซอว์", svg:S(`
+  <path class="r" d="M110 110 H180 Q170 68 200 68 Q230 68 220 110 H290 V180 Q332 170 332 200 Q332 230 290 220 V290 H220 Q230 332 200 332 Q170 332 180 290 H110 V220 Q68 230 68 200 Q68 170 110 180 Z"/>
+  <circle cx="172" cy="182" r="7" fill="#3D3562" stroke="none"/><circle cx="228" cy="182" r="7" fill="#3D3562" stroke="none"/>
+  <path d="M176 226 Q200 244 224 226" fill="none"/>
+`)},
+/* ---------- 🦕 ไดโนเสาร์ ---------- */
+{ id:"dn_anky", cat:"dino", name:"แองคิโลซอรัส", svg:S(`
+  <path class="r" d="M66 242 Q18 232 24 198 Q56 202 78 226 Z"/>
+  <circle class="r" cx="28" cy="190" r="22"/>
+  <ellipse class="r" cx="190" cy="256" rx="128" ry="66"/>
+  <circle class="r" cx="122" cy="206" r="16"/><circle class="r" cx="170" cy="194" r="16"/><circle class="r" cx="222" cy="194" r="16"/><circle class="r" cx="270" cy="206" r="16"/>
+  <circle class="r" cx="330" cy="232" r="34"/>
+  <rect class="r" x="120" y="302" width="30" height="58" rx="10"/><rect class="r" x="230" y="302" width="30" height="58" rx="10"/>
+  <circle cx="342" cy="224" r="6" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"dn_spino", cat:"dino", name:"สไปโนซอรัส", svg:S(`
+  <path class="r" d="M74 252 L20 228 L34 284 Z"/>
+  <path class="r" d="M94 234 Q112 132 192 120 Q272 132 290 234 Q192 198 94 234 Z"/>
+  <ellipse class="r" cx="190" cy="264" rx="120" ry="60"/>
+  <path class="r" d="M296 238 L376 220 L372 254 L300 266 Z"/>
+  <rect class="r" x="122" y="308" width="30" height="56" rx="10"/><rect class="r" x="226" y="308" width="30" height="56" rx="10"/>
+  <circle cx="316" cy="238" r="5" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"dn_para", cat:"dino", name:"พาราซอโรโลฟัส", svg:S(`
+  <path class="r" d="M66 264 L18 240 L30 294 Z"/>
+  <ellipse class="r" cx="180" cy="274" rx="118" ry="62"/>
+  <path class="r" d="M242 242 Q262 162 300 142 Q330 130 340 152 Q346 172 320 178 Q296 186 288 242 Z"/>
+  <path class="r" d="M312 138 Q350 92 378 96 Q372 130 336 150 Z"/>
+  <rect class="r" x="118" y="316" width="30" height="52" rx="10"/><rect class="r" x="212" y="316" width="30" height="52" rx="10"/>
+  <circle cx="318" cy="156" r="5" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"dn_pachy", cat:"dino", name:"แพคีเซฟาโลซอรัส", svg:S(`
+  <circle class="r" cx="196" cy="66" r="10"/><circle class="r" cx="230" cy="56" r="10"/><circle class="r" cx="264" cy="68" r="10"/>
+  <circle class="r" cx="230" cy="114" r="56"/>
+  <path class="r" d="M282 126 L332 144 L286 160 Z"/>
+  <path class="r" d="M156 268 Q86 274 62 238 Q104 220 160 234 Z"/>
+  <ellipse class="r" cx="196" cy="264" rx="80" ry="90"/>
+  <circle class="r" cx="126" cy="222" r="18"/>
+  <rect class="r" x="152" y="336" width="32" height="40" rx="10"/><rect class="r" x="212" y="336" width="32" height="40" rx="10"/>
+  <circle cx="244" cy="106" r="6" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"dn_raptor", cat:"dino", name:"เวโลซีแรปเตอร์", svg:S(`
+  <path class="r" d="M94 234 Q30 228 18 194 Q66 190 110 212 Z"/>
+  <ellipse class="r" cx="184" cy="238" rx="92" ry="52" transform="rotate(-8 184 238)"/>
+  <path class="r" d="M244 210 Q252 154 296 144 L348 134 L312 170 L344 178 L296 192 Q272 198 262 222 Z"/>
+  <path class="r" d="M150 280 L138 350 H170 L178 286 Z"/>
+  <path class="r" d="M216 276 L240 332 L270 324 L242 270 Z"/>
+  <path d="M154 214 Q170 200 186 212 M204 208 Q220 194 236 206" fill="none" stroke-width="4"/>
+  <circle cx="300" cy="158" r="5" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"dn_plesio", cat:"dino", name:"เพลสิโอซอรัส", svg:S(`
+  <ellipse class="r" cx="84" cy="148" rx="36" ry="26"/>
+  <path class="r" d="M120 300 Q60 272 60 192 Q60 160 88 160 Q112 162 108 194 Q108 248 154 274 Z"/>
+  <path class="r" d="M110 330 Q120 240 210 240 Q292 244 302 330 Z"/>
+  <ellipse class="r" cx="232" cy="322" rx="42" ry="16" transform="rotate(18 232 322)"/>
+  <path d="M20 336 Q45 320 70 336 T120 336 T170 336 T220 336 T270 336 T320 336 T370 336" fill="none" stroke-width="5"/>
+  <circle cx="72" cy="142" r="6" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"dn_baby", cat:"dino", name:"ลูกไดโนเสาร์", svg:S(`
+  <path class="r" d="M292 92 L310 120 L332 98 L346 128 L354 88 Q330 62 296 70 Z"/>
+  <circle class="r" cx="200" cy="172" r="66"/>
+  <path class="r" d="M170 118 L182 84 L198 114 Z"/><path class="r" d="M206 112 L222 82 L236 114 Z"/>
+  <path class="r" d="M110 222 L130 252 L152 224 L178 254 L200 226 L226 254 L250 224 L272 252 L290 222 Q304 332 200 338 Q96 332 110 222 Z"/>
+  <circle cx="180" cy="168" r="7" fill="#3D3562" stroke="none"/><circle cx="222" cy="168" r="7" fill="#3D3562" stroke="none"/>
+  <path d="M186 194 Q200 204 216 194" fill="none"/>
+`)},
+/* ---------- 🚀 โลกอวกาศ ---------- */
+{ id:"sp_saturn", cat:"space", name:"ดาวเสาร์", svg:S(`
+  <circle class="r" cx="200" cy="206" r="112"/>
+  <ellipse class="r" cx="200" cy="206" rx="172" ry="40" transform="rotate(-15 200 206)"/>
+  <circle class="r" cx="164" cy="172" r="20"/><circle class="r" cx="244" cy="238" r="16"/>
+  <path class="r" d="M64 60 L72 80 L92 88 L72 96 L64 116 L56 96 L36 88 L56 80 Z"/>
+  <circle class="r" cx="340" cy="66" r="13"/>
+`)},
+{ id:"sp_earth", cat:"space", name:"โลกของเรา", svg:S(`
+  <circle class="r" cx="200" cy="204" r="130"/>
+  <path class="r" d="M120 144 Q160 110 202 134 Q216 164 186 180 Q138 188 120 144 Z"/>
+  <path class="r" d="M232 214 Q288 200 302 244 Q282 290 234 276 Q212 244 232 214 Z"/>
+  <path class="r" d="M150 254 Q182 248 188 278 Q170 300 144 286 Z"/>
+  <path class="r" d="M330 54 L337 72 L356 79 L337 86 L330 105 L323 86 L304 79 L323 72 Z"/>
+`)},
+{ id:"sp_astronaut", cat:"space", name:"นักบินอวกาศ", svg:S(`
+  <circle class="r" cx="200" cy="118" r="70"/>
+  <rect class="r" x="152" y="90" width="96" height="60" rx="28"/>
+  <path class="r" d="M150 188 H250 L268 308 H132 Z"/>
+  <rect class="r" x="176" y="212" width="48" height="34" rx="8"/>
+  <circle class="r" cx="152" cy="264" r="9"/><circle class="r" cx="248" cy="264" r="9"/>
+  <circle class="r" cx="116" cy="234" r="22"/><circle class="r" cx="284" cy="234" r="22"/>
+  <rect class="r" x="152" y="304" width="34" height="58" rx="12"/><rect class="r" x="214" y="304" width="34" height="58" rx="12"/>
+  <path class="r" d="M60 76 L67 94 L86 101 L67 108 L60 126 L53 108 L34 101 L53 94 Z"/>
+  <circle class="r" cx="336" cy="64" r="12"/>
+`)},
+{ id:"sp_ufo", cat:"space", name:"จานบิน", svg:S(`
+  <path class="r" d="M140 160 Q200 84 260 160 Z"/>
+  <ellipse class="r" cx="200" cy="184" rx="150" ry="44"/>
+  <circle class="r" cx="120" cy="190" r="12"/><circle class="r" cx="200" cy="200" r="12"/><circle class="r" cx="280" cy="190" r="12"/>
+  <path class="r" d="M162 222 L122 336 H278 L238 222 Z"/>
+  <path class="r" d="M330 70 L337 88 L356 95 L337 102 L330 121 L323 102 L304 95 L323 88 Z"/>
+  <circle cx="184" cy="136" r="5" fill="#3D3562" stroke="none"/><circle cx="216" cy="136" r="5" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"sp_telescope", cat:"space", name:"กล้องดูดาว", svg:S(`
+  <path class="r" d="M96 224 L268 110 L302 160 L130 274 Z"/>
+  <path class="r" d="M282 98 L330 66 L354 102 L306 134 Z"/>
+  <path d="M170 254 L120 364 M202 244 L202 364 M216 250 L282 364" fill="none"/>
+  <path class="r" d="M70 74 L77 92 L96 99 L77 106 L70 124 L63 106 L44 99 L63 92 Z"/>
+  <circle class="r" cx="352" cy="196" r="12"/><circle class="r" cx="316" cy="34" r="9"/>
+`)},
+{ id:"sp_comet", cat:"space", name:"ดาวหาง", svg:S(`
+  <path class="r" d="M214 150 Q100 182 30 242 Q132 226 202 186 Z"/>
+  <path class="r" d="M238 182 Q124 242 44 342 Q146 302 214 242 Z"/>
+  <path class="r" d="M282 62 L304 120 L366 124 L318 164 L334 226 L282 192 L230 226 L246 164 L198 124 L260 120 Z"/>
+  <circle class="r" cx="88" cy="120" r="11"/><circle class="r" cx="330" cy="300" r="9"/>
+`)},
+{ id:"sp_alien", cat:"space", name:"มนุษย์ต่างดาว", svg:S(`
+  <path d="M160 66 Q150 40 130 34 M240 66 Q250 40 270 34" fill="none"/>
+  <circle class="r" cx="122" cy="28" r="13"/><circle class="r" cx="278" cy="28" r="13"/>
+  <ellipse class="r" cx="200" cy="146" rx="88" ry="74"/>
+  <ellipse class="r" cx="168" cy="146" rx="22" ry="30"/><ellipse class="r" cx="232" cy="146" rx="22" ry="30"/>
+  <g fill="#3D3562" stroke="none"><ellipse cx="168" cy="152" rx="9" ry="13"/><ellipse cx="232" cy="152" rx="9" ry="13"/></g>
+  <path d="M184 196 Q200 208 216 196" fill="none"/>
+  <path class="r" d="M162 218 H238 L254 322 H146 Z"/>
+  <circle class="r" cx="120" cy="252" r="18"/><circle class="r" cx="280" cy="252" r="18"/>
+  <rect class="r" x="164" y="318" width="28" height="46" rx="10"/><rect class="r" x="208" y="318" width="28" height="46" rx="10"/>
+`)},
+/* ---------- 🏫 บ้านและโรงเรียน ---------- */
+{ id:"sc_home", cat:"school", name:"บ้านของฉัน", svg:S(`
+  <rect class="r" x="252" y="88" width="32" height="66" rx="6"/>
+  <rect class="r" x="84" y="180" width="232" height="164" rx="10"/>
+  <path class="r" d="M60 180 L200 72 L340 180 Z"/>
+  <path class="r" d="M176 344 V282 A24 24 0 0 1 224 282 V344 Z"/>
+  <rect class="r" x="106" y="210" width="48" height="48" rx="8"/><rect class="r" x="246" y="210" width="48" height="48" rx="8"/>
+  <circle class="r" cx="60" cy="70" r="26"/>
+`)},
+{ id:"sc_school", cat:"school", name:"โรงเรียนของหนู", svg:S(`
+  <path d="M200 90 V38" fill="none"/><path class="r" d="M200 38 L248 52 L200 66 Z"/>
+  <rect class="r" x="70" y="170" width="260" height="170" rx="10"/>
+  <path class="r" d="M50 170 L200 90 L350 170 Z"/>
+  <circle class="r" cx="200" cy="140" r="24"/>
+  <path d="M200 128 V140 H212" fill="none" stroke-width="4"/>
+  <path class="r" d="M176 340 V278 A24 24 0 0 1 224 278 V340 Z"/>
+  <rect class="r" x="96" y="200" width="46" height="46" rx="8"/><rect class="r" x="258" y="200" width="46" height="46" rx="8"/>
+  <rect class="r" x="96" y="266" width="46" height="46" rx="8"/><rect class="r" x="258" y="266" width="46" height="46" rx="8"/>
+`)},
+{ id:"sc_book", cat:"school", name:"หนังสือนิทาน", svg:S(`
+  <path class="r" d="M40 112 Q120 80 200 124 V332 Q120 290 40 320 Z"/>
+  <path class="r" d="M360 112 Q280 80 200 124 V332 Q280 290 360 320 Z"/>
+  <path d="M72 160 Q124 140 168 158 M72 208 Q124 188 168 206 M232 158 Q276 140 328 160 M232 254 Q276 236 328 256" fill="none" stroke-width="4"/>
+  <path class="r" d="M280 186 L288 206 L308 214 L288 222 L280 242 L272 222 L252 214 L272 206 Z"/>
+`)},
+{ id:"sc_pencil", cat:"school", name:"ดินสอ", svg:S(`
+  <path class="r" d="M246 92 L278 44 L338 82 L306 130 Z"/>
+  <path class="r" d="M96 328 L246 92 L306 130 L156 366 Z"/>
+  <path class="r" d="M96 328 L80 386 L156 366 Z"/>
+  <path class="r" d="M90 352 L80 386 L118 376 Z"/>
+  <path d="M126 320 L276 84" fill="none" stroke-width="4"/>
+`)},
+{ id:"sc_backpack", cat:"school", name:"กระเป๋านักเรียน", svg:S(`
+  <rect class="r" x="76" y="180" width="26" height="122" rx="13"/><rect class="r" x="298" y="180" width="26" height="122" rx="13"/>
+  <path class="r" d="M160 132 Q160 84 200 84 Q240 84 240 132 H212 Q212 112 200 112 Q188 112 188 132 Z"/>
+  <rect class="r" x="100" y="130" width="200" height="212" rx="40"/>
+  <rect class="r" x="136" y="222" width="128" height="98" rx="24"/>
+  <rect class="r" x="184" y="250" width="32" height="26" rx="6"/>
+  <path class="r" d="M200 162 L208 180 L228 188 L208 196 L200 214 L192 196 L172 188 L192 180 Z"/>
+`)},
+{ id:"sc_board", cat:"school", name:"กระดานดำ", svg:S(`
+  <path d="M120 272 L88 362 M280 272 L312 362 M200 272 V362" fill="none"/>
+  <rect class="r" x="60" y="80" width="280" height="192" rx="14"/>
+  <rect class="r" x="84" y="102" width="232" height="126" rx="8"/>
+  <rect class="r" x="118" y="238" width="164" height="18" rx="9"/>
+  <circle class="r" cx="140" cy="140" r="20"/>
+  <path d="M180 168 L204 140 L228 168 M204 140 V172 M252 128 Q268 118 284 128 Q268 152 252 142" fill="none" stroke-width="4"/>
+`)},
+{ id:"sc_crayonbox", cat:"school", name:"กล่องสีเทียน", svg:S(`
+  <rect class="r" x="120" y="112" width="34" height="90" rx="6"/><path class="r" d="M120 112 L137 78 L154 112 Z"/>
+  <rect class="r" x="183" y="98" width="34" height="104" rx="6"/><path class="r" d="M183 98 L200 64 L217 98 Z"/>
+  <rect class="r" x="246" y="112" width="34" height="90" rx="6"/><path class="r" d="M246 112 L263 78 L280 112 Z"/>
+  <rect class="r" x="90" y="192" width="220" height="150" rx="14"/>
+  <ellipse class="r" cx="200" cy="266" rx="64" ry="32"/>
+  <path d="M172 266 Q200 286 228 266" fill="none" stroke-width="4"/>
+`)},
+{ id:"sc_clock", cat:"school", name:"นาฬิกาปลุก", svg:S(`
+  <circle class="r" cx="118" cy="88" r="30"/><circle class="r" cx="282" cy="88" r="30"/>
+  <rect class="r" x="188" y="66" width="24" height="28" rx="8"/>
+  <circle class="r" cx="200" cy="212" r="120"/>
+  <circle class="r" cx="200" cy="212" r="92"/>
+  <path d="M200 212 V150 M200 212 L250 234" fill="none" stroke-width="7"/>
+  <path d="M120 320 L96 358 M280 320 L304 358" fill="none"/>
+`)},
+/* ---------- 🧑‍🚒 อาชีพในฝัน ---------- */
+{ id:"cr_doctor", cat:"career", name:"คุณหมอ", svg:S(KID+`
+  <circle class="r" cx="200" cy="74" r="17"/>
+  <path class="r" d="M156 224 H176 V238 H190 V254 H176 V268 H156 V254 H142 V238 H156 Z"/>
+  <path d="M238 200 Q254 244 234 262" fill="none" stroke-width="5"/>
+  <circle class="r" cx="228" cy="272" r="13"/>
+`)},
+{ id:"cr_police", cat:"career", name:"ตำรวจ", svg:S(KID+`
+  <path class="r" d="M144 92 Q200 42 256 92 V106 H144 Z"/>
+  <path class="r" d="M132 106 H268 L282 124 H118 Z"/>
+  <circle class="r" cx="200" cy="84" r="11"/>
+  <path class="r" d="M200 220 L210 240 L232 244 L216 260 L220 282 L200 270 L180 282 L184 260 L168 244 L190 240 Z"/>
+`)},
+{ id:"cr_fire", cat:"career", name:"นักดับเพลิง", svg:S(KID+`
+  <path class="r" d="M136 100 Q200 32 264 100 L264 112 H136 Z"/>
+  <ellipse class="r" cx="200" cy="112" rx="84" ry="14"/>
+  <rect class="r" x="184" y="60" width="32" height="32" rx="8"/>
+  <path d="M156 230 H244 M156 268 H244" fill="none" stroke-width="4"/>
+`)},
+{ id:"cr_chef", cat:"career", name:"เชฟ", svg:S(KID+`
+  <path class="r" d="M152 96 Q126 46 172 40 Q182 12 212 22 Q248 12 252 46 Q284 56 256 92 L252 96 Z"/>
+  <rect class="r" x="148" y="94" width="104" height="22" rx="9"/>
+  <path d="M300 208 L326 282" fill="none"/>
+  <path class="r" d="M280 164 Q322 150 332 192 Q322 216 290 208 Z"/>
+`)},
+{ id:"cr_teacher", cat:"career", name:"คุณครู", svg:S(KID+`
+  <circle class="r" cx="178" cy="126" r="19"/><circle class="r" cx="222" cy="126" r="19"/>
+  <path d="M197 126 H203" fill="none" stroke-width="4"/>
+  <rect class="r" x="64" y="252" width="62" height="48" rx="8"/>
+  <path d="M95 252 V300" fill="none" stroke-width="4"/>
+`)},
+{ id:"cr_farmer", cat:"career", name:"ชาวสวน", svg:S(KID+`
+  <ellipse class="r" cx="200" cy="96" rx="94" ry="18"/>
+  <path class="r" d="M152 92 Q200 34 248 92 Z"/>
+  <path d="M294 244 V310" fill="none"/>
+  <circle class="r" cx="276" cy="230" r="11"/><circle class="r" cx="312" cy="230" r="11"/><circle class="r" cx="294" cy="212" r="11"/><circle class="r" cx="294" cy="230" r="9"/>
+`)},
+{ id:"cr_pilot", cat:"career", name:"นักบิน", svg:S(KID+`
+  <path class="r" d="M144 92 Q200 42 256 92 V104 H144 Z"/>
+  <path class="r" d="M132 104 H268 L282 122 H118 Z"/>
+  <path class="r" d="M158 240 Q182 222 200 240 Q218 222 242 240 L228 258 H172 Z"/>
+  <circle class="r" cx="336" cy="76" r="9"/><circle class="r" cx="66" cy="66" r="12"/>
+`)},
+{ id:"cr_painter", cat:"career", name:"จิตรกร", svg:S(KID+`
+  <path class="r" d="M136 92 Q148 46 208 44 Q268 50 264 92 Q200 74 136 92 Z"/>
+  <circle class="r" cx="204" cy="42" r="10"/>
+  <ellipse class="r" cx="304" cy="274" rx="46" ry="34"/>
+  <circle class="r" cx="290" cy="260" r="8"/><circle class="r" cx="314" cy="256" r="8"/><circle class="r" cx="324" cy="282" r="8"/>
+`)},
+/* ---------- 🎭 การ์ตูน ---------- */
+{ id:"ct_hero", cat:"cartoon", name:"ฮีโร่ตัวจิ๋ว", svg:S(`
+  <path class="r" d="M146 202 Q92 232 96 330 L150 292 Z"/>
+  <path class="r" d="M254 202 Q308 232 304 330 L250 292 Z"/>`+KID+`
+  <path class="r" d="M148 112 Q200 96 252 112 L252 138 Q200 124 148 138 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="180" cy="124" r="6"/><circle cx="220" cy="124" r="6"/></g>
+  <path class="r" d="M200 216 L212 240 L238 244 L219 262 L224 288 L200 274 L176 288 L181 262 L162 244 L188 240 Z"/>
+`)},
+{ id:"ct_wizard", cat:"cartoon", name:"นักเวทตัวน้อย", svg:S(KID+`
+  <path class="r" d="M154 90 L200 8 L246 90 Z"/>
+  <ellipse class="r" cx="200" cy="90" rx="66" ry="14"/>
+  <path class="r" d="M196 44 L202 58 L216 63 L202 68 L196 82 L190 68 L176 63 L190 58 Z"/>
+  <path d="M292 252 L340 184" fill="none"/>
+  <path class="r" d="M344 160 L351 178 L370 185 L351 192 L344 210 L337 192 L318 185 L337 178 Z"/>
+`)},
+{ id:"ct_fairy", cat:"cartoon", name:"นางฟ้าใจดี", svg:S(`
+  <ellipse class="r" cx="112" cy="222" rx="52" ry="78" transform="rotate(22 112 222)"/>
+  <ellipse class="r" cx="288" cy="222" rx="52" ry="78" transform="rotate(-22 288 222)"/>`+KID+`
+  <ellipse class="r" cx="200" cy="50" rx="46" ry="12"/>
+  <path class="r" d="M200 220 L209 238 L229 242 L214 256 L218 278 L200 267 L182 278 L186 256 L171 242 L191 238 Z"/>
+`)},
+{ id:"ct_knight", cat:"cartoon", name:"อัศวินตัวน้อย", svg:S(`
+  <path class="r" d="M196 60 Q184 20 216 12 Q238 10 232 42 Q224 60 206 60 Z"/>
+  <path class="r" d="M144 138 Q144 62 200 58 Q256 62 256 138 Z"/>
+  <rect class="r" x="162" y="104" width="76" height="20" rx="10"/>`+KBODY+`
+  <path class="r" d="M72 224 Q72 302 116 320 Q160 302 160 224 Q116 206 72 224 Z"/>
+  <path d="M116 218 V312 M82 260 H150" fill="none" stroke-width="4"/>
+`)},
+{ id:"ct_pirate", cat:"cartoon", name:"โจรสลัดตัวน้อย", svg:S(KID+`
+  <path class="r" d="M128 96 Q200 52 272 96 Q266 60 200 52 Q134 60 128 96 Z"/>
+  <circle class="r" cx="200" cy="74" r="10"/>
+  <path d="M156 106 Q200 90 246 114" fill="none" stroke-width="4"/>
+  <circle cx="222" cy="126" r="15" fill="#3D3562" stroke="none"/>
+  <path class="r" d="M292 250 L336 250 M314 228 V272" fill="none"/>
+  <circle class="r" cx="314" cy="292" r="16"/>
+`)},
+{ id:"ct_robot", cat:"cartoon", name:"เพื่อนหุ่นยนต์", svg:S(`
+  <path d="M200 46 V70" fill="none"/><circle class="r" cx="200" cy="32" r="13"/>
+  <rect class="r" x="134" y="70" width="132" height="88" rx="18"/>
+  <rect class="r" x="158" y="94" width="26" height="26" rx="6"/><rect class="r" x="216" y="94" width="26" height="26" rx="6"/>
+  <path d="M172 138 H228" fill="none" stroke-dasharray="10 8" stroke-width="5"/>
+  <rect class="r" x="78" y="182" width="34" height="82" rx="14"/><rect class="r" x="288" y="182" width="34" height="82" rx="14"/>
+  <rect class="r" x="120" y="170" width="160" height="122" rx="16"/>
+  <circle class="r" cx="200" cy="224" r="26"/><circle class="r" cx="152" cy="200" r="8"/><circle class="r" cx="248" cy="200" r="8"/>
+  <rect class="r" x="146" y="292" width="36" height="58" rx="10"/><rect class="r" x="218" y="292" width="36" height="58" rx="10"/>
+  <rect class="r" x="132" y="348" width="64" height="22" rx="10"/><rect class="r" x="204" y="348" width="64" height="22" rx="10"/>
+`)},
+{ id:"ct_monster", cat:"cartoon", name:"สัตว์ประหลาดขนฟู", svg:S(`
+  <path class="r" d="M140 114 L116 56 L172 92 Z"/><path class="r" d="M262 98 L296 48 L306 110 Z"/>
+  <path class="r" d="M96 328 Q56 220 120 142 Q160 80 240 94 Q330 110 330 212 Q336 296 282 328 Q240 312 220 334 Q196 314 168 336 Q140 316 118 336 Q104 334 96 328 Z"/>
+  <circle class="r" cx="170" cy="184" r="26"/><circle class="r" cx="248" cy="184" r="26"/>
+  <g fill="#3D3562" stroke="none"><circle cx="170" cy="188" r="9"/><circle cx="248" cy="188" r="9"/></g>
+  <path d="M150 252 L176 270 L202 252 L228 270 L254 252" fill="none"/>
+`)},
+{ id:"ct_ninja", cat:"cartoon", name:"นินจาตัวน้อย", svg:S(`
+  <circle class="r" cx="200" cy="128" r="62"/>
+  <ellipse class="r" cx="200" cy="134" rx="42" ry="22"/>
+  <rect class="r" x="140" y="86" width="120" height="20" rx="10"/>
+  <path class="r" d="M258 96 L320 74 L304 114 Z"/>`+KBODY+`
+  <rect class="r" x="158" y="248" width="84" height="18" rx="9"/>
+  <g fill="#3D3562" stroke="none"><circle cx="186" cy="132" r="6"/><circle cx="214" cy="132" r="6"/></g>
+`)},
+/* ---------- 🐠 ใต้ทะเล ---------- */
+{ id:"sea_octo", cat:"sea", name:"ปลาหมึกยักษ์", svg:S(`
+  <path class="r" d="M110 202 Q110 82 200 82 Q290 82 290 202 V242 H110 Z"/>
+  <path class="r" d="M118 242 Q104 302 66 314 Q92 332 126 308 Q140 278 140 242 Z"/>
+  <path class="r" d="M164 242 Q160 312 130 346 Q166 354 186 314 Q192 276 190 242 Z"/>
+  <path class="r" d="M236 242 Q240 312 270 346 Q234 354 214 314 Q208 276 210 242 Z"/>
+  <path class="r" d="M282 242 Q296 302 334 314 Q308 332 274 308 Q260 278 260 242 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="172" cy="172" r="8"/><circle cx="228" cy="172" r="8"/></g>
+  <path d="M182 204 Q200 216 218 204" fill="none"/>
+  <circle class="r" cx="330" cy="94" r="13"/><circle class="r" cx="352" cy="56" r="9"/>
+`)},
+{ id:"sea_seahorse", cat:"sea", name:"ม้าน้ำ", svg:S(`
+  <path class="r" d="M158 98 L108 108 L158 124 Z"/>
+  <circle class="r" cx="198" cy="108" r="52"/>
+  <path class="r" d="M212 60 L232 24 L250 62 Z"/>
+  <path class="r" d="M214 154 Q270 192 260 260 Q252 320 198 332 Q160 338 152 308 Q178 318 198 302 Q230 282 226 238 Q222 198 186 174 Z"/>
+  <path class="r" d="M240 192 Q278 178 282 216 Q264 228 242 216 Z"/>
+  <circle class="r" cx="170" cy="320" r="20"/>
+  <path d="M196 214 Q214 222 224 214 M192 250 Q212 258 224 248" fill="none" stroke-width="4"/>
+  <circle cx="212" cy="100" r="6" fill="#3D3562" stroke="none"/>
+  <circle class="r" cx="90" cy="220" r="12"/><circle class="r" cx="66" cy="184" r="8"/>
+`)},
+{ id:"sea_star", cat:"sea", name:"ปลาดาว", svg:S(`
+  <path class="r" d="M200 40 L242 152 L360 158 L268 230 L298 346 L200 280 L102 346 L132 230 L40 158 L158 152 Z"/>
+  <circle class="r" cx="200" cy="120" r="9"/><circle class="r" cx="286" cy="182" r="9"/><circle class="r" cx="252" cy="278" r="9"/><circle class="r" cx="148" cy="278" r="9"/><circle class="r" cx="114" cy="182" r="9"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="192" r="7"/><circle cx="216" cy="192" r="7"/></g>
+  <path d="M186 220 Q200 230 214 220" fill="none"/>
+`)},
+{ id:"sea_jelly", cat:"sea", name:"แมงกะพรุน", svg:S(`
+  <path class="r" d="M90 202 Q90 72 200 72 Q310 72 310 202 Q282 222 254 202 Q228 222 200 202 Q172 222 146 202 Q118 222 90 202 Z"/>
+  <path d="M140 226 Q128 280 148 332 M200 232 Q188 292 208 352 M260 226 Q272 280 252 332" fill="none" stroke-width="6"/>
+  <g fill="#3D3562" stroke="none"><circle cx="172" cy="142" r="7"/><circle cx="228" cy="142" r="7"/></g>
+  <path d="M182 170 Q200 182 218 170" fill="none"/>
+  <circle class="r" cx="340" cy="80" r="11"/><circle class="r" cx="60" cy="110" r="9"/>
+`)},
+{ id:"sea_crab", cat:"sea", name:"ปูก้ามโต", svg:S(`
+  <path d="M108 190 Q86 160 84 142 M292 190 Q314 160 316 142" fill="none"/>
+  <circle class="r" cx="76" cy="128" r="36"/><path class="r" d="M52 104 L26 66 L84 84 Z"/>
+  <circle class="r" cx="324" cy="128" r="36"/><path class="r" d="M348 104 L374 66 L316 84 Z"/>
+  <path d="M170 166 L158 120 M230 166 L242 120" fill="none"/>
+  <circle class="r" cx="154" cy="108" r="14"/><circle class="r" cx="246" cy="108" r="14"/>
+  <ellipse class="r" cx="200" cy="238" rx="110" ry="76"/>
+  <path d="M106 296 L64 336 M142 310 L114 358 M294 296 L336 336 M258 310 L286 358" fill="none"/>
+  <g fill="#3D3562" stroke="none"><circle cx="154" cy="106" r="5"/><circle cx="246" cy="106" r="5"/></g>
+  <path d="M178 250 Q200 266 222 250" fill="none"/>
+`)},
+{ id:"sea_shark", cat:"sea", name:"ฉลามยิ้ม", svg:S(`
+  <path class="r" d="M296 210 L366 158 L354 214 L366 268 Z"/>
+  <path class="r" d="M170 132 Q200 76 246 96 L212 148 Z"/>
+  <ellipse class="r" cx="180" cy="204" rx="130" ry="76"/>
+  <path class="r" d="M160 270 Q170 314 208 322 Q190 288 190 268 Z"/>
+  <path class="r" d="M64 196 Q52 172 62 152 Q86 162 96 184 Z"/>
+  <path d="M96 236 L120 250 L144 236 L168 250 L192 236" fill="none" stroke-width="4"/>
+  <circle cx="110" cy="180" r="7" fill="#3D3562" stroke="none"/>
+  <circle class="r" cx="330" cy="86" r="12"/><circle class="r" cx="300" cy="52" r="8"/>
+`)},
+{ id:"sea_shell", cat:"sea", name:"หอยมุก", svg:S(`
+  <path class="r" d="M200 328 L98 172 Q142 78 200 78 Q258 78 302 172 Z"/>
+  <path d="M200 328 L142 132 M200 328 L200 98 M200 328 L258 132" fill="none" stroke-width="5"/>
+  <rect class="r" x="168" y="322" width="64" height="30" rx="12"/>
+  <circle class="r" cx="200" cy="222" r="26"/>
+  <circle class="r" cx="330" cy="100" r="10"/><circle class="r" cx="70" cy="120" r="8"/>
+`)},
+{ id:"sea_clownfish", cat:"sea", name:"ปลาการ์ตูน", svg:S(`
+  <path class="r" d="M292 202 L356 152 L344 202 L356 252 Z"/>
+  <path class="r" d="M162 132 Q192 92 238 108 L202 140 Z"/>
+  <ellipse class="r" cx="186" cy="202" rx="116" ry="78"/>
+  <path class="r" d="M140 130 Q120 202 140 274 Q166 264 168 202 Q166 140 140 130 Z"/>
+  <path class="r" d="M234 136 Q218 202 234 268 Q258 254 260 202 Q258 150 234 136 Z"/>
+  <circle cx="112" cy="184" r="13" fill="#fff"/><circle cx="112" cy="184" r="6" fill="#3D3562" stroke="none"/>
+  <path d="M146 224 Q156 208 146 192" fill="none" stroke-width="4"/>
+  <circle class="r" cx="330" cy="88" r="12"/><circle class="r" cx="356" cy="56" r="8"/>
+`)},
+/* ---------- 🎵 ดนตรี ---------- */
+{ id:"mu_guitar", cat:"music", name:"กีตาร์", svg:S(`
+  <path class="r" d="M318 72 L350 40 L376 66 L344 98 Z"/>
+  <path class="r" d="M216 174 L318 72 L344 98 L242 200 Z"/>
+  <circle class="r" cx="170" cy="282" r="72"/>
+  <circle class="r" cx="192" cy="198" r="50"/>
+  <circle class="r" cx="178" cy="254" r="23"/>
+  <path d="M188 244 L332 100" fill="none" stroke-width="4"/>
+`)},
+{ id:"mu_keyboard", cat:"music", name:"คีย์บอร์ด", svg:S(`
+  <circle class="r" cx="120" cy="82" r="13"/><path d="M133 82 V38 L172 30 V74" fill="none" stroke-width="5"/><circle class="r" cx="159" cy="74" r="13"/>
+  <rect class="r" x="52" y="142" width="296" height="130" rx="16"/>
+  <rect class="r" x="68" y="198" width="264" height="58" rx="8"/>
+  <path d="M112 198 V256 M156 198 V256 M200 198 V256 M244 198 V256 M288 198 V256" fill="none" stroke-width="4"/>
+  <rect class="r" x="98" y="198" width="24" height="32" rx="4"/><rect class="r" x="142" y="198" width="24" height="32" rx="4"/>
+  <rect class="r" x="230" y="198" width="24" height="32" rx="4"/><rect class="r" x="274" y="198" width="24" height="32" rx="4"/>
+  <circle class="r" cx="88" cy="170" r="8"/><circle class="r" cx="114" cy="170" r="8"/><circle class="r" cx="140" cy="170" r="8"/>
+  <path d="M110 272 L90 350 M290 272 L310 350" fill="none"/>
+`)},
+{ id:"mu_trumpet", cat:"music", name:"ทรัมเป็ต", svg:S(`
+  <rect class="r" x="40" y="196" width="36" height="24" rx="10"/>
+  <rect class="r" x="120" y="150" width="16" height="48" rx="6"/><rect class="r" x="156" y="150" width="16" height="48" rx="6"/><rect class="r" x="192" y="150" width="16" height="48" rx="6"/>
+  <rect class="r" x="76" y="192" width="180" height="32" rx="12"/>
+  <path class="r" d="M256 176 L340 130 V286 L256 240 Z"/>
+  <circle class="r" cx="100" cy="86" r="12"/><path d="M112 86 V48 L146 42 V80" fill="none" stroke-width="5"/><circle class="r" cx="134" cy="80" r="12"/>
+`)},
+{ id:"mu_tambourine", cat:"music", name:"แทมบูรีน", svg:S(`
+  <circle class="r" cx="200" cy="192" r="120"/>
+  <circle class="r" cx="200" cy="192" r="88"/>
+  <circle class="r" cx="200" cy="88" r="13"/><circle class="r" cx="304" cy="192" r="13"/><circle class="r" cx="96" cy="192" r="13"/>
+  <circle class="r" cx="274" cy="118" r="12"/><circle class="r" cx="126" cy="118" r="12"/><circle class="r" cx="274" cy="266" r="12"/><circle class="r" cx="126" cy="266" r="12"/>
+  <path class="r" d="M200 312 L160 382 L200 358 L240 382 Z"/>
+`)},
+{ id:"mu_micro", cat:"music", name:"ไมโครโฟน", svg:S(`
+  <circle class="r" cx="200" cy="132" r="76"/>
+  <path d="M134 108 H266 M128 140 H272 M144 172 H256" fill="none" stroke-width="4"/>
+  <path class="r" d="M168 200 H232 L216 240 H184 Z"/>
+  <path class="r" d="M184 240 H216 L226 352 H174 Z"/>
+  <path class="r" d="M320 84 L327 102 L346 109 L327 116 L320 134 L313 116 L294 109 L313 102 Z"/>
+  <circle class="r" cx="80" cy="96" r="11"/>
+`)},
+{ id:"mu_maracas", cat:"music", name:"มาราคัส", svg:S(`
+  <ellipse class="r" cx="138" cy="138" rx="62" ry="72" transform="rotate(-18 138 138)"/>
+  <path class="r" d="M156 206 L192 326 L160 338 L126 216 Z"/>
+  <circle class="r" cx="172" cy="342" r="16"/>
+  <ellipse class="r" cx="266" cy="146" rx="62" ry="72" transform="rotate(18 266 146)"/>
+  <path class="r" d="M246 214 L212 334 L244 346 L280 224 Z"/>
+  <circle class="r" cx="230" cy="350" r="16"/>
+  <circle class="r" cx="120" cy="120" r="9"/><circle class="r" cx="152" cy="152" r="9"/>
+  <circle class="r" cx="284" cy="128" r="9"/><circle class="r" cx="252" cy="160" r="9"/>
+`)}
 ];
+PICS.push(...EXTRA_PICS);
 
-function cartoonSvg(kind, variant){
-  const base = `
-    <circle class="r" cx="200" cy="126" r="66"/>
-    <path class="r" d="M152 198 H248 L270 316 H130 Z"/>
-    <circle class="r" cx="126" cy="232" r="24"/><circle class="r" cx="274" cy="232" r="24"/>
-    <rect class="r" x="150" y="312" width="34" height="58" rx="12"/><rect class="r" x="216" y="312" width="34" height="58" rx="12"/>
-    <circle cx="178" cy="122" r="7" fill="#3D3562" stroke="none"/><circle cx="222" cy="122" r="7" fill="#3D3562" stroke="none"/>
-    <path d="M182 150 Q200 164 218 150" fill="none"/>`;
-  const accessories = [
-    `<path class="r" d="M146 204 Q86 230 92 330 L152 292 Z"/><path class="r" d="M254 204 Q314 230 308 330 L248 292 Z"/><path class="r" d="M200 218 L212 244 L242 246 L220 266 L226 296 L200 278 L174 296 L180 266 L158 246 L188 244 Z"/>`,
-    `<path class="r" d="M138 80 Q200 24 262 80 L246 100 H154 Z"/><rect class="r" x="172" y="220" width="56" height="52" rx="10"/><path class="r" d="M186 226 H214 V238 H226 V254 H214 V266 H186 V254 H174 V238 H186 Z"/>`,
-    `<path class="r" d="M126 78 L206 18 L276 90 Q200 66 126 78 Z"/><path d="M274 232 L322 154" fill="none"/><path class="r" d="M324 132 L332 152 L352 160 L332 168 L324 188 L316 168 L296 160 L316 152 Z"/>`,
-    `<path class="r" d="M158 72 L136 22 L184 64 Z"/><path class="r" d="M242 72 L264 22 L216 64 Z"/><circle class="r" cx="200" cy="48" r="18"/><path class="r" d="M176 220 Q200 198 224 220 L238 258 Q200 282 162 258 Z"/>`,
-    `<path class="r" d="M126 86 Q200 24 274 86 L254 104 H146 Z"/><path class="r" d="M244 222 L298 244 L278 306 L236 282 Z"/><circle class="r" cx="178" cy="124" r="22"/><circle class="r" cx="222" cy="124" r="22"/><path d="M200 124 H200" fill="none"/>`
-  ];
-  const extras = [
-    `<path class="r" d="M60 84 L68 104 L88 112 L68 120 L60 140 L52 120 L32 112 L52 104 Z"/>`,
-    `<circle class="r" cx="330" cy="78" r="26"/>`,
-    `<path class="r" d="M326 68 L334 88 L354 96 L334 104 L326 124 L318 104 L298 96 L318 88 Z"/>`,
-    `<circle class="r" cx="68" cy="78" r="14"/><circle class="r" cx="334" cy="54" r="9"/>`
-  ];
-  return S(base + accessories[kind] + extras[variant]);
-}
-const CARTOON_PICS = [
-  ["tiny_hero","ฮีโร่ตัวจิ๋ว",0],["star_girl","สาวน้อยพลังดาว",0],["cape_boy","เด็กชายผ้าคลุม",0],["rainbow_guardian","ผู้พิทักษ์สายรุ้ง",0],
-  ["doctor_kid","คุณหมอตัวน้อย",1],["chef_kid","เชฟตัวน้อย",1],["firefighter_kid","นักดับเพลิงตัวน้อย",1],["scientist_kid","นักวิทยาศาสตร์ตัวน้อย",1],
-  ["little_wizard","นักเวทตัวน้อย",2],["kind_fairy","นางฟ้าใจดี",2],["young_knight","อัศวินตัวน้อย",2],["music_magician","นักมายากลดนตรี",2],
-  ["friendly_alien","มนุษย์ต่างดาวใจดี",3],["fluffy_monster","สัตว์ประหลาดขนฟู",3],["space_friend","เพื่อนจากอวกาศ",3],["robot_friend","เพื่อนหุ่นยนต์",3],
-  ["little_explorer","นักสำรวจตัวน้อย",4],["junior_detective","นักสืบจิ๋ว",4],["young_pirate","โจรสลัดตัวน้อย",4],["forest_ranger","ผู้พิทักษ์ป่า",4]
-].map((x,i)=>({id:x[0],cat:"cartoon",name:x[1],svg:cartoonSvg(x[2],i%4)}));
+/* ================= ภาพเสริมรอบ 2: เติมให้ครบหมวดละ 20 ภาพ ================= */
+const MORE2_PICS = [
+/* ---------- 🍎 ของกิน +2 ---------- */
+{ id:"f_bread", cat:"food", name:"ขนมปัง", svg:S(`
+  <path class="r" d="M64 240 Q64 128 200 118 Q336 128 336 240 Q336 320 200 320 Q64 320 64 240 Z"/>
+  <path d="M130 156 Q150 200 130 244 M200 148 Q220 196 200 244 M270 156 Q290 200 270 244" fill="none" stroke-width="5"/>
+`)},
+{ id:"f_lollipop", cat:"food", name:"ลูกอม", svg:S(`
+  <rect class="r" x="190" y="196" width="20" height="168" rx="8"/>
+  <circle class="r" cx="200" cy="140" r="112"/>
+  <path d="M124 100 Q160 132 124 180 M276 100 Q240 132 276 180" fill="none" stroke-width="4"/>
+`)},
+/* ---------- 🧸 ของเล่น +4 ---------- */
+{ id:"t_balloon", cat:"toy", name:"ลูกโป่ง", svg:S(`
+  <path class="r" d="M200 40 C130 40 106 108 112 158 C118 208 158 236 178 254 L178 276 L222 276 L222 254 C242 236 282 208 288 158 C294 108 270 40 200 40 Z"/>
+  <path class="r" d="M186 276 L200 296 L214 276 Z"/>
+  <path d="M200 296 Q200 330 176 350" fill="none"/>
+`)},
+{ id:"t_pinwheel", cat:"toy", name:"กังหันลม", svg:S(`
+  <path class="r" d="M200 130 L130 78 Q118 118 158 138 Z"/>
+  <path class="r" d="M200 130 L270 78 Q282 118 242 138 Z"/>
+  <path class="r" d="M200 130 L270 182 Q258 222 218 202 Z"/>
+  <path class="r" d="M200 130 L130 182 Q142 222 182 202 Z"/>
+  <circle class="r" cx="200" cy="130" r="18"/>
+  <path d="M200 148 V360" fill="none" stroke-width="6"/>
+  <circle class="r" cx="200" cy="360" r="14"/>
+`)},
+{ id:"t_ragdoll", cat:"toy", name:"ตุ๊กตาผ้า", svg:S(`
+  <circle class="r" cx="200" cy="110" r="58"/>
+  <path d="M156 90 L136 60 M244 90 L264 60" fill="none" stroke-width="5"/>
+  <path class="r" d="M150 168 H250 L262 300 H138 Z"/>
+  <path class="r" d="M118 190 L150 180 L156 220 L124 232 Z"/>
+  <path class="r" d="M282 190 L250 180 L244 220 L276 232 Z"/>
+  <rect class="r" x="152" y="296" width="34" height="52" rx="10"/><rect class="r" x="214" y="296" width="34" height="52" rx="10"/>
+  <g fill="#3D3562" stroke="none"><circle cx="182" cy="106" r="6"/><circle cx="218" cy="106" r="6"/></g>
+  <path d="M186 132 Q200 140 214 132" fill="none"/>
+`)},
+{ id:"t_whistle", cat:"toy", name:"นกหวีด", svg:S(`
+  <ellipse class="r" cx="130" cy="220" rx="72" ry="46"/>
+  <rect class="r" x="192" y="198" width="120" height="44" rx="20"/>
+  <circle class="r" cx="296" cy="220" r="30"/>
+  <circle class="r" cx="120" cy="220" r="14"/>
+  <path d="M182 176 Q182 140 210 132" fill="none"/>
+  <circle class="r" cx="216" cy="126" r="14"/>
+`)},
+/* ---------- 👑 เจ้าหญิง +8 ---------- */
+{ id:"p_japan", cat:"princess", name:"เจ้าหญิงญี่ปุ่น", svg:S(`
+  <circle class="r" cx="200" cy="120" r="50"/>
+  <path class="r" d="M150 92 Q150 56 200 52 Q250 56 250 92 Z"/>
+  <circle class="r" cx="252" cy="98" r="14"/>
+  <path class="r" d="M126 176 L146 176 L200 210 L254 176 L274 176 L300 356 L100 356 Z"/>
+  <path d="M170 260 Q200 244 230 260" fill="none" stroke-width="5"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="118" r="5"/><circle cx="216" cy="118" r="5"/></g>
+`)},
+{ id:"p_egypt", cat:"princess", name:"เจ้าหญิงอียิปต์", svg:S(`
+  <path class="r" d="M140 70 L200 30 L260 70 L260 200 L200 232 L140 200 Z"/>
+  <circle class="r" cx="200" cy="140" r="46"/>
+  <rect class="r" x="176" y="52" width="48" height="18" rx="6"/>
+  <path class="r" d="M156 200 L244 200 L264 356 L136 356 Z"/>
+  <path d="M156 236 H244 M156 268 H244 M156 300 H244" fill="none" stroke-width="4"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="136" r="5"/><circle cx="216" cy="136" r="5"/></g>
+`)},
+{ id:"p_thai", cat:"princess", name:"เจ้าหญิงไทย", svg:S(`
+  <path class="r" d="M200 30 L224 96 L182 96 Z"/>
+  <ellipse class="r" cx="200" cy="100" rx="36" ry="14"/>
+  <circle class="r" cx="200" cy="150" r="48"/>
+  <path class="r" d="M148 210 Q200 190 252 210 L268 356 H132 Z"/>
+  <path d="M150 260 H250 M158 296 H242" fill="none" stroke-width="4"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="148" r="5"/><circle cx="216" cy="148" r="5"/></g>
+`)},
+{ id:"p_christmas", cat:"princess", name:"เจ้าหญิงคริสต์มาส", svg:S(`
+  <circle class="r" cx="200" cy="122" r="48"/>
+  <path class="r" d="M154 84 Q200 30 246 84 L236 100 Q200 66 164 100 Z"/>
+  <circle class="r" cx="200" cy="46" r="14"/>
+  <path class="r" d="M158 170 L242 170 L268 356 H132 Z"/>
+  <ellipse class="r" cx="200" cy="176" rx="46" ry="14"/>
+  <ellipse class="r" cx="200" cy="352" rx="70" ry="14"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="120" r="5"/><circle cx="216" cy="120" r="5"/></g>
+`)},
+{ id:"p_ocean", cat:"princess", name:"เจ้าหญิงทะเล", svg:S(`
+  <circle class="r" cx="200" cy="118" r="48"/>
+  <path class="r" d="M160 78 L146 54 L172 66 L182 44 L200 68 L218 44 L228 66 L254 54 L240 78 Z"/>
+  <path class="r" d="M156 166 L244 166 L262 356 H138 Z"/>
+  <path d="M150 226 Q200 210 250 226 M144 268 Q200 250 256 268 M140 310 Q200 292 260 310" fill="none" stroke-width="4"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="116" r="5"/><circle cx="216" cy="116" r="5"/></g>
+`)},
+{ id:"p_butterfly", cat:"princess", name:"เจ้าหญิงผีเสื้อ", svg:S(`
+  <ellipse class="r" cx="112" cy="208" rx="58" ry="86" transform="rotate(24 112 208)"/>
+  <ellipse class="r" cx="288" cy="208" rx="58" ry="86" transform="rotate(-24 288 208)"/>
+  <circle class="r" cx="152" cy="312" r="26"/><circle class="r" cx="248" cy="312" r="26"/>
+  <circle class="r" cx="200" cy="120" r="48"/>
+  <path class="r" d="M164 172 L236 172 L246 226 L154 226 Z"/>
+  <path class="r" d="M154 226 C140 268 132 300 128 328 L272 328 C268 300 260 268 246 226 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="118" r="5"/><circle cx="216" cy="118" r="5"/></g>
+`)},
+{ id:"p_warrior", cat:"princess", name:"เจ้าหญิงนักรบ", svg:S(`
+  <circle class="r" cx="200" cy="112" r="46"/>
+  <path class="r" d="M162 76 Q200 44 238 76 L228 92 Q200 68 172 92 Z"/>
+  <path class="r" d="M160 160 H240 L254 296 H146 Z"/>
+  <path class="r" d="M64 176 Q64 246 100 276 Q136 246 136 176 Q100 160 64 176 Z"/>
+  <path d="M100 176 V264" fill="none" stroke-width="4"/>
+  <path class="r" d="M256 200 H300 M278 178 V222" fill="none"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="110" r="5"/><circle cx="216" cy="110" r="5"/></g>
+`)},
+{ id:"p_autumn", cat:"princess", name:"เจ้าหญิงฤดูใบไม้ร่วง", svg:S(`
+  <circle class="r" cx="200" cy="120" r="48"/>
+  <path class="r" d="M158 84 L172 56 L192 78 L200 46 L208 78 L228 56 L242 84 Z"/>
+  <path class="r" d="M158 168 L242 168 L266 356 H134 Z"/>
+  <path class="r" d="M150 238 L172 220 L186 244 L166 260 Z"/>
+  <path class="r" d="M230 262 L252 246 L266 268 L246 284 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="184" cy="118" r="5"/><circle cx="216" cy="118" r="5"/></g>
+`)},
+/* ---------- 🦕 ไดโนเสาร์ +8 ---------- */
+{ id:"dn_brachio", cat:"dino", name:"แบรคิโอซอรัส", svg:S(`
+  <ellipse class="r" cx="200" cy="290" rx="120" ry="58"/>
+  <path class="r" d="M240 280 C246 178 258 84 320 60 C356 46 372 78 344 100 C316 122 296 140 288 200 L262 288 Z"/>
+  <circle class="r" cx="320" cy="72" r="16"/>
+  <path class="r" d="M96 280 C90 320 88 350 88 360 L120 360 C122 336 128 306 132 284 Z"/>
+  <rect class="r" x="150" y="336" width="30" height="44" rx="10"/><rect class="r" x="250" y="336" width="30" height="44" rx="10"/>
+`)},
+{ id:"dn_allo", cat:"dino", name:"อัลโลซอรัส", svg:S(`
+  <path class="r" d="M92 240 Q30 232 20 196 Q64 192 108 216 Z"/>
+  <ellipse class="r" cx="182" cy="248" rx="96" ry="56" transform="rotate(-6 182 248)"/>
+  <path class="r" d="M244 226 Q256 168 300 156 L348 148 L316 182 L344 190 L300 202 Q276 208 266 234 Z"/>
+  <path class="r" d="M150 292 L138 356 H172 L180 298 Z"/>
+  <path class="r" d="M222 288 L246 342 L276 334 L248 282 Z"/>
+  <circle class="r" cx="304" cy="168" r="6"/>
+`)},
+{ id:"dn_diplo", cat:"dino", name:"ดิพลอโดคัส", svg:S(`
+  <ellipse class="r" cx="200" cy="264" rx="118" ry="54"/>
+  <path class="r" d="M254 250 C270 190 296 130 344 108 C368 98 378 118 358 132 C334 148 316 170 306 214 L282 258 Z"/>
+  <path class="r" d="M146 258 C112 260 76 274 40 302 C68 268 80 246 98 232 L142 240 Z"/>
+  <rect class="r" x="150" y="306" width="28" height="48" rx="9"/><rect class="r" x="240" y="306" width="28" height="48" rx="9"/>
+  <circle cx="352" cy="112" r="5" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"dn_iguan", cat:"dino", name:"อิกัวโนดอน", svg:S(`
+  <ellipse class="r" cx="180" cy="256" rx="108" ry="60"/>
+  <path class="r" d="M244 224 Q270 148 244 96 Q294 108 300 168 Q300 208 260 234 Z"/>
+  <circle class="r" cx="264" cy="128" r="8"/>
+  <path class="r" d="M92 258 L44 292 L56 236 Z"/>
+  <rect class="r" x="120" y="304" width="30" height="52" rx="10"/><rect class="r" x="220" y="304" width="30" height="52" rx="10"/>
+  <path class="r" d="M244 96 L256 62 L268 98 Z"/>
+`)},
+{ id:"dn_carno", cat:"dino", name:"คาร์โนทอรัส", svg:S(`
+  <ellipse class="r" cx="188" cy="256" rx="112" ry="58"/>
+  <circle class="r" cx="286" cy="212" r="58"/>
+  <path class="r" d="M270 168 L282 132 L300 172 Z"/><path class="r" d="M312 168 L328 132 L340 174 Z"/>
+  <path class="r" d="M96 268 L46 250 L58 300 Z"/>
+  <rect class="r" x="150" y="308" width="28" height="50" rx="9"/><rect class="r" x="238" y="308" width="28" height="50" rx="9"/>
+  <circle cx="308" cy="204" r="6" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"dn_kentro", cat:"dino", name:"เคนโทรซอรัส", svg:S(`
+  <ellipse class="r" cx="196" cy="256" rx="122" ry="56"/>
+  <path class="r" d="M82 236 L34 200 L44 262 Z"/>
+  <path class="r" d="M120 200 L134 150 L154 198 Z"/><path class="r" d="M164 194 L180 142 L200 192 Z"/><path class="r" d="M212 196 L230 148 L250 196 Z"/>
+  <path class="r" d="M296 224 L336 208 L340 240 L302 250 Z"/><path class="r" d="M300 250 L344 250 L336 280 L294 274 Z"/>
+  <rect class="r" x="126" y="304" width="28" height="48" rx="9"/><rect class="r" x="250" y="304" width="28" height="48" rx="9"/>
+`)},
+{ id:"dn_archaeo", cat:"dino", name:"อาร์คีออปเทอริกซ์", svg:S(`
+  <ellipse class="r" cx="200" cy="230" rx="70" ry="56"/>
+  <path class="r" d="M144 210 L60 168 L82 232 L60 288 L150 254 Z"/>
+  <path class="r" d="M256 210 L340 168 L318 232 L340 288 L250 254 Z"/>
+  <path class="r" d="M234 200 L280 178 L262 208 Z"/>
+  <circle class="r" cx="256" cy="192" r="8"/>
+  <path class="r" d="M198 282 L184 340 L216 340 L206 286 Z"/>
+`)},
+{ id:"dn_egg", cat:"dino", name:"ไข่ไดโนเสาร์", svg:S(`
+  <ellipse class="r" cx="150" cy="290" rx="180" ry="40"/>
+  <path class="r" d="M136 270 Q120 200 152 158 Q180 128 208 158 Q240 200 224 270 Q180 292 136 270 Z"/>
+  <path class="r" d="M232 288 Q222 232 248 202 Q270 178 292 202 Q316 232 306 288 Q270 302 232 288 Z"/>
+  <path class="r" d="M64 286 Q58 246 78 224 Q96 206 112 224 Q130 246 124 286 Q94 296 64 286 Z"/>
+  <path d="M172 190 L164 210 L178 210 L168 232" fill="none" stroke-width="4"/>
+`)},
+/* ---------- 🏫 บ้านและโรงเรียน +12 ---------- */
+{ id:"sc_ruler", cat:"school", name:"ไม้บรรทัด", svg:S(`
+  <rect class="r" x="60" y="164" width="280" height="72" rx="10" transform="rotate(-14 200 200)"/>
+  <path d="M100 176 L92 200 M132 168 L120 200 M164 160 L150 200 M196 152 L180 200 M228 144 L210 200 M260 136 L240 200 M292 128 L270 200" fill="none" stroke-width="4" transform="rotate(-14 200 200)"/>
+`)},
+{ id:"sc_eraser", cat:"school", name:"ยางลบ", svg:S(`
+  <rect class="r" x="90" y="150" width="220" height="100" rx="20"/>
+  <rect class="r" x="90" y="150" width="90" height="100" rx="20"/>
+  <path d="M180 150 V250" fill="none" stroke-width="4"/>
+`)},
+{ id:"sc_scissors", cat:"school", name:"กรรไกร", svg:S(`
+  <circle class="r" cx="118" cy="288" r="34"/><circle class="r" cx="118" cy="188" r="34"/>
+  <path class="r" d="M148 268 L332 96 L348 118 L172 288 Z"/>
+  <path class="r" d="M148 208 L332 356 L316 372 L172 208 Z"/>
+  <circle class="r" cx="160" cy="238" r="12"/>
+`)},
+{ id:"sc_glue", cat:"school", name:"หลอดกาว", svg:S(`
+  <path class="r" d="M164 66 L236 66 L226 108 L174 108 Z"/>
+  <rect class="r" x="150" y="108" width="100" height="220" rx="16"/>
+  <rect class="r" x="164" y="150" width="72" height="40" rx="8"/>
+  <path d="M164 220 H236" fill="none" stroke-width="4"/>
+`)},
+{ id:"sc_sketchbook", cat:"school", name:"สมุดวาดเขียน", svg:S(`
+  <rect class="r" x="70" y="90" width="260" height="220" rx="16"/>
+  <path d="M70 130 H330 M96 90 V70 M148 90 V70 M200 90 V70 M252 90 V70 M304 90 V70" fill="none" stroke-width="5"/>
+  <circle class="r" cx="150" cy="220" r="30"/>
+  <path class="r" d="M200 250 L260 170 L286 190 L226 270 Z"/>
+`)},
+{ id:"sc_glasses", cat:"school", name:"แว่นตา", svg:S(`
+  <circle class="r" cx="132" cy="200" r="66"/><circle class="r" cx="268" cy="200" r="66"/>
+  <path d="M198 194 H202 M66 190 L30 176 M334 190 L370 176" fill="none" stroke-width="6"/>
+`)},
+{ id:"sc_desk", cat:"school", name:"โต๊ะเรียน", svg:S(`
+  <rect class="r" x="56" y="140" width="288" height="34" rx="10"/>
+  <rect class="r" x="80" y="174" width="60" height="150" rx="8"/><rect class="r" x="260" y="174" width="60" height="150" rx="8"/>
+  <rect class="r" x="150" y="190" width="100" height="60" rx="8"/>
+`)},
+{ id:"sc_globe", cat:"school", name:"ลูกโลก", svg:S(`
+  <rect class="r" x="150" y="330" width="100" height="24" rx="10"/>
+  <path class="r" d="M170 330 L200 240 L230 330 Z"/>
+  <circle class="r" cx="200" cy="164" r="116"/>
+  <path class="r" d="M140 100 Q168 88 186 116 Q166 140 140 128 Z"/><path class="r" d="M240 176 Q280 168 288 204 Q262 228 236 208 Z"/>
+`)},
+{ id:"sc_medal", cat:"school", name:"เหรียญรางวัล", svg:S(`
+  <path class="r" d="M150 60 L120 172 L172 150 Z"/><path class="r" d="M250 60 L280 172 L228 150 Z"/>
+  <circle class="r" cx="200" cy="256" r="94"/>
+  <path class="r" d="M200 200 L216 240 L258 244 L226 270 L236 312 L200 288 L164 312 L174 270 L142 244 L184 240 Z"/>
+`)},
+{ id:"sc_trophy", cat:"school", name:"ถ้วยรางวัล", svg:S(`
+  <path class="r" d="M132 96 H268 V184 Q268 244 200 244 Q132 244 132 184 Z"/>
+  <path class="r" d="M132 112 Q78 112 78 156 Q78 194 132 184 Z"/>
+  <path class="r" d="M268 112 Q322 112 322 156 Q322 194 268 184 Z"/>
+  <rect class="r" x="182" y="244" width="36" height="50" rx="8"/>
+  <rect class="r" x="140" y="294" width="120" height="34" rx="10"/>
+`)},
+{ id:"sc_umbrella", cat:"school", name:"ร่ม", svg:S(`
+  <path class="r" d="M60 200 Q60 80 200 76 Q340 80 340 200 Q294 176 246 200 Q200 176 154 200 Q106 176 60 200 Z"/>
+  <path d="M200 76 V320" fill="none" stroke-width="6"/>
+  <path class="r" d="M200 320 Q200 356 236 356 Q260 356 254 332" fill="none" stroke-width="6"/>
+`)},
+{ id:"sc_shoes", cat:"school", name:"รองเท้านักเรียน", svg:S(`
+  <path class="r" d="M50 268 Q50 208 110 208 L170 208 Q210 208 210 240 L210 268 L300 288 Q330 296 330 312 L330 320 H50 Z"/>
+  <path d="M108 224 L108 268 M144 220 L144 268" fill="none" stroke-width="4"/>
+  <path class="r" d="M210 268 Q220 288 260 292 L206 268 Z"/>
+`)},
+/* ---------- 🧑‍🚒 อาชีพในฝัน +12 ---------- */
+{ id:"cr_nurse", cat:"career", name:"พยาบาล", svg:S(KID+`
+  <path class="r" d="M164 78 H236 V106 H164 Z"/>
+  <path d="M188 78 V106 M164 92 H236" fill="none" stroke-width="5"/>
+  <path d="M228 200 Q252 232 240 262" fill="none" stroke-width="5"/>
+  <circle class="r" cx="236" cy="270" r="12"/>
+`)},
+{ id:"cr_vet", cat:"career", name:"สัตวแพทย์", svg:S(KID+`
+  <path class="r" d="M156 92 Q140 60 168 50 Q180 74 176 96 Z"/>
+  <path class="r" d="M244 92 Q260 60 232 50 Q220 74 224 96 Z"/>
+  <ellipse class="r" cx="300" cy="270" rx="40" ry="28"/>
+  <circle class="r" cx="288" cy="258" r="7"/><circle class="r" cx="312" cy="258" r="7"/>
+`)},
+{ id:"cr_scientist", cat:"career", name:"นักวิทยาศาสตร์", svg:S(KID+`
+  <path class="r" d="M150 190 H250 L260 300 H140 Z"/>
+  <path d="M172 200 L172 260 M228 200 L228 260" fill="none" stroke-width="4"/>
+  <path class="r" d="M292 250 Q292 210 320 200 Q336 226 322 254 Q332 270 316 280 Q296 276 292 250 Z"/>
+`)},
+{ id:"cr_footballer", cat:"career", name:"นักฟุตบอล", svg:S(KID+`
+  <rect class="r" x="164" y="196" width="72" height="60" rx="10"/>
+  <path d="M164 216 H236 M200 196 V256" fill="none" stroke-width="4"/>
+  <circle class="r" cx="300" cy="300" r="32"/>
+`)},
+{ id:"cr_photographer", cat:"career", name:"ช่างภาพ", svg:S(KID+`
+  <rect class="r" x="150" y="218" width="100" height="72" rx="12"/>
+  <circle class="r" cx="200" cy="254" r="26"/>
+  <rect class="r" x="176" y="204" width="48" height="20" rx="6"/>
+`)},
+{ id:"cr_dancer", cat:"career", name:"นักเต้น", svg:S(`
+  <circle class="r" cx="200" cy="90" r="54"/>
+  <path class="r" d="M156 60 Q200 20 244 60 L232 78 Q200 48 168 78 Z"/>
+  <path class="r" d="M158 144 H242 L268 250 Q200 288 132 250 Z"/>
+  <path class="r" d="M96 210 Q60 170 40 200 Q70 236 108 240 Z"/>
+  <path class="r" d="M304 210 Q340 170 360 200 Q330 236 292 240 Z"/>
+  <path d="M170 300 L140 366 M230 300 L262 366" fill="none" stroke-width="6"/>
+`)},
+{ id:"cr_librarian", cat:"career", name:"บรรณารักษ์", svg:S(KID+`
+  <circle class="r" cx="132" cy="200" r="24"/><circle class="r" cx="268" cy="200" r="24"/>
+  <path d="M156 200 H244" fill="none" stroke-width="5"/>
+  <rect class="r" x="164" y="242" width="72" height="56" rx="8"/>
+  <path d="M200 242 V298" fill="none" stroke-width="4"/>
+`)},
+{ id:"cr_builder", cat:"career", name:"ช่างก่อสร้าง", svg:S(KID+`
+  <path class="r" d="M140 90 Q200 42 260 90 L260 108 H140 Z"/>
+  <path class="r" d="M296 234 L340 190 L354 204 L310 248 Z"/>
+  <rect class="r" x="292" y="244" width="30" height="20" rx="4"/>
+`)},
+{ id:"cr_traindriver", cat:"career", name:"คนขับรถไฟ", svg:S(KID+`
+  <path class="r" d="M142 94 H258 L258 118 H142 Z"/>
+  <path class="r" d="M150 118 H250 L262 138 H138 Z"/>
+  <rect class="r" x="160" y="224" width="80" height="24" rx="6"/>
+`)},
+{ id:"cr_explorer", cat:"career", name:"นักสำรวจ", svg:S(KID+`
+  <path class="r" d="M132 96 Q200 56 268 96 L268 112 Q200 78 132 112 Z"/>
+  <rect class="r" x="176" y="204" width="48" height="52" rx="8"/>
+  <circle class="r" cx="200" cy="230" r="14"/>
+`)},
+{ id:"cr_musician2", cat:"career", name:"นักดนตรี", svg:S(KID+`
+  <ellipse class="r" cx="228" cy="252" rx="52" ry="40" transform="rotate(-16 228 252)"/>
+  <circle class="r" cx="214" cy="248" r="17"/>
+  <path d="M258 218 L282 156" fill="none" stroke-width="4"/>
+`)},
+{ id:"cr_fisherman", cat:"career", name:"ชาวประมง", svg:S(KID+`
+  <path class="r" d="M150 92 Q200 60 250 92 L250 108 Q200 84 150 108 Z"/>
+  <path d="M262 200 L322 152" fill="none" stroke-width="4"/>
+  <path d="M322 152 Q340 180 322 210" fill="none" stroke-width="3"/>
+  <circle class="r" cx="322" cy="212" r="10"/>
+`)},
+/* ---------- 🎭 การ์ตูน +12 ---------- */
+{ id:"ct_stargirl", cat:"cartoon", name:"สาวน้อยพลังดาว", svg:S(KID+`
+  <path class="r" d="M150 96 Q200 66 250 96 L246 118 Q200 96 154 118 Z"/>
+  <path class="r" d="M200 40 L214 76 L252 76 L222 98 L234 134 L200 112 L166 134 L178 98 L148 76 L186 76 Z"/>
+  <path class="r" d="M96 220 Q56 236 60 276 Q100 268 118 236 Z"/><path class="r" d="M304 220 Q344 236 340 276 Q300 268 282 236 Z"/>
+`)},
+{ id:"ct_dragon", cat:"cartoon", name:"มังกรน้อยใจดี", svg:S(`
+  <path class="r" d="M138 118 L112 66 L164 96 Z"/><path class="r" d="M262 118 L288 66 L236 96 Z"/>
+  <circle class="r" cx="200" cy="150" r="72"/>
+  <path class="r" d="M270 170 Q330 176 330 226 Q290 236 262 202 Z"/>
+  <path class="r" d="M144 218 H256 L268 320 H132 Z"/>
+  <path class="r" d="M268 300 Q320 296 336 336 Q302 356 264 332 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="180" cy="146" r="8"/><circle cx="220" cy="146" r="8"/></g>
+  <path d="M186 176 Q200 186 214 176" fill="none"/>
+`)},
+{ id:"ct_werewolf", cat:"cartoon", name:"มนุษย์หมาป่าน้อย", svg:S(`
+  <path class="r" d="M136 100 L108 50 L166 88 Z"/><path class="r" d="M264 100 L292 50 L234 88 Z"/>
+  <ellipse class="r" cx="200" cy="158" rx="78" ry="70"/>
+  <ellipse class="r" cx="200" cy="182" rx="38" ry="30"/>
+  <g fill="#3D3562" stroke="none"><circle cx="168" cy="148" r="8"/><circle cx="232" cy="148" r="8"/></g>
+  <circle class="r" cx="200" cy="182" r="10"/>
+  <path class="r" d="M156 232 H244 L256 320 H144 Z"/>
+`)},
+{ id:"ct_unicornrider", cat:"cartoon", name:"นักขี่ยูนิคอร์น", svg:S(`
+  <path class="r" d="M96 230 Q60 158 132 130 Q188 108 232 148 Q276 156 268 200 Q296 216 268 244 Q244 280 190 260 Q140 270 118 240 Z"/>
+  <path class="r" d="M232 148 L256 96 L268 152 Z"/>
+  <circle class="r" cx="150" cy="176" r="16"/>
+  <circle class="r" cx="200" cy="196" r="34"/>
+  <g fill="#3D3562" stroke="none"><circle cx="188" cy="192" r="5"/><circle cx="212" cy="192" r="5"/></g>
+  <path d="M120 260 L104 320 M180 264 L172 324" fill="none" stroke-width="6"/>
+`)},
+{ id:"ct_cloud", cat:"cartoon", name:"วิญญาณเมฆยิ้ม", svg:S(`
+  <path class="r" d="M92 220 Q60 220 60 186 Q60 152 96 156 Q100 116 148 120 Q160 84 208 92 Q252 84 264 124 Q308 118 312 158 Q348 158 344 194 Q348 226 308 226 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="164" cy="176" r="9"/><circle cx="240" cy="176" r="9"/></g>
+  <path d="M168 206 Q200 228 232 206" fill="none"/>
+`)},
+{ id:"ct_snowman", cat:"cartoon", name:"มนุษย์หิมะแสนน่ารัก", svg:S(`
+  <circle class="r" cx="200" cy="120" r="62"/>
+  <circle class="r" cx="200" cy="250" r="92"/>
+  <path class="r" d="M200 128 L246 138 L200 148 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="180" cy="112" r="7"/><circle cx="220" cy="112" r="7"/><circle cx="200" cy="234" r="8"/><circle cx="200" cy="262" r="8"/><circle cx="200" cy="290" r="8"/></g>
+  <path class="r" d="M148 66 Q200 34 252 66 L252 84 Q200 56 148 84 Z"/>
+`)},
+{ id:"ct_genie", cat:"cartoon", name:"ยักษ์จินนี่ใจดี", svg:S(`
+  <path class="r" d="M160 320 Q120 260 148 200 Q120 170 148 140 Q170 116 200 132 Q230 116 252 140 Q280 170 252 200 Q280 260 240 320 Z"/>
+  <circle class="r" cx="200" cy="150" r="52"/>
+  <path class="r" d="M156 118 Q200 92 244 118 L236 138 Q200 116 164 138 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="182" cy="148" r="6"/><circle cx="218" cy="148" r="6"/></g>
+  <path d="M186 172 Q200 182 214 172" fill="none"/>
+  <path d="M160 320 Q140 350 160 372 M240 320 Q260 350 240 372" fill="none" stroke-width="5"/>
+`)},
+{ id:"ct_mummy", cat:"cartoon", name:"มัมมี่ตัวน้อย", svg:S(`
+  <ellipse class="r" cx="200" cy="216" rx="96" ry="132"/>
+  <path d="M112 150 Q200 170 288 150 M104 190 Q200 212 296 190 M108 232 Q200 254 292 232 M118 274 Q200 294 282 274 M132 312 Q200 330 268 312" fill="none" stroke-width="5"/>
+  <ellipse class="r" cx="168" cy="180" rx="16" ry="20"/><ellipse class="r" cx="232" cy="180" rx="16" ry="20"/>
+`)},
+{ id:"ct_ghost", cat:"cartoon", name:"ผีน้อยแสนซน", svg:S(`
+  <path class="r" d="M100 220 Q92 100 200 92 Q308 100 300 220 L300 320 Q276 296 252 320 Q228 296 204 320 Q180 296 156 320 Q132 296 100 320 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="164" cy="192" r="10"/><circle cx="236" cy="192" r="10"/></g>
+  <ellipse class="r" cx="200" cy="228" rx="14" ry="18"/>
+`)},
+{ id:"ct_treasurehunter", cat:"cartoon", name:"นักล่าสมบัติตัวน้อย", svg:S(KID+`
+  <path class="r" d="M140 96 Q200 54 260 96 L260 114 Q200 84 140 114 Z"/>
+  <rect class="r" x="150" y="220" width="100" height="70" rx="10"/>
+  <path class="r" d="M150 220 Q200 190 250 220 Z"/>
+  <circle class="r" cx="200" cy="248" r="16"/>
+`)},
+{ id:"ct_frogprince", cat:"cartoon", name:"เจ้าชายกบ", svg:S(`
+  <path class="r" d="M116 148 L100 96 L152 128 Q200 108 248 128 L300 96 L284 148 Q320 176 300 212 Q320 252 280 268 Q240 300 200 288 Q160 300 120 268 Q80 252 100 212 Q80 176 116 148 Z"/>
+  <circle class="r" cx="150" cy="152" r="34"/><circle class="r" cx="250" cy="152" r="34"/>
+  <g fill="#3D3562" stroke="none"><circle cx="150" cy="150" r="12"/><circle cx="250" cy="150" r="12"/></g>
+  <path d="M160 220 Q200 244 240 220" fill="none"/>
+  <path class="r" d="M170 78 L200 40 L230 78 Z"/>
+`)},
+{ id:"ct_sunkid", cat:"cartoon", name:"เด็กพระอาทิตย์", svg:S(`
+  <path class="r" d="M184 60 L200 20 L216 60 Z"/>
+  <path class="r" d="M184 60 L200 20 L216 60 Z" transform="rotate(60 200 150)"/>
+  <path class="r" d="M184 60 L200 20 L216 60 Z" transform="rotate(120 200 150)"/>
+  <path class="r" d="M184 60 L200 20 L216 60 Z" transform="rotate(180 200 150)"/>
+  <path class="r" d="M184 60 L200 20 L216 60 Z" transform="rotate(240 200 150)"/>
+  <path class="r" d="M184 60 L200 20 L216 60 Z" transform="rotate(300 200 150)"/>
+  <circle class="r" cx="200" cy="150" r="70"/>
+  <g fill="#3D3562" stroke="none"><circle cx="178" cy="142" r="7"/><circle cx="222" cy="142" r="7"/></g>
+  <path d="M180 170 Q200 188 220 170" fill="none"/>
+  <path class="r" d="M156 220 H244 L256 320 H144 Z"/>
+`)},
+/* ---------- 🐠 ใต้ทะเล +12 ---------- */
+{ id:"sea_shrimp", cat:"sea", name:"กุ้งทะเล", svg:S(`
+  <path class="r" d="M80 220 Q80 120 176 100 Q260 88 300 140 Q320 168 296 190 Q330 200 320 232 Q300 250 272 226 Q240 260 190 250 Q120 240 80 220 Z"/>
+  <path class="r" d="M176 100 L160 66 L192 84 Z"/>
+  <path d="M92 200 L44 172 M100 220 L54 210" fill="none" stroke-width="4"/>
+  <circle cx="192" cy="118" r="6" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"sea_eel", cat:"sea", name:"ปลาไหลทะเล", svg:S(`
+  <path class="r" d="M60 300 Q100 220 60 160 Q140 180 140 260 Q220 240 200 160 Q280 190 260 260 Q330 240 340 180 Q360 220 330 260 Q290 320 200 300 Q120 340 60 300 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="76" cy="192" r="7"/></g>
+  <path d="M60 200 Q40 190 30 172" fill="none" stroke-width="4"/>
+`)},
+{ id:"sea_turtle", cat:"sea", name:"เต่าทะเล", svg:S(`
+  <ellipse class="r" cx="200" cy="220" rx="104" ry="80"/>
+  <circle class="r" cx="200" cy="140" r="40"/>
+  <path class="r" d="M96 190 L34 170 L46 220 L34 268 L96 250 Z"/>
+  <path class="r" d="M304 190 L366 170 L354 220 L366 268 L304 250 Z"/>
+  <path class="r" d="M160 292 L136 330 L172 322 Z"/><path class="r" d="M240 292 L264 330 L228 322 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="188" cy="134" r="6"/><circle cx="212" cy="134" r="6"/></g>
+`)},
+{ id:"sea_otter", cat:"sea", name:"นากทะเล", svg:S(`
+  <ellipse class="r" cx="200" cy="240" rx="120" ry="80"/>
+  <circle class="r" cx="150" cy="176" r="52"/>
+  <ellipse class="r" cx="150" cy="230" rx="46" ry="34"/>
+  <circle class="r" cx="260" cy="236" r="22"/><circle class="r" cx="300" cy="236" r="22"/>
+  <g fill="#3D3562" stroke="none"><circle cx="132" cy="168" r="6"/><circle cx="168" cy="168" r="6"/></g>
+  <path d="M138 190 Q150 200 162 190" fill="none"/>
+`)},
+{ id:"sea_seal", cat:"sea", name:"แมวน้ำ", svg:S(`
+  <path class="r" d="M120 340 Q60 300 76 220 Q84 140 160 108 Q220 84 268 130 Q316 150 296 202 Q332 224 300 264 Q312 310 254 330 Q180 366 120 340 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="164" cy="168" r="9"/><circle cx="212" cy="156" r="9"/></g>
+  <ellipse class="r" cx="186" cy="196" rx="12" ry="9"/>
+`)},
+{ id:"sea_urchin", cat:"sea", name:"หอยเม่นทะเล", svg:S(`
+  <circle class="r" cx="200" cy="220" r="86"/>
+  <path d="M200 134 V60 M200 306 V380 M114 220 H40 M286 220 H360 M140 156 L88 104 M260 156 L312 104 M140 284 L88 336 M260 284 L312 336" fill="none" stroke-width="6"/>
+  <g fill="#3D3562" stroke="none"><circle cx="180" cy="204" r="6"/><circle cx="220" cy="204" r="6"/></g>
+`)},
+{ id:"sea_seaweed", cat:"sea", name:"สาหร่ายทะเล", svg:S(`
+  <path class="r" d="M120 360 Q90 260 130 200 Q90 150 130 90 Q150 60 170 90 Q140 150 172 196 Q140 260 164 360 Z"/>
+  <path class="r" d="M240 360 Q270 250 232 190 Q272 140 232 84 Q214 56 194 84 Q224 144 194 190 Q226 250 204 360 Z"/>
+  <circle class="r" cx="300" cy="200" r="14"/><circle class="r" cx="90" cy="240" r="10"/>
+`)},
+{ id:"sea_hammerhead", cat:"sea", name:"ฉลามหัวค้อน", svg:S(`
+  <path class="r" d="M296 220 L366 168 L354 220 L366 276 Z"/>
+  <path class="r" d="M60 200 Q60 176 90 176 L310 176 Q340 176 340 200 Q340 224 310 224 L90 224 Q60 224 60 200 Z"/>
+  <ellipse class="r" cx="200" cy="248" rx="120" ry="60"/>
+  <circle class="r" cx="90" cy="192" r="9"/><circle class="r" cx="310" cy="192" r="9"/>
+`)},
+{ id:"sea_gull", cat:"sea", name:"นกนางนวล", svg:S(`
+  <path class="r" d="M200 180 Q120 130 40 150 Q120 168 176 200 Q120 210 60 250 Q140 240 200 210 Q260 240 340 250 Q280 210 224 200 Q280 168 360 150 Q280 130 200 180 Z"/>
+  <path class="r" d="M200 180 L228 200 L200 210 Z"/>
+  <circle cx="204" cy="188" r="5" fill="#3D3562" stroke="none"/>
+`)},
+{ id:"sea_anchor", cat:"sea", name:"สมอเรือ", svg:S(`
+  <circle class="r" cx="200" cy="70" r="26"/>
+  <rect class="r" x="188" y="96" width="24" height="200" rx="8"/>
+  <rect class="r" x="140" y="150" width="120" height="24" rx="10"/>
+  <path class="r" d="M120 296 Q120 356 172 366 L164 336 Q140 328 140 296 Z"/>
+  <path class="r" d="M280 296 Q280 356 228 366 L236 336 Q260 328 260 296 Z"/>
+`)},
+{ id:"sea_babywhale", cat:"sea", name:"ลูกปลาวาฬ", svg:S(`
+  <path class="r" d="M96 240 Q80 160 176 140 Q272 130 312 200 Q300 220 320 232 Q300 250 316 268 Q272 268 250 244 Q200 268 140 250 Q100 244 96 240 Z"/>
+  <path class="r" d="M180 140 L200 96 L216 138 Z"/>
+  <g fill="#3D3562" stroke="none"><circle cx="150" cy="188" r="9"/></g>
+  <path d="M140 214 Q160 226 180 214" fill="none"/>
+`)},
+{ id:"sea_butterflyfish", cat:"sea", name:"ปลาผีเสื้อ", svg:S(`
+  <path class="r" d="M290 200 L350 160 L340 200 L350 244 Z"/>
+  <path class="r" d="M200 88 Q240 108 232 148 Q192 148 168 122 Z"/>
+  <ellipse class="r" cx="190" cy="212" rx="122" ry="88"/>
+  <path d="M150 170 Q190 200 150 254" fill="none" stroke-width="5"/>
+  <circle cx="118" cy="196" r="12" fill="#fff"/><circle cx="118" cy="196" r="6" fill="#3D3562" stroke="none"/>
+`)},
+/* ---------- 🚀 โลกอวกาศ +13 ---------- */
+{ id:"sp_mars", cat:"space", name:"ดาวอังคาร", svg:S(`
+  <circle class="r" cx="200" cy="210" r="128"/>
+  <circle class="r" cx="160" cy="170" r="20"/><circle class="r" cx="240" cy="230" r="26"/><circle class="r" cx="180" cy="264" r="14"/>
+  <path class="r" d="M330 60 L337 78 L356 85 L337 92 L330 110 L323 92 L304 85 L323 78 Z"/>
+`)},
+{ id:"sp_rainbow", cat:"space", name:"ดาวเคราะห์สีรุ้ง", svg:S(`
+  <circle class="r" cx="200" cy="200" r="110"/>
+  <ellipse class="r" cx="200" cy="200" rx="170" ry="34" transform="rotate(-18 200 200)"/>
+  <ellipse class="r" cx="200" cy="200" rx="170" ry="14" transform="rotate(-18 200 200)"/>
+  <circle class="r" cx="80" cy="90" r="10"/><circle class="r" cx="330" cy="300" r="10"/>
+`)},
+{ id:"sp_rocket2", cat:"space", name:"จรวดสำรวจ", svg:S(`
+  <path class="r" d="M200 30 C160 76 152 156 158 240 L242 240 C248 156 240 76 200 30 Z"/>
+  <circle class="r" cx="200" cy="130" r="30"/>
+  <path class="r" d="M158 210 L100 270 L158 254 Z"/><path class="r" d="M242 210 L300 270 L242 254 Z"/>
+  <path class="r" d="M172 240 L228 240 L220 268 L180 268 Z"/>
+  <path class="r" d="M180 270 C180 306 200 332 200 332 C200 332 220 306 220 270 Z"/>
+`)},
+{ id:"sp_lander", cat:"space", name:"ยานลงดวงจันทร์", svg:S(`
+  <path class="r" d="M140 180 H260 L280 240 H120 Z"/>
+  <rect class="r" x="168" y="120" width="64" height="72" rx="10"/>
+  <circle class="r" cx="200" cy="150" r="20"/>
+  <path d="M120 240 L80 300 M280 240 L320 300 M150 240 L120 300 M250 240 L280 300" fill="none" stroke-width="6"/>
+  <rect class="r" x="60" y="300" width="40" height="14" rx="4"/><rect class="r" x="300" y="300" width="40" height="14" rx="4"/>
+`)},
+{ id:"sp_moon", cat:"space", name:"ดวงจันทร์เต็มดวง", svg:S(`
+  <circle class="r" cx="200" cy="210" r="130"/>
+  <circle class="r" cx="150" cy="160" r="24"/><circle class="r" cx="250" cy="200" r="32"/><circle class="r" cx="180" cy="266" r="18"/><circle class="r" cx="264" cy="284" r="14"/>
+`)},
+{ id:"sp_stars", cat:"space", name:"กลุ่มดาว", svg:S(`
+  <path class="r" d="M100 100 L108 120 L128 128 L108 136 L100 156 L92 136 L72 128 L92 120 Z"/>
+  <path class="r" d="M300 130 L308 150 L328 158 L308 166 L300 186 L292 166 L272 158 L292 150 Z"/>
+  <path class="r" d="M200 240 L210 264 L234 272 L210 280 L200 304 L190 280 L166 272 L190 264 Z"/>
+  <path class="r" d="M120 300 L126 314 L140 320 L126 326 L120 340 L114 326 L100 320 L114 314 Z"/>
+  <path d="M108 130 L200 250 M120 148 L302 148 M212 260 L128 316" fill="none" stroke-width="3" stroke-dasharray="6 8"/>
+`)},
+{ id:"sp_helmet", cat:"space", name:"หมวกอวกาศ", svg:S(`
+  <circle class="r" cx="200" cy="200" r="128"/>
+  <circle class="r" cx="200" cy="200" r="92"/>
+  <ellipse class="r" cx="176" cy="176" rx="26" ry="18"/>
+  <rect class="r" x="164" y="316" width="72" height="30" rx="10"/>
+  <circle class="r" cx="80" cy="140" r="14"/>
+`)},
+{ id:"sp_rover", cat:"space", name:"รถสำรวจดวงจันทร์", svg:S(`
+  <rect class="r" x="110" y="176" width="180" height="90" rx="14"/>
+  <circle class="r" cx="150" cy="286" r="34"/><circle class="r" cx="250" cy="286" r="34"/>
+  <rect class="r" x="150" y="130" width="70" height="46" rx="8"/>
+  <path d="M290 200 L340 176 M340 176 L340 140" fill="none" stroke-width="5"/>
+  <circle class="r" cx="340" cy="132" r="12"/>
+`)},
+{ id:"sp_station", cat:"space", name:"สถานีอวกาศ", svg:S(`
+  <circle class="r" cx="200" cy="200" r="70"/>
+  <rect class="r" x="40" y="182" width="90" height="36" rx="8"/><rect class="r" x="270" y="182" width="90" height="36" rx="8"/>
+  <path d="M130 182 V218 M270 182 V218" fill="none" stroke-width="4"/>
+  <rect class="r" x="186" y="90" width="28" height="60" rx="8"/><rect class="r" x="186" y="250" width="28" height="60" rx="8"/>
+  <circle class="r" cx="200" cy="200" r="24"/>
+`)},
+{ id:"sp_satellite", cat:"space", name:"ดาวเทียม", svg:S(`
+  <rect class="r" x="160" y="170" width="80" height="70" rx="10"/>
+  <rect class="r" x="40" y="150" width="100" height="70" rx="8" transform="rotate(-18 90 185)"/>
+  <rect class="r" x="260" y="150" width="100" height="70" rx="8" transform="rotate(18 310 185)"/>
+  <path d="M240 190 L300 130" fill="none" stroke-width="5"/>
+  <path class="r" d="M300 130 Q330 100 300 70 Q280 90 288 112 Z"/>
+`)},
+{ id:"sp_galaxy", cat:"space", name:"กาแล็กซีหมุนวน", svg:S(`
+  <path class="r" d="M200 200 Q200 80 300 100 Q380 116 360 200 Q340 270 260 260 Q210 252 210 200 Q210 168 246 168 Q272 168 268 194 Z"/>
+  <circle class="r" cx="200" cy="200" r="30"/>
+  <circle class="r" cx="90" cy="120" r="10"/><circle class="r" cx="320" cy="320" r="12"/><circle class="r" cx="60" cy="300" r="8"/>
+`)},
+{ id:"sp_meteor", cat:"space", name:"ฝนดาวตก", svg:S(`
+  <path class="r" d="M320 60 L360 100 L326 96 L336 130 L296 92 L302 66 Z"/>
+  <path class="r" d="M180 130 L212 162 L188 160 L196 186 L166 158 L170 138 Z"/>
+  <path class="r" d="M80 220 L104 244 L88 242 L94 262 L72 242 L76 226 Z"/>
+  <path d="M320 60 Q260 20 200 40 M180 130 Q140 100 90 108 M80 220 Q46 200 20 210" fill="none" stroke-width="3" stroke-dasharray="4 6"/>
+`)},
+{ id:"sp_blackhole", cat:"space", name:"หลุมดำจิ๋ว", svg:S(`
+  <ellipse class="r" cx="200" cy="210" rx="150" ry="60"/>
+  <circle class="r" cx="200" cy="210" r="60"/>
+  <path d="M60 210 Q200 260 340 210 M80 190 Q200 150 320 190" fill="none" stroke-width="4"/>
+  <circle class="r" cx="90" cy="120" r="9"/><circle class="r" cx="320" cy="130" r="9"/>
+`)},
+/* ---------- 🎵 ดนตรี +14 ---------- */
+{ id:"mu_violin", cat:"music", name:"ไวโอลิน", svg:S(`
+  <path class="r" d="M160 190 Q120 190 124 240 Q120 300 168 320 Q200 334 232 320 Q280 300 276 240 Q280 190 240 190 Q230 150 200 150 Q170 150 160 190 Z"/>
+  <rect class="r" x="188" y="60" width="24" height="94" rx="8"/>
+  <circle class="r" cx="200" cy="52" r="20"/>
+  <path d="M170 220 V290 M230 220 V290" fill="none" stroke-width="3"/>
+  <path d="M164 340 L120 380" fill="none" stroke-width="5"/>
+`)},
+{ id:"mu_drumset", cat:"music", name:"กลองชุด", svg:S(`
+  <ellipse class="r" cx="200" cy="240" rx="90" ry="60"/>
+  <rect class="r" x="110" y="240" width="180" height="50" rx="10"/>
+  <circle class="r" cx="90" cy="190" r="40"/>
+  <circle class="r" cx="310" cy="170" r="34"/>
+  <path d="M90 150 V80 M310 136 V80" fill="none" stroke-width="6"/>
+  <path d="M60 130 L84 100 L108 130" fill="none" stroke-width="5"/>
+`)},
+{ id:"mu_sax", cat:"music", name:"แซกโซโฟน", svg:S(`
+  <path class="r" d="M200 50 Q160 60 168 100 L220 260 Q240 300 210 320 Q180 336 168 306 Q186 320 200 300 L150 108 Q140 66 200 50 Z"/>
+  <circle class="r" cx="176" cy="150" r="10"/><circle class="r" cx="188" cy="190" r="10"/><circle class="r" cx="200" cy="230" r="10"/>
+  <path class="r" d="M198 44 L232 30 L240 52 L204 62 Z"/>
+`)},
+{ id:"mu_flute", cat:"music", name:"ขลุ่ย", svg:S(`
+  <rect class="r" x="60" y="188" width="280" height="30" rx="14" transform="rotate(-6 200 200)"/>
+  <circle class="r" cx="100" cy="200" r="9"/><circle class="r" cx="150" cy="196" r="9"/><circle class="r" cx="200" cy="192" r="9"/><circle class="r" cx="250" cy="188" r="9"/><circle class="r" cx="300" cy="184" r="9"/>
+`)},
+{ id:"mu_harp", cat:"music", name:"พิณ", svg:S(`
+  <path class="r" d="M120 340 Q60 220 120 60 L160 66 Q112 220 164 340 Z"/>
+  <path d="M132 90 V330 M148 100 V336 M164 108 V340" fill="none" stroke-width="3"/>
+  <rect class="r" x="96" y="330" width="80" height="26" rx="8"/>
+`)},
+{ id:"mu_accordion", cat:"music", name:"หีบเพลง", svg:S(`
+  <rect class="r" x="70" y="120" width="70" height="180" rx="12"/>
+  <rect class="r" x="260" y="120" width="70" height="180" rx="12"/>
+  <path d="M140 130 L260 130 M140 160 L260 160 M140 190 L260 190 M140 220 L260 220 M140 250 L260 250 M140 280 L260 280" fill="none" stroke-width="6"/>
+  <circle class="r" cx="105" cy="160" r="8"/><circle class="r" cx="105" cy="190" r="8"/><circle class="r" cx="105" cy="220" r="8"/>
+`)},
+{ id:"mu_cymbal", cat:"music", name:"ฉาบ", svg:S(`
+  <ellipse class="r" cx="150" cy="180" rx="120" ry="34"/>
+  <ellipse class="r" cx="250" cy="230" rx="120" ry="34"/>
+  <circle class="r" cx="150" cy="180" r="16"/><circle class="r" cx="250" cy="230" r="16"/>
+`)},
+{ id:"mu_triangle", cat:"music", name:"ไทรแองเกิล", svg:S(`
+  <path class="r" d="M200 60 L320 320 H80 Z"/>
+  <path d="M320 320 Q350 320 350 290" fill="none" stroke-width="5"/>
+  <rect class="r" x="150" y="330" width="100" height="16" rx="6"/>
+`)},
+{ id:"mu_note", cat:"music", name:"ตัวโน้ตดนตรี", svg:S(`
+  <circle class="r" cx="130" cy="310" r="42"/>
+  <circle class="r" cx="300" cy="270" r="42"/>
+  <path d="M172 310 V90 M342 270 V60 M172 90 L342 60" fill="none" stroke-width="8"/>
+  <path class="r" d="M172 90 Q220 74 240 108 Q200 100 172 118 Z"/>
+`)},
+{ id:"mu_boombox", cat:"music", name:"เครื่องเล่นเพลง", svg:S(`
+  <rect class="r" x="60" y="140" width="280" height="180" rx="20"/>
+  <path d="M100 140 V110 H300 V140" fill="none" stroke-width="6"/>
+  <circle class="r" cx="140" cy="240" r="56"/><circle class="r" cx="140" cy="240" r="24"/>
+  <circle class="r" cx="260" cy="240" r="56"/><circle class="r" cx="260" cy="240" r="24"/>
+  <rect class="r" x="176" y="160" width="48" height="20" rx="6"/>
+`)},
+{ id:"mu_headphone", cat:"music", name:"หูฟัง", svg:S(`
+  <path d="M80 220 Q80 80 200 80 Q320 80 320 220" fill="none" stroke-width="14"/>
+  <rect class="r" x="52" y="200" width="56" height="90" rx="24"/>
+  <rect class="r" x="292" y="200" width="56" height="90" rx="24"/>
+`)},
+{ id:"mu_banjo", cat:"music", name:"แบนโจ", svg:S(`
+  <circle class="r" cx="180" cy="260" r="90"/>
+  <circle class="r" cx="180" cy="260" r="60"/>
+  <rect class="r" x="256" y="70" width="24" height="200" rx="8"/>
+  <circle class="r" cx="268" cy="60" r="18"/>
+  <path d="M160 230 L200 290 M200 230 L160 290" fill="none" stroke-width="3"/>
+`)},
+{ id:"mu_bell", cat:"music", name:"กระดิ่ง", svg:S(`
+  <path class="r" d="M120 260 Q120 120 200 100 Q280 120 280 260 Q320 280 280 296 H120 Q80 280 120 260 Z"/>
+  <circle class="r" cx="200" cy="80" r="16"/>
+  <circle class="r" cx="200" cy="316" r="20"/>
+`)},
+{ id:"mu_ukulele", cat:"music", name:"อูคูเลเล่", svg:S(`
+  <rect class="r" x="184" y="46" width="32" height="140" rx="10"/>
+  <circle class="r" cx="200" cy="270" r="72"/>
+  <circle class="r" cx="200" cy="270" r="34"/>
+  <circle class="r" cx="176" cy="60" r="10"/><circle class="r" cx="224" cy="60" r="10"/>
+  <path d="M188 186 V340 M212 186 V340" fill="none" stroke-width="3"/>
+`)}
+];
+PICS.push(...MORE2_PICS);
 
-function spaceKidSvg(kind, variant){
-  const stars = variant%2
-    ? `<path class="r" d="M66 58 L74 78 L94 86 L74 94 L66 114 L58 94 L38 86 L58 78 Z"/><circle class="r" cx="334" cy="58" r="12"/>`
-    : `<circle class="r" cx="66" cy="74" r="15"/><path class="r" d="M330 48 L337 66 L356 73 L337 80 L330 99 L323 80 L304 73 L323 66 Z"/>`;
-  const shapes = [
-    `<circle class="r" cx="200" cy="210" r="118"/><ellipse class="r" cx="200" cy="210" rx="176" ry="42" transform="rotate(-15 200 210)"/><circle class="r" cx="164" cy="176" r="21"/><circle class="r" cx="244" cy="238" r="17"/>`,
-    `<path class="r" d="M200 40 C146 106 138 216 152 292 H248 C262 216 254 106 200 40 Z"/><circle class="r" cx="200" cy="154" r="36"/><path class="r" d="M152 224 L92 302 L154 278 Z"/><path class="r" d="M248 224 L308 302 L246 278 Z"/><path class="r" d="M176 292 H224 Q218 354 200 378 Q182 354 176 292 Z"/>`,
-    `<ellipse class="r" cx="200" cy="226" rx="158" ry="62"/><path class="r" d="M110 220 Q126 104 200 104 Q274 104 290 220 Z"/><circle class="r" cx="160" cy="218" r="21"/><circle class="r" cx="220" cy="218" r="21"/><circle class="r" cx="280" cy="218" r="21"/>`,
-    `<circle class="r" cx="200" cy="138" r="94"/><circle class="r" cx="200" cy="138" r="68"/><path class="r" d="M136 220 H264 L286 338 H114 Z"/><rect class="r" x="154" y="334" width="38" height="44" rx="10"/><rect class="r" x="208" y="334" width="38" height="44" rx="10"/><circle class="r" cx="176" cy="136" r="8"/><circle class="r" cx="224" cy="136" r="8"/>`,
-    `<path class="r" d="M88 330 L168 198 H232 L312 330 Z"/><rect class="r" x="172" y="126" width="56" height="72" rx="12"/><path d="M200 126 V72" fill="none"/><path class="r" d="M200 72 L294 38 L306 66 L212 100 Z"/><circle class="r" cx="294" cy="52" r="22"/>`
-  ];
-  const details = [
-    `<path class="r" d="M110 286 Q200 232 290 286"/><circle class="r" cx="250" cy="164" r="22"/>`,
-    `<path class="r" d="M112 206 Q200 150 288 206"/><path class="r" d="M144 260 Q200 304 256 260"/>`,
-    `<circle class="r" cx="142" cy="152" r="18"/><circle class="r" cx="270" cy="246" r="25"/>`,
-    `<path class="r" d="M126 250 L148 220 L170 250 L158 284 H138 Z"/><path class="r" d="M244 174 L262 146 L280 174 L270 202 H254 Z"/>`
-  ];
-  return S(shapes[kind]+details[variant]+stars);
-}
-function schoolKidSvg(kind, variant){
-  const deco = variant%2 ? `<circle class="r" cx="330" cy="66" r="16"/>` : `<path class="r" d="M64 54 L72 74 L92 82 L72 90 L64 110 L56 90 L36 82 L56 74 Z"/>`;
-  const shapes = [
-    `<path class="r" d="M46 188 L200 58 L354 188 V354 H46 Z"/><rect class="r" x="166" y="244" width="68" height="110" rx="8"/><rect class="r" x="78" y="216" width="62" height="62" rx="8"/><rect class="r" x="260" y="216" width="62" height="62" rx="8"/>`,
-    `<path class="r" d="M42 104 Q122 74 200 118 V346 Q122 302 42 330 Z"/><path class="r" d="M358 104 Q278 74 200 118 V346 Q278 302 358 330 Z"/><path d="M200 118 V346 M72 154 Q130 132 174 150 M226 150 Q278 132 330 154" fill="none"/>`,
-    `<path class="r" d="M98 326 L248 78 L302 112 L152 360 Z"/><path class="r" d="M248 78 L278 30 L332 64 L302 112 Z"/><path class="r" d="M98 326 L82 382 L152 360 Z"/><path d="M142 296 L196 330 M168 250 L222 284 M194 204 L248 238" fill="none"/>`,
-    `<path class="r" d="M116 154 Q126 72 200 72 Q274 72 284 154 L310 344 H90 Z"/><rect class="r" x="132" y="182" width="136" height="112" rx="24"/><path d="M160 154 Q166 112 200 112 Q234 112 240 154" fill="none"/><circle class="r" cx="200" cy="236" r="24"/>`,
-    `<rect class="r" x="58" y="92" width="284" height="196" rx="18"/><path class="r" d="M92 126 H308 V254 H92 Z"/><path d="M118 162 H210 M118 202 H270" fill="none"/><rect class="r" x="116" y="288" width="32" height="70"/><rect class="r" x="252" y="288" width="32" height="70"/>`
-  ];
-  const details = [
-    `<path class="r" d="M184 220 L200 184 L216 220 L254 224 L226 250 L234 288 L200 268 L166 288 L174 250 L146 224 Z"/>`,
-    `<path class="r" d="M174 220 C142 194 126 236 200 286 C274 236 258 194 226 220 C214 230 200 244 200 244 C200 244 186 230 174 220 Z"/>`,
-    `<circle class="r" cx="200" cy="236" r="42"/><path d="M176 236 H224 M200 212 V260" fill="none"/>`,
-    `<path class="r" d="M164 214 L184 214 L184 194 H216 V214 H236 V246 H216 V266 H184 V246 H164 Z"/>`
-  ];
-  return S(shapes[kind]+details[variant]+deco);
-}
-function careerSvg(index){
-  const props = [
-    `<path class="r" d="M182 230 H218 V246 H234 V278 H218 V294 H182 V278 H166 V246 H182 Z"/>`,
-    `<path class="r" d="M154 238 Q178 222 200 238 Q222 222 246 238 V294 Q222 280 200 296 Q178 280 154 294 Z"/>`,
-    `<path class="r" d="M162 232 H238 V292 H162 Z"/><path d="M200 232 V292" fill="none"/>`,
-    `<path class="r" d="M158 252 Q170 220 200 234 Q230 220 242 252 Q230 282 200 270 Q170 282 158 252 Z"/>`,
-    `<path class="r" d="M200 220 L214 248 L246 252 L222 274 L230 306 L200 288 L170 306 L178 274 L154 252 L186 248 Z"/>`,
-    `<path class="r" d="M200 224 L214 246 L240 252 L224 274 L226 302 L200 292 L174 302 L176 274 L160 252 L186 246 Z"/>`,
-    `<path class="r" d="M154 252 H246 L230 280 H170 Z"/><path class="r" d="M200 226 L218 252 H182 Z"/>`,
-    `<path class="r" d="M150 252 Q200 206 250 252 L236 278 H164 Z"/><path d="M200 220 V282" fill="none"/>`,
-    `<circle class="r" cx="200" cy="262" r="34"/><circle class="r" cx="174" cy="232" r="14"/><circle class="r" cx="200" cy="222" r="14"/><circle class="r" cx="226" cy="232" r="14"/>`,
-    `<path class="r" d="M182 222 H218 L212 246 L242 292 H158 L188 246 Z"/><circle class="r" cx="200" cy="266" r="12"/>`,
-    `<path d="M184 292 V226 L232 246 V278" fill="none"/><circle class="r" cx="174" cy="296" r="18"/><circle class="r" cx="222" cy="282" r="18"/>`,
-    `<ellipse class="r" cx="200" cy="260" rx="48" ry="38"/><circle class="r" cx="180" cy="248" r="8"/><circle class="r" cx="204" cy="238" r="8"/><circle class="r" cx="226" cy="254" r="8"/>`,
-    `<path class="r" d="M200 292 V238 M200 252 Q164 224 158 258 M200 266 Q236 234 244 268" fill="none"/><circle class="r" cx="158" cy="258" r="16"/><circle class="r" cx="244" cy="268" r="16"/>`,
-    `<circle class="r" cx="200" cy="264" r="42"/><path class="r" d="M200 222 L214 250 L244 254 L222 274 L228 304 L200 288 L172 304 L178 274 L156 254 L186 250 Z"/>`,
-    `<rect class="r" x="158" y="236" width="84" height="58" rx="12"/><circle class="r" cx="200" cy="265" r="20"/><rect class="r" x="182" y="222" width="36" height="14" rx="5"/>`,
-    `<circle class="r" cx="200" cy="260" r="44"/><ellipse class="r" cx="200" cy="260" rx="70" ry="18" transform="rotate(-18 200 260)"/>`,
-    `<circle class="r" cx="174" cy="268" r="27"/><circle class="r" cx="226" cy="268" r="27"/><path d="M148 300 H252" fill="none"/>`,
-    `<rect class="r" x="154" y="230" width="42" height="70" rx="6"/><rect class="r" x="204" y="220" width="42" height="80" rx="6"/>`,
-    `<path class="r" d="M146 250 Q200 218 254 250 Q240 302 200 310 Q160 302 146 250 Z"/><path d="M166 270 Q200 292 234 270" fill="none"/>`,
-    `<circle class="r" cx="200" cy="264" r="42"/><path d="M200 232 V264 L228 282 M158 264 H174 M226 264 H242 M200 306 V290" fill="none"/>`
-  ];
-  const base = cartoonSvg(index%5,index%4);
-  return base.replace("</g></svg>",props[index]+"</g></svg>");
-}
-const CAREER_PICS = [
-  "คุณหมอ","พยาบาล","ครู","เชฟ","นักดับเพลิง","ตำรวจ","นักบิน","ช่างก่อสร้าง","สัตวแพทย์","นักวิทยาศาสตร์",
-  "นักดนตรี","จิตรกร","ชาวสวน","นักฟุตบอล","ช่างภาพ","นักบินอวกาศ","คนขับรถไฟ","บรรณารักษ์","นักเต้น","นักสำรวจ"
-].map((name,i)=>({id:`career_${i+1}`,cat:"career",name,svg:careerSvg(i)}));
-const SPACE_PICS = [
-  "ดาวเสาร์","ดาวโลก","ดาวอังคาร","ดาวเคราะห์สีรุ้ง",
-  "จรวดสำรวจ","จรวดดวงดาว","ยานขึ้นดวงจันทร์","จรวดน้อย",
-  "จานบิน","ยานมนุษย์ต่างดาว","ยูเอฟโอยิ้ม","ยานจากดาวไกล",
-  "นักบินอวกาศ","ชุดอวกาศ","เพื่อนนักบิน","เดินบนดวงจันทร์",
-  "กล้องดูดาว","หอดูดาว","กล้องชมดวงจันทร์","สถานีดูดาว"
-].map((name,i)=>({id:`space_${i+1}`,cat:"space",name,svg:spaceKidSvg(Math.floor(i/4),i%4)}));
-const SCHOOL_PICS = [
-  "บ้านของฉัน","บ้านในสวน","โรงเรียนของหนู","บ้านสายรุ้ง",
-  "หนังสือนิทาน","สมุดวาดเขียน","หนังสือ ABC","หนังสือตัวเลข",
-  "ดินสอ","สีไม้แท่งใหญ่","ปากกาน่ารัก","ไม้บรรทัด",
-  "กระเป๋านักเรียน","กระเป๋ารูปดาว","กล่องดินสอ","กระเป๋าใบโปรด",
-  "โต๊ะเรียน","กระดานดำ","ห้องเรียน","กระดานวาดรูป"
-].map((name,i)=>({id:`school_${i+1}`,cat:"school",name,svg:schoolKidSvg(Math.floor(i/4),i%4)}));
-PICS.push(...MORE_KIDS_PICS,...CARTOON_PICS,...CAREER_PICS,...SPACE_PICS,...SCHOOL_PICS);
+/* ================= หมวดใหม่: รูปทรงพื้นฐาน (สำหรับฝึกลากเส้นปะ) ================= */
+const MORE3_PICS = [
+/* ---------- รูปทรงปิด (มีพื้นที่ให้ระบายได้) ---------- */
+{ id:"sh_circle", cat:"shape", name:"วงกลม", svg:S(`
+  <circle class="r" cx="200" cy="200" r="140"/>
+  <circle class="r" cx="200" cy="46" r="11"/>
+`)},
+{ id:"sh_square", cat:"shape", name:"สี่เหลี่ยมจัตุรัส", svg:S(`
+  <rect class="r" x="66" y="66" width="268" height="268" rx="16"/>
+  <circle class="r" cx="66" cy="66" r="11"/>
+`)},
+{ id:"sh_triangle", cat:"shape", name:"สามเหลี่ยม", svg:S(`
+  <path class="r" d="M200 54 L344 322 H56 Z"/>
+  <circle class="r" cx="200" cy="42" r="11"/>
+`)},
+{ id:"sh_rectangle", cat:"shape", name:"สี่เหลี่ยมผืนผ้า", svg:S(`
+  <rect class="r" x="44" y="122" width="312" height="156" rx="14"/>
+  <circle class="r" cx="44" cy="122" r="11"/>
+`)},
+{ id:"sh_star", cat:"shape", name:"ดาวห้าแฉก", svg:S(`
+  <path class="r" d="M200 50 L235 152 L343 154 L257 219 L288 321 L200 260 L112 321 L143 219 L57 154 L165 152 Z"/>
+  <circle class="r" cx="200" cy="38" r="11"/>
+`)},
+{ id:"sh_diamond", cat:"shape", name:"สี่เหลี่ยมขนมเปียกปูน", svg:S(`
+  <path class="r" d="M200 50 L350 200 L200 350 L50 200 Z"/>
+  <circle class="r" cx="200" cy="38" r="11"/>
+`)},
+{ id:"sh_oval", cat:"shape", name:"วงรี", svg:S(`
+  <ellipse class="r" cx="200" cy="200" rx="160" ry="100"/>
+  <circle class="r" cx="40" cy="200" r="11"/>
+`)},
+{ id:"sh_pentagon", cat:"shape", name:"ห้าเหลี่ยม", svg:S(`
+  <path class="r" d="M200 50 L343 154 L288 321 L112 321 L57 154 Z"/>
+  <circle class="r" cx="200" cy="38" r="11"/>
+`)},
+{ id:"sh_hexagon", cat:"shape", name:"หกเหลี่ยม", svg:S(`
+  <path class="r" d="M200 50 L330 125 L330 275 L200 350 L70 275 L70 125 Z"/>
+  <circle class="r" cx="200" cy="38" r="11"/>
+`)},
+{ id:"sh_heart", cat:"shape", name:"หัวใจ", svg:S(`
+  <path class="r" d="M200 320 C120 250 60 190 60 130 C60 90 95 60 135 60 C165 60 185 80 200 105 C215 80 235 60 265 60 C305 60 340 90 340 130 C340 190 280 250 200 320 Z"/>
+  <circle class="r" cx="200" cy="95" r="10"/>
+`)},
+{ id:"sh_trapezoid", cat:"shape", name:"สี่เหลี่ยมคางหมู", svg:S(`
+  <path class="r" d="M140 120 H260 L340 320 H60 Z"/>
+  <circle class="r" cx="140" cy="120" r="11"/>
+`)},
+{ id:"sh_arrow", cat:"shape", name:"ลูกศรชี้", svg:S(`
+  <path class="r" d="M60 170 H220 V120 L340 200 L220 280 V230 H60 Z"/>
+  <circle class="r" cx="75" cy="200" r="11"/>
+`)},
+/* ---------- เส้นพื้นฐาน (ฝึกลากตามเส้นประ) ---------- */
+{ id:"sh_straight", cat:"shape", name:"เส้นตรง", svg:S(`
+  <path d="M60 200 L340 200" fill="none"/>
+  <circle class="r" cx="60" cy="200" r="12"/>
+  <circle class="r" cx="340" cy="200" r="12"/>
+`)},
+{ id:"sh_wavy", cat:"shape", name:"เส้นหยัก", svg:S(`
+  <path d="M50 200 Q100 140 150 200 T250 200 T350 200" fill="none"/>
+  <circle class="r" cx="50" cy="200" r="12"/>
+  <circle class="r" cx="350" cy="200" r="12"/>
+`)},
+{ id:"sh_zigzag", cat:"shape", name:"เส้นซิกแซก", svg:S(`
+  <path d="M50 260 L110 140 L170 260 L230 140 L290 260 L350 140" fill="none"/>
+  <circle class="r" cx="50" cy="260" r="12"/>
+  <circle class="r" cx="350" cy="140" r="12"/>
+`)},
+{ id:"sh_curve", cat:"shape", name:"เส้นโค้ง", svg:S(`
+  <path d="M60 280 Q200 60 340 280" fill="none"/>
+  <circle class="r" cx="60" cy="280" r="12"/>
+  <circle class="r" cx="340" cy="280" r="12"/>
+`)},
+{ id:"sh_spiral", cat:"shape", name:"เส้นก้นหอย", svg:S(`
+  <path d="M200 200 C200 160 240 160 240 200 C240 250 180 250 180 190 C180 120 280 120 280 200 C280 290 150 290 150 180 C150 90 320 90 320 200" fill="none"/>
+  <circle class="r" cx="320" cy="200" r="12"/>
+  <circle class="r" cx="200" cy="200" r="12"/>
+`)},
+{ id:"sh_corner", cat:"shape", name:"เส้นมุมฉาก", svg:S(`
+  <path d="M100 80 L100 300 L320 300" fill="none"/>
+  <circle class="r" cx="100" cy="80" r="12"/>
+  <circle class="r" cx="320" cy="300" r="12"/>
+`)},
+{ id:"sh_loop", cat:"shape", name:"เส้นห่วงวน", svg:S(`
+  <path d="M60 260 C60 180 180 180 180 260 C180 340 60 340 60 260 C60 150 340 150 340 260" fill="none"/>
+  <circle class="r" cx="60" cy="260" r="12"/>
+  <circle class="r" cx="340" cy="260" r="12"/>
+`)},
+{ id:"sh_wave2", cat:"shape", name:"เส้นคลื่นทะเล", svg:S(`
+  <path d="M30 240 Q70 180 110 240 T190 240 T270 240 T350 240" fill="none"/>
+  <circle class="r" cx="30" cy="240" r="12"/>
+  <circle class="r" cx="350" cy="240" r="12"/>
+`)}
+];
+PICS.push(...MORE3_PICS);
+
+
+
 
 const CATS = [
   {id:"all", name:"ทั้งหมด", emoji:"⭐", tint:"#FFF3C9"},
@@ -1305,7 +2590,10 @@ const CATS = [
   {id:"cartoon", name:"การ์ตูน", emoji:"🎭", tint:"#FFE5F2"},
   {id:"career", name:"อาชีพในฝัน", emoji:"🧑‍🚒", tint:"#E8F4FF"},
   {id:"space", name:"โลกอวกาศ", emoji:"🚀", tint:"#EEE8FF"},
-  {id:"school", name:"บ้านและโรงเรียน", emoji:"🏫", tint:"#FFF2D8"}
+  {id:"school", name:"บ้านและโรงเรียน", emoji:"🏫", tint:"#FFF2D8"},
+  {id:"sea", name:"ใต้ทะเล", emoji:"🐠", tint:"#DFF7FF"},
+  {id:"music", name:"ดนตรี", emoji:"🎵", tint:"#FFE8CF"},
+  {id:"shape", name:"รูปทรงพื้นฐาน", emoji:"🔺", tint:"#E9F2FF"}
 ];
 
 const COLORS = [
@@ -1345,6 +2633,49 @@ const collectionEl = document.getElementById("collection");
 const mathEl = document.getElementById("mathGame");
 const jigsawEl = document.getElementById("jigsawGame");
 const appSubtitle = document.getElementById("appSubtitle");
+const successPopupEl = document.getElementById("successPopup");
+let successReplayAction = null, successNextAction = null;
+function showSuccessPopup({emoji="🎉",title="เก่งมาก!",message="หนูทำสำเร็จแล้ว",replayLabel="↻ เล่นอีกครั้ง",nextLabel="ถัดไป →",onReplay=null,onNext=null}={}){
+  document.getElementById("successEmoji").textContent = emoji;
+  document.getElementById("successTitle").textContent = title;
+  document.getElementById("successMessage").textContent = message;
+  document.getElementById("successReplayBtn").textContent = replayLabel;
+  document.getElementById("successNextBtn").textContent = nextLabel;
+  successReplayAction = onReplay; successNextAction = onNext;
+  successPopupEl.hidden = false;
+  sfx.win();
+  setTimeout(()=>document.getElementById("successNextBtn").focus(),80);
+}
+function closeSuccessPopup(action){
+  successPopupEl.hidden = true;
+  successReplayAction = null; successNextAction = null;
+  if(action) action();
+}
+document.getElementById("successReplayBtn").onclick = ()=>closeSuccessPopup(successReplayAction);
+document.getElementById("successNextBtn").onclick = ()=>closeSuccessPopup(successNextAction);
+
+const askPopupEl = document.getElementById("askPopup");
+let askOkAction = null;
+function showAskPopup({emoji="🤔",title="แน่ใจนะ?",message="",okLabel="ตกลง",cancelLabel="ไม่แล้ว",onOk=null,info=false}={}){
+  document.getElementById("askEmoji").textContent = emoji;
+  document.getElementById("askTitle").textContent = title;
+  document.getElementById("askMessage").textContent = message;
+  document.getElementById("askOkBtn").textContent = okLabel;
+  const cancelBtn = document.getElementById("askCancelBtn");
+  cancelBtn.style.display = info ? "none" : "";
+  document.getElementById("askActions").style.gridTemplateColumns = info ? "1fr" : "1fr 1fr";
+  askOkAction = onOk;
+  askPopupEl.hidden = false;
+  setTimeout(()=>document.getElementById("askOkBtn").focus(),80);
+}
+function closeAskPopup(runOk){
+  askPopupEl.hidden = true;
+  if(runOk && askOkAction) askOkAction();
+  askOkAction = null;
+}
+document.getElementById("askCancelBtn").onclick = ()=>closeAskPopup(false);
+document.getElementById("askOkBtn").onclick = ()=>closeAskPopup(true);
+
 CATS.forEach((c,i)=>{
   const b = document.createElement("button");
   b.className = "chip" + (i===1?" on":"");
@@ -1440,6 +2771,7 @@ function openPic(p){
   homeEl.style.display = "none";
   mathEl.style.display = "none";
   jigsawEl.style.display = "none";
+  dotsEl.style.display = "none";
   studio.style.display = "block";
   appSubtitle.textContent = "แต่งแต้มภาพโปรดให้สวยสดใสในแบบของหนู";
   window.scrollTo({top:0, behavior:"smooth"});
@@ -1449,6 +2781,7 @@ function showGallery(rerender=true){
   homeEl.style.display = "none";
   mathEl.style.display = "none";
   jigsawEl.style.display = "none";
+  dotsEl.style.display = "none";
   collectionEl.style.display = "block";
   galleryEl.style.display = "grid";
   if(rerender) renderGallery(activeCat());
@@ -1460,6 +2793,7 @@ function showHome(){
   collectionEl.style.display = "none";
   mathEl.style.display = "none";
   jigsawEl.style.display = "none";
+  dotsEl.style.display = "none";
   homeEl.style.display = "block";
   appSubtitle.textContent = "สนามเล่นสร้างสรรค์ เติมความสนุกให้ทุกจินตนาการ";
   window.scrollTo({top:0, behavior:"smooth"});
@@ -1469,6 +2803,7 @@ function showMath(){
   collectionEl.style.display = "none";
   homeEl.style.display = "none";
   jigsawEl.style.display = "none";
+  dotsEl.style.display = "none";
   mathEl.style.display = "block";
   appSubtitle.textContent = "ฝึกนับ บวก และลบอย่างสนุกสำหรับอนุบาล 1–3";
   resetMath();
@@ -1479,26 +2814,42 @@ function showJigsaw(){
   collectionEl.style.display = "none";
   homeEl.style.display = "none";
   mathEl.style.display = "none";
+  dotsEl.style.display = "none";
   jigsawEl.style.display = "block";
-  appSubtitle.textContent = "ต่อภาพสัตว์แสนน่ารัก ฝึกสังเกตและแก้ปัญหา";
+  appSubtitle.textContent = "เลือกหมวดภาพ แล้วต่อจิ๊กซอว์ให้สมบูรณ์";
   initJigsaw();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function showDots(){
+  studio.style.display = "none";
+  collectionEl.style.display = "none";
+  homeEl.style.display = "none";
+  mathEl.style.display = "none";
+  jigsawEl.style.display = "none";
+  dotsEl.style.display = "block";
+  appSubtitle.textContent = "เลือกหมวดภาพ แล้วลากเส้นตามรอยปะให้ครบ";
+  initDots();
   window.scrollTo({top:0, behavior:"smooth"});
 }
 document.getElementById("coloringCard").onclick = ()=>showGallery();
 document.getElementById("mathCard").onclick = showMath;
 document.getElementById("jigsawCard").onclick = showJigsaw;
+document.getElementById("dotsCard").onclick = showDots;
 document.getElementById("homeBtn").onclick = showHome;
 document.getElementById("mathHomeBtn").onclick = showHome;
 document.getElementById("jigsawHomeBtn").onclick = showHome;
+document.getElementById("dotsHomeBtn").onclick = showHome;
 document.getElementById("backBtn").onclick = ()=>showGallery();
 
-/* ================= จิ๊กซอว์สัตว์ ================= */
+/* ================= จิ๊กซอว์แสนสนุก ================= */
 let puzzleReady = false, puzzleSize = 2, puzzleTrayOrder = [], puzzlePlaced = [], selectedPuzzlePiece = null;
 let puzzleMoves = 0, currentPuzzlePic = null, puzzleImage = "";
-const animalPuzzlePics = PICS.filter(p=>p.cat === "animal");
 const puzzleBoardEl = document.getElementById("puzzleBoard");
 const puzzleTrayEl = document.getElementById("puzzleTray");
-const animalPickerEl = document.getElementById("animalPicker");
+const jigsawPickerEl = document.getElementById("jigsawPicker");
+const jigsawPlayEl = document.getElementById("jigsawPlay");
+const jigsawCatsEl = document.getElementById("jigsawCats");
+const jigsawGalleryEl = document.getElementById("jigsawGallery");
 function colorfulPuzzleImage(pic){
   const temp = document.createElement("div"); temp.innerHTML = pic.svg;
   const colors = ["#FFD6E7","#CDEEFF","#FFF0B7","#CFF8EE","#E5DCFF","#FFC98B"];
@@ -1507,30 +2858,65 @@ function colorfulPuzzleImage(pic){
 }
 function initJigsaw(){
   if(!puzzleReady){
-    animalPuzzlePics.forEach((pic,i)=>{
-      const btn = document.createElement("button"); btn.className = "animalChoice"+(i===0?" on":"");
-      btn.innerHTML = pic.svg+`<span>${pic.name}</span>`;
-      btn.setAttribute("aria-label",`เลือกจิ๊กซอว์ ${pic.name}`);
-      btn.onclick = ()=>{
-        document.querySelectorAll(".animalChoice").forEach(x=>x.classList.remove("on")); btn.classList.add("on");
-        startPuzzle(pic);
+    CATS.forEach((c,i)=>{
+      const b = document.createElement("button");
+      b.className = "chip" + (i===0?" on":"");
+      b.innerHTML = `<span class="ic" style="--tint:${c.tint}">${c.emoji}</span>${c.name}`;
+      b.onclick = ()=>{
+        document.querySelectorAll("#jigsawCats .chip").forEach(x=>x.classList.remove("on"));
+        b.classList.add("on");
+        renderJigsawGallery(c.id);
       };
-      animalPickerEl.appendChild(btn);
+      jigsawCatsEl.appendChild(b);
     });
     document.querySelectorAll(".difficultyBtn").forEach(btn=>{
       btn.onclick = ()=>{
         puzzleSize = +btn.dataset.size;
         document.querySelectorAll(".difficultyBtn").forEach(x=>x.classList.remove("on")); btn.classList.add("on");
-        startPuzzle(currentPuzzlePic || animalPuzzlePics[0]);
+        startPuzzle(currentPuzzlePic || PICS[0]);
       };
     });
     puzzleReady = true;
   }
-  startPuzzle(currentPuzzlePic || animalPuzzlePics[0]);
+  showJigsawPicker();
 }
+function activeJigsawCat(){
+  const on = jigsawCatsEl.querySelector(".chip.on");
+  return on ? CATS[[...jigsawCatsEl.children].indexOf(on)].id : "all";
+}
+function renderJigsawGallery(cat){
+  jigsawGalleryEl.innerHTML = "";
+  PICS.filter(p=>cat==="all"||p.cat===cat).forEach(p=>{
+    const card = document.createElement("div");
+    card.className = "card";
+    card.tabIndex = 0;
+    card.setAttribute("role","button");
+    card.setAttribute("aria-label",`ต่อจิ๊กซอว์ ${p.name}`);
+    card.innerHTML = p.svg + `<div class="nm">${p.name}</div>`;
+    card.onclick = ()=>showJigsawPlay(p);
+    card.onkeydown = e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); showJigsawPlay(p); } };
+    jigsawGalleryEl.appendChild(card);
+  });
+}
+function showJigsawPicker(){
+  jigsawPickerEl.style.display = "block";
+  jigsawPlayEl.style.display = "none";
+  document.getElementById("jigsawSubHead").textContent = "เลือกหมวดแล้วต่อภาพให้สมบูรณ์";
+  renderJigsawGallery(activeJigsawCat());
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function showJigsawPlay(pic){
+  jigsawPickerEl.style.display = "none";
+  jigsawPlayEl.style.display = "block";
+  document.getElementById("jigsawSubHead").textContent = "ลากชิ้นจากถาดด้านขวา ไปวางบนกระดานด้านซ้าย";
+  startPuzzle(pic);
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+document.getElementById("jigsawBackBtn").onclick = showJigsawPicker;
 function startPuzzle(pic){
   currentPuzzlePic = pic; puzzleImage = colorfulPuzzleImage(pic);
   puzzleMoves = 0; selectedPuzzlePiece = null;
+  document.getElementById("jigsawPicName").textContent = `🧩 ${pic.name}`;
   const total = puzzleSize*puzzleSize;
   puzzleTrayOrder = [...Array(total).keys()].sort(()=>Math.random()-.5);
   puzzlePlaced = Array(total).fill(null);
@@ -1538,7 +2924,6 @@ function startPuzzle(pic){
   updatePuzzleMoves(); renderPuzzle();
 }
 function updatePuzzleMoves(){
-  document.getElementById("puzzleMoves").textContent = puzzleMoves;
   document.getElementById("puzzleMoveTop").textContent = puzzleMoves;
 }
 function renderPuzzle(){
@@ -1594,17 +2979,197 @@ function placePuzzlePiece(piece,slotIndex){
   puzzleMoves++; updatePuzzleMoves();
   if(piece===slotIndex){
     puzzlePlaced[slotIndex]=piece; selectedPuzzlePiece=null;
+    sfx.good();
     document.getElementById("puzzleFeedback").textContent="วางถูกแล้ว! ⭐";
     renderPuzzle();
     if(puzzlePlaced.every(x=>x!==null)){
       document.getElementById("puzzleFeedback").textContent=`ต่อสำเร็จแล้ว! เก่งมาก 🎉`;
       [...puzzleBoardEl.children].forEach(x=>x.disabled=true);
+      setTimeout(()=>showSuccessPopup({emoji:"🧩",title:"ต่อภาพสำเร็จ!",message:`หนูต่อภาพ${currentPuzzlePic.name}ครบแล้ว ใช้ ${puzzleMoves} ครั้ง`,onReplay:()=>startPuzzle(currentPuzzlePic),onNext:nextPuzzlePic}),350);
     }
   } else {
     selectedPuzzlePiece=piece;
+    sfx.try();
     document.getElementById("puzzleFeedback").textContent="ยังไม่ใช่ช่องนี้ ลองอีกครั้งนะ 💪";
     renderPuzzle();
   }
+}
+function nextPuzzlePic(){
+  const sameCat = PICS.filter(p=>p.cat===currentPuzzlePic.cat);
+  const nextIndex = (sameCat.indexOf(currentPuzzlePic)+1)%sameCat.length;
+  startPuzzle(sameCat[nextIndex]);
+}
+
+/* ================= ลากเส้นตามรอยปะ ================= */
+let dotsReady = false, dotsCurrentPic = null, dotsColor = COLORS[0], dotsTool = "pen";
+let dotsCtx = null, dotsDrawing = false, dotsCurStroke = null;
+const dotsStrokesMap = {};
+const dotsEl = document.getElementById("dotsGame");
+const dotsPickerEl = document.getElementById("dotsPicker");
+const dotsPlayEl = document.getElementById("dotsPlay");
+const dotsCatsEl = document.getElementById("dotsCats");
+const dotsGalleryEl = document.getElementById("dotsGallery");
+const dotsBoardEl = document.getElementById("dotsBoard");
+function makeDashedGuide(svgString){
+  const temp = document.createElement("div"); temp.innerHTML = svgString;
+  const svg = temp.querySelector("svg");
+  svg.querySelectorAll("path,circle,rect,ellipse").forEach(el=>{
+    el.setAttribute("fill","none");
+    el.setAttribute("stroke","#C6BBEE");
+    el.setAttribute("stroke-width","6");
+    el.setAttribute("stroke-dasharray","9 8");
+    el.classList.remove("r");
+  });
+  svg.classList.add("lineart");
+  return svg.outerHTML;
+}
+function initDots(){
+  if(!dotsReady){
+    CATS.forEach((c,i)=>{
+      const b = document.createElement("button");
+      b.className = "chip" + (i===0?" on":"");
+      b.innerHTML = `<span class="ic" style="--tint:${c.tint}">${c.emoji}</span>${c.name}`;
+      b.onclick = ()=>{
+        document.querySelectorAll("#dotsCats .chip").forEach(x=>x.classList.remove("on"));
+        b.classList.add("on");
+        renderDotsGallery(c.id);
+      };
+      dotsCatsEl.appendChild(b);
+    });
+    COLORS.forEach((c,i)=>{
+      const d = document.createElement("div");
+      d.className = "crayon" + (i===0?" on":"");
+      d.style.setProperty("--c", c);
+      d.innerHTML = '<div class="band"></div>';
+      d.onclick = ()=>{
+        dotsColor = c;
+        document.querySelectorAll("#dotsPalette .crayon").forEach(x=>x.classList.remove("on"));
+        d.classList.add("on");
+        if(dotsTool === "eraser") document.getElementById("dotsPenBtn").click();
+      };
+      document.getElementById("dotsPalette").appendChild(d);
+    });
+    document.getElementById("dotsPenBtn").onclick = ()=>{
+      dotsTool = "pen";
+      document.getElementById("dotsPenBtn").classList.add("on");
+      document.getElementById("dotsEraserBtn").classList.remove("on");
+    };
+    document.getElementById("dotsEraserBtn").onclick = ()=>{
+      dotsTool = "eraser";
+      document.getElementById("dotsEraserBtn").classList.add("on");
+      document.getElementById("dotsPenBtn").classList.remove("on");
+    };
+    document.getElementById("dotsUndoBtn").onclick = ()=>{
+      if(!dotsCurrentPic) return;
+      (dotsStrokesMap[dotsCurrentPic.id]||[]).pop();
+      redrawDots();
+    };
+    document.getElementById("dotsClearBtn").onclick = ()=>{
+      if(!dotsCurrentPic) return;
+      showAskPopup({
+        emoji:"🧽", title:"ล้างเส้นทั้งหมดเลยนะ?", message:"เส้นที่ลากไว้จะหายไปทั้งหมด",
+        okLabel:"ล้างเลย", cancelLabel:"ไม่ล้าง",
+        onOk:()=>{ dotsStrokesMap[dotsCurrentPic.id] = []; redrawDots(); }
+      });
+    };
+    document.getElementById("dotsDoneBtn").onclick = ()=>{
+      if(!dotsCurrentPic) return;
+      showSuccessPopup({emoji:"✏️", title:"ลากเส้นสำเร็จ!",
+        message:`หนูลากเส้นตามรอยปะของ${dotsCurrentPic.name}เก่งมากเลย`,
+        onReplay:()=>{ dotsStrokesMap[dotsCurrentPic.id] = []; redrawDots(); },
+        onNext:nextDotsPic});
+    };
+    document.getElementById("dotsBackBtn").onclick = showDotsPicker;
+    dotsReady = true;
+  }
+  showDotsPicker();
+}
+function activeDotsCat(){
+  const on = dotsCatsEl.querySelector(".chip.on");
+  return on ? CATS[[...dotsCatsEl.children].indexOf(on)].id : "all";
+}
+function renderDotsGallery(cat){
+  dotsGalleryEl.innerHTML = "";
+  PICS.filter(p=>cat==="all"||p.cat===cat).forEach(p=>{
+    const card = document.createElement("div");
+    card.className = "card";
+    card.tabIndex = 0;
+    card.setAttribute("role","button");
+    card.setAttribute("aria-label",`ลากเส้นตามรอยปะ ${p.name}`);
+    card.innerHTML = p.svg + `<div class="nm">${p.name}</div>`;
+    card.onclick = ()=>showDotsPlay(p);
+    card.onkeydown = e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); showDotsPlay(p); } };
+    dotsGalleryEl.appendChild(card);
+  });
+}
+function showDotsPicker(){
+  dotsPickerEl.style.display = "block";
+  dotsPlayEl.style.display = "none";
+  document.getElementById("dotsSubHead").textContent = "เลือกหมวดแล้วลากตามเส้นประให้ครบภาพ";
+  renderDotsGallery(activeDotsCat());
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function showDotsPlay(pic){
+  dotsCurrentPic = pic;
+  dotsStrokesMap[pic.id] = dotsStrokesMap[pic.id] || [];
+  document.getElementById("dotsPicName").textContent = pic.name;
+  dotsBoardEl.innerHTML = `<div class="paintWrap">${makeDashedGuide(pic.svg)}<canvas width="900" height="900"></canvas></div>`;
+  const wrap = dotsBoardEl.querySelector(".paintWrap");
+  dotsCtx = wrap.querySelector("canvas").getContext("2d");
+  redrawDots();
+  bindDotsPointer(wrap);
+  dotsPickerEl.style.display = "none";
+  dotsPlayEl.style.display = "block";
+  document.getElementById("dotsSubHead").textContent = "ลากตามรอยเส้นประให้ครบทั้งภาพ";
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function bindDotsPointer(wrap){
+  const cv = dotsCtx.canvas;
+  const pos = ev=>{
+    const r = wrap.getBoundingClientRect();
+    return { x:(ev.clientX-r.left)/r.width*cv.width, y:(ev.clientY-r.top)/r.height*cv.height };
+  };
+  wrap.onpointerdown = ev=>{
+    ev.preventDefault();
+    wrap.setPointerCapture(ev.pointerId);
+    dotsDrawing = true;
+    const p = pos(ev);
+    dotsCurStroke = { color:dotsColor, size:dotsTool==="eraser"?24:9, erase:dotsTool==="eraser", pts:[p] };
+    dotsStrokesMap[dotsCurrentPic.id].push(dotsCurStroke);
+    drawDotsSeg(dotsCurStroke, p, p);
+    if(dotsTool !== "eraser") sfx.pop();
+  };
+  wrap.onpointermove = ev=>{
+    if(!dotsDrawing) return;
+    const p2 = pos(ev), p1 = dotsCurStroke.pts[dotsCurStroke.pts.length-1];
+    dotsCurStroke.pts.push(p2);
+    drawDotsSeg(dotsCurStroke, p1, p2);
+  };
+  const end = ()=>{ dotsDrawing = false; dotsCurStroke = null; };
+  wrap.onpointerup = end;
+  wrap.onpointercancel = end;
+}
+function drawDotsSeg(st, p1, p2){
+  dotsCtx.globalCompositeOperation = st.erase ? "destination-out" : "source-over";
+  dotsCtx.strokeStyle = st.color;
+  dotsCtx.lineWidth = st.size * 2.2;
+  dotsCtx.lineCap = "round"; dotsCtx.lineJoin = "round";
+  dotsCtx.beginPath(); dotsCtx.moveTo(p1.x,p1.y); dotsCtx.lineTo(p2.x,p2.y); dotsCtx.stroke();
+}
+function redrawDots(){
+  if(!dotsCtx) return;
+  const cv = dotsCtx.canvas;
+  dotsCtx.globalCompositeOperation = "source-over";
+  dotsCtx.clearRect(0,0,cv.width,cv.height);
+  (dotsStrokesMap[dotsCurrentPic.id]||[]).forEach(st=>{
+    if(st.pts.length === 1) drawDotsSeg(st, st.pts[0], st.pts[0]);
+    for(let i=1;i<st.pts.length;i++) drawDotsSeg(st, st.pts[i-1], st.pts[i]);
+  });
+}
+function nextDotsPic(){
+  const sameCat = PICS.filter(p=>p.cat===dotsCurrentPic.cat);
+  const nextIndex = (sameCat.indexOf(dotsCurrentPic)+1)%sameCat.length;
+  showDotsPlay(sameCat[nextIndex]);
 }
 
 /* ================= คิดเลขแสนสนุก อนุบาล 1-3 ================= */
@@ -1626,48 +3191,126 @@ document.querySelectorAll(".levelBtn").forEach(btn=>{
     resetMath();
   };
 });
+function mathSpeechText(question,hint){
+  const q = question.replace(/\+/g," บวก ").replace(/[−]/g," ลบ ").replace(/=/g," เท่ากับ ").replace(/\?/g," เท่าไหร่ ");
+  return `${q}. ${hint}`;
+}
+document.getElementById("mathSpeakBtn").onclick = ()=>{
+  speakThai(mathSpeechText(mathQuestionEl.textContent, mathHintEl.textContent));
+};
 function resetMath(){
   clearTimeout(mathTimer);
   mathScore = 0; mathQuestionIndex = 1;
   mathScoreEl.textContent = "0";
   makeMathQuestion();
 }
+function nextMathLevel(){
+  mathLevel = mathLevel>=4 ? 1 : mathLevel+1;
+  document.querySelectorAll(".levelBtn").forEach(btn=>btn.classList.toggle("on",+btn.dataset.level===mathLevel));
+  resetMath();
+}
+/* ================= ตัวสร้างโจทย์แต่ละระดับ ================= */
+const mathIcons = [{e:"🍎",n:"แอปเปิล"},{e:"🐥",n:"ลูกเจี๊ยบ"},{e:"⭐",n:"ดาว"},{e:"🧸",n:"ตุ๊กตา"},{e:"🎈",n:"ลูกโป่ง"},{e:"🍬",n:"ลูกอม"}];
+
+const level1Gens = [
+  ()=>{
+    const item = mathIcons[randomInt(0,mathIcons.length-1)];
+    const n = randomInt(1,5);
+    return { answer:n, visual:Array(n).fill(item.e).join(" "), question:`มี${item.n}กี่อัน?`, hint:"ลองชี้และนับทีละอันนะ" };
+  },
+  ()=>{
+    const item = mathIcons[randomInt(0,mathIcons.length-1)];
+    const a = randomInt(1,3), b = randomInt(1,5-a);
+    return { answer:a+b, visual:`${Array(a).fill(item.e).join(" ")}   ${Array(b).fill(item.e).join(" ")}`, question:`มี${item.n}ทั้งหมดกี่อัน?`, hint:"นับรวมทั้งสองกลุ่มนะ" };
+  },
+  ()=>{
+    const item = mathIcons[randomInt(0,mathIcons.length-1)];
+    const a = randomInt(2,5), b = randomInt(1,a-1);
+    return { answer:a-b, visual:`${Array(a).fill(item.e).join(" ")}  (เอาออก ${b})`, question:`เหลือ${item.n}กี่อัน?`, hint:"นับที่เหลือหลังเอาออก" };
+  }
+];
+
+const level2Gens = [
+  ()=>{
+    const a = randomInt(1,6), b = randomInt(1,10-a);
+    return { answer:a+b, visual:`${Array(a).fill("🍓").join(" ")} <b>+</b> ${Array(b).fill("🍓").join(" ")}`, question:`${a} + ${b} = ?`, hint:"รวมของทั้งสองกลุ่มเข้าด้วยกัน" };
+  },
+  ()=>{
+    const a = randomInt(4,10), b = randomInt(1,a-1);
+    return { answer:a-b, visual:`${Array(a).fill("🍬").join(" ")}  (เอาออก ${b})`, question:`${a} − ${b} = ?`, hint:"เอาออกแล้วนับที่เหลือ" };
+  },
+  ()=>{
+    let x = randomInt(1,10), y = randomInt(1,10);
+    while(y===x) y = randomInt(1,10);
+    return { answer:Math.max(x,y), visual:`${x}   กับ   ${y}`, question:"ตัวเลขไหนมากกว่ากัน?", hint:"เทียบสองจำนวนแล้วเลือกตัวที่มากกว่า" };
+  }
+];
+
+const level3Gens = [
+  ()=>{
+    const subtract = Math.random() < .5;
+    if(subtract){
+      const a = randomInt(5,20), b = randomInt(1,a);
+      return { answer:a-b, visual:"🚀  ⭐  🌙", question:`${a} − ${b} = ?`, hint:"เอาออก แล้วดูว่าเหลือเท่าไร" };
+    }
+    const a = randomInt(2,12), b = randomInt(1,20-a);
+    return { answer:a+b, visual:"🌈  ✨  🪐", question:`${a} + ${b} = ?`, hint:"บวกจำนวนทั้งสองเข้าด้วยกัน" };
+  },
+  ()=>{
+    const start = randomInt(1,17);
+    return { answer:start+3, visual:`${start}, ${start+1}, ${start+2}, ?`, question:"เลขต่อไปคืออะไร?", hint:"นับเพิ่มทีละ 1" };
+  },
+  ()=>{
+    const start = randomInt(4,20);
+    return { answer:start-1, visual:`?, ${start}`, question:"เลขที่หายไปคืออะไร?", hint:"คิดถึงเลขที่อยู่ก่อนหน้า" };
+  }
+];
+
+const level4Gens = [
+  ()=>{
+    let a,b;
+    do{
+      const at = randomInt(1,7), ao = randomInt(0,9);
+      a = at*10+ao;
+      const bt = randomInt(0,9-at), bo = randomInt(0,9-ao);
+      b = bt*10+bo;
+    } while(b<1);
+    return { answer:a+b, visual:"🧮", question:`${a} + ${b} = ?`, hint:"บวกหลักหน่วยกับหลักหน่วย หลักสิบกับหลักสิบ" };
+  },
+  ()=>{
+    let a,b;
+    do{
+      const at = randomInt(2,9), ao = randomInt(0,9);
+      a = at*10+ao;
+      const bt = randomInt(0,at-1), bo = randomInt(0,ao);
+      b = bt*10+bo;
+    } while(b<1);
+    return { answer:a-b, visual:"🧮", question:`${a} − ${b} = ?`, hint:"ลบหลักหน่วยก่อน แล้วค่อยลบหลักสิบ" };
+  },
+  ()=>{
+    const step = [2,5,10][randomInt(0,2)];
+    const start = step*randomInt(1,6);
+    return { answer:start+step*3, visual:`${start}, ${start+step}, ${start+step*2}, ?`, question:`นับเพิ่มทีละ ${step} แล้วเลขต่อไปคืออะไร?`, hint:`บวกทีละ ${step} ไปเรื่อยๆ` };
+  },
+  ()=>{
+    const a = randomInt(1,15), c = randomInt(a+1,20);
+    return { answer:c-a, visual:"🔍", question:`${a} + ? = ${c}`, hint:"คิดว่าต้องบวกอะไรเพิ่มถึงจะได้คำตอบ" };
+  }
+];
+
 function makeMathQuestion(){
   clearTimeout(mathTimer);
   mathFeedbackEl.textContent = ""; mathFeedbackEl.className = "mathFeedback";
   document.getElementById("questionNo").textContent = `ข้อที่ ${mathQuestionIndex}`;
-  let visual = "", question = "", hint = "";
-  if(mathLevel === 1){
-    const icons = [{e:"🍎",n:"แอปเปิล"},{e:"🐥",n:"ลูกเจี๊ยบ"},{e:"⭐",n:"ดาว"},{e:"🧸",n:"ตุ๊กตา"}];
-    const item = icons[randomInt(0,icons.length-1)];
-    mathAnswer = randomInt(1,5);
-    visual = Array(mathAnswer).fill(item.e).join(" ");
-    question = `มี${item.n}กี่อัน?`;
-    hint = "ลองชี้และนับทีละอันนะ";
-  } else if(mathLevel === 2){
-    const a = randomInt(1,6), b = randomInt(1,10-a);
-    mathAnswer = a+b;
-    visual = `${Array(a).fill("🍓").join(" ")} <b>+</b> ${Array(b).fill("🍓").join(" ")}`;
-    question = `${a} + ${b} = ?`;
-    hint = "รวมของทั้งสองกลุ่มเข้าด้วยกัน";
-  } else {
-    const subtract = Math.random() < .5;
-    if(subtract){
-      const a = randomInt(5,20), b = randomInt(1,a);
-      mathAnswer = a-b; question = `${a} − ${b} = ?`; visual = "🚀  ⭐  🌙";
-      hint = "เอาออก แล้วดูว่าเหลือเท่าไร";
-    } else {
-      const a = randomInt(2,12), b = randomInt(1,20-a);
-      mathAnswer = a+b; question = `${a} + ${b} = ?`; visual = "🌈  ✨  🪐";
-      hint = "บวกจำนวนทั้งสองเข้าด้วยกัน";
-    }
-  }
-  mathVisualEl.innerHTML = visual;
-  mathQuestionEl.textContent = question;
-  mathHintEl.textContent = hint;
+  const gens = mathLevel===1 ? level1Gens : mathLevel===2 ? level2Gens : mathLevel===3 ? level3Gens : level4Gens;
+  const gen = gens[randomInt(0,gens.length-1)]();
+  mathAnswer = gen.answer;
+  mathVisualEl.innerHTML = gen.visual;
+  mathQuestionEl.textContent = gen.question;
+  mathHintEl.textContent = gen.hint;
+  const spread = [2,3,5,8][mathLevel-1];
   const choices = new Set([mathAnswer]);
   while(choices.size < 3){
-    const spread = mathLevel === 3 ? 5 : 3;
     choices.add(Math.max(0, mathAnswer + randomInt(-spread,spread)));
   }
   mathAnswersEl.innerHTML = "";
@@ -1679,16 +3322,23 @@ function makeMathQuestion(){
     mathAnswersEl.appendChild(btn);
   });
 }
+
 function checkMathAnswer(btn,value){
   if(value === mathAnswer){
     btn.classList.add("correct");
     document.querySelectorAll(".answerBtn").forEach(x=>x.disabled=true);
     mathScore++; mathScoreEl.textContent = mathScore;
+    sfx.good();
     mathFeedbackEl.textContent = ["เก่งมาก! 🎉","ถูกต้อง! ⭐","เยี่ยมเลย! 🌈"][randomInt(0,2)];
     mathFeedbackEl.className = "mathFeedback good";
-    mathTimer = setTimeout(()=>{ mathQuestionIndex++; makeMathQuestion(); },1000);
+    if(mathScore >= 10){
+      mathTimer = setTimeout(()=>showSuccessPopup({emoji:"🏆",title:"แชมป์คิดเลข!",message:"หนูตอบถูกครบ 10 ข้อแล้ว เก่งมาก ๆ เลย",onReplay:resetMath,onNext:nextMathLevel}),500);
+    } else {
+      mathTimer = setTimeout(()=>{ mathQuestionIndex++; makeMathQuestion(); },1000);
+    }
   } else {
     btn.classList.add("wrong");
+    sfx.try();
     mathFeedbackEl.textContent = "ลองอีกครั้งนะ หนูทำได้! 💪";
     mathFeedbackEl.className = "mathFeedback try";
     setTimeout(()=>btn.classList.remove("wrong"),450);
@@ -1773,6 +3423,7 @@ function fillRegion(el, ev){
   fills[id][i] = currentColor;
   setRegionPaint(el, currentColor);
   sparkle(ev);
+  sfx.pop();
   updateCount();
 }
 
@@ -1860,6 +3511,20 @@ function celebrate(){
     }, k*90);
   }
   setTimeout(()=>c.remove(), 2600);
+  setTimeout(()=>showSuccessPopup({emoji:"🎨",title:"ระบายสีสำเร็จ!",message:`หนูแต่งภาพ${currentPic.name}ครบทุกส่วนแล้ว สีสวยมากเลย`,onReplay:resetColoringActivity,onNext:openNextColoringActivity}),450);
+}
+function resetColoringActivity(){
+  if(!currentPic) return;
+  fills[currentPic.id] = {}; strokes[currentPic.id] = [];
+  undoStack.length = 0; cheered = false;
+  regionEls.forEach(el=>el.setAttribute("fill","#fff"));
+  redraw(); updateCount();
+}
+function openNextColoringActivity(){
+  if(!currentPic) return;
+  const sameCategory = PICS.filter(p=>p.cat===currentPic.cat);
+  const nextIndex = (sameCategory.indexOf(currentPic)+1)%sameCategory.length;
+  openPic(sameCategory[nextIndex]);
 }
 
 /* ================= ปุ่มด้านบน ================= */
@@ -1877,12 +3542,18 @@ document.getElementById("undoBtn").onclick = ()=>{
   updateCount();
 };
 document.getElementById("clearBtn").onclick = ()=>{
-  if(!currentPic || !confirm("ล้างสีทั้งภาพนี้เลยนะ?")) return;
-  fills[currentPic.id] = {}; strokes[currentPic.id] = [];
-  undoStack.length = 0; cheered = false;
-  regionEls.forEach(el=>el.setAttribute("fill","#fff"));
-  redraw();
-  updateCount();
+  if(!currentPic) return;
+  showAskPopup({
+    emoji:"🧽", title:"ล้างสีทั้งภาพนี้เลยนะ?", message:"สีที่ระบายไว้จะหายไปทั้งหมด",
+    okLabel:"ล้างเลย", cancelLabel:"ไม่ล้าง",
+    onOk:()=>{
+      fills[currentPic.id] = {}; strokes[currentPic.id] = [];
+      undoStack.length = 0; cheered = false;
+      regionEls.forEach(el=>el.setAttribute("fill","#fff"));
+      redraw();
+      updateCount();
+    }
+  });
 };
 document.getElementById("saveBtn").onclick = ()=>{
   const wrap = boardEl.querySelector(".paintWrap");
@@ -1945,6 +3616,13 @@ PATTERN_PAINTS.forEach((p,i)=>addPaint(p,COLORS.length+i));
 
 /* ================= ขยายเต็มจอ ================= */
 const fsBtn = document.getElementById("fsBtn");
+const sndBtn = document.getElementById("sndBtn");
+function updSnd(){
+  sndBtn.textContent = sfx.on ? "🔊" : "🔇";
+  sndBtn.title = sfx.on ? "ปิดเสียง" : "เปิดเสียง";
+}
+sndBtn.onclick = ()=>{ sfx.toggle(); updSnd(); if(sfx.on) sfx.pop(); };
+updSnd();
 fsBtn.onclick = ()=>{
   const doc = document, el = doc.documentElement;
   const active = doc.fullscreenElement || doc.webkitFullscreenElement;
@@ -1953,7 +3631,11 @@ fsBtn.onclick = ()=>{
   } else {
     const req = el.requestFullscreen || el.webkitRequestFullscreen;
     if(req) req.call(el);
-    else alert("เบราว์เซอร์นี้ไม่รองรับโหมดเต็มจอ 🙏 แนะนำให้กดปุ่มแชร์ แล้วเลือก \"เพิ่มไปยังหน้าจอโฮม\" จะได้เต็มจอเหมือนแอปครับ");
+    else showAskPopup({
+      emoji:"🙏", title:"ขยายเต็มจอไม่ได้ในเบราว์เซอร์นี้",
+      message:"ลองกดปุ่มแชร์ แล้วเลือก \"เพิ่มไปยังหน้าจอโฮม\" จะได้เต็มจอเหมือนแอปครับ",
+      okLabel:"เข้าใจแล้ว", info:true
+    });
   }
 };
 function updFs(){
