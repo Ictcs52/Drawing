@@ -79,6 +79,44 @@
 
   /* ================= jigsaw ================= */
   #jigsawGame{display:none}.jigsawShell{max-width:980px;margin:0 auto}.jigsawPanel{background:rgba(255,255,255,.82);border:1px solid #fff;border-radius:38px;padding:clamp(16px,3vw,30px);box-shadow:var(--shadow-soft);backdrop-filter:blur(12px)}
+  #dressGame{display:none}
+  .dressLayout{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:start}
+  .dressStage{background:linear-gradient(160deg,#FFF3FA,#F1F6FF);border-radius:34px;box-shadow:var(--shadow-soft);padding:14px;aspect-ratio:4/5;max-width:340px}
+  .dressStage svg{width:100%;height:100%;display:block}
+  .dressPicker{background:rgba(255,255,255,.82);border:1px solid #fff;border-radius:32px;padding:clamp(14px,2.5vw,24px);box-shadow:var(--shadow-soft);backdrop-filter:blur(10px)}
+  .dressOptions{display:flex;gap:12px;overflow-x:auto;padding:8px 4px 6px;scrollbar-width:thin}
+  .dressSwatch{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;border:0;background:none;cursor:pointer;padding:6px;border-radius:18px;font-family:'Mali',sans-serif;color:var(--ink)}
+  .dressSwatch .sw{width:58px;height:58px;border-radius:50%;background:var(--c,#eee);box-shadow:0 6px 14px -8px rgba(61,53,98,.4);border:3px solid #fff;display:block;transition:transform .18s cubic-bezier(.34,1.56,.64,1)}
+  .dressSwatch.on .sw{transform:scale(1.12);box-shadow:0 0 0 3px #fff,0 0 0 6px var(--grape)}
+  .dressSwatch small{font-size:.82rem;font-weight:600;max-width:72px;text-align:center;line-height:1.2}
+  .dressActions{display:flex;justify-content:center;gap:18px;margin-top:20px}
+  @media(max-width:760px){.dressLayout{grid-template-columns:1fr}.dressStage{max-width:280px;margin:0 auto}}
+  #thaiGame{display:none}
+  .thaiGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:14px;margin-top:8px}
+  .thaiTile{
+    border:0;border-radius:22px;background:rgba(255,255,255,.85);cursor:pointer;
+    padding:14px 6px 10px;box-shadow:0 8px 20px -12px rgba(61,53,98,.35);
+    display:flex;flex-direction:column;align-items:center;gap:2px;
+    transition:transform .18s cubic-bezier(.34,1.56,.64,1);
+  }
+  .thaiTile .letter{font-size:2.1rem;font-weight:700;color:var(--grape)}
+  .thaiTile .emoji{font-size:1.5rem}
+  .thaiTile .word{font-family:'Noto Sans Thai',sans-serif;font-size:.78rem;opacity:.65}
+  .thaiTile:active,.thaiTile.playing{transform:scale(1.15) rotate(-3deg);box-shadow:0 0 0 4px #fff,0 0 0 7px var(--grape)}
+  @media(max-width:760px){.thaiGrid{grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:10px}.thaiTile .letter{font-size:1.7rem}}
+  #memoryGame{display:none}
+  #memPlay{display:none}
+  .memGrid{display:grid;grid-template-columns:repeat(var(--mem-cols,4),1fr);gap:12px;margin-top:10px}
+  .memCard{aspect-ratio:1;perspective:800px;cursor:pointer;background:none;border:0;padding:0}
+  .memCard .inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.34,1.2,.64,1);transform-style:preserve-3d}
+  .memCard.flipped .inner{transform:rotateY(180deg)}
+  .memCard.matched{cursor:default}
+  .memCard.matched .inner{opacity:.4}
+  .memFace{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px -12px rgba(61,53,98,.45)}
+  .memBack{background:linear-gradient(135deg,#FF8FB8,#A17BF5);color:#fff;font-size:1.8rem}
+  .memFront{background:#fff;transform:rotateY(180deg);padding:8%}
+  .memFront svg{width:100%;height:100%}
+  @media(max-width:760px){.memGrid{grid-template-columns:repeat(var(--mem-cols-sm,3),1fr);gap:8px}}
   .jigsawControls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.jigsawControls strong{margin-right:auto;font-size:1.15rem}.roundBack.small{width:40px;height:40px;font-size:1.05rem;border-radius:13px}.difficulty{display:flex;gap:8px}.difficultyBtn{border:0;border-radius:15px;padding:10px 14px;background:#EEE9FA;color:var(--ink);cursor:pointer;font-weight:700}.difficultyBtn.on{background:linear-gradient(135deg,#8A5CF6,#FF6FA5);color:#fff}
   .animalPicker{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 14px;scrollbar-width:thin;scrollbar-color:#CDBBF8 transparent}.animalChoice{flex:0 0 104px;border:0;border-radius:20px;background:#fff;padding:8px;cursor:pointer;color:var(--ink);box-shadow:0 7px 18px -12px #3D3562}.animalChoice svg{width:72px;height:72px;display:block;margin:auto}.animalChoice span{display:block;font-size:.76rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.animalChoice.on{box-shadow:0 0 0 4px #fff,0 0 0 7px #9C6FF3;background:#F4F0FF}
   .puzzleArea{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:18px;align-items:start}.puzzleBoard{--puzzle-size:2;display:grid;grid-template-columns:repeat(var(--puzzle-size),1fr);gap:2px;width:min(100%,600px);aspect-ratio:1;margin:auto;padding:5px;border-radius:22px;background:linear-gradient(145deg,#DDD3F6,#CDEEFF);box-shadow:0 20px 40px -22px #3D3562}.puzzleSlot{border:1px dashed rgba(61,53,98,.32);border-radius:5px;background-color:rgba(255,255,255,.42);background-repeat:no-repeat;opacity:.28;filter:grayscale(1);transition:background .2s,transform .2s,opacity .2s,filter .2s}.puzzleSlot.dropReady{transform:scale(.98);background-color:#FFF4B8;border-color:#FFB52E;opacity:.7}.puzzleSlot.filled{border-style:solid;border-color:rgba(255,255,255,.8);box-shadow:inset 0 0 0 1px rgba(61,53,98,.08);opacity:1;filter:none}
@@ -279,7 +317,7 @@
       </div>
       <div class="sectionHead">
         <div><h2>เลือกกิจกรรมสนุก</h2><p>มีเกมใหม่ ๆ รอหนูอยู่อีกเพียบ</p></div>
-        <span class="tinyPill">🌟 4 กิจกรรมพร้อมเล่น</span>
+        <span class="tinyPill">🌟 9 กิจกรรมพร้อมเล่น</span>
       </div>
       <div class="activityGrid">
         <button class="activity" id="coloringCard">
@@ -293,6 +331,21 @@
         </button>
         <button class="activity" id="dotsCard">
           <div class="activityIcon">✏️</div><div><h3>ลากเส้นตามรอยปะ</h3><p>เลือกหมวดโปรด แล้วลากตามเส้นประให้ครบภาพ</p></div><span class="go">→</span>
+        </button>
+        <button class="activity" id="dressCard">
+          <div class="activityIcon">👗</div><div><h3>แต่งตัวสุดสวย</h3><p>เลือกทรงผม ชุด และเครื่องประดับให้น้องหนู</p></div><span class="go">→</span>
+        </button>
+        <button class="activity" id="thaiCard">
+          <div class="activityIcon">🔤</div><div><h3>ฝึกอ่าน ก-ฮ</h3><p>แตะตัวอักษรเพื่อฟังเสียงอ่านและคำศัพท์</p></div><span class="go">→</span>
+        </button>
+        <button class="activity" id="engCard">
+          <div class="activityIcon">🔡</div><div><h3>ฝึกอ่าน A-Z</h3><p>แตะตัวอักษรภาษาอังกฤษเพื่อฟังเสียงอ่าน</p></div><span class="go">→</span>
+        </button>
+        <button class="activity" id="memoryCard">
+          <div class="activityIcon">🧠</div><div><h3>เกมความจำ</h3><p>เลือกหมวด แล้วจับคู่ภาพให้ครบ ฝึกสมาธิและความจำ</p></div><span class="go">→</span>
+        </button>
+        <button class="activity" id="phonicsCard">
+          <div class="activityIcon">🔠</div><div><h3>ฝึกออกเสียงโฟนิกส์</h3><p>หัดแจกลูกเสียงตัวอักษรอังกฤษทีละสัปดาห์ พร้อมคำอ่านไทย</p></div><span class="go">→</span>
         </button>
       </div>
     </section>
@@ -393,6 +446,95 @@
             </aside>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="dressGame">
+      <div class="jigsawShell">
+        <div class="mathBar">
+          <button class="roundBack" id="dressHomeBtn" aria-label="กลับหน้าแรก">←</button>
+          <div><h2>แต่งตัวสุดสวย</h2><p>เลือกทรงผม ชุด และเครื่องประดับให้น้องหนู</p></div>
+        </div>
+        <div class="dressLayout">
+          <div class="dressStage" id="dressStage"></div>
+          <div class="dressPicker">
+            <nav class="cats" id="dressCats" aria-label="หมวดของแต่งตัว"></nav>
+            <div class="dressOptions" id="dressOptions"></div>
+          </div>
+        </div>
+        <div class="dressActions">
+          <button class="tool" id="dressRandomBtn"><span class="b">🎲</span><small>สุ่มชุด</small></button>
+          <button class="tool" id="dressSaveBtn"><span class="b">💾</span><small>บันทึกรูป</small></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="thaiGame">
+      <div class="jigsawShell">
+        <div class="mathBar">
+          <button class="roundBack" id="thaiHomeBtn" aria-label="กลับหน้าแรก">←</button>
+          <div><h2>ฝึกอ่าน ก-ฮ</h2><p>แตะตัวอักษรเพื่อฟังเสียงอ่านและคำศัพท์</p></div>
+          <button class="tool" id="thaiPlayAllBtn"><span class="b">▶️</span><small>ท่องทั้งหมด</small></button>
+        </div>
+        <div class="thaiGrid" id="thaiGrid"></div>
+      </div>
+    </section>
+
+    <section id="engGame">
+      <div class="jigsawShell">
+        <div class="mathBar">
+          <button class="roundBack" id="engHomeBtn" aria-label="กลับหน้าแรก">←</button>
+          <div><h2>ฝึกอ่าน A-Z</h2><p>แตะตัวอักษรภาษาอังกฤษเพื่อฟังเสียงอ่าน</p></div>
+          <button class="tool" id="engPlayAllBtn"><span class="b">▶️</span><small>ท่องทั้งหมด</small></button>
+        </div>
+        <div class="thaiGrid" id="engGrid"></div>
+      </div>
+    </section>
+
+    <section id="memoryGame">
+      <div class="jigsawShell">
+        <div class="mathBar">
+          <button class="roundBack" id="memHomeBtn" aria-label="กลับหน้าแรก">←</button>
+          <div><h2>เกมความจำ</h2><p id="memSubHead">เลือกหมวดและระดับความยาก แล้วเริ่มจับคู่ภาพ</p></div>
+        </div>
+
+        <div id="memPicker">
+          <nav class="cats" id="memCats" aria-label="หมวดภาพเกมความจำ"></nav>
+          <div class="jigsawControls">
+            <strong>ระดับความยาก</strong>
+            <div class="difficulty" aria-label="เลือกระดับเกมความจำ">
+              <button class="difficultyBtn on" data-pairs="6">ง่าย 6 คู่</button>
+              <button class="difficultyBtn" data-pairs="8">กลาง 8 คู่</button>
+              <button class="difficultyBtn" data-pairs="12">ยาก 12 คู่</button>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:20px">
+            <button class="successBtn" id="memStartBtn">เริ่มเล่น 🧠</button>
+          </div>
+        </div>
+
+        <div id="memPlay" style="display:none">
+          <div class="jigsawPanel">
+            <div class="jigsawControls">
+              <button class="roundBack small" id="memBackBtn" aria-label="กลับไปเลือกหมวด">←</button>
+              <strong id="memPairsLabel">🧠 0/0 คู่</strong>
+              <div class="scoreBox">🔄 <span id="memMovesLabel">0</span> ครั้ง</div>
+            </div>
+            <div class="memGrid" id="memGrid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="phonicsGame">
+      <div class="jigsawShell">
+        <div class="mathBar">
+          <button class="roundBack" id="phonicsHomeBtn" aria-label="กลับหน้าแรก">←</button>
+          <div><h2>ฝึกออกเสียงโฟนิกส์</h2><p id="phonicsSubHead">เลือกสัปดาห์ แล้วแตะฟังเสียงอ่าน</p></div>
+          <button class="tool" id="phonicsPlayAllBtn"><span class="b">▶️</span><small>ท่องทั้งหมด</small></button>
+        </div>
+        <nav class="cats" id="phonicsWeeks" aria-label="เลือกสัปดาห์"></nav>
+        <div class="thaiGrid" id="phonicsGrid"></div>
       </div>
     </section>
 
@@ -681,7 +823,7 @@ const PICS = [
 `)},
 /* ---------- 🐱 สัตว์ (20 ชนิด) ---------- */
 { id:"cat", cat:"animal", name:"แมวเหมียว", svg:S(`
-  <path class="r" d="M292 322 C350 312 366 262 342 236 C331 228 318 236 323 249 C336 263 326 294 288 300 Z"/>
+  <path class="r" d="M292 322 C350 312 366 262 342 236 C331 228 318 236 323 249 C336 263 326 294 292 322 Z"/>
   <ellipse class="r" cx="198" cy="312" rx="96" ry="70"/>
   <ellipse class="r" cx="198" cy="330" rx="48" ry="38"/>
   <path class="r" d="M140 98 L118 26 L192 64 Z"/>
@@ -886,7 +1028,7 @@ const PICS = [
   <ellipse class="r" cx="200" cy="220" rx="132" ry="116"/>
   <circle class="r" cx="140" cy="112" r="20"/><circle class="r" cx="260" cy="112" r="20"/>
   <path class="r" d="M80 268 Q32 306 54 360 L122 324 Z"/><path class="r" d="M320 268 Q368 306 346 360 L278 324 Z"/>
-  <path d="M142 244 Q200 288 258 244" fill="none"/>
+  <path d="M152 254 Q200 288 248 254" fill="none"/>
   <path class="r" d="M152 254 Q200 316 248 254 Q226 340 200 350 Q174 340 152 254 Z"/>
 `)},
 /* ---------- 🌈 ธรรมชาติ (20 แบบ) ---------- */
@@ -2772,6 +2914,11 @@ function openPic(p){
   mathEl.style.display = "none";
   jigsawEl.style.display = "none";
   dotsEl.style.display = "none";
+  dressEl.style.display = "none";
+  thaiEl.style.display = "none";
+  engEl.style.display = "none";
+  memoryEl.style.display = "none";
+  phonicsEl.style.display = "none";
   studio.style.display = "block";
   appSubtitle.textContent = "แต่งแต้มภาพโปรดให้สวยสดใสในแบบของหนู";
   window.scrollTo({top:0, behavior:"smooth"});
@@ -2782,6 +2929,11 @@ function showGallery(rerender=true){
   mathEl.style.display = "none";
   jigsawEl.style.display = "none";
   dotsEl.style.display = "none";
+  dressEl.style.display = "none";
+  thaiEl.style.display = "none";
+  engEl.style.display = "none";
+  memoryEl.style.display = "none";
+  phonicsEl.style.display = "none";
   collectionEl.style.display = "block";
   galleryEl.style.display = "grid";
   if(rerender) renderGallery(activeCat());
@@ -2794,6 +2946,11 @@ function showHome(){
   mathEl.style.display = "none";
   jigsawEl.style.display = "none";
   dotsEl.style.display = "none";
+  dressEl.style.display = "none";
+  thaiEl.style.display = "none";
+  engEl.style.display = "none";
+  memoryEl.style.display = "none";
+  phonicsEl.style.display = "none";
   homeEl.style.display = "block";
   appSubtitle.textContent = "สนามเล่นสร้างสรรค์ เติมความสนุกให้ทุกจินตนาการ";
   window.scrollTo({top:0, behavior:"smooth"});
@@ -2804,6 +2961,11 @@ function showMath(){
   homeEl.style.display = "none";
   jigsawEl.style.display = "none";
   dotsEl.style.display = "none";
+  dressEl.style.display = "none";
+  thaiEl.style.display = "none";
+  engEl.style.display = "none";
+  memoryEl.style.display = "none";
+  phonicsEl.style.display = "none";
   mathEl.style.display = "block";
   appSubtitle.textContent = "ฝึกนับ บวก และลบอย่างสนุกสำหรับอนุบาล 1–3";
   resetMath();
@@ -2815,6 +2977,11 @@ function showJigsaw(){
   homeEl.style.display = "none";
   mathEl.style.display = "none";
   dotsEl.style.display = "none";
+  dressEl.style.display = "none";
+  thaiEl.style.display = "none";
+  engEl.style.display = "none";
+  memoryEl.style.display = "none";
+  phonicsEl.style.display = "none";
   jigsawEl.style.display = "block";
   appSubtitle.textContent = "เลือกหมวดภาพ แล้วต่อจิ๊กซอว์ให้สมบูรณ์";
   initJigsaw();
@@ -2826,19 +2993,42 @@ function showDots(){
   homeEl.style.display = "none";
   mathEl.style.display = "none";
   jigsawEl.style.display = "none";
+  dressEl.style.display = "none";
+  thaiEl.style.display = "none";
+  engEl.style.display = "none";
+  memoryEl.style.display = "none";
+  phonicsEl.style.display = "none";
   dotsEl.style.display = "block";
   appSubtitle.textContent = "เลือกหมวดภาพ แล้วลากเส้นตามรอยปะให้ครบ";
   initDots();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function showDress(){
+  studio.style.display = "none";
+  collectionEl.style.display = "none";
+  homeEl.style.display = "none";
+  mathEl.style.display = "none";
+  jigsawEl.style.display = "none";
+  dotsEl.style.display = "none";
+  thaiEl.style.display = "none";
+  engEl.style.display = "none";
+  memoryEl.style.display = "none";
+  phonicsEl.style.display = "none";
+  dressEl.style.display = "block";
+  appSubtitle.textContent = "เลือกทรงผม ชุด และเครื่องประดับให้น้องหนู";
+  initDress();
   window.scrollTo({top:0, behavior:"smooth"});
 }
 document.getElementById("coloringCard").onclick = ()=>showGallery();
 document.getElementById("mathCard").onclick = showMath;
 document.getElementById("jigsawCard").onclick = showJigsaw;
 document.getElementById("dotsCard").onclick = showDots;
+document.getElementById("dressCard").onclick = showDress;
 document.getElementById("homeBtn").onclick = showHome;
 document.getElementById("mathHomeBtn").onclick = showHome;
 document.getElementById("jigsawHomeBtn").onclick = showHome;
 document.getElementById("dotsHomeBtn").onclick = showHome;
+document.getElementById("dressHomeBtn").onclick = showHome;
 document.getElementById("backBtn").onclick = ()=>showGallery();
 
 /* ================= จิ๊กซอว์แสนสนุก ================= */
@@ -3171,6 +3361,681 @@ function nextDotsPic(){
   const nextIndex = (sameCat.indexOf(dotsCurrentPic)+1)%sameCat.length;
   showDotsPlay(sameCat[nextIndex]);
 }
+
+/* ================= แต่งตัวสุดสวย ================= */
+function dressBaseSvg(){
+  return `
+  <ellipse cx="200" cy="472" rx="92" ry="14" fill="#F1E9FF"/>
+  <path d="M120 250 C95 270 85 310 108 335 C120 345 138 340 140 322 C142 300 130 275 150 255 Z" fill="#FFDCC4" stroke="#3D3562" stroke-width="5"/>
+  <path d="M280 250 C305 270 315 310 292 335 C280 345 262 340 260 322 C258 300 270 275 250 255 Z" fill="#FFDCC4" stroke="#3D3562" stroke-width="5"/>
+  <rect x="164" y="340" width="30" height="112" rx="14" fill="#FFDCC4" stroke="#3D3562" stroke-width="5"/>
+  <rect x="206" y="340" width="30" height="112" rx="14" fill="#FFDCC4" stroke="#3D3562" stroke-width="5"/>
+  <rect x="152" y="208" width="96" height="140" rx="26" fill="#FFDCC4" stroke="#3D3562" stroke-width="5"/>
+  <rect x="182" y="168" width="36" height="30" rx="10" fill="#FFDCC4" stroke="#3D3562" stroke-width="5"/>
+  <circle cx="200" cy="138" r="60" fill="#FFDCC4" stroke="#3D3562" stroke-width="5"/>
+  `;
+}
+function dressFaceSvg(){
+  return `
+  <circle cx="168" cy="158" r="11" fill="#FFB6C1" opacity=".55"/>
+  <circle cx="232" cy="158" r="11" fill="#FFB6C1" opacity=".55"/>
+  <circle cx="182" cy="136" r="6" fill="#3D3562"/>
+  <circle cx="218" cy="136" r="6" fill="#3D3562"/>
+  <path d="M184 158 Q200 170 216 158" fill="none" stroke="#3D3562" stroke-width="4" stroke-linecap="round"/>
+  `;
+}
+const HAIR_OPTIONS = [
+  { name:"ผมตรงยาว", color:"#8B5E3C", svg:`
+    <path d="M140 122 Q200 58 260 122 L260 100 Q200 40 140 100 Z" fill="#8B5E3C" stroke="#3D3562" stroke-width="5"/>
+    <path d="M140 110 Q118 200 134 302 L166 302 Q150 200 160 110 Z" fill="#8B5E3C" stroke="#3D3562" stroke-width="5"/>
+    <path d="M260 110 Q282 200 266 302 L234 302 Q250 200 240 110 Z" fill="#8B5E3C" stroke="#3D3562" stroke-width="5"/>
+  `},
+  { name:"ผมหางม้า", color:"#2B2438", svg:`
+    <path d="M145 118 Q200 60 255 118 L255 100 Q200 46 145 100 Z" fill="#2B2438" stroke="#3D3562" stroke-width="5"/>
+    <path d="M255 100 Q302 88 306 130 Q309 162 284 176 Q263 150 253 120 Z" fill="#2B2438" stroke="#3D3562" stroke-width="5"/>
+    <path d="M284 176 Q302 232 268 292" fill="none" stroke="#2B2438" stroke-width="18" stroke-linecap="round"/>
+  `},
+  { name:"ผมเปียคู่", color:"#F4D28C", svg:`
+    <path d="M142 116 Q200 56 258 116 L258 96 Q200 40 142 96 Z" fill="#F4D28C" stroke="#3D3562" stroke-width="5"/>
+    <path d="M148 108 Q118 160 128 232" fill="none" stroke="#F4D28C" stroke-width="20" stroke-linecap="round"/>
+    <path d="M252 108 Q282 160 272 232" fill="none" stroke="#F4D28C" stroke-width="20" stroke-linecap="round"/>
+    <circle cx="128" cy="236" r="11" fill="#FF7FAF" stroke="#3D3562" stroke-width="3"/>
+    <circle cx="272" cy="236" r="11" fill="#FF7FAF" stroke="#3D3562" stroke-width="3"/>
+  `},
+  { name:"ผมบ๊อบ", color:"#FF9EC4", svg:`
+    <path d="M138 132 Q128 68 200 56 Q272 68 262 132 Q270 192 240 212 L228 160 Q200 176 172 160 L160 212 Q130 192 138 132 Z" fill="#FF9EC4" stroke="#3D3562" stroke-width="5"/>
+  `},
+  { name:"ผมหยิกฟู", color:"#B98CE8", svg:`
+    <circle cx="150" cy="100" r="30" fill="#B98CE8" stroke="#3D3562" stroke-width="5"/>
+    <circle cx="200" cy="76" r="36" fill="#B98CE8" stroke="#3D3562" stroke-width="5"/>
+    <circle cx="250" cy="100" r="30" fill="#B98CE8" stroke="#3D3562" stroke-width="5"/>
+    <circle cx="128" cy="140" r="26" fill="#B98CE8" stroke="#3D3562" stroke-width="5"/>
+    <circle cx="272" cy="140" r="26" fill="#B98CE8" stroke="#3D3562" stroke-width="5"/>
+  `}
+];
+const OUTFIT_OPTIONS = [
+  { name:"เดรสสีชมพู", color:"#FF7FAF", svg:`
+    <path d="M155 205 Q200 195 245 205 L255 300 L295 400 H105 L145 300 Z" fill="#FF7FAF" stroke="#3D3562" stroke-width="5"/>
+    <path d="M150 295 Q200 308 250 295" fill="none" stroke="#fff" stroke-width="4" opacity=".6"/>
+  `},
+  { name:"ชุดราตรี", color:"#9C6FF3", svg:`
+    <path d="M158 205 Q200 195 242 205 L258 300 L302 430 H98 L142 300 Z" fill="#9C6FF3" stroke="#3D3562" stroke-width="5"/>
+    <circle cx="150" cy="340" r="4" fill="#fff"/><circle cx="250" cy="360" r="4" fill="#fff"/><circle cx="200" cy="400" r="4" fill="#fff"/>
+  `},
+  { name:"กระโปรงลายจุด", color:"#4FC3F7", svg:`
+    <path d="M155 205 Q200 195 245 205 L252 300 L288 400 H112 L148 300 Z" fill="#4FC3F7" stroke="#3D3562" stroke-width="5"/>
+    <circle cx="160" cy="330" r="7" fill="#fff"/><circle cx="200" cy="350" r="7" fill="#fff"/><circle cx="240" cy="330" r="7" fill="#fff"/><circle cx="180" cy="380" r="7" fill="#fff"/><circle cx="220" cy="380" r="7" fill="#fff"/>
+    <rect x="168" y="205" width="64" height="55" rx="14" fill="#fff" stroke="#3D3562" stroke-width="4"/>
+  `},
+  { name:"ชุดนักเรียน", color:"#34508C", svg:`
+    <rect x="160" y="205" width="80" height="70" rx="12" fill="#fff" stroke="#3D3562" stroke-width="5"/>
+    <path d="M150 275 L250 275 L275 380 H125 Z" fill="#34508C" stroke="#3D3562" stroke-width="5"/>
+    <path d="M160 275 L150 380 M185 275 L178 380 M215 275 L222 380 M240 275 L250 380" fill="none" stroke="#22345E" stroke-width="3"/>
+    <path d="M195 210 L200 230 L205 210 L200 250 Z" fill="#E14B4B" stroke="#3D3562" stroke-width="3"/>
+  `},
+  { name:"ชุดเจ้าหญิง", color:"#FF9EC4", svg:`
+    <path d="M160 205 Q200 195 240 205 L245 265 Q200 280 155 265 Z" fill="#FFD34E" stroke="#3D3562" stroke-width="5"/>
+    <path d="M150 262 Q200 280 250 262 L312 420 Q200 460 88 420 Z" fill="#FF9EC4" stroke="#3D3562" stroke-width="5"/>
+    <path d="M155 260 Q200 275 245 260" fill="none" stroke="#fff" stroke-width="5" opacity=".7"/>
+  `},
+  { name:"ชุดกันหนาว", color:"#5FA8A0", svg:`
+    <path d="M118 220 Q95 260 108 330 L142 330 Q132 270 148 225 Z" fill="#5FA8A0" stroke="#3D3562" stroke-width="5"/>
+    <path d="M282 220 Q305 260 292 330 L258 330 Q268 270 252 225 Z" fill="#5FA8A0" stroke="#3D3562" stroke-width="5"/>
+    <path d="M130 208 Q200 190 270 208 L285 300 L302 400 H98 L115 300 Z" fill="#5FA8A0" stroke="#3D3562" stroke-width="5"/>
+    <path d="M150 210 Q200 235 250 210 L245 230 Q200 250 155 230 Z" fill="#fff" stroke="#3D3562" stroke-width="4"/>
+    <circle cx="200" cy="260" r="4" fill="#3D3562"/><circle cx="200" cy="290" r="4" fill="#3D3562"/><circle cx="200" cy="320" r="4" fill="#3D3562"/>
+  `}
+];
+const HEADWEAR_OPTIONS = [
+  { name:"ไม่ใส่", color:"#F1EAFF", svg:"" },
+  { name:"มงกุฎ", color:"#FFD34E", svg:`
+    <path d="M155 95 L155 58 L180 80 L200 48 L220 80 L245 58 L245 95 Z" fill="#FFD34E" stroke="#3D3562" stroke-width="4"/>
+  `},
+  { name:"โบว์ผม", color:"#FF7FAF", svg:`
+    <path d="M250 85 L278 68 L278 102 Z" fill="#FF7FAF" stroke="#3D3562" stroke-width="3"/>
+    <path d="M250 85 L222 68 L222 102 Z" fill="#FF7FAF" stroke="#3D3562" stroke-width="3"/>
+    <circle cx="250" cy="85" r="9" fill="#FF4F93" stroke="#3D3562" stroke-width="3"/>
+  `},
+  { name:"หมวกปีกกว้าง", color:"#E8C27E", svg:`
+    <ellipse cx="200" cy="97" rx="96" ry="20" fill="#E8C27E" stroke="#3D3562" stroke-width="4"/>
+    <path d="M158 97 Q200 38 242 97 Z" fill="#E8C27E" stroke="#3D3562" stroke-width="4"/>
+    <rect x="158" y="90" width="84" height="10" fill="#FF7FAF"/>
+  `},
+  { name:"คาดผมดอกไม้", color:"#FFD34E", svg:`
+    <circle cx="163" cy="97" r="9" fill="#FF7FAF" stroke="#3D3562" stroke-width="2"/>
+    <circle cx="184" cy="86" r="9" fill="#FFD34E" stroke="#3D3562" stroke-width="2"/>
+    <circle cx="206" cy="82" r="9" fill="#FF7FAF" stroke="#3D3562" stroke-width="2"/>
+    <circle cx="228" cy="86" r="9" fill="#FFD34E" stroke="#3D3562" stroke-width="2"/>
+    <circle cx="249" cy="97" r="9" fill="#FF7FAF" stroke="#3D3562" stroke-width="2"/>
+  `}
+];
+const SHOES_OPTIONS = [
+  { name:"รองเท้าคัชชู", color:"#3D3562", svg:`
+    <ellipse cx="179" cy="452" rx="20" ry="12" fill="#3D3562"/><ellipse cx="221" cy="452" rx="20" ry="12" fill="#3D3562"/>
+  `},
+  { name:"รองเท้าบูท", color:"#A9714C", svg:`
+    <rect x="162" y="418" width="34" height="42" rx="10" fill="#A9714C" stroke="#3D3562" stroke-width="4"/>
+    <rect x="204" y="418" width="34" height="42" rx="10" fill="#A9714C" stroke="#3D3562" stroke-width="4"/>
+  `},
+  { name:"รองเท้าแตะ", color:"#E8C27E", svg:`
+    <ellipse cx="179" cy="452" rx="20" ry="10" fill="#E8C27E" stroke="#3D3562" stroke-width="3"/>
+    <path d="M165 452 L193 452 M179 440 L179 452" stroke="#3D3562" stroke-width="3" fill="none"/>
+    <ellipse cx="221" cy="452" rx="20" ry="10" fill="#E8C27E" stroke="#3D3562" stroke-width="3"/>
+    <path d="M207 452 L235 452 M221 440 L221 452" stroke="#3D3562" stroke-width="3" fill="none"/>
+  `},
+  { name:"รองเท้าผ้าใบ", color:"#fff", svg:`
+    <path d="M160 446 Q160 424 180 424 L196 424 L196 452 L160 452 Z" fill="#fff" stroke="#3D3562" stroke-width="4"/>
+    <rect x="160" y="448" width="36" height="8" fill="#FF7FAF"/>
+    <path d="M204 446 Q204 424 224 424 L240 424 L240 452 L204 452 Z" fill="#fff" stroke="#3D3562" stroke-width="4"/>
+    <rect x="204" y="448" width="36" height="8" fill="#4FC3F7"/>
+  `}
+];
+const ACCESSORY_OPTIONS = [
+  { name:"ไม่ใส่", color:"#F1EAFF", svg:"" },
+  { name:"กระเป๋าถือ", color:"#FF7FAF", svg:`
+    <path d="M270 340 Q270 320 290 320 Q310 320 310 340 L310 372 Q290 382 270 372 Z" fill="#FF7FAF" stroke="#3D3562" stroke-width="4"/>
+    <path d="M278 320 Q290 300 302 320" fill="none" stroke="#3D3562" stroke-width="4"/>
+  `},
+  { name:"คทาเวทมนตร์", color:"#B98CE8", svg:`
+    <path d="M285 330 L322 282" stroke="#B98CE8" stroke-width="6" stroke-linecap="round"/>
+    <path d="M322 260 L328 275 L344 280 L328 285 L322 300 L316 285 L300 280 L316 275 Z" fill="#FFD34E" stroke="#3D3562" stroke-width="3"/>
+  `},
+  { name:"ลูกโป่ง", color:"#FF7FAF", svg:`
+    <path d="M300 240 Q270 240 270 275 Q270 306 300 316 Q330 306 330 275 Q330 240 300 240 Z" fill="#FF7FAF" stroke="#3D3562" stroke-width="4"/>
+    <path d="M300 316 L290 336" stroke="#3D3562" stroke-width="3" fill="none"/>
+  `},
+  { name:"ช่อดอกไม้", color:"#FFD34E", svg:`
+    <path d="M295 330 L295 296" stroke="#5FA85F" stroke-width="4" fill="none"/>
+    <circle cx="283" cy="288" r="10" fill="#FF7FAF" stroke="#3D3562" stroke-width="2"/>
+    <circle cx="300" cy="280" r="10" fill="#FFD34E" stroke="#3D3562" stroke-width="2"/>
+    <circle cx="314" cy="292" r="10" fill="#FF7FAF" stroke="#3D3562" stroke-width="2"/>
+  `}
+];
+const DRESS_DATA = { hair:HAIR_OPTIONS, outfit:OUTFIT_OPTIONS, headwear:HEADWEAR_OPTIONS, shoes:SHOES_OPTIONS, accessory:ACCESSORY_OPTIONS };
+const DRESS_CATS = [
+  { id:"hair", name:"ทรงผม", emoji:"💇‍♀️" },
+  { id:"outfit", name:"ชุด", emoji:"👗" },
+  { id:"headwear", name:"เครื่องประดับหัว", emoji:"👑" },
+  { id:"shoes", name:"รองเท้า", emoji:"👟" },
+  { id:"accessory", name:"ของประกอบ", emoji:"🎀" }
+];
+let dressSelection = { hair:0, outfit:0, headwear:0, shoes:0, accessory:0 };
+let dressActiveCat = "hair";
+const dressEl = document.getElementById("dressGame");
+const dressStageEl = document.getElementById("dressStage");
+function renderDressStage(){
+  const h = HAIR_OPTIONS[dressSelection.hair], o = OUTFIT_OPTIONS[dressSelection.outfit];
+  const hw = HEADWEAR_OPTIONS[dressSelection.headwear], sh = SHOES_OPTIONS[dressSelection.shoes];
+  const ac = ACCESSORY_OPTIONS[dressSelection.accessory];
+  dressStageEl.innerHTML = `<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+    ${dressBaseSvg()}${o.svg}${dressFaceSvg()}${h.svg}${hw.svg}${sh.svg}${ac.svg}
+  </svg>`;
+}
+function renderDressCats(){
+  const wrap = document.getElementById("dressCats");
+  wrap.innerHTML = "";
+  DRESS_CATS.forEach(c=>{
+    const b = document.createElement("button");
+    b.className = "chip" + (c.id===dressActiveCat?" on":"");
+    b.innerHTML = `<span class="ic" style="--tint:#F1EAFF">${c.emoji}</span>${c.name}`;
+    b.onclick = ()=>{ dressActiveCat = c.id; renderDressCats(); renderDressOptions(); };
+    wrap.appendChild(b);
+  });
+}
+function renderDressOptions(){
+  const wrap = document.getElementById("dressOptions");
+  wrap.innerHTML = "";
+  DRESS_DATA[dressActiveCat].forEach((opt,i)=>{
+    const b = document.createElement("button");
+    b.className = "dressSwatch" + (dressSelection[dressActiveCat]===i?" on":"");
+    b.style.setProperty("--c", opt.color);
+    b.setAttribute("aria-label", opt.name);
+    b.innerHTML = `<span class="sw"></span><small>${opt.name}</small>`;
+    b.onclick = ()=>{
+      dressSelection[dressActiveCat] = i;
+      renderDressOptions(); renderDressStage(); sfx.pop();
+    };
+    wrap.appendChild(b);
+  });
+}
+function initDress(){
+  renderDressCats();
+  renderDressOptions();
+  renderDressStage();
+}
+document.getElementById("dressRandomBtn").onclick = ()=>{
+  Object.keys(dressSelection).forEach(k=>{ dressSelection[k] = randomInt(0, DRESS_DATA[k].length-1); });
+  renderDressOptions(); renderDressStage(); sfx.pop();
+};
+document.getElementById("dressSaveBtn").onclick = ()=>{
+  const svgEl = dressStageEl.querySelector("svg");
+  const data = new XMLSerializer().serializeToString(svgEl);
+  const img = new Image();
+  img.onload = ()=>{
+    const c = document.createElement("canvas"); c.width = 800; c.height = 1000;
+    const ctx = c.getContext("2d");
+    ctx.fillStyle = "#FFF6FB"; ctx.fillRect(0,0,800,1000);
+    ctx.drawImage(img,0,0,800,1000);
+    const a = document.createElement("a");
+    a.download = "แต่งตัว-PUNPIN.png";
+    a.href = c.toDataURL("image/png");
+    a.click();
+  };
+  img.src = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(data);
+};
+
+/* ================= ฝึกอ่าน ก-ฮ ================= */
+const THAI_LETTERS = [
+  {l:"ก",w:"ไก่",e:"🐔"}, {l:"ข",w:"ไข่",e:"🥚"}, {l:"ฃ",w:"ขวด",e:"🍾"}, {l:"ค",w:"ควาย",e:"🐃"},
+  {l:"ฅ",w:"คน",e:"🧑"}, {l:"ฆ",w:"ระฆัง",e:"🔔"}, {l:"ง",w:"งู",e:"🐍"}, {l:"จ",w:"จาน",e:"🍽️"},
+  {l:"ฉ",w:"ฉิ่ง",e:"🥁"}, {l:"ช",w:"ช้าง",e:"🐘"}, {l:"ซ",w:"โซ่",e:"⛓️"}, {l:"ฌ",w:"เฌอ",e:"🌳"},
+  {l:"ญ",w:"หญิง",e:"👩"}, {l:"ฎ",w:"ชฎา",e:"👑"}, {l:"ฏ",w:"ปฏัก",e:"🔱"}, {l:"ฐ",w:"ฐาน",e:"🏛️"},
+  {l:"ฑ",w:"มณโฑ",e:"👸"}, {l:"ฒ",w:"ผู้เฒ่า",e:"👴"}, {l:"ณ",w:"เณร",e:"🙏"}, {l:"ด",w:"เด็ก",e:"🧒"},
+  {l:"ต",w:"เต่า",e:"🐢"}, {l:"ถ",w:"ถุง",e:"👜"}, {l:"ท",w:"ทหาร",e:"💂"}, {l:"ธ",w:"ธง",e:"🚩"},
+  {l:"น",w:"หนู",e:"🐭"}, {l:"บ",w:"ใบไม้",e:"🍃"}, {l:"ป",w:"ปลา",e:"🐟"}, {l:"ผ",w:"ผึ้ง",e:"🐝"},
+  {l:"ฝ",w:"ฝา",e:"🫙"}, {l:"พ",w:"พาน",e:"🏺"}, {l:"ฟ",w:"ฟัน",e:"🦷"}, {l:"ภ",w:"สำเภา",e:"⛵"},
+  {l:"ม",w:"ม้า",e:"🐴"}, {l:"ย",w:"ยักษ์",e:"👹"}, {l:"ร",w:"เรือ",e:"🚤"}, {l:"ล",w:"ลิง",e:"🐒"},
+  {l:"ว",w:"แหวน",e:"💍"}, {l:"ศ",w:"ศาลา",e:"⛩️"}, {l:"ษ",w:"ฤๅษี",e:"🧙"}, {l:"ส",w:"เสือ",e:"🐯"},
+  {l:"ห",w:"หีบ",e:"📦"}, {l:"ฬ",w:"จุฬา",e:"🪁"}, {l:"อ",w:"อ่าง",e:"🛁"}, {l:"ฮ",w:"นกฮูก",e:"🦉"}
+];
+const thaiEl = document.getElementById("thaiGame");
+const thaiGridEl = document.getElementById("thaiGrid");
+let thaiReady = false, thaiPlayingAll = false, thaiPlayTimer = null;
+function renderThaiGrid(){
+  thaiGridEl.innerHTML = "";
+  THAI_LETTERS.forEach((t,i)=>{
+    const b = document.createElement("button");
+    b.className = "thaiTile";
+    b.setAttribute("aria-label", `${t.l} ${t.w}`);
+    b.innerHTML = `<span class="letter">${t.l}</span><span class="emoji">${t.e}</span><span class="word">${t.w}</span>`;
+    b.onclick = ()=>{
+      if(thaiPlayingAll) return;
+      speakThai(`${t.l}, ${t.w}`);
+      sfx.pop();
+      b.classList.add("playing");
+      setTimeout(()=>b.classList.remove("playing"), 500);
+    };
+    thaiGridEl.appendChild(b);
+  });
+}
+function thaiPlayAll(){
+  if(thaiPlayingAll){
+    thaiPlayingAll = false;
+    clearTimeout(thaiPlayTimer);
+    try{ window.speechSynthesis.cancel(); }catch(e){}
+    document.querySelectorAll(".thaiTile").forEach(x=>x.classList.remove("playing"));
+    document.getElementById("thaiPlayAllBtn").querySelector("small").textContent = "ท่องทั้งหมด";
+    document.getElementById("thaiPlayAllBtn").querySelector(".b").textContent = "▶️";
+    return;
+  }
+  thaiPlayingAll = true;
+  document.getElementById("thaiPlayAllBtn").querySelector("small").textContent = "หยุด";
+  document.getElementById("thaiPlayAllBtn").querySelector(".b").textContent = "⏸️";
+  const tiles = [...document.querySelectorAll(".thaiTile")];
+  let i = 0;
+  function step(){
+    if(!thaiPlayingAll || i >= THAI_LETTERS.length){
+      thaiPlayingAll = false;
+      document.getElementById("thaiPlayAllBtn").querySelector("small").textContent = "ท่องทั้งหมด";
+      document.getElementById("thaiPlayAllBtn").querySelector(".b").textContent = "▶️";
+      tiles.forEach(x=>x.classList.remove("playing"));
+      return;
+    }
+    tiles.forEach(x=>x.classList.remove("playing"));
+    const t = THAI_LETTERS[i];
+    tiles[i].classList.add("playing");
+    tiles[i].scrollIntoView({behavior:"smooth", block:"center"});
+    speakThai(`${t.l}, ${t.w}`);
+    i++;
+    thaiPlayTimer = setTimeout(step, 1300);
+  }
+  step();
+}
+document.getElementById("thaiPlayAllBtn").onclick = thaiPlayAll;
+function initThai(){
+  if(!thaiReady){ renderThaiGrid(); thaiReady = true; }
+}
+function showThai(){
+  studio.style.display = "none";
+  collectionEl.style.display = "none";
+  homeEl.style.display = "none";
+  mathEl.style.display = "none";
+  jigsawEl.style.display = "none";
+  dotsEl.style.display = "none";
+  dressEl.style.display = "none";
+  engEl.style.display = "none";
+  memoryEl.style.display = "none";
+  phonicsEl.style.display = "none";
+  thaiEl.style.display = "block";
+  appSubtitle.textContent = "แตะตัวอักษรเพื่อฟังเสียงอ่านและคำศัพท์";
+  initThai();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+document.getElementById("thaiCard").onclick = showThai;
+document.getElementById("thaiHomeBtn").onclick = ()=>{
+  thaiPlayingAll = false; clearTimeout(thaiPlayTimer);
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+  showHome();
+};
+
+/* ================= ฝึกอ่าน A-Z ================= */
+const ENGLISH_LETTERS = [
+  {l:"A",w:"Apple",e:"🍎"}, {l:"B",w:"Ball",e:"⚽"}, {l:"C",w:"Cat",e:"🐱"}, {l:"D",w:"Dog",e:"🐶"},
+  {l:"E",w:"Elephant",e:"🐘"}, {l:"F",w:"Fish",e:"🐟"}, {l:"G",w:"Giraffe",e:"🦒"}, {l:"H",w:"Hat",e:"🎩"},
+  {l:"I",w:"Ice cream",e:"🍦"}, {l:"J",w:"Juice",e:"🧃"}, {l:"K",w:"Kite",e:"🪁"}, {l:"L",w:"Lion",e:"🦁"},
+  {l:"M",w:"Moon",e:"🌙"}, {l:"N",w:"Nest",e:"🪺"}, {l:"O",w:"Orange",e:"🍊"}, {l:"P",w:"Pig",e:"🐷"},
+  {l:"Q",w:"Queen",e:"👸"}, {l:"R",w:"Rabbit",e:"🐰"}, {l:"S",w:"Sun",e:"☀️"}, {l:"T",w:"Tiger",e:"🐯"},
+  {l:"U",w:"Umbrella",e:"☂️"}, {l:"V",w:"Van",e:"🚐"}, {l:"W",w:"Watermelon",e:"🍉"}, {l:"X",w:"X-ray",e:"🩻"},
+  {l:"Y",w:"Yo-yo",e:"🪀"}, {l:"Z",w:"Zebra",e:"🦓"}
+];
+function speakEnglish(text){
+  try{
+    if(!("speechSynthesis" in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US"; u.rate = 0.92; u.pitch = 1.05;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+const engEl = document.getElementById("engGame");
+const engGridEl = document.getElementById("engGrid");
+let engReady = false, engPlayingAll = false, engPlayTimer = null;
+function renderEngGrid(){
+  engGridEl.innerHTML = "";
+  ENGLISH_LETTERS.forEach((t,i)=>{
+    const b = document.createElement("button");
+    b.className = "thaiTile";
+    b.setAttribute("aria-label", `${t.l} ${t.w}`);
+    b.innerHTML = `<span class="letter">${t.l}</span><span class="emoji">${t.e}</span><span class="word">${t.w}</span>`;
+    b.onclick = ()=>{
+      if(engPlayingAll) return;
+      speakEnglish(`${t.l}. ${t.w}`);
+      sfx.pop();
+      b.classList.add("playing");
+      setTimeout(()=>b.classList.remove("playing"), 500);
+    };
+    engGridEl.appendChild(b);
+  });
+}
+function engPlayAll(){
+  if(engPlayingAll){
+    engPlayingAll = false;
+    clearTimeout(engPlayTimer);
+    try{ window.speechSynthesis.cancel(); }catch(e){}
+    document.querySelectorAll("#engGrid .thaiTile").forEach(x=>x.classList.remove("playing"));
+    document.getElementById("engPlayAllBtn").querySelector("small").textContent = "ท่องทั้งหมด";
+    document.getElementById("engPlayAllBtn").querySelector(".b").textContent = "▶️";
+    return;
+  }
+  engPlayingAll = true;
+  document.getElementById("engPlayAllBtn").querySelector("small").textContent = "หยุด";
+  document.getElementById("engPlayAllBtn").querySelector(".b").textContent = "⏸️";
+  const tiles = [...document.querySelectorAll("#engGrid .thaiTile")];
+  let i = 0;
+  function step(){
+    if(!engPlayingAll || i >= ENGLISH_LETTERS.length){
+      engPlayingAll = false;
+      document.getElementById("engPlayAllBtn").querySelector("small").textContent = "ท่องทั้งหมด";
+      document.getElementById("engPlayAllBtn").querySelector(".b").textContent = "▶️";
+      tiles.forEach(x=>x.classList.remove("playing"));
+      return;
+    }
+    tiles.forEach(x=>x.classList.remove("playing"));
+    const t = ENGLISH_LETTERS[i];
+    tiles[i].classList.add("playing");
+    tiles[i].scrollIntoView({behavior:"smooth", block:"center"});
+    speakEnglish(`${t.l}. ${t.w}`);
+    i++;
+    engPlayTimer = setTimeout(step, 1300);
+  }
+  step();
+}
+document.getElementById("engPlayAllBtn").onclick = engPlayAll;
+function initEng(){
+  if(!engReady){ renderEngGrid(); engReady = true; }
+}
+function showEng(){
+  studio.style.display = "none";
+  collectionEl.style.display = "none";
+  homeEl.style.display = "none";
+  mathEl.style.display = "none";
+  jigsawEl.style.display = "none";
+  dotsEl.style.display = "none";
+  dressEl.style.display = "none";
+  thaiEl.style.display = "none";
+  memoryEl.style.display = "none";
+  phonicsEl.style.display = "none";
+  engEl.style.display = "block";
+  appSubtitle.textContent = "แตะตัวอักษรภาษาอังกฤษเพื่อฟังเสียงอ่าน";
+  initEng();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+document.getElementById("engCard").onclick = showEng;
+document.getElementById("engHomeBtn").onclick = ()=>{
+  engPlayingAll = false; clearTimeout(engPlayTimer);
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+  showHome();
+};
+
+/* ================= เกมความจำจับคู่ภาพ ================= */
+let memCurrentCat = "all", memDifficulty = 6;
+let memCards = [], memFlippedIdx = [], memMatchedCount = 0, memMoves = 0, memLock = false, memReady = false;
+const memoryEl = document.getElementById("memoryGame");
+const memPickerEl = document.getElementById("memPicker");
+const memPlayEl = document.getElementById("memPlay");
+const memCatsEl = document.getElementById("memCats");
+const memGridEl = document.getElementById("memGrid");
+
+function initMemory(){
+  if(!memReady){
+    CATS.forEach((c,i)=>{
+      const b = document.createElement("button");
+      b.className = "chip" + (i===0?" on":"");
+      b.innerHTML = `<span class="ic" style="--tint:${c.tint}">${c.emoji}</span>${c.name}`;
+      b.onclick = ()=>{
+        document.querySelectorAll("#memCats .chip").forEach(x=>x.classList.remove("on"));
+        b.classList.add("on");
+        memCurrentCat = c.id;
+      };
+      memCatsEl.appendChild(b);
+    });
+    document.querySelectorAll("#memoryGame .difficultyBtn").forEach(btn=>{
+      btn.onclick = ()=>{
+        memDifficulty = +btn.dataset.pairs;
+        document.querySelectorAll("#memoryGame .difficultyBtn").forEach(x=>x.classList.remove("on"));
+        btn.classList.add("on");
+      };
+    });
+    document.getElementById("memStartBtn").onclick = startMemoryGame;
+    document.getElementById("memBackBtn").onclick = showMemoryPicker;
+    memReady = true;
+  }
+  showMemoryPicker();
+}
+function showMemoryPicker(){
+  memPickerEl.style.display = "block";
+  memPlayEl.style.display = "none";
+  document.getElementById("memSubHead").textContent = "เลือกหมวดและระดับความยาก แล้วเริ่มจับคู่ภาพ";
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function startMemoryGame(){
+  const pool = PICS.filter(p=>memCurrentCat==="all"||p.cat===memCurrentCat);
+  const chosen = shuffle([...pool]).slice(0, memDifficulty);
+  memCards = shuffle(chosen.flatMap(p=>[
+    {key:p.id, svg:p.svg},
+    {key:p.id, svg:p.svg}
+  ]));
+  memMoves = 0; memMatchedCount = 0; memFlippedIdx = []; memLock = false;
+
+  const total = memCards.length;
+  const cols = total <= 12 ? 4 : (total <= 16 ? 4 : 6);
+  memGridEl.style.setProperty("--mem-cols", cols);
+  memGridEl.style.setProperty("--mem-cols-sm", total <= 12 ? 3 : 4);
+
+  renderMemGrid();
+  updateMemLabels();
+  memPickerEl.style.display = "none";
+  memPlayEl.style.display = "block";
+  document.getElementById("memSubHead").textContent = "แตะการ์ดสองใบเพื่อหาคู่ที่เหมือนกัน";
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderMemGrid(){
+  memGridEl.innerHTML = "";
+  memCards.forEach((c,i)=>{
+    const b = document.createElement("button");
+    b.className = "memCard";
+    b.setAttribute("aria-label", "การ์ดคว่ำ");
+    b.innerHTML = `<div class="inner">
+      <div class="memFace memBack">❓</div>
+      <div class="memFace memFront">${c.svg}</div>
+    </div>`;
+    b.onclick = ()=>flipMemCard(i, b);
+    memGridEl.appendChild(b);
+  });
+}
+function updateMemLabels(){
+  document.getElementById("memPairsLabel").textContent = `🧠 ${memMatchedCount}/${memDifficulty} คู่`;
+  document.getElementById("memMovesLabel").textContent = memMoves;
+}
+function flipMemCard(i, el){
+  if(memLock || el.classList.contains("flipped") || el.classList.contains("matched")) return;
+  el.classList.add("flipped");
+  memFlippedIdx.push(i);
+  if(memFlippedIdx.length === 2){
+    memMoves++;
+    updateMemLabels();
+    memLock = true;
+    const [a,b] = memFlippedIdx;
+    const tiles = memGridEl.children;
+    if(memCards[a].key === memCards[b].key){
+      sfx.good();
+      tiles[a].classList.add("matched");
+      tiles[b].classList.add("matched");
+      memMatchedCount++;
+      updateMemLabels();
+      memFlippedIdx = [];
+      memLock = false;
+      if(memMatchedCount === memDifficulty){
+        setTimeout(()=>showSuccessPopup({
+          emoji:"🧠", title:"จับคู่ครบแล้ว!",
+          message:`หนูจับคู่ภาพครบ ${memDifficulty} คู่ ใช้ ${memMoves} ครั้ง เก่งมาก!`,
+          onReplay:startMemoryGame, onNext:showMemoryPicker
+        }), 400);
+      }
+    } else {
+      sfx.try();
+      setTimeout(()=>{
+        tiles[a].classList.remove("flipped");
+        tiles[b].classList.remove("flipped");
+        memFlippedIdx = [];
+        memLock = false;
+      }, 850);
+    }
+  }
+}
+function showMemory(){
+  studio.style.display = "none";
+  collectionEl.style.display = "none";
+  homeEl.style.display = "none";
+  mathEl.style.display = "none";
+  jigsawEl.style.display = "none";
+  dotsEl.style.display = "none";
+  dressEl.style.display = "none";
+  thaiEl.style.display = "none";
+  engEl.style.display = "none";
+  phonicsEl.style.display = "none";
+  memoryEl.style.display = "block";
+  appSubtitle.textContent = "เลือกหมวดและระดับความยาก แล้วเริ่มจับคู่ภาพ";
+  initMemory();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+document.getElementById("memoryCard").onclick = showMemory;
+document.getElementById("memHomeBtn").onclick = showHome;
+
+/* ================= ฝึกออกเสียงโฟนิกส์ ================= */
+const PHONICS_WEEKS = [
+  { name:"สัปดาห์ 1", items:[
+    {l:"A", p:"แอะ"}, {l:"S", p:"ซี"}, {l:"T", p:"ถี"}, {l:"P", p:"เพอะ"}, {l:"I", p:"อิ"}, {l:"N", p:"หน้า เนอะ หลัง อึน", speak:["เนอะ","อึน"]}
+  ]},
+  { name:"สัปดาห์ 2", items:[
+    {l:"E", p:"เอะ"}, {l:"C", p:"เขอะ"}, {l:"K", p:"เขอะ"}, {l:"R", p:"เหร่อะ"}, {l:"H", p:"เฮอะ"}, {l:"M", p:"หน้า เมอะ หลัง อึม", speak:["เมอะ","อึม"]}, {l:"D", p:"ดี"}
+  ]},
+  { name:"สัปดาห์ 3", items:[
+    {l:"O", p:"เอาะ"}, {l:"G", p:"เกอะ"}, {l:"U", p:"อะ"}, {l:"L", p:"หน้า เรอะ หลัง ฮึล", speak:["เรอะ","ฮึล"]}, {l:"B", p:"เบอะ"}, {l:"F", p:"ฟี"}
+  ]},
+  { name:"สัปดาห์ 4", items:[
+    {l:"J", p:"เจอะ"}, {l:"AI", p:"เอ"}, {l:"EE", p:"อี"}, {l:"IE", p:"อาย"}, {l:"OA", p:"โอ"}, {l:"OR", p:"ออ"}
+  ]},
+  { name:"สัปดาห์ 5", items:[
+    {l:"W", p:"เวอะ"}, {l:"Z", p:"ซี"}, {l:"NG", p:"อึง"}, {l:"V", p:"เฟวอะ"}, {l:"OO", p:"อุ อู"}
+  ]}
+];
+function speakPhonicsSound(item){
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+  const parts = item.speak || [item.p];
+  let i = 0;
+  const speakNext = ()=>{
+    if(i >= parts.length) return;
+    try{
+      const u = new SpeechSynthesisUtterance(parts[i]);
+      u.lang = "th-TH"; u.rate = 0.72; u.pitch = 1.05;
+      if(i < parts.length - 1) u.onend = ()=>setTimeout(speakNext, 260);
+      window.speechSynthesis.speak(u);
+    }catch(e){}
+    i++;
+  };
+  speakNext();
+}
+let phonicsActiveWeek = 0, phonicsPlayingAll = false, phonicsPlayTimer = null, phonicsReady = false;
+const phonicsEl = document.getElementById("phonicsGame");
+const phonicsWeeksEl = document.getElementById("phonicsWeeks");
+const phonicsGridEl = document.getElementById("phonicsGrid");
+function renderPhonicsWeeks(){
+  phonicsWeeksEl.innerHTML = "";
+  PHONICS_WEEKS.forEach((w,i)=>{
+    const b = document.createElement("button");
+    b.className = "chip" + (i===phonicsActiveWeek?" on":"");
+    b.innerHTML = `<span class="ic" style="--tint:#E9F2FF">📅</span>${w.name}`;
+    b.onclick = ()=>{ phonicsActiveWeek = i; renderPhonicsWeeks(); renderPhonicsGrid(); };
+    phonicsWeeksEl.appendChild(b);
+  });
+}
+function renderPhonicsGrid(){
+  phonicsGridEl.innerHTML = "";
+  PHONICS_WEEKS[phonicsActiveWeek].items.forEach(t=>{
+    const b = document.createElement("button");
+    b.className = "thaiTile";
+    b.setAttribute("aria-label", `${t.l} ${t.p}`);
+    b.innerHTML = `<span class="letter">${t.l}</span><span class="emoji">🔊</span><span class="word">${t.p}</span>`;
+    b.onclick = ()=>{
+      if(phonicsPlayingAll) return;
+      speakPhonicsSound(t);
+      sfx.pop();
+      b.classList.add("playing");
+      setTimeout(()=>b.classList.remove("playing"), 500);
+    };
+    phonicsGridEl.appendChild(b);
+  });
+}
+function phonicsPlayAll(){
+  const items = PHONICS_WEEKS[phonicsActiveWeek].items;
+  if(phonicsPlayingAll){
+    phonicsPlayingAll = false;
+    clearTimeout(phonicsPlayTimer);
+    try{ window.speechSynthesis.cancel(); }catch(e){}
+    document.querySelectorAll("#phonicsGrid .thaiTile").forEach(x=>x.classList.remove("playing"));
+    document.getElementById("phonicsPlayAllBtn").querySelector("small").textContent = "ท่องทั้งหมด";
+    document.getElementById("phonicsPlayAllBtn").querySelector(".b").textContent = "▶️";
+    return;
+  }
+  phonicsPlayingAll = true;
+  document.getElementById("phonicsPlayAllBtn").querySelector("small").textContent = "หยุด";
+  document.getElementById("phonicsPlayAllBtn").querySelector(".b").textContent = "⏸️";
+  const tiles = [...document.querySelectorAll("#phonicsGrid .thaiTile")];
+  let i = 0;
+  function step(){
+    if(!phonicsPlayingAll || i >= items.length){
+      phonicsPlayingAll = false;
+      document.getElementById("phonicsPlayAllBtn").querySelector("small").textContent = "ท่องทั้งหมด";
+      document.getElementById("phonicsPlayAllBtn").querySelector(".b").textContent = "▶️";
+      tiles.forEach(x=>x.classList.remove("playing"));
+      return;
+    }
+    tiles.forEach(x=>x.classList.remove("playing"));
+    tiles[i].classList.add("playing");
+    tiles[i].scrollIntoView({behavior:"smooth", block:"center"});
+    speakPhonicsSound(items[i]);
+    i++;
+    phonicsPlayTimer = setTimeout(step, 1900);
+  }
+  step();
+}
+document.getElementById("phonicsPlayAllBtn").onclick = phonicsPlayAll;
+function initPhonics(){
+  if(!phonicsReady){ renderPhonicsWeeks(); renderPhonicsGrid(); phonicsReady = true; }
+}
+function showPhonics(){
+  studio.style.display = "none";
+  collectionEl.style.display = "none";
+  homeEl.style.display = "none";
+  mathEl.style.display = "none";
+  jigsawEl.style.display = "none";
+  dotsEl.style.display = "none";
+  dressEl.style.display = "none";
+  thaiEl.style.display = "none";
+  engEl.style.display = "none";
+  memoryEl.style.display = "none";
+  phonicsEl.style.display = "block";
+  appSubtitle.textContent = "เลือกสัปดาห์ แล้วแตะฟังเสียงอ่าน";
+  initPhonics();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+document.getElementById("phonicsCard").onclick = showPhonics;
+document.getElementById("phonicsHomeBtn").onclick = ()=>{
+  phonicsPlayingAll = false; clearTimeout(phonicsPlayTimer);
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+  showHome();
+};
 
 /* ================= คิดเลขแสนสนุก อนุบาล 1-3 ================= */
 let mathLevel = 1, mathScore = 0, mathQuestionIndex = 1, mathAnswer = 0, mathTimer = null;
