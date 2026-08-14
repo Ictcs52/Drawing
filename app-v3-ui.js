@@ -35,7 +35,11 @@ const css=`
 .v5-reward{border:0;border-radius:18px;background:#f6f2ff;padding:12px 6px;text-align:center;cursor:pointer;box-shadow:0 6px 0 #d8d0f5;font-family:inherit}
 .v5-reward:active{transform:translateY(4px);box-shadow:0 1px 0 #d8d0f5}
 .v5-reward-icon{display:block;font-size:32px;margin-bottom:4px}
+.v5-reward-name{display:block;font:700 11px/1.25 'Noto Sans Thai';margin-bottom:3px;min-height:28px}
 .v5-reward b{font-size:12px}
+.opt{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:14px 8px!important}
+.opt .opt-ic{font-size:35px;line-height:1}
+.opt small{font:700 12px 'Noto Sans Thai';color:#574c8d}
 .v5-reward.owned{background:#dffbe6;box-shadow:0 6px 0 #b7ecc4;color:#1f8a4c}
 .v5-reward.locked{opacity:.5;filter:grayscale(.5)}
 .v5-shop-btn{border:0;border-radius:20px;padding:12px;background:linear-gradient(90deg,#ff6eb0,#ff9d5c);color:#fff;font-weight:700;cursor:pointer;box-shadow:0 6px 0 #d1447f}
@@ -258,7 +262,7 @@ function renderRewards(){
   const isOwned=owned.includes(r.id);
   const can=stars>=r.price;
   return `<button class="v5-reward ${isOwned?'owned':''} ${!isOwned&&!can?'locked':''}" data-id="${r.id}">
-   <span class="v5-reward-icon">${r.icon}</span><b>${isOwned?'✓ ได้แล้ว':'⭐ '+r.price}</b>
+   <span class="v5-reward-icon">${r.icon}</span><span class="v5-reward-name">${r.name}</span><b>${isOwned?'✓ ได้แล้ว':'⭐ '+r.price}</b>
   </button>`;
  }).join('');
  grid.querySelectorAll('.v5-reward').forEach(btn=>btn.onclick=()=>buyReward(btn.dataset.id));
@@ -400,6 +404,14 @@ function setActiveNav(view){
 const origOpenGame=window.openGame,origHome=window.home;
 window.openGame=function(id){origOpenGame(id);document.body.classList.remove('v5-home');setActiveNav(id)};
 window.home=function(){origHome();document.body.classList.add('v5-home');setActiveNav('home')};
+
+/* ---------------- dress-up: give each option a name (looks[] is const, so keep it untouched and pair it with names by index) ---------------- */
+const LOOK_NAMES=['โบว์แดง','มงกุฎทอง','หมวกแก๊ป','แว่นกันแดด','ดอกซากุระ','หมวกรับปริญญา'];
+window.renderDress=function(){
+ const opts=$('#opts');if(!opts||typeof looks==='undefined')return;
+ opts.innerHTML=looks.map((x,i)=>`<button class="opt" onclick="pick(${i})"><span class="opt-ic">${x[0]}</span><small>${LOOK_NAMES[i]||''}</small></button>`).join('');
+};
+renderDress();
 
 /* ---------------- init ---------------- */
 updateStreak();
