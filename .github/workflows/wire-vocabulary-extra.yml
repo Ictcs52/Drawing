@@ -1,0 +1,38 @@
+name: Wire expanded vocabulary
+on:
+  push:
+    branches: [main]
+    paths: ['vocabulary-extra.js']
+permissions:
+  contents: write
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add extra vocabulary data to vocabulary page
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('vocabulary.html')
+          s=p.read_text()
+          if 'vocabulary-extra.js' not in s:
+              s=s.replace('<script>const C=', '<script src="vocabulary-extra.js"></script><script>const C=', 1)
+          # Extend categories once.
+          old="actions:['🏃','คำกริยา']}"
+          new="actions:['🏃','คำกริยา'],numbers:['🔢','ตัวเลข'],shapes:['🔷','รูปทรง'],describing:['📏','คำบอกลักษณะ'],position:['📍','ตำแหน่ง'],feelings:['😊','ความรู้สึก'],manners:['🙏','คำสุภาพ'],home:['🏠','บ้านและของใช้'],clothes:['👕','เสื้อผ้า'],weather:['🌦️','อากาศ'],time:['🕒','เวลา'],days:['📅','วันในสัปดาห์'],people:['🧑','บุคคลและอาชีพ'],places:['🏫','สถานที่'],questions:['❓','คำถาม']}"
+          s=s.replace(old,new,1)
+          # Append extras after original W array closes, before state variables.
+          marker="];let level=0,cat='all';"
+          if '...window.EXTRA_VOCAB' not in s:
+              s=s.replace(marker,"];W.push(...(window.EXTRA_VOCAB||[]));let level=0,cat='all';",1)
+          p.write_text(s)
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add vocabulary.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Expand English vocabulary for kindergarten learning"
+          git push
