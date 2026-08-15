@@ -2,7 +2,7 @@ name: Wire expanded vocabulary
 on:
   push:
     branches: [main]
-    paths: ['vocabulary-extra.js']
+    paths: ['vocabulary-extra.js','trigger-vocabulary-extra.txt']
 permissions:
   contents: write
 jobs:
@@ -18,11 +18,9 @@ jobs:
           s=p.read_text()
           if 'vocabulary-extra.js' not in s:
               s=s.replace('<script>const C=', '<script src="vocabulary-extra.js"></script><script>const C=', 1)
-          # Extend categories once.
           old="actions:['🏃','คำกริยา']}"
           new="actions:['🏃','คำกริยา'],numbers:['🔢','ตัวเลข'],shapes:['🔷','รูปทรง'],describing:['📏','คำบอกลักษณะ'],position:['📍','ตำแหน่ง'],feelings:['😊','ความรู้สึก'],manners:['🙏','คำสุภาพ'],home:['🏠','บ้านและของใช้'],clothes:['👕','เสื้อผ้า'],weather:['🌦️','อากาศ'],time:['🕒','เวลา'],days:['📅','วันในสัปดาห์'],people:['🧑','บุคคลและอาชีพ'],places:['🏫','สถานที่'],questions:['❓','คำถาม']}"
           s=s.replace(old,new,1)
-          # Append extras after original W array closes, before state variables.
           marker="];let level=0,cat='all';"
           if '...window.EXTRA_VOCAB' not in s:
               s=s.replace(marker,"];W.push(...(window.EXTRA_VOCAB||[]));let level=0,cat='all';",1)
