@@ -1,0 +1,32 @@
+name: Expand English through Grade 3
+on:
+  push:
+    branches: [main]
+    paths: ['english-k3-extra.js']
+permissions:
+  contents: write
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python - <<'PY'
+          from pathlib import Path
+          # vocabulary page
+          p=Path('vocabulary.html'); s=p.read_text()
+          tag='<script src="english-k3-extra.js"></script>'
+          if tag not in s: s=s.replace('</body>',tag+'</body>')
+          p.write_text(s)
+          # sentence page
+          q=Path('sentences.html'); t=q.read_text()
+          if tag not in t: t=t.replace('</body>',tag+'</body>')
+          q.write_text(t)
+          PY
+      - run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add vocabulary.html sentences.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Expand English vocabulary and sentences through Grade 3"
+          git push
