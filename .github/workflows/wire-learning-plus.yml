@@ -1,0 +1,31 @@
+name: Wire learning plus
+on:
+  push:
+    branches: [main]
+    paths: ['learning-plus.js']
+permissions:
+  contents: write
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html');s=p.read_text()
+          css='<link rel="stylesheet" href="learning-plus.css">'
+          js='<script src="learning-plus.js"></script>'
+          lw='<script src="learning-world.js"></script>'
+          if css not in s:s=s.replace('</head>',css+'</head>')
+          if lw not in s:s=s.replace('</body>',lw+'</body>')
+          if js not in s:s=s.replace('</body>',js+'</body>')
+          p.write_text(s)
+          PY
+      - run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Enable Parent Mode stories speaking and Learning World"
+          git push
