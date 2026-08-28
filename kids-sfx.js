@@ -28,3 +28,4 @@
   document.addEventListener('punpin:sfx',e=>{const n=e.detail?.name;if(SFX[n])SFX[n]()});
   document.addEventListener('DOMContentLoaded',syncButtons);syncButtons();
 })();
+// wired across PUN&PIN pages
