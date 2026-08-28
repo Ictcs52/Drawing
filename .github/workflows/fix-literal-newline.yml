@@ -10,12 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Remove visible literal newline token
+      - name: Remove visible literal newline tokens
         run: |
           python - <<'PY'
           from pathlib import Path
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
+          s=s.replace('kids-world-v2.css?v=7">\\n<style id="pp-home-first-paint">', 'kids-world-v2.css?v=7">\n<style id="pp-home-first-paint">')
           s=s.replace('</script>\\n<script src="kids-sfx.js?v=2"></script>', '</script>\n<script src="kids-sfx.js?v=2"></script>')
           s=s.replace('</script>\\n<script', '</script>\n<script')
           p.write_text(s, encoding='utf-8')
