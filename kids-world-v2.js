@@ -7,9 +7,10 @@ function build(){
   const home=document.getElementById('home'),hero=home?.querySelector('.hero');
   if(!home||!hero||document.querySelector('.kwGrade'))return;
   const oldDash=home.querySelector('.ppDash'),oldDaily=home.querySelector('.ppDaily');
-  const heroTitle=hero.querySelector('h2'),heroText=hero.querySelector('.heroCopy p'),bubble=hero.querySelector('.artBubble');
-  if(heroTitle)heroTitle.innerHTML='วันนี้อยาก<br><span>เรียนรู้อะไรดี?</span>';
-  if(heroText)heroText.textContent='เลือกโลกที่ชอบ แล้วออกเดินทางไปเรียน เล่น และสะสมดาวกันเลย!';
+  const heroTitle=hero.querySelector('h2'),heroText=hero.querySelector('.heroCopy p'),bubble=hero.querySelector('.artBubble'),eyebrow=hero.querySelector('.eyebrow');
+  if(eyebrow)eyebrow.textContent='✨ เรียน • เล่น • สนุก';
+  if(heroTitle)heroTitle.innerHTML='วันนี้เล่นอะไรดี?';
+  if(heroText)heroText.textContent='เลือกโลกที่ชอบ แล้วเริ่มเล่นได้เลย!';
   if(bubble)bubble.innerHTML='<span class="kwMascot fox">🦊</span><span class="kwMascot bear">🐻</span><b class="kwMascotStar">⭐</b>';
 
   let grade=localStorage.getItem(GKEY)||'k';
