@@ -10,31 +10,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Prevent legacy home flash and bump assets
+      - name: Cloak home until new UI is ready
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
+
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
-          critical='<style id="pp-home-first-paint">#home>.hero,#home>.sectionHead,#home>.activityGrid,#home>.ppDash,#home>.ppDaily,#home>.ppMoreLearning{display:none!important}</style>'
-          if 'id="pp-home-first-paint"' not in s:
+          critical='<style id="pp-home-first-paint">#home{visibility:hidden}#home>.hero,#home>.sectionHead,#home>.activityGrid,#home .ppDash,#home .ppDaily,#home .ppMoreLearning{display:none!important}</style><script>window.addEventListener("load",()=>setTimeout(()=>{const h=document.getElementById("home");if(h&&getComputedStyle(h).visibility==="hidden")h.style.visibility="visible"},2500));</script>'
+          if 'id="pp-home-first-paint"' in s:
+              s=re.sub(r'<style id="pp-home-first-paint">.*?</style>(?:<script>window\.addEventListener\("load".*?</script>)?',critical,s,count=1,flags=re.S)
+          else:
               s=s.replace('</head>',critical+'\n</head>',1)
-          s=s.replace('kids-world-v2.css?v=2','kids-world-v2.css?v=6')
-          s=s.replace('kids-world-v2.css?v=3','kids-world-v2.css?v=6')
-          s=s.replace('kids-world-v2.css?v=4','kids-world-v2.css?v=6')
-          s=s.replace('kids-world-v2.css?v=5','kids-world-v2.css?v=6')
-          s=s.replace('kids-world-v2.js?v=2','kids-world-v2.js?v=6')
-          s=s.replace('kids-world-v2.js?v=3','kids-world-v2.js?v=6')
-          s=s.replace('kids-world-v2.js?v=4','kids-world-v2.js?v=6')
-          s=s.replace('kids-world-v2.js?v=5','kids-world-v2.js?v=6')
+          for old in ['kids-world-v2.css?v=2','kids-world-v2.css?v=3','kids-world-v2.css?v=4','kids-world-v2.css?v=5','kids-world-v2.css?v=6']:
+              s=s.replace(old,'kids-world-v2.css?v=7')
+          for old in ['kids-world-v2.js?v=2','kids-world-v2.js?v=3','kids-world-v2.js?v=4','kids-world-v2.js?v=5','kids-world-v2.js?v=6']:
+              s=s.replace(old,'kids-world-v2.js?v=7')
           s=s.replace('kids-sfx.js?v=1','kids-sfx.js?v=2')
           p.write_text(s,encoding='utf-8')
+
+          j=Path('kids-world-v2.js')
+          js=j.read_text(encoding='utf-8')
+          if "home.style.visibility='visible'" not in js:
+              js=js.replace('  setGrade(grade);\n}',"  setGrade(grade);\n  home.style.visibility='visible';\n}",1)
+          j.write_text(js,encoding='utf-8')
           PY
       - name: Commit changes
         run: |
           if git diff --quiet; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git commit -m "Prevent legacy home UI flash on reload"
+          git add index.html kids-world-v2.js
+          git commit -m "Eliminate old home flash before new UI loads"
           git push
