@@ -54,6 +54,7 @@ function build(){
 
   const appbar=document.querySelector('.appbar');if(appbar&&!document.querySelector('.kwParentTop')){const parent=document.createElement('button');parent.className='kwParentTop';parent.innerHTML='<span>👨‍👩‍👧</span><b>ผู้ปกครอง</b>';parent.onclick=()=>document.getElementById('parentModeBtn')?.click();appbar.appendChild(parent)}
   setGrade(grade);
+  home.style.visibility='visible';
 }
 document.addEventListener('DOMContentLoaded',()=>setTimeout(build,20));
 })();
