@@ -4,95 +4,60 @@ const gradeNames={k:'อนุบาล',p1:'ป.1',p2:'ป.2',p3:'ป.3'};
 const gradeTopics={
   k:'A–Z · ก–ฮ · นับ 1–20 · แบบรูป · นิทานสั้น',
   p1:'Phonics/CVC · ผสมคำ · บวก–ลบ · ลำดับ · อ่านเรื่องสั้น',
-  p2:'Vocabulary/Sentence · อ่านจับใจความ · คูณเบื้องต้น · เวลา/เงิน · เหตุผล',
-  p3:'Reading · ภาษาไทยจับใจความ · คูณ/หาร/เศษส่วน · Logic · นิทานคิดวิเคราะห์'
+  p2:'Vocabulary · อ่านจับใจความ · คูณเบื้องต้น · เวลา/เงิน',
+  p3:'Reading · จับใจความ · คูณ/หาร/เศษส่วน · Logic'
 };
 function click(id){document.getElementById(id)?.click()}
 function progress(){try{return JSON.parse(localStorage.getItem('punpin_progress_v1')||'{}')}catch(e){return {}}}
-function addTodayStyles(){if(document.getElementById('kwTodayStyles'))return;const s=document.createElement('style');s.id='kwTodayStyles';s.textContent=`.kwTodayLaunch{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;margin:15px 0 18px;padding:17px 18px;border:4px solid #fff;border-radius:27px;background:linear-gradient(135deg,#fff9d2,#ffe8ef 50%,#e9f7ff);box-shadow:0 8px 0 #ded8e9,0 17px 30px #4a37721a}.kwTodayCopy{display:flex;align-items:center;gap:12px;min-width:0}.kwTodayMascot{font-size:44px;white-space:nowrap}.kwTodayText{min-width:0}.kwTodayText span{display:block;color:#7158c6;font-size:.72rem;font-weight:700}.kwTodayText h3{margin:2px 0 3px;font-size:1.25rem}.kwTodayText p{margin:0;color:#766e87;font:12px 'Noto Sans Thai',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.kwTodayBtn{border:0;border-radius:19px;padding:13px 18px;color:#fff;background:linear-gradient(135deg,#ff7aaa,#735ce2);font:700 .9rem Mali,sans-serif;box-shadow:0 6px 0 #5742aa;cursor:pointer;white-space:nowrap}.kwTodayBtn:active{transform:translateY(4px);box-shadow:0 2px 0 #5742aa}.kwTodayMeta{grid-column:1/-1;display:flex;gap:7px;flex-wrap:wrap;margin-top:-3px}.kwTodayMeta i{font-style:normal;padding:6px 9px;border-radius:999px;background:#ffffffc9;color:#695f7e;font-size:.66rem;font-weight:700}.kwZone.brain{background:linear-gradient(160deg,#e9e5ff,#f2efff)}.kwZone.world{background:linear-gradient(160deg,#dcfff0,#e7f7ff)}@media(max-width:640px){.kwTodayLaunch{grid-template-columns:1fr;padding:14px}.kwTodayCopy{align-items:flex-start}.kwTodayMascot{font-size:36px}.kwTodayText h3{font-size:1.08rem}.kwTodayText p{white-space:normal;line-height:1.4}.kwTodayBtn{width:100%;padding:12px}.kwTodayMeta{gap:5px}.kwTodayMeta i{font-size:.6rem;padding:5px 7px}}`;document.head.appendChild(s)}
+function addCleanStyles(){
+  if(document.getElementById('kwCleanV5'))return;
+  const s=document.createElement('style');s.id='kwCleanV5';s.textContent=`
+  #home:before,#home:after{display:none!important}.kwLegacyHidden{display:none!important}
+  #home{max-width:1080px;margin:0 auto}.appbar{max-width:1080px;margin:0 auto 16px!important;padding:10px 14px!important;min-height:64px!important;border-radius:20px!important;box-shadow:0 8px 24px rgba(72,55,120,.08)!important}.logo{width:48px!important;height:48px!important;border-radius:15px!important}.appbar h1{font-size:1.6rem!important}.appbar p{font-size:.78rem!important}.fsbtn{width:42px!important;height:42px!important;border-radius:13px!important}.kwParentTop{display:flex;align-items:center;gap:6px;border:0;border-radius:13px;padding:9px 12px;background:#fff5cc;color:#51426e;font-family:Mali,sans-serif;box-shadow:none;cursor:pointer}.kwParentTop span{font-size:18px}.kwParentTop b{font-size:.73rem}
+  .hero{min-height:178px!important;grid-template-columns:minmax(0,1fr) 155px!important;gap:16px!important;padding:22px 28px!important;border:0!important;border-radius:24px!important;background:linear-gradient(125deg,#48bff1,#7471eb 62%,#da70df)!important;box-shadow:0 10px 28px rgba(76,66,160,.18)!important}.hero:before,.hero:after{display:none!important}.hero .eyebrow{padding:5px 10px!important;border:0!important;box-shadow:none!important;font-size:.72rem!important}.hero h2{font-size:clamp(1.85rem,4vw,2.75rem)!important;line-height:1.05!important;margin:8px 0 6px!important;letter-spacing:-1px!important;text-shadow:none!important}.hero p{font-size:.82rem!important;line-height:1.5!important;max-width:520px!important}.heroArt{min-height:128px!important}.artBubble{width:132px!important;height:132px!important;aspect-ratio:1!important;border:5px solid #fff!important;border-radius:36px!important;background:linear-gradient(145deg,#fff,#fff4d8)!important;box-shadow:0 10px 24px rgba(45,37,90,.16)!important}.kwMascot{font-size:3.5rem!important;width:60%!important;height:74%!important;bottom:8%!important;filter:none!important}.kwMascot.fox{left:-7%!important}.kwMascot.bear{right:-7%!important}.kwMascotStar{font-size:24px!important;top:5px!important;right:10px!important}
+  .kwGrade{margin:12px 0!important;padding:13px 15px!important;border:1px solid #ebe6f5!important;border-radius:20px!important;background:#fff!important;box-shadow:0 7px 22px rgba(77,61,120,.07)!important}.kwGradeHead{margin-bottom:9px!important}.kwGradeHead h3{font-size:1rem!important}.kwGradeHead small{font-size:.68rem!important}.kwGradeHint{padding:5px 9px!important;font-size:.62rem!important;box-shadow:none!important}.kwGradeBtns{gap:8px!important}.kwGradeBtns button{padding:10px 7px!important;border:1px solid #ece7f4!important;border-radius:13px!important;background:#f8f6fc!important;box-shadow:none!important;font-size:.78rem!important}.kwGradeBtns button.on{background:linear-gradient(135deg,#ffaf25,#ff8a31)!important;border-color:#ff9e24!important;box-shadow:0 5px 12px rgba(255,142,35,.22)!important;transform:none!important}
+  .kwTodayLaunch{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;margin:12px 0;padding:15px 17px;border:1px solid #eee5f3;border-radius:20px;background:linear-gradient(110deg,#fff7d9,#fff0f3 58%,#edf8ff);box-shadow:0 8px 24px rgba(76,58,118,.07)}.kwTodayCopy{display:flex;align-items:center;gap:11px;min-width:0}.kwTodayMascot{font-size:38px;white-space:nowrap}.kwTodayText{min-width:0}.kwTodayText span{display:block;color:#725dc3;font-size:.66rem;font-weight:700}.kwTodayText h3{margin:2px 0 2px;font-size:1.12rem}.kwTodayText p{margin:0;color:#766e87;font:11px 'Noto Sans Thai',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.kwTodayBtn{border:0;border-radius:14px;padding:11px 16px;color:#fff;background:linear-gradient(135deg,#ec65a4,#7259df);font:700 .78rem Mali,sans-serif;box-shadow:0 5px 12px rgba(96,66,181,.22);cursor:pointer;white-space:nowrap}.kwTodayMeta{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}.kwTodayMeta i{font-style:normal;padding:5px 8px;border-radius:999px;background:#ffffffc8;color:#695f7e;font-size:.58rem;font-weight:700;border:1px solid #eee8f4}
+  .kwOverview{display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important;margin:12px 0 20px!important}.kwProgressCard,.kwMissionCard{min-height:178px!important;padding:15px!important;border:1px solid #ece7f3!important;border-radius:20px!important;box-shadow:0 7px 22px rgba(74,57,112,.07)!important;background:#fff!important}.kwCardLabel{font-size:.88rem!important;margin-bottom:10px!important}.kwStats{gap:7px!important}.kwStats div{padding:10px 5px!important;border:1px solid #efebf5!important;border-radius:14px!important;box-shadow:none!important}.kwStats span{font-size:22px!important}.kwStats b{font-size:1.15rem!important}.kwStats small{font-size:.57rem!important}.kwMiniProgress{height:7px!important;margin:11px 3px 5px!important}.kwNextReward{font-size:.59rem!important}.kwMissionTop{margin-bottom:5px!important}.kwMissionTop span{font-size:.84rem!important}.kwMissionTop b{font-size:.62rem!important}.kwMissionCard button{grid-template-columns:22px 25px 1fr auto!important;padding:7px 2px!important;gap:5px!important}.kwMissionCard button i{width:20px!important;height:20px!important;font-size:.6rem!important}.kwMissionCard button span{font-size:19px!important}.kwMissionCard button b{font-size:.64rem!important}.kwMissionCard button strong{font-size:.56rem!important}
+  .kwZones{margin:22px 0 20px!important}.kwTitle{margin:0 2px 10px!important}.kwRibbon{padding:5px 9px!important;border-radius:8px!important;box-shadow:none!important;font-size:.62rem!important}.kwTitle h2{font-size:1.35rem!important;margin:5px 0 1px!important}.kwTitle p{font-size:.7rem!important}.kwMainRow{display:block!important}.kwZoneGrid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}.kwZone{min-height:142px!important;padding:12px 9px 11px!important;border:1px solid #e9e4f1!important;border-radius:19px!important;box-shadow:0 7px 18px rgba(71,55,108,.07)!important;transition:transform .16s ease,box-shadow .16s ease!important}.kwZone:hover{transform:translateY(-3px)!important;box-shadow:0 10px 24px rgba(71,55,108,.11)!important}.kwZone>span{width:58px!important;height:58px!important;margin:0 auto 7px!important;border-radius:16px!important;font-size:31px!important;box-shadow:none!important;background:#ffffffb8!important}.kwZone b{font-size:.82rem!important}.kwZone small{font-size:.58rem!important;margin-top:2px!important}.kwZone>i{position:static!important;transform:none!important;width:24px!important;height:24px!important;margin:7px auto 0!important;font-size:.58rem!important;box-shadow:none!important}.kwZone.english{background:#fff0f6!important}.kwZone.math{background:#edf8ff!important}.kwZone.thai{background:#f1ffdf!important}.kwZone.brain{background:#f1edff!important}.kwZone.world{background:#eafbf8!important}.kwZone.creative{background:#fff5dc!important}.kwZone.stories{background:#fff1f3!important}.kwZone.speaking{background:#eafcf8!important}.kwZone.arFeature{color:#fff!important;background:linear-gradient(145deg,#6044ca,#8d3fc5)!important;border-color:#5b3dbb!important}.kwZone.arFeature>span{background:#ffffff20!important}.kwZone.arFeature small{opacity:.9!important}.kwZone.arFeature>i{background:#ff5a9c!important;color:#fff!important}.kwZone.arFeature:before{content:'✨ แนะนำ';position:absolute;right:8px;top:8px;padding:4px 6px;border-radius:999px;background:#ff5c9f;color:#fff;font-size:.5rem;font-weight:700}
+  .ppAchievements{margin:22px 0 8px!important;padding:16px!important;border:1px solid #ece7f2!important;border-radius:20px!important;box-shadow:0 7px 22px rgba(74,57,112,.06)!important;background:#fff!important}.ppAchHead h3{font-size:1rem!important}.ppBadges{gap:8px!important}.ppBadges>div{min-height:90px!important;padding:10px 6px!important;border-radius:15px!important;box-shadow:none!important}.ppBadges b{font-size:.68rem!important}.ppBadges small{font-size:.55rem!important}
+  @media(max-width:760px){.appbar p{display:none!important}.hero{min-height:145px!important;grid-template-columns:1fr!important;padding:18px!important}.heroArt{display:none!important}.hero h2{font-size:1.85rem!important}.kwGradeBtns{grid-template-columns:repeat(2,1fr)!important}.kwTodayLaunch{grid-template-columns:1fr!important}.kwTodayBtn{width:100%!important}.kwTodayText p{white-space:normal!important;line-height:1.4!important}.kwOverview{grid-template-columns:1fr!important}.kwZoneGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.kwZone.arFeature{grid-column:1/-1!important;min-height:122px!important}.kwParentTop b{display:none!important}.kwParentTop{width:42px;height:42px;padding:0!important;justify-content:center}.ppBadges{grid-template-columns:repeat(2,1fr)!important}}
+  @media(max-width:420px){.kwZoneGrid{gap:8px!important}.kwZone{min-height:134px!important;padding:10px 7px!important}.kwZone>span{width:52px!important;height:52px!important;font-size:28px!important}.kwTodayMascot{font-size:32px}.kwTodayText h3{font-size:1rem}.appbar h1{font-size:1.35rem!important}}
+  `;document.head.appendChild(s)
+}
 function build(){
   const home=document.getElementById('home'),hero=home?.querySelector('.hero');
   if(!home||!hero||document.querySelector('.kwGrade'))return;
-  addTodayStyles();
-  const oldDash=home.querySelector('.ppDash'),oldDaily=home.querySelector('.ppDaily');
+  addCleanStyles();
+  const hide=[home.querySelector('.ppDash'),home.querySelector('.ppDaily'),home.querySelector('.ppMoreLearning'),home.querySelector('.sectionHead'),home.querySelector('.activityGrid')];
+  hide.forEach(el=>el?.classList.add('kwLegacyHidden'));
   const heroTitle=hero.querySelector('h2'),heroText=hero.querySelector('.heroCopy p'),bubble=hero.querySelector('.artBubble'),eyebrow=hero.querySelector('.eyebrow');
   if(eyebrow)eyebrow.textContent='✨ เรียน • เล่น • สนุก';
-  if(heroTitle)heroTitle.innerHTML='วันนี้เล่นอะไรดี?';
-  if(heroText)heroText.textContent='เลือกโลกที่ชอบ แล้วเริ่มเล่นได้เลย!';
+  if(heroTitle)heroTitle.textContent='วันนี้เรียนรู้อะไรดี?';
+  if(heroText)heroText.textContent='เลือกกิจกรรมที่ชอบ หรือเริ่มบทเรียนประจำวันได้เลย';
   if(bubble)bubble.innerHTML='<span class="kwMascot fox">🦊</span><span class="kwMascot bear">🐻</span><b class="kwMascotStar">⭐</b>';
 
   let grade=localStorage.getItem(GKEY)||'k';
-  const gradeBox=document.createElement('section');
-  gradeBox.className='kwGrade';
-  gradeBox.innerHTML='<div class="kwGradeHead"><div><h3>🎒 หนูเรียนระดับไหน?</h3><small>เลือกครั้งเดียว ระบบจะจำไว้ให้</small></div><div class="kwGradeHint">✨ เลือกแล้วเริ่มเล่นได้เลย</div></div><div class="kwGradeBtns"><button data-g="k">🐣 อนุบาล</button><button data-g="p1">🎒 ป.1</button><button data-g="p2">📗 ป.2</button><button data-g="p3">📘 ป.3</button></div>';
+  const gradeBox=document.createElement('section');gradeBox.className='kwGrade';
+  gradeBox.innerHTML='<div class="kwGradeHead"><div><h3>🎒 เลือกระดับเรียน</h3><small>ระบบจะปรับเนื้อหาให้เหมาะกับวัย</small></div><div class="kwGradeHint">เลือกครั้งเดียว ระบบจำไว้ให้</div></div><div class="kwGradeBtns"><button data-g="k">🐣 อนุบาล</button><button data-g="p1">🎒 ป.1</button><button data-g="p2">📗 ป.2</button><button data-g="p3">📘 ป.3</button></div>';
   hero.insertAdjacentElement('afterend',gradeBox);
 
-  const today=document.createElement('section');today.className='kwTodayLaunch';today.innerHTML=`<div class="kwTodayCopy"><div class="kwTodayMascot">🦊📚</div><div class="kwTodayText"><span>แนะนำสำหรับวันนี้ · <b data-kw-today-level></b></span><h3>▶ เรียนวันนี้ 15–20 นาที</h3><p data-kw-today-topics></p></div></div><button class="kwTodayBtn">เริ่มเรียนวันนี้ ›</button><div class="kwTodayMeta"><i>🔤 English</i><i>ก ภาษาไทย</i><i>🔢 Math</i><i>🧠 Brain</i><i>📚 Story</i><i>⭐ จบครบรับ 15 ดาว</i></div>`;
+  const today=document.createElement('section');today.className='kwTodayLaunch';
+  today.innerHTML='<div class="kwTodayCopy"><div class="kwTodayMascot">🦊📚</div><div class="kwTodayText"><span>บทเรียนแนะนำ · <b data-kw-today-level></b></span><h3>เรียนวันนี้ 15–20 นาที</h3><p data-kw-today-topics></p></div></div><button class="kwTodayBtn">เริ่มเรียนวันนี้ ›</button><div class="kwTodayMeta"><i>🔤 English</i><i>ก ภาษาไทย</i><i>🔢 Math</i><i>🧠 Brain</i><i>📚 Story</i><i>⭐ +15 ดาว</i></div>';
   gradeBox.insertAdjacentElement('afterend',today);today.querySelector('.kwTodayBtn').onclick=()=>location.href='learning-today.html';
 
-  const setGrade=g=>{
-    grade=g;localStorage.setItem(GKEY,g);
-    gradeBox.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.g===g));
-    document.querySelectorAll('[data-kw-grade]').forEach(x=>x.textContent=gradeNames[g]);
-    today.querySelector('[data-kw-today-level]').textContent=gradeNames[g];
-    today.querySelector('[data-kw-today-topics]').textContent=gradeTopics[g];
-    document.dispatchEvent(new CustomEvent('punpin:grade',{detail:{grade:g}}));
-  };
+  const setGrade=g=>{grade=g;localStorage.setItem(GKEY,g);gradeBox.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.g===g));document.querySelectorAll('[data-kw-grade]').forEach(x=>x.textContent=gradeNames[g]);today.querySelector('[data-kw-today-level]').textContent=gradeNames[g];today.querySelector('[data-kw-today-topics]').textContent=gradeTopics[g];document.dispatchEvent(new CustomEvent('punpin:grade',{detail:{grade:g}}))};
   gradeBox.querySelectorAll('button').forEach(b=>b.onclick=()=>setGrade(b.dataset.g));
 
   const p=progress();
   const overview=document.createElement('section');overview.className='kwOverview';
-  overview.innerHTML=`
-    <div class="kwProgressCard">
-      <div class="kwCardLabel">🌟 ความก้าวหน้าของหนู</div>
-      <div class="kwStats">
-        <div><span>⭐</span><b data-pp-stars>${p.stars||0}</b><small>ดาวของฉัน</small></div>
-        <div><span>🔥</span><b data-pp-streak>${p.streak||0}</b><small>เล่นต่อเนื่อง</small></div>
-        <div><span>🏆</span><b data-pp-plays>${p.plays||0}</b><small>กิจกรรมสำเร็จ</small></div>
-      </div>
-      <div class="kwMiniProgress"><i style="width:${Math.min(100,((p.stars||0)%20)/20*100)}%"></i></div>
-      <small class="kwNextReward">สะสมอีก ${20-((p.stars||0)%20)||20} ดาว เพื่อรับเหรียญถัดไป ✨</small>
-    </div>
-    <div class="kwMissionCard">
-      <div class="kwMissionTop"><div><span>📅 ฝึกเพิ่มตามใจชอบ</span><b>เลือกเล่นต่อหลังเรียนวันนี้</b></div><em data-kw-grade>${gradeNames[grade]}</em></div>
-      <button data-target="engCard"><i>1</i><span>📖</span><b>ฝึกภาษาอังกฤษเพิ่ม</b><strong>English</strong></button>
-      <button data-target="mathCard"><i>2</i><span>✏️</span><b>ฝึกคณิตศาสตร์เพิ่ม</b><strong>Math</strong></button>
-      <button data-target="memoryCard"><i>3</i><span>🧩</span><b>เล่นเกมฝึกสมอง</b><strong>Brain</strong></button>
-    </div>`;
-  today.insertAdjacentElement('afterend',overview);
-  overview.querySelectorAll('[data-target]').forEach(b=>b.onclick=()=>click(b.dataset.target));
+  overview.innerHTML='<div class="kwProgressCard"><div class="kwCardLabel">🌟 ความก้าวหน้าของหนู</div><div class="kwStats"><div><span>⭐</span><b data-pp-stars>'+(p.stars||0)+'</b><small>ดาวสะสม</small></div><div><span>🔥</span><b data-pp-streak>'+(p.streak||0)+'</b><small>วันต่อเนื่อง</small></div><div><span>🏆</span><b data-pp-plays>'+(p.plays||0)+'</b><small>กิจกรรมสำเร็จ</small></div></div><div class="kwMiniProgress"><i style="width:'+Math.min(100,((p.stars||0)%20)/20*100)+'%"></i></div><small class="kwNextReward">อีก '+(20-((p.stars||0)%20)||20)+' ดาว ถึงรางวัลถัดไป ✨</small></div><div class="kwMissionCard"><div class="kwMissionTop"><div><span>📅 ฝึกเพิ่มตามใจชอบ</span><b>เล่นต่อหลังบทเรียนวันนี้</b></div><em data-kw-grade>'+gradeNames[grade]+'</em></div><button data-target="engCard"><i>1</i><span>📖</span><b>ภาษาอังกฤษ</b><strong>English</strong></button><button data-target="mathCard"><i>2</i><span>✏️</span><b>คณิตศาสตร์</b><strong>Math</strong></button><button data-target="memoryCard"><i>3</i><span>🧩</span><b>เกมฝึกสมอง</b><strong>Brain</strong></button></div>';
+  today.insertAdjacentElement('afterend',overview);overview.querySelectorAll('[data-target]').forEach(b=>b.onclick=()=>click(b.dataset.target));
 
   const zones=document.createElement('section');zones.className='kwZones';
-  zones.innerHTML=`<div class="kwTitle"><div><span class="kwRibbon">⭐ โซนการเรียนรู้</span><h2>เลือกโลกที่อยากไป</h2><p>เรียนเสริมตามความสนใจหลังจากเรียนวันนี้</p></div></div>
-  <div class="kwMainRow">
-    <div class="kwZoneGrid">
-      <button class="kwZone english" data-id="engCard"><span>🔤</span><b>English</b><small>คำศัพท์ · ฟัง · พูด</small><i>▶</i></button>
-      <button class="kwZone math" data-id="mathCard"><span>🔢</span><b>Math</b><small>จำนวน · คำนวณ · โจทย์</small><i>▶</i></button>
-      <button class="kwZone thai" data-id="thaiCard"><span>ก</span><b>ภาษาไทย</b><small>เสียง · ผสมคำ · อ่าน</small><i>▶</i></button>
-      <button class="kwZone brain" data-id="memoryCard"><span>🧠</span><b>Brain Games</b><small>ความจำ · แบบรูป · เหตุผล</small><i>▶</i></button>
-      <button class="kwZone world" data-url="world-life.html"><span>🌍</span><b>My World</b><small>Science · อารมณ์ · ทักษะชีวิต</small><i>▶</i></button>
-      <button class="kwZone creative" data-id="coloringCard"><span>🎨</span><b>Creative</b><small>ระบายสี · จิ๊กซอว์</small><i>▶</i></button>
-      <button class="kwZone stories" data-url="stories.html"><span>📚</span><b>Stories</b><small>นิทานอ่านออกเสียง</small><i>▶</i></button>
-      <button class="kwZone speaking" data-url="speaking.html"><span>🎤</span><b>Speaking</b><small>ฟังแล้วพูดตาม</small><i>▶</i></button>
-    </div>
-    <button class="kwARSpotlight" data-url="ar-hand.html">
-      <span class="kwHot">✨ ไฮไลต์แนะนำ!</span>
-      <div class="kwPanda">🐼</div><div class="kwTablet">📱</div>
-      <h3>AR Hand Play</h3><p>ใช้มือหยิบ · ลาก · จับคู่<br>เล่นสนุกผ่านกล้องจริง</p><b>👌 เล่น AR เลย <i>›</i></b>
-    </button>
-  </div>`;
-  overview.insertAdjacentElement('afterend',zones);
-  zones.querySelectorAll('button').forEach(b=>b.onclick=()=>b.dataset.url?location.href=b.dataset.url:click(b.dataset.id));
+  zones.innerHTML='<div class="kwTitle"><div><span class="kwRibbon">⭐ โซนการเรียนรู้</span><h2>เลือกกิจกรรม</h2><p>ทุกกิจกรรมปรับให้เหมาะกับเด็กอนุบาล–ป.3</p></div></div><div class="kwMainRow"><div class="kwZoneGrid"><button class="kwZone english" data-id="engCard"><span>🔤</span><b>English</b><small>คำศัพท์ · ฟัง · พูด</small><i>▶</i></button><button class="kwZone math" data-id="mathCard"><span>🔢</span><b>Math</b><small>จำนวน · คำนวณ · โจทย์</small><i>▶</i></button><button class="kwZone thai" data-id="thaiCard"><span>ก</span><b>ภาษาไทย</b><small>เสียง · ผสมคำ · อ่าน</small><i>▶</i></button><button class="kwZone brain" data-id="memoryCard"><span>🧠</span><b>Brain Games</b><small>ความจำ · แบบรูป · เหตุผล</small><i>▶</i></button><button class="kwZone world" data-url="world-life.html"><span>🌍</span><b>My World</b><small>Science · Life Skills</small><i>▶</i></button><button class="kwZone creative" data-id="coloringCard"><span>🎨</span><b>Creative</b><small>ศิลปะ · จิ๊กซอว์</small><i>▶</i></button><button class="kwZone stories" data-url="stories.html"><span>📚</span><b>Stories</b><small>นิทานอ่านออกเสียง</small><i>▶</i></button><button class="kwZone speaking" data-url="speaking.html"><span>🎤</span><b>Speaking</b><small>ฟังแล้วพูดตาม</small><i>▶</i></button><button class="kwZone arFeature" data-url="ar-hand.html"><span>👌</span><b>AR Hand Play</b><small>ใช้มือหยิบ · ลาก · จับคู่</small><i>AR</i></button></div></div>';
+  overview.insertAdjacentElement('afterend',zones);zones.querySelectorAll('button').forEach(b=>b.onclick=()=>b.dataset.url?location.href=b.dataset.url:click(b.dataset.id));
 
-  const appbar=document.querySelector('.appbar');
-  if(appbar&&!document.querySelector('.kwParentTop')){
-    const parent=document.createElement('button');parent.className='kwParentTop';parent.innerHTML='<span>👨‍👩‍👧</span><b>ผู้ปกครอง</b>';
-    parent.onclick=()=>document.getElementById('parentModeBtn')?.click();
-    appbar.appendChild(parent);
-  }
-  if(oldDash)oldDash.classList.add('kwLegacyHidden');
-  if(oldDaily)oldDaily.classList.add('kwLegacyHidden');
-  const more=home.querySelector('.ppMoreLearning');if(more)more.classList.add('kwSecondaryLearning');
+  const appbar=document.querySelector('.appbar');if(appbar&&!document.querySelector('.kwParentTop')){const parent=document.createElement('button');parent.className='kwParentTop';parent.innerHTML='<span>👨‍👩‍👧</span><b>ผู้ปกครอง</b>';parent.onclick=()=>document.getElementById('parentModeBtn')?.click();appbar.appendChild(parent)}
   setGrade(grade);
 }
 document.addEventListener('DOMContentLoaded',()=>setTimeout(build,20));
