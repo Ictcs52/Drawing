@@ -10,19 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Add sound script to HTML pages
+      - name: Add or refresh sound and feedback script on HTML pages
         run: |
           python - <<'PY'
           from pathlib import Path
-          tag='<script src="kids-sfx.js?v=1"></script>'
+          import re
+          tag='<script src="kids-sfx.js?v=2"></script>'
           changed=[]
           for p in Path('.').glob('*.html'):
               s=p.read_text(encoding='utf-8')
-              if 'kids-sfx.js' in s or '</body>' not in s:
-                  continue
-              s=s.replace('</body>',tag+'\n</body>')
-              p.write_text(s,encoding='utf-8')
-              changed.append(p.name)
+              old=s
+              if 'kids-sfx.js' in s:
+                  s=re.sub(r'<script\s+src=["\']kids-sfx\.js(?:\?v=\d+)?["\']></script>',tag,s)
+              elif '</body>' in s:
+                  s=s.replace('</body>',tag+'\n</body>')
+              if s!=old:
+                  p.write_text(s,encoding='utf-8')
+                  changed.append(p.name)
           print('updated:', ', '.join(changed) if changed else 'none')
           PY
       - name: Commit changes
@@ -31,5 +35,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add '*.html'
-          git commit -m "Enable playful sound effects across games"
+          git commit -m "Refresh playful feedback across games"
           git push
