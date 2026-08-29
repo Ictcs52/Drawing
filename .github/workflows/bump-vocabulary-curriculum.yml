@@ -1,0 +1,29 @@
+name: Bump vocabulary curriculum cache
+on:
+  push:
+    paths:
+      - '.github/workflows/bump-vocabulary-curriculum.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump vocabulary grade script version
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('vocabulary.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('vocabulary-grade.js?v=1','vocabulary-grade.js?v=2')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vocabulary.html
+          git commit -m "Load categorized vocabulary curriculum v2"
+          git push
