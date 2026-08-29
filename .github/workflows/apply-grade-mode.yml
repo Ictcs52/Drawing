@@ -19,7 +19,8 @@ jobs:
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
           if 'grade-mode.js' not in s:
-              s=s.replace('<script src="kids-world-v2.js?v=10"></script>','<script src="kids-world-v2.js?v=10"></script>\n<script src="grade-mode.js?v=1"></script>',1)
+              s=s.replace('<script src="kids-world-v2.js?v=10"></script>','<script src="kids-world-v2.js?v=10"></script>\n<script src="grade-mode.js?v=2"></script>',1)
+          s=s.replace('grade-mode.js?v=1','grade-mode.js?v=2')
           s=re.sub(r'<script src="math-k3\.js(?:\?v=\d+)?"></script>','<script src="math-k3.js?v=2"></script>',s)
           p.write_text(s,encoding='utf-8')
 
@@ -41,5 +42,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html vocabulary.html learning-today.html
-          git commit -m "Use selected grade across home and subject activities"
+          git commit -m "Refresh selected-grade mode assets"
           git push
