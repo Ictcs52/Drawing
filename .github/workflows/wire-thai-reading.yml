@@ -42,3 +42,4 @@ jobs:
           git add kids-world-v2.js thai-vowels.html index.html
           git commit -m "Connect Thai reading practice for pre-P1 learners"
           git push
+# triggered after initial workflow install
