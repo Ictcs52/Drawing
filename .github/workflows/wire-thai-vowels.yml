@@ -1,0 +1,37 @@
+name: Wire Thai vowels zone
+on:
+  push:
+    paths:
+      - '.github/workflows/wire-thai-vowels.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link complete Thai vowels zone
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('kids-world-v2.js')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace("k:'A–Z · ก–ฮ · นับ 1–20 · แบบรูป · นิทานสั้น'","k:'A–Z · ก–ฮ/สระไทย · นับ 1–20 · แบบรูป · นิทานสั้น'")
+          s=s.replace("p1:'Phonics/CVC · ผสมคำ · บวก–ลบ · ลำดับ · อ่านเรื่องสั้น'","p1:'Phonics/CVC · สระไทย/ผสมคำ · บวก–ลบ · ลำดับ · อ่านเรื่องสั้น'")
+          s=s.replace('class="kwZone thai" data-id="thaiCard"','class="kwZone thai" data-url="thai-vowels.html"')
+          s=s.replace('<small>เสียง · ผสมคำ · อ่าน</small><i>▶</i></button><button class="kwZone brain"','<small>สระ 32 เสียง · ผสมคำ · อ่าน</small><i>▶</i></button><button class="kwZone brain"')
+          p.write_text(s,encoding='utf-8')
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          for old in ['kids-world-v2.js?v=7','kids-world-v2.js?v=8']:
+              s=s.replace(old,'kids-world-v2.js?v=9')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add kids-world-v2.js index.html
+          git commit -m "Add Thai vowels to learning path"
+          git push
