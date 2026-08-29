@@ -1,0 +1,44 @@
+name: Wire Thai beginner reading path
+on:
+  push:
+    paths:
+      - '.github/workflows/wire-thai-reading.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Connect Thai reading practice
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p=Path('kids-world-v2.js')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('data-url="thai-vowels.html"><span>ก</span><b>ภาษาไทย</b><small>สระ 32 เสียง · ผสมคำ · อ่าน</small>',
+                      'data-url="thai-reading.html"><span>ก</span><b>ภาษาไทย</b><small>ก–ฮ · สระ · ผสมคำ · อ่านคำ</small>')
+          p.write_text(s,encoding='utf-8')
+
+          p=Path('thai-vowels.html')
+          s=p.read_text(encoding='utf-8')
+          if 'thai-reading.html' not in s:
+              cta='''<div style="margin-top:16px;padding:14px;border-radius:19px;background:linear-gradient(135deg,#e9ffdc,#fff3bf);text-align:center;border:1px solid #e6ebcf"><b style="display:block;margin-bottom:6px">อ่านสระแล้ว ไปฝึกผสมคำต่อเลย ✨</b><a href="thai-reading.html" style="display:inline-block;text-decoration:none;padding:10px 15px;border-radius:14px;background:linear-gradient(135deg,#72cb4d,#50ba8b);color:#fff;font-weight:700;font-size:.78rem">▶ ฝึกอ่านคำก่อนขึ้น ป.1</a></div>'''
+              s=s.replace('<div class="note">',cta+'<div class="note">',1)
+          p.write_text(s,encoding='utf-8')
+
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          for old in ['kids-world-v2.js?v=7','kids-world-v2.js?v=8','kids-world-v2.js?v=9']:
+              s=s.replace(old,'kids-world-v2.js?v=10')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add kids-world-v2.js thai-vowels.html index.html
+          git commit -m "Connect Thai reading practice for pre-P1 learners"
+          git push
