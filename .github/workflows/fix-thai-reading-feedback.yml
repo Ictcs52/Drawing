@@ -1,0 +1,31 @@
+name: Fix Thai reading feedback
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-thai-reading-feedback.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove duplicate feedback calls
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('thai-reading.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace("window.PunPinSFX?.correct();window.PunPinFeedback?.correct({text:'อ่านคำว่า “'+x.w+'” ได้แล้ว'});addStar()","addStar()")
+          s=s.replace("window.PunPinSFX?.wrong();window.PunPinFeedback?.wrong({text:'ฟังเสียงแล้วลองใหม่ได้เลย'});setTimeout", "setTimeout")
+          s=s.replace("window.PunPinFeedback?.reward({title:'ผ่านด่านแล้ว! 🎉',text:'ไปฝึกขั้นต่อไปกันเลย'})", "window.PunPinSFX?.reward();window.PunPinFeedback?.reward({title:'ผ่านด่านแล้ว! 🎉',text:'ไปฝึกขั้นต่อไปกันเลย'})")
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add thai-reading.html
+          git commit -m "Avoid duplicate sound and popup in Thai reading"
+          git push
