@@ -25,7 +25,7 @@
       arFeature:['คำศัพท์ · จับคู่ภาพด้วยมือ','ar-hand.html']
     },
     p2:{
-      english:['Vocabulary · ประโยคสั้น · อ่านเข้าใจ','learning-today.html?subject=english'],
+      english:['Vocabulary · ประโยคสั้น · อ่านเข้าใจ','vocabulary.html'],
       math:['บวก–ลบถึง 1,000 · คูณเบื้องต้น','learning-today.html?subject=math'],
       thai:['อ่านประโยค · คำกริยา · จับใจความ','learning-today.html?subject=thai'],
       brain:['แบบรูป · จัดหมวด · Problem Solving','learning-today.html?subject=brain'],
@@ -36,7 +36,7 @@
       arFeature:['คำและประโยค · จับคู่ด้วยมือ','ar-hand.html']
     },
     p3:{
-      english:['Reading · Sentence · Grammar เบื้องต้น','learning-today.html?subject=english'],
+      english:['Reading · Sentence · Grammar เบื้องต้น','vocabulary.html'],
       math:['คูณ · หาร · เศษส่วน · โจทย์ปัญหา','learning-today.html?subject=math'],
       thai:['อ่านจับใจความ · ประธาน/กริยา · เหตุผล','learning-today.html?subject=thai'],
       brain:['Logic · ลำดับ · การวิเคราะห์','learning-today.html?subject=brain'],
@@ -84,7 +84,7 @@
     const mission=document.querySelector('.kwMissionTop span');if(mission)mission.textContent='📅 ฝึกเพิ่ม · '+names[g];
     const missionSub=document.querySelector('.kwMissionTop b');if(missionSub)missionSub.textContent='ทุกปุ่มใช้ระดับ '+names[g]+' อัตโนมัติ';
     const missionButtons=document.querySelectorAll('.kwMissionCard button');
-    if(missionButtons[0])missionButtons[0].onclick=()=>location.href=(g==='p2'||g==='p3')?'learning-today.html?subject=english':'vocabulary.html';
+    if(missionButtons[0])missionButtons[0].onclick=()=>location.href='vocabulary.html';
     if(missionButtons[1])missionButtons[1].onclick=()=>{if(g==='p2'||g==='p3')location.href='learning-today.html?subject=math';else click('mathCard')};
     if(missionButtons[2])missionButtons[2].onclick=()=>location.href='learning-today.html?subject=brain';
     const meta=document.querySelector('.kwTodayMeta');if(meta){
