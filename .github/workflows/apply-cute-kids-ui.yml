@@ -1,0 +1,33 @@
+name: Apply cute kids UI theme
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-cute-kids-ui.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wire cute theme to root HTML pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          tag='<link rel="stylesheet" href="kids-cute-ui.css?v=1">'
+          for p in Path('.').glob('*.html'):
+              s=p.read_text(encoding='utf-8')
+              if 'kids-cute-ui.css' in s or '</head>' not in s:
+                  continue
+              s=s.replace('</head>',tag+'\n</head>',1)
+              p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.html'
+          git commit -m "Use cute kids UI theme across learning pages"
+          git push
