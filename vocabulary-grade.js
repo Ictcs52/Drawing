@@ -166,7 +166,7 @@ function apply(){
   Object.entries(cfg).forEach(([key,c])=>{
     const b=document.createElement('button');b.className='vCatCard';b.dataset.catKey=key;b.innerHTML=`<span class="ico">${c.icon}</span><b>${c.name}</b><small>${c.note}</small><em>${c.words.length} คำ</em>`;categoryWrap.appendChild(b)
   });
-  const intro=document.querySelector('.vGradeIntro');if(intro)intro.insertAdjacentElement('afterend',categoryWrap);else document.querySelector('.sectionTitle')?.insertAdjacentElement('beforebegin',categoryWrap);
+  const sectionTitle=document.querySelector('.sectionTitle');if(sectionTitle)sectionTitle.insertAdjacentElement('afterend',categoryWrap);else document.querySelector('.vGradeIntro')?.insertAdjacentElement('afterend',categoryWrap);
   function showCategories(){categoryWrap.style.display='grid';grid.innerHTML='';if(title)title.textContent=`หมวดคำศัพท์ ${gradeNames[grade]}`;if(count)count.textContent=Object.keys(cfg).length+' หมวด'}
   function showCategory(key){
     const c=cfg[key];if(!c)return;categoryWrap.style.display='none';
