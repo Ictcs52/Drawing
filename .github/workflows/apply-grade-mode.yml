@@ -1,0 +1,45 @@
+name: Apply one-time grade mode
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-grade-mode.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wire grade-aware scripts
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          if 'grade-mode.js' not in s:
+              s=s.replace('<script src="kids-world-v2.js?v=10"></script>','<script src="kids-world-v2.js?v=10"></script>\n<script src="grade-mode.js?v=1"></script>',1)
+          s=re.sub(r'<script src="math-k3\.js(?:\?v=\d+)?"></script>','<script src="math-k3.js?v=2"></script>',s)
+          p.write_text(s,encoding='utf-8')
+
+          p=Path('vocabulary.html')
+          s=p.read_text(encoding='utf-8')
+          if 'vocabulary-grade.js' not in s:
+              s=s.replace('</body>','<script src="vocabulary-grade.js?v=1"></script>\n</body>',1)
+          p.write_text(s,encoding='utf-8')
+
+          p=Path('learning-today.html')
+          s=p.read_text(encoding='utf-8')
+          if 'learning-subject.js' not in s:
+              s=s.replace('<script src="kids-sfx.js?v=1"></script>','<script src="learning-subject.js?v=1"></script><script src="kids-sfx.js?v=1"></script>',1)
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html vocabulary.html learning-today.html
+          git commit -m "Use selected grade across home and subject activities"
+          git push
