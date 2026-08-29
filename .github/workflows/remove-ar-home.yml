@@ -14,6 +14,7 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
           p=Path('kids-world-v2.js')
           s=p.read_text(encoding='utf-8')
           ar='<button class="kwZone arFeature" data-url="ar-hand.html"><span>👌</span><b>AR Hand Play</b><small>ใช้มือหยิบ · ลาก · จับคู่</small><i>AR</i></button>'
@@ -21,7 +22,6 @@ jobs:
           p.write_text(s,encoding='utf-8')
           p=Path('index.html')
           s=p.read_text(encoding='utf-8')
-          import re
           s=re.sub(r'kids-world-v2\.js\?v=\d+','kids-world-v2.js?v=11',s)
           p.write_text(s,encoding='utf-8')
           PY
@@ -33,3 +33,4 @@ jobs:
           git add kids-world-v2.js index.html
           git commit -m "Remove AR Hand Play from home"
           git push
+# trigger: 2
