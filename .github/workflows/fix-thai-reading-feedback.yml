@@ -29,3 +29,4 @@ jobs:
           git add thai-reading.html
           git commit -m "Avoid duplicate sound and popup in Thai reading"
           git push
+# trigger after install
