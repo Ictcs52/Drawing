@@ -14,7 +14,6 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re
           tag='<link rel="stylesheet" href="kids-cute-ui.css?v=1">'
           for p in Path('.').glob('*.html'):
               s=p.read_text(encoding='utf-8')
@@ -31,3 +30,4 @@ jobs:
           git add '*.html'
           git commit -m "Use cute kids UI theme across learning pages"
           git push
+# trigger theme wiring
