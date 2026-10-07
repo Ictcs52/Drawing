@@ -294,6 +294,7 @@
 
 <link rel="stylesheet" href="kids-cute-ui.css?v=20261007">
 <link rel="stylesheet" href="paint-studio.css?v=20261007c">
+<link rel="stylesheet" href="activity-viewport.css?v=20261007d">
 </head>
 <body>
 <div class="wrap">
@@ -2821,14 +2822,14 @@ CATS.forEach((c,i)=>{
   b.className = "chip" + (i===1?" on":"");
   b.innerHTML = `<span class="ic" style="--tint:${c.tint}">${c.emoji}</span>${c.name}`;
   b.onclick = ()=>{
-    document.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));
+    catsEl.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));
     b.classList.add("on");
     renderGallery(c.id);
     window.scrollTo({top:0, behavior:"smooth"});
   };
   catsEl.appendChild(b);
 });
-const activeCat = ()=> CATS[[...catsEl.children].indexOf(document.querySelector(".chip.on"))].id;
+const activeCat = ()=> CATS[[...catsEl.children].indexOf(catsEl.querySelector(".chip.on"))]?.id || CATS[1].id;
 
 /* ================= แกลเลอรี ================= */
 const galleryEl = document.getElementById("gallery");
@@ -4503,5 +4504,5 @@ showHome();
 <script src="learning-world.js"></script><script src="learning-plus.js"></script><script src="kids-world-v2.js?v=20261007"></script>
 <script src="grade-mode.js?v=20261007"></script>
 <script src="kids-sfx.js?v=2"></script>
-<script src="math-k3.js?v=2"></script><script src="playground-ui.js?v=20261007"></script><script src="paint-studio.js?v=20261007c"></script></body>
+<script src="math-k3.js?v=2"></script><script src="playground-ui.js?v=20261007"></script><script src="paint-studio.js?v=20261007c"></script><script src="activity-viewport.js?v=20261007d"></script></body>
 </html>

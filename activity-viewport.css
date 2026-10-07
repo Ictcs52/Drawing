@@ -1,0 +1,343 @@
+/* A shared full-height activity frame. Menus are paged; play boards stay visible. */
+body.ppActivity,body.ppLessonViewport{height:100dvh;min-height:0!important;overflow:hidden!important;overscroll-behavior:none}
+:is(.ppActivity,.ppLessonViewport) .wrap{display:flex;flex-direction:column;gap:8px;box-sizing:border-box;width:100%;max-width:1440px!important;height:100dvh;min-height:0;padding:max(8px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left))!important}
+:is(.ppActivity,.ppLessonViewport) footer,.ppActivity .appbar{display:none!important}
+.ppActivity main{flex:1;min-height:0}
+.ppActivity main>section[style*="block"]{height:100%;min-height:0}
+.ppActivity :is(.mathShell,.jigsawShell){max-width:none;height:100%;min-height:0;display:flex;flex-direction:column;gap:8px}
+.ppActivity .mathBar,.ppLessonViewport .top{display:flex!important;flex-wrap:nowrap!important;align-items:center;gap:8px!important;min-height:44px!important;height:44px!important;flex:none;padding:0!important;margin:0!important}
+:is(.ppActivity,.ppLessonViewport) :is(.mathBar,.top)>div{min-width:0;flex:1}
+:is(.ppActivity,.ppLessonViewport) :is(.mathBar,.top) :is(h1,h2){font-size:clamp(14px,2vw,20px)!important;line-height:1.4!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:0}
+:is(.ppActivity,.ppLessonViewport) :is(.mathBar,.top) :is(p,.grade,.gradeTag,.ppBackText){display:none!important}
+:is(.ppActivity,.ppLessonViewport) :is(.roundBack,.top .back,.avHelp){flex:none;box-sizing:border-box;min-width:44px!important;min-height:44px!important;width:44px!important;height:44px!important;margin:0;padding:0!important;border-radius:13px!important;font-size:20px;border:1px solid #dfe7d8;background:#fff;color:#286b59}
+.ppActivity .tool{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;margin:0;gap:0;min-width:44px;height:44px}
+.ppActivity .tool .b{width:28px!important;height:28px!important;border-radius:9px!important;font-size:21px;line-height:28px;box-shadow:none!important}
+.ppActivity .tool small{font-size:9px!important;line-height:16px;margin:0;white-space:nowrap}
+.ppActivity .scoreBox{padding:4px 7px!important;margin:0;font-size:11px;border-radius:10px;box-shadow:none!important}
+.avSelectSource{display:none!important}
+.avSelect{display:flex;align-items:center;gap:8px;flex:none;min-width:0;min-height:44px;color:#58715d;font-size:11px}
+.avSelect select{min-width:0;flex:1;min-height:44px;padding:6px 10px;border:1px solid #dce6d5;border-radius:13px;background:#fff;color:#315d49;font:inherit;font-size:13px;cursor:pointer}
+.avHeaderFilters{display:flex;align-items:center;gap:6px;flex:0 0 auto!important;min-width:0}
+.avHeaderFilters[hidden]{display:none!important}
+.avHeaderFilters .avSelect{width:clamp(100px,22vw,180px);min-width:0}
+.avHeaderFilters .avSelect>span{display:none}
+.avHeaderFilters select{font-size:11px;padding:4px 6px}
+.avPaginated{flex:1;min-height:0!important;display:grid!important;gap:8px!important;width:100%;margin:0!important;align-items:stretch;align-content:stretch}
+.avPaginated>.avPageHidden,.avCatalogHidden{display:none!important}
+.avPager{flex:none;min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:#58705d}
+.avPager button{min-height:44px;min-width:96px;padding:6px 12px;border:1px solid #dce6d5;border-radius:13px;background:#fff;color:#286b59;font:inherit;font-weight:700}
+.avPager button:disabled{opacity:.4;box-shadow:none}
+.avPager[hidden],.avSelect[hidden]{display:none!important}
+.avPaginated>:is(.card,.word,.vcard,.thaiTile,.vKCat,.vCatCard,.book){box-sizing:border-box;min-width:0!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important;margin:0!important;padding:10px!important;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-radius:19px!important}
+.avPaginated>.card svg{flex:1;min-height:0;width:100%;height:0;max-height:none!important}
+.avPaginated>.card .nm{flex:none;font-size:12px;margin:0}
+.avPaginated :is(.bar,.badge){display:none}
+.avPaginated .thaiTile .letter{font-size:32px!important;line-height:1.3}
+.avPaginated .thaiTile .emoji{font-size:26px!important;line-height:1.3}
+.avPaginated .thaiTile .word{font-size:12px!important}
+.avPaginated :is(.thaiTile,.dressSwatch):active,.avPaginated .thaiTile.playing{transform:none!important}
+.ppActivity :is(#collection,#jigsawPicker,#dotsPicker){height:100%;min-height:0;display:flex!important;flex-direction:column;gap:8px}
+.ppActivity :is(#collection,#jigsawPicker,#dotsPicker)[style*="none"]{display:none!important}
+.ppActivity .collectionTop{flex:none;min-height:44px;display:flex;align-items:center;gap:8px;margin:0}
+.ppActivity .collectionTop :is(h2,p){font-size:14px!important;margin:0}
+.ppActivity .collectionTop p{display:none}
+.ppActivity #collection .cats{display:none!important}
+.ppActivity .avPlaying>.jigsawShell>.mathBar{display:none!important}
+.ppActivity :is(#jigsawPlay,#dotsPlay,#memPlay)[style*="block"]{flex:1;min-height:0;display:flex!important;flex-direction:column;gap:8px}
+.ppActivity :is(#jigsawPlay,#memPlay) .jigsawPanel{flex:1;min-height:0;height:100%;padding:8px!important;display:flex;flex-direction:column;gap:8px;border-radius:22px!important}
+.ppActivity .jigsawControls{display:flex;flex-wrap:nowrap;align-items:center;gap:8px;min-height:44px;height:44px;flex:none;margin:0;padding:0}
+.ppActivity .jigsawControls strong{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px}
+.ppActivity #jigsawPlay .jigsawControls .scoreBox{display:none}
+.ppActivity #jigsawPlay .avSelect{width:110px;min-width:0}
+.ppActivity #jigsawPlay .avSelect>span{display:none}
+.ppActivity #jigsawPlay .avSelect select{padding:4px;font-size:11px}
+.ppActivity .puzzleArea{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 200px;grid-template-rows:minmax(0,1fr);gap:8px;align-items:center}
+.ppActivity .puzzleBoard{flex:none;max-width:none;max-height:none;min-width:0;min-height:0;aspect-ratio:1;padding:4px;margin:auto}
+.ppActivity .puzzleSide{min-height:0;padding:8px;display:flex;flex-direction:column;gap:4px;align-items:center}
+.ppActivity .puzzleTray{flex:none;min-height:0;width:180px;height:180px;padding:6px;gap:6px;margin:0}
+.ppActivity .puzzlePiece{min-height:0;min-width:0;aspect-ratio:auto}
+.ppActivity .trayTitle{font-size:12px;margin:0}
+.ppActivity .puzzleHelp{font-size:10px;line-height:1.5;margin:0}
+.ppActivity .puzzleFeedback{min-height:18px;font-size:11px;line-height:18px;margin:0}
+.ppActivity .memGrid{flex:none;min-width:0;min-height:0;grid-template-columns:repeat(var(--av-mem-cols,4),minmax(0,1fr))!important;grid-template-rows:repeat(var(--av-mem-rows,4),minmax(0,1fr));gap:6px!important;margin:auto}
+.ppActivity .memCard{min-height:0;min-width:0;width:100%;height:100%;aspect-ratio:1}
+.ppActivity #memPicker{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:12px;max-width:600px;width:100%;margin:auto}
+.ppActivity #memPicker[style*="none"]{display:none}
+.ppActivity #memPicker .jigsawControls{flex-wrap:wrap;height:auto}
+.ppActivity #memPicker .difficulty{display:flex;gap:6px;width:100%}
+.ppActivity #memPicker .difficultyBtn{flex:1;min-width:0;min-height:44px;padding:6px;font-size:11px}
+.ppActivity .mathPanel{flex:1;min-height:0;padding:10px!important;display:flex;flex-direction:column;gap:8px;border-radius:22px!important}
+.ppActivity .levelTabs{flex:none;margin:0;height:26px!important;min-height:0;display:block}
+.ppActivity .levelBtn{padding:2px 8px!important;min-height:26px;height:26px;width:100%;font-size:11px!important;transform:none!important;box-shadow:none!important}
+.ppActivity .questionCard{flex:1;min-height:0!important;margin:0;padding:10px!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:18px!important}
+.ppActivity .questionNo{font-size:11px;line-height:18px;padding:2px 8px;flex:none}
+.ppActivity .mathVisual{flex:1;min-height:0;font-size:clamp(20px,4.5vw,36px);line-height:1.5;gap:6px;margin:0;max-width:100%;align-content:center}
+.ppActivity .mathVisual span{overflow-wrap:anywhere;max-width:100%}
+.ppActivity .mathQuestion{flex:none;font-size:clamp(30px,5vw,52px);line-height:1.3;margin:0}
+.ppActivity .mathHint{flex:none;font-size:11px;line-height:18px;margin:0}
+.ppActivity .speakBtn{flex:none;min-height:44px;margin:0;padding:6px 15px;font-size:12px}
+.ppActivity .answers{flex:none;margin:0;gap:8px}
+.ppActivity .answerBtn{min-height:60px;height:60px;font-size:28px!important;border-radius:18px!important}
+.ppActivity .mathFeedback{flex:none;min-height:24px;height:24px;margin:0;font-size:13px;line-height:24px}
+.ppActivity #dotsPlay .topbar{display:grid;grid-template-columns:44px minmax(0,1fr) repeat(3,44px);gap:8px;flex:none;height:44px;margin:0;align-items:center}
+.ppActivity #dotsPlay .picname{font-size:14px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ppActivity #dotsPlay .tool.back{width:44px!important;min-width:44px!important;min-height:44px!important;height:44px!important}
+.ppActivity #dotsPlay .studioGrid{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 192px!important;grid-template-rows:minmax(0,1fr);gap:8px;align-items:stretch}
+.ppActivity #dotsBoard{min-height:0;min-width:0;padding:6px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ppActivity #dotsBoard .paintWrap{max-width:none;max-height:none;margin:0;flex:none}
+.ppActivity #dotsPlay .rack{position:relative;top:auto!important;min-height:0;max-height:none!important;padding:8px;display:flex;flex-direction:column;gap:8px}
+.ppActivity #dotsPlay .rack h3{display:none}
+.ppActivity #dotsPlay .toolRow{display:grid;grid-template-columns:1fr 1fr;padding:0;gap:6px;flex:none}
+.ppActivity #dotsPlay .tbtn{min-height:44px;padding:3px;gap:0;transform:none}
+.ppActivity #dotsPlay .tbtn span{font-size:20px}
+.ppActivity #dotsPlay .tbtn small{font-size:10px}
+.ppActivity #dotsPalette{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;max-height:none!important;min-height:0;flex:1;padding:8px 4px;gap:8px;overflow:auto;align-content:start}
+.ppActivity #dotsPalette .crayon{width:40px;height:42px;margin:10px auto 2px;transform:none}
+.avDotsColors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;min-height:0}
+.avDotColor,.avDotMore{min-width:0;min-height:44px;height:44px;border:2px solid #dce5d5;border-radius:11px;background:var(--dot-color,#edf5e8);padding:0;color:#315d49;font:inherit;font-size:10px}
+.avDotColor[aria-pressed="true"]{outline:3px solid #286b59;outline-offset:0}
+.avDotMore{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:14px}
+.avDotMore span{font-size:20px;line-height:20px}
+.ppActivity .avDotsDialog #dotsPalette{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:10px;padding:12px 6px;max-height:60dvh!important;overflow:auto}
+.ppActivity .avDotsDialog #dotsPalette .crayon{width:100%;height:44px;margin:0;border-radius:11px;box-shadow:none}
+.ppActivity .avDotsDialog #dotsPalette .crayon:before,.ppActivity .avDotsDialog #dotsPalette .band{display:none}
+.ppActivity .avDotsDialog #dotsPalette .crayon.on{outline:3px solid #286b59;outline-offset:0}
+.ppActivity .dressActions{display:flex;gap:8px;flex:0 0 auto!important;justify-content:center;margin:0}
+.ppActivity .dressLayout{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 300px;grid-template-rows:minmax(0,1fr);gap:8px;align-items:stretch}
+.ppActivity .dressStage{min-height:0;min-width:0;max-width:none;aspect-ratio:auto;padding:8px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ppActivity .dressStage svg{width:100%;height:100%;max-width:none}
+.ppActivity .dressPicker{min-height:0;display:flex;flex-direction:column;gap:6px;padding:8px!important;border-radius:20px!important}
+.ppActivity .dressOptions{padding:4px!important;overflow:hidden}
+.ppActivity .dressSwatch{flex:none;min-height:0;min-width:0;padding:4px;gap:5px;justify-content:center}
+.ppActivity .dressSwatch .sw{width:36px;height:36px;transform:none!important}
+.ppActivity .dressSwatch small{font-size:10px;line-height:1.35}
+.ppActivity #phonicsGame .avSelect{margin:0}
+/* Standalone lessons use the same frame and controls. */
+.ppLessonViewport .wrap>.hero,.ppLessonViewport :is(.intro,.tips,.note,.privacy,.hint,.sentence-entry,.vKSummary,.vGradeIntro,.vStageNote,.legend){display:none!important}
+body.ppLessonViewport .wrap :is(.hero,.intro,.tips,.note,.privacy,.hint,.sentence-entry,.vKSummary,.vGradeIntro,.vStageNote,.legend){display:none!important}
+.ppLessonViewport .top{flex:none}
+.ppLessonViewport .top .sound{width:44px;height:44px;min-width:44px;min-height:44px}
+.ppLessonViewport .wrap>:is(main,.card,.learn,.reader,.quiz,#learnArea,#library,.vKCatGrid,.vCategoryGrid){flex:1;min-height:0!important;margin:0!important}
+.ppLessonViewport .sectionTitle{flex:none;min-height:30px;margin:0;display:flex;align-items:center;gap:8px}
+.ppLessonViewport .sectionTitle h2{font-size:14px!important;margin:0}
+.ppLessonViewport .sectionTitle :is(#count,#countLabel){font-size:10px}
+.ppLessonViewport :is(.card,.learn,.reader,.quiz){padding:12px!important;border-radius:22px!important;max-width:none}
+.ppLessonViewport .avPaginated .word .pic{font-size:clamp(40px,5vw,64px)!important;line-height:1.25;flex:1;min-height:0;display:grid;place-items:center}
+.ppLessonViewport .avPaginated :is(.en,.word .en){font-size:20px!important;line-height:1.4;overflow-wrap:anywhere}
+.ppLessonViewport .avPaginated :is(.read,.th){font-size:12px!important;line-height:1.4}
+.ppLessonViewport .avPaginated .sound{width:28px;height:28px;font-size:18px;top:6px;right:6px}
+.ppLessonViewport .avPaginated :is(.vKCat,.vCatCard) :is(.ico,.emoji){font-size:48px!important;line-height:1.3}
+.ppLessonViewport .avPaginated :is(.vKCat,.vCatCard) b{font-size:15px!important;line-height:1.4}
+.ppLessonViewport .avPaginated :is(.vKCat,.vCatCard) :is(small,em){font-size:10px!important;line-height:1.4;min-height:0}
+.ppLessonViewport .avPaginated .vcard .form{font-size:38px;line-height:1.3;min-height:0}
+.ppLessonViewport .avPaginated .vcard :is(.example,.soundName){font-size:12px;line-height:1.4}
+.ppLessonViewport .avPaginated .vcard .listen{width:44px;min-width:44px;min-height:44px;height:44px;padding:0;font-size:18px}
+.ppLessonViewport.avVocabularyCategories #grid,.ppLessonViewport.avVocabularyCategories #grid+.avPager{display:none!important}
+.ppLessonViewport.avVocabularyStage :is(#cats,#cats+.avSelect,.vStageInfo){display:none!important}
+.ppLessonViewport .vStageBack{min-height:44px;padding:4px 8px;font-size:11px}
+.ppLessonViewport .vStageBar{display:none!important}
+.ppLessonViewport .learn{display:flex;flex-direction:column;gap:8px}
+.ppLessonViewport .learn .head{flex:none;gap:8px;min-height:32px}
+.ppLessonViewport .learn .head .icon{width:32px;height:32px;font-size:18px;border-radius:10px}
+.ppLessonViewport .learn .head h3{font-size:14px;margin:0}
+.ppLessonViewport .learn .head p{display:none}
+.ppLessonViewport .learn .wordCard{flex:1;min-height:0!important;padding:8px!important;margin:0;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.ppLessonViewport .learn .picture{flex:1;min-height:0;font-size:clamp(48px,8vw,110px);line-height:1.3}
+.ppLessonViewport .learn .blend{flex:none;margin:0;gap:6px}
+.ppLessonViewport .learn .piece{min-width:40px;padding:4px 8px;font-size:20px}
+.ppLessonViewport .learn .word{font-size:44px;line-height:1.3}
+.ppLessonViewport .learn .meaning{font-size:11px;margin:0}
+.ppLessonViewport .learn .actions{flex:none;grid-template-columns:1fr 1fr;gap:6px;margin:0}
+.ppLessonViewport .learn .actions button{min-height:44px;padding:4px;font-size:11px}
+.ppLessonViewport .learn .nav{flex:none;margin:0;gap:6px}
+.ppLessonViewport .learn .nav button{min-height:44px;padding:6px;font-size:12px}
+.ppLessonViewport.avReadingQuiz .wordCard{flex:none;padding:0!important}
+.ppLessonViewport.avReadingQuiz .wordCard>:not(.actions){display:none}
+.ppLessonViewport .learn .quizBox.on{flex:1;min-height:0!important;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:8px!important;margin:0}
+.ppLessonViewport .learn .choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0}
+.ppLessonViewport .learn .choice{min-height:64px;padding:8px;font-size:22px}
+.ppLessonViewport .feedback{flex:none;min-height:24px;line-height:1.5;font-size:12px;margin:0}
+.ppLessonViewport :is(#lesson,#game){display:flex!important;flex-direction:column;gap:8px;text-align:center;overflow:hidden}
+.ppLessonViewport :is(#lesson,#game)[style*="none"]{display:none!important}
+.ppLessonViewport #lesson .subjectHead{flex:none;min-height:36px;margin:0;gap:8px}
+.ppLessonViewport #lesson .subjectIcon{width:32px;height:32px;font-size:22px}
+.ppLessonViewport #lesson .subjectHead h3{font-size:14px;margin:0}
+.ppLessonViewport #lesson .subjectHead p{display:none}
+.ppLessonViewport #lesson .prompt{flex:1;min-height:0;padding:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px}
+.ppLessonViewport :is(#visual,.visual){flex:1;min-height:0;font-size:clamp(32px,7vw,76px);line-height:1.35;display:flex;align-items:center;justify-content:center;overflow-wrap:anywhere}
+.ppLessonViewport :is(#question,.prompt h4){font-size:clamp(16px,2vw,24px)!important;line-height:1.5;margin:0}
+.ppLessonViewport #hint{font-size:12px;line-height:1.4;margin:0}
+.ppLessonViewport :is(#speakBtn,.speak){min-height:44px;padding:6px 12px;font-size:12px;margin:0}
+.ppLessonViewport :is(#answers,.answers){flex:none;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0}
+.ppLessonViewport :is(#answers,.answers) button{min-height:54px;font-size:15px;padding:8px;border-radius:14px}
+.ppLessonViewport :is(#lesson,#game)>.next{flex:none;min-height:44px;padding:6px;font-size:13px;margin:0}
+.ppLessonViewport .finish{display:none}
+.ppLessonViewport .finish.on{display:flex!important;flex-direction:column;justify-content:center;align-items:center;gap:12px}
+.ppLessonViewport .finish .parentNote{font-size:11px;line-height:1.5}
+body.ppLessonViewport .finish .parentNote{display:none}
+body.ppLessonViewport .finish :is(.emoji,.big){font-size:52px;line-height:1.2;margin:0}
+body.ppLessonViewport .finish h2{font-size:24px;line-height:1.4;margin:0}
+body.ppLessonViewport .finish p{font-size:13px;line-height:1.5;margin:0}
+body.ppLessonViewport .finishStats{width:100%;margin:0;gap:6px}
+body.ppLessonViewport .finishStats>div{padding:8px}
+body.ppLessonViewport .finishStats b{font-size:18px;line-height:1.4}
+body.ppLessonViewport .finishStats small{font-size:11px;line-height:1.4}
+body.ppLessonViewport .finish button{min-height:44px;margin:0;padding:6px 12px;font-size:13px}
+.ppLessonViewport[data-av-page="speaking"] .wrap>.card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.ppLessonViewport[data-av-page="speaking"] .card .emoji{flex:1;min-height:0;display:grid;place-items:center;font-size:clamp(52px,10vw,130px)}
+.ppLessonViewport[data-av-page="speaking"] .card .en{font-size:clamp(21px,3vw,36px);line-height:1.4;margin:0}
+.ppLessonViewport[data-av-page="speaking"] .card :is(.read,.th){font-size:13px;line-height:1.5;margin:0}
+.ppLessonViewport[data-av-page="speaking"] .card :is(.controls,.nav){display:flex;width:100%;gap:8px;flex:none;margin:0}
+.ppLessonViewport[data-av-page="speaking"] .card button{flex:1;min-height:44px;padding:6px;font-size:12px}
+.ppLessonViewport[data-av-page="speaking"] .status{min-height:24px;font-size:12px;margin:0}
+.ppLessonViewport .reader{display:none}
+.ppLessonViewport.avStoryReading :is(#library,#library+.avPager){display:none!important}
+.ppLessonViewport.avStoryReading .reader{flex:1;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.ppLessonViewport .reader .scene{flex:1;min-height:0;display:grid;place-items:center;font-size:clamp(48px,10vw,140px);margin:0}
+.ppLessonViewport .reader .en{font-size:clamp(20px,3vw,32px);line-height:1.4;margin:0}
+.ppLessonViewport .reader :is(.read,.th){font-size:13px;line-height:1.5;margin:0}
+.ppLessonViewport .reader .controls{display:grid;grid-template-columns:repeat(4,1fr);width:100%;gap:6px;margin:0;flex:none}
+.ppLessonViewport .reader .controls button{min-width:0;min-height:44px;padding:4px;font-size:11px}
+.ppLessonViewport .reader .progress{font-size:12px;margin:0;flex:none}
+.ppLessonViewport #learnArea{display:flex;flex-direction:column;gap:8px}
+.ppLessonViewport #learnArea[style*="none"]{display:none!important}
+.ppLessonViewport #learnArea .sectionTitle{min-height:24px}
+.ppLessonViewport #learnArea .sectionTitle p{display:none}
+.ppLessonViewport .quiz.on{flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.ppLessonViewport .quiz .quizHead{display:flex;justify-content:space-between;font-size:12px}
+.ppLessonViewport .quiz .question{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;margin:0}
+.ppLessonViewport .quiz .big{font-size:clamp(48px,10vw,100px);line-height:1.35}
+.ppLessonViewport .quiz h3{font-size:16px;line-height:1.5;margin:0}
+.ppLessonViewport .quiz .choices{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ppLessonViewport .quiz .choices button{min-height:54px;font-size:22px;padding:6px}
+.ppLessonViewport .quiz .next{min-height:44px;padding:6px;margin:0}
+.ppLessonViewport[data-av-page="thai-vowels"] .wrap>div[style]{display:none!important}
+.ppLessonViewport[data-av-page="ar-hand"] .controls{display:flex;flex-wrap:wrap;gap:6px;margin:0;flex:none}
+.ppLessonViewport[data-av-page="ar-hand"] .controls button{min-height:44px;padding:6px 12px;font-size:12px}
+.ppLessonViewport[data-av-page="ar-hand"] .controls .status{width:100%;margin:0;font-size:10px;line-height:18px}
+.ppLessonViewport .stage{flex:1;min-height:0!important;height:auto;aspect-ratio:auto;margin:0;border-radius:22px}
+.ppLessonViewport .stage .guide{font-size:10px;line-height:18px;padding:6px 8px;top:8px;left:8px;max-width:calc(100% - 80px)}
+.ppLessonViewport .stage .score{font-size:13px;top:8px;right:8px;padding:6px}
+.ppLessonViewport .stage :is(.items,.targets){left:4%;right:4%;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.ppLessonViewport .stage .items{top:22%}
+.ppLessonViewport .stage .targets{bottom:12%}
+.ppLessonViewport .stage :is(.item,.target){min-width:0;height:clamp(54px,13vw,110px);font-size:clamp(28px,6vw,60px);border-radius:14px;transform:none!important}
+.ppLessonViewport .target:after{font-size:10px;bottom:3px}
+.avHelpDialog{width:min(520px,calc(100vw - 32px));max-height:calc(100dvh - 40px);padding:20px;border:1px solid #d9e5d2;border-radius:24px;background:#fffdf8;color:#365b46;overflow:auto;font-size:13px;line-height:1.7}
+.avHelpDialog::backdrop{background:#24463155}
+.avHelpHeading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.avHelpHeading button{min-height:44px;min-width:44px;padding:6px 12px;border:1px solid #d9e5d2;border-radius:12px;background:#edf5e8;color:#315d49;font:inherit}
+body.ppActivity .levelBtn{min-height:26px!important;padding:2px 8px!important}
+body.ppActivity .mathFeedback{min-height:24px!important;font-size:13px!important}
+body.ppLessonViewport .feedback{min-height:24px!important;font-size:12px!important}
+body:is(.ppActivity,.ppLessonViewport) :is(.btn,.listen,.ready,.next,.speak,.speakBtn){min-height:44px!important;padding:6px 10px!important;font-size:12px!important}
+body:is(.ppActivity,.ppLessonViewport) .next{margin-top:0!important}
+body.ppActivity :is(.successBox,.askBox){max-height:calc(100dvh - 24px);padding:16px!important;overflow:auto}
+body.ppActivity .successStars{display:none}
+body.ppActivity :is(.successEmoji,.askEmoji){font-size:40px;line-height:1.2}
+body.ppActivity :is(.successBox,.askBox) h2{font-size:20px;margin:6px 0}
+body.ppActivity :is(.successBox,.askBox) p{font-size:12px;line-height:1.5;margin:6px 0}
+body.ppActivity :is(.successActions,.askActions){margin-top:10px;gap:8px}
+body.ppActivity :is(.successBtn,.askBtn){min-height:44px;padding:8px 12px;font-size:12px}
+.ppLessonViewport .win{padding:12px;max-height:100%;overflow:auto}
+.ppLessonViewport .win .emoji{font-size:40px;line-height:1.2}
+.ppLessonViewport .win h3{font-size:20px;line-height:1.4;margin:4px}
+.ppLessonViewport .win p{font-size:12px;margin:4px}
+@media(max-width:760px) and (orientation:portrait){
+ .ppActivity .puzzleArea{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) 168px}
+ .ppActivity .puzzleSide{height:168px;display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:4px;padding:4px 8px;align-content:center}
+ .ppActivity .puzzleTray{grid-column:2;grid-row:1/4;width:160px;height:160px}
+ .ppActivity :is(.trayTitle,.puzzleHelp,.puzzleFeedback){grid-column:1}
+ .ppActivity #dotsPlay .studioGrid{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr) 110px}
+ .ppActivity #dotsPlay .rack{display:flex;flex-direction:column;gap:6px;padding:8px}
+ .ppActivity #dotsPlay .toolRow{grid-template-columns:1fr 1fr;gap:4px;align-items:center}
+ .ppActivity #dotsPlay .tbtn{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:6px}
+ .avDotsColors{display:flex;gap:6px}
+ .avDotsColors button{flex:1}
+ .ppActivity #dotsPalette{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;grid-template-rows:1fr 1fr;gap:4px;padding:0;overflow:hidden;align-content:center}
+ .ppActivity #dotsPalette .crayon{width:100%;height:36px;min-height:36px;margin:0;border-radius:10px;border:2px solid #fff;box-shadow:0 0 0 1px #dce5d5}
+ .ppActivity #dotsPalette .crayon:before,.ppActivity #dotsPalette .crayon .band{display:none}
+ .ppActivity #dotsPalette .crayon.on{outline:3px solid #286b59;outline-offset:0}
+ .ppActivity .dressLayout{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) 168px}
+ .ppActivity .dressPicker{height:168px;padding:6px!important;gap:4px}
+ .ppActivity .dressPicker .avSelect{min-height:44px}
+ .ppActivity .dressPicker .avSelect>span{display:none}
+ .ppActivity .dressPicker .avPager{min-height:40px}
+ .ppActivity .dressPicker .avPager button{min-height:40px;font-size:11px}
+ .ppLessonViewport .reader .controls{grid-template-columns:1fr 1fr}
+ .ppLessonViewport .stage :is(.items,.targets){grid-template-columns:repeat(3,minmax(0,1fr))}
+ .ppLessonViewport .stage .items{top:16%}
+ .ppLessonViewport .stage .targets{bottom:6%}
+ .ppLessonViewport .stage :is(.item,.target){height:clamp(54px,18vw,84px)}
+}
+@media(max-width:350px) and (orientation:portrait){
+ .avDotsColors .avDotColor:nth-child(6){display:none}
+ .avDotsColors{gap:4px}
+ .ppActivity .avDotsDialog #dotsPalette{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+@media(max-height:500px) and (orientation:landscape){
+ body.ppLessonViewport .finish.on{display:grid!important;grid-template-columns:100px minmax(0,1fr);grid-template-rows:repeat(4,minmax(0,1fr));gap:6px;align-content:center;justify-items:center}
+ body.ppLessonViewport .finish>:is(.emoji,.big){grid-column:1;grid-row:1/5}
+ body.ppLessonViewport .finish>:not(.emoji):not(.big){grid-column:2}
+ body.ppLessonViewport .finishStats{grid-row:2}
+ body.ppLessonViewport .finishStats{grid-template-columns:repeat(3,minmax(0,1fr))}
+ body.ppLessonViewport .finishStats div:last-child{grid-column:auto}
+ body.ppLessonViewport .finishStats>div{padding:4px}
+ body.ppLessonViewport .finish p{display:none}
+ body.ppLessonViewport .finish button{width:100%}
+ .ppActivity .mathPanel{display:grid;grid-template-columns:minmax(0,1fr) 180px;grid-template-rows:26px minmax(0,1fr) 24px;gap:6px}
+ .ppActivity .levelTabs{grid-column:1/-1}
+ .ppActivity .questionCard{grid-column:1;grid-row:2/4;gap:3px;padding:6px!important}
+ .ppActivity .mathVisual{font-size:20px;line-height:1.3}
+ .ppActivity .mathQuestion{font-size:30px}
+ .ppActivity .mathHint{display:none}
+ .ppActivity .answers{grid-column:2;grid-row:2;grid-template-columns:1fr;grid-template-rows:repeat(3,minmax(0,1fr));gap:6px;min-height:0}
+ .ppActivity .answerBtn{min-height:44px;height:auto;font-size:22px!important}
+ .ppActivity .mathFeedback{grid-column:2;grid-row:3;font-size:11px}
+ .ppActivity .puzzleHelp{display:none}
+ .ppActivity .dressLayout{grid-template-columns:minmax(0,1fr) 240px}
+ .ppActivity .dressPicker .avSelect>span{display:none}
+ .ppLessonViewport[data-av-page="speaking"] .card{display:grid!important;grid-template-columns:120px minmax(0,1fr);grid-template-rows:repeat(3,minmax(0,1fr)) 44px 24px 44px;gap:4px}
+ .ppLessonViewport[data-av-page="speaking"] .card .emoji{grid-column:1;grid-row:1/7;font-size:72px}
+ .ppLessonViewport[data-av-page="speaking"] .card>:not(.emoji){grid-column:2}
+ .ppLessonViewport.avStoryReading .reader{display:grid!important;grid-template-columns:130px minmax(0,1fr);grid-template-rows:repeat(3,minmax(0,1fr)) 44px 20px;gap:4px}
+ .ppLessonViewport .reader .scene{grid-column:1;grid-row:1/6;font-size:70px}
+ .ppLessonViewport .reader>:not(.scene){grid-column:2}
+ .ppLessonViewport .reader .en{font-size:18px}
+ .ppLessonViewport .reader :is(.read,.th){font-size:11px}
+ .ppLessonViewport :is(#lesson,#game){display:grid!important;grid-template-columns:minmax(0,1fr) 220px;grid-template-rows:34px minmax(0,1fr) 24px 44px;gap:4px}
+ .ppLessonViewport #lesson .subjectHead{grid-column:1/-1;grid-row:1}
+ .ppLessonViewport #lesson .prompt{grid-column:1;grid-row:2/5}
+ .ppLessonViewport :is(#lesson,#game) #answers{grid-column:2;grid-row:2;grid-template-rows:repeat(2,minmax(0,1fr));min-height:0}
+ .ppLessonViewport :is(#lesson,#game) #answers button{min-height:44px;font-size:12px;padding:4px}
+ .ppLessonViewport :is(#lesson,#game) #feedback{grid-column:2;grid-row:3;font-size:10px}
+ .ppLessonViewport :is(#lesson,#game)>.next{grid-column:2;grid-row:4}
+ .ppLessonViewport #game .meter{grid-column:1/-1;grid-row:1}
+ .ppLessonViewport #game{grid-template-rows:16px minmax(0,1fr) 24px 44px}
+ .ppLessonViewport #game #visual{grid-column:1;grid-row:2;font-size:48px}
+ .ppLessonViewport #game #question{grid-column:1;grid-row:3/5;font-size:14px!important}
+ .ppLessonViewport .learn{display:grid;grid-template-columns:minmax(0,1fr) 200px;grid-template-rows:32px minmax(0,1fr) 44px;gap:6px}
+ .ppLessonViewport .learn .head{grid-column:1/-1;grid-row:1}
+ .ppLessonViewport .learn .wordCard{grid-column:1;grid-row:2/4}
+ .ppLessonViewport .learn .nav{grid-column:2;grid-row:3;flex-direction:row;align-items:stretch}
+ .ppLessonViewport .learn .nav button{font-size:10px}
+ .ppLessonViewport .learn .picture{font-size:48px}
+ .ppLessonViewport .learn .word{font-size:32px}
+ .ppLessonViewport .learn .meaning{display:none}
+ .ppLessonViewport .learn .piece{font-size:16px;padding:2px 6px}
+ .ppLessonViewport.avReadingQuiz .learn .wordCard{grid-column:2;grid-row:2;align-self:start}
+ .ppLessonViewport.avReadingQuiz .learn .quizBox{grid-column:1;grid-row:2/4}
+ .ppLessonViewport.avReadingQuiz .learn .choice{min-height:48px;font-size:20px;padding:4px}
+ .ppLessonViewport .quiz.on{display:grid;grid-template-columns:minmax(0,1fr) 220px;grid-template-rows:24px minmax(0,1fr) 24px 44px;gap:4px}
+ .ppLessonViewport .quiz .quizHead{grid-column:1/-1;grid-row:1;min-height:0;line-height:24px}
+ .ppLessonViewport .quiz .question{grid-column:1;grid-row:2/5;padding:0!important}
+ .ppLessonViewport .quiz .big{font-size:64px}
+ .ppLessonViewport .quiz .choices{grid-column:2;grid-row:2;min-height:0;grid-template-rows:repeat(2,minmax(0,1fr))}
+ .ppLessonViewport .quiz .choices button{min-height:44px;font-size:20px;padding:4px}
+ .ppLessonViewport .quiz .feedback{grid-column:2;grid-row:3}
+ .ppLessonViewport .quiz .next{grid-column:2;grid-row:4}
+ .ppLessonViewport .stage .items{top:28%}
+ .ppLessonViewport .stage .targets{bottom:6%}
+ .ppLessonViewport .stage :is(.item,.target){height:54px;font-size:32px}
+ .ppLessonViewport[data-av-page="ar-hand"] .controls .status{width:auto;flex:1}
+}
