@@ -1,0 +1,77 @@
+/* A viewport-sized painting desk: the picture and everyday tools stay together. */
+body.ppPainting{height:100dvh;min-height:0;overflow:hidden;overscroll-behavior:none}
+body.ppPainting .wrap{box-sizing:border-box;width:100%;max-width:1440px!important;height:100dvh;min-height:0;margin:0 auto;padding:max(8px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left))!important}
+body.ppPainting .appbar,body.ppPainting footer{display:none}
+body.ppPainting main{height:100%;min-height:0}
+body.ppPainting #studio{height:100%;display:flex!important;flex-direction:column;gap:8px;min-height:0}
+body.ppPainting #studio .topbar{display:grid;grid-template-columns:44px minmax(0,1fr) repeat(3,44px);grid-template-rows:24px 20px;gap:0 8px;margin:0;flex:none;align-items:center}
+body.ppPainting #studio .topbar .tool{grid-row:1/3;margin:0;padding:0;min-width:0;min-height:44px;height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;background:none;border:0;box-shadow:none}
+body.ppPainting #studio .tool .b{width:28px!important;height:28px!important;min-width:0;min-height:0;border-radius:10px!important;font-size:21px;box-shadow:none!important;line-height:28px}
+body.ppPainting #studio .tool small{margin:0;font-size:10px!important;line-height:16px;white-space:nowrap}
+body.ppPainting #backBtn{grid-column:1;min-width:44px!important;width:44px!important;min-height:44px!important;height:44px!important}
+body.ppPainting #picTitle{grid-column:2;grid-row:1;min-width:0;margin:0;font-size:16px;line-height:24px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body.ppPainting #countLbl{grid-column:2;grid-row:2;margin:0;padding:0;background:none;border:0;font-size:10px;line-height:18px;white-space:nowrap;color:#64736d;box-shadow:none}
+body.ppPainting #undoBtn{grid-column:3}
+body.ppPainting #clearBtn{grid-column:4}
+body.ppPainting #saveBtn{grid-column:5}
+body.ppPainting #studio .studioGrid{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 216px!important;grid-template-rows:minmax(0,1fr);gap:12px;align-items:stretch}
+body.ppPainting #studio .board{box-sizing:border-box;width:100%;min-width:0;min-height:0;padding:8px;display:flex;align-items:center;justify-content:center;border-radius:24px;overflow:hidden}
+body.ppPainting #studio .paintWrap{flex:none;max-width:none;max-height:none;width:100%;aspect-ratio:1;margin:0}
+body.ppPainting #studio .paintWrap svg{max-height:none}
+body.ppPainting #studio .rack{box-sizing:border-box;position:relative;top:auto;bottom:auto;min-height:0;max-height:none;overflow:visible;width:100%;padding:12px;border-radius:22px;display:flex;flex-direction:column;gap:10px}
+body.ppPainting #studio .rack>h3{display:none}
+body.ppPainting #studio .toolRow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:0;padding:0;flex:none}
+body.ppPainting #studio .tbtn{box-sizing:border-box;width:100%;min-width:0;min-height:48px;height:48px;margin:0;padding:3px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;border-radius:12px}
+body.ppPainting #studio .tbtn span{font-size:20px;line-height:24px}
+body.ppPainting #studio .tbtn small{font-size:10px;line-height:16px;margin:0}
+body.ppPainting #studio .tbtn.on{transform:none}
+body.ppPainting #studio .sizes{margin:0;flex:none}
+body.ppPainting #studio .sizes h3{display:none}
+body.ppPainting #studio .sizeRow{display:flex;justify-content:center;gap:6px;margin:0}
+body.ppPainting #studio .sizeBtn{width:44px;height:44px;min-width:44px;margin:0;padding:0;border-radius:12px}
+body.ppPainting #studio .sizeBtn.on{transform:none}
+.paintPalettePanel{min-height:0;flex:1;display:flex;flex-direction:column}
+.paintPaletteHeading{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:none;font-size:13px;color:#3f6554;padding:0 0 6px}
+.paintPaletteClose{display:none}
+body.ppPainting #palette{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px 6px;min-height:0;max-height:none!important;overflow:auto;padding:8px 4px 12px;overscroll-behavior:contain;scrollbar-width:thin}
+body.ppPainting #palette .paletteGroup{grid-column:1/-1;font-size:11px;margin:0;padding:4px 0}
+body.ppPainting #palette .crayon{box-sizing:border-box;width:36px;height:42px;margin:10px auto 2px;flex:none;border-radius:6px 6px 10px 10px}
+body.ppPainting #palette .crayon:before{top:-10px;border-left-width:18px;border-right-width:18px;border-bottom-width:10px}
+body.ppPainting #palette .crayon.on{transform:none;outline:3px solid #287754;outline-offset:3px}
+.paintQuickColors{display:none}
+body.ppPainting #studio button:focus-visible,body.ppPainting #palette .crayon:focus-visible{outline:3px solid #1d6d51;outline-offset:2px}
+@media(max-width:760px) and (orientation:portrait){
+ body.ppPainting #studio .studioGrid{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr) auto;gap:8px}
+ body.ppPainting #studio .board{padding:6px;border-radius:20px}
+ body.ppPainting #studio .rack{padding:8px;gap:6px;border-radius:18px;display:flex;flex-direction:column;align-items:stretch}
+ body.ppPainting #studio .toolRow{gap:4px}
+ body.ppPainting #studio .sizeRow{gap:6px;flex-direction:row;justify-content:flex-start}
+ body.ppPainting #studio .sizeBtn{min-width:44px;width:44px;height:44px;border-radius:10px}
+ body.ppPainting #studio .tbtn{height:46px;min-height:46px}
+ .paintQuickColors{grid-column:1/-1;display:flex;align-items:center;gap:6px;justify-content:space-between}
+ .paintColor,.paintPaletteMore{box-sizing:border-box;flex:1;min-width:0;height:44px;min-height:44px;padding:0;border-radius:12px;border:2px solid #e1e9df;background:white;position:relative;cursor:pointer;box-shadow:none}
+ .paintColor:before{content:"";position:absolute;inset:5px;border-radius:7px;background:var(--paint-color)}
+ .paintColor[aria-pressed="true"]{border-color:#226c4d;box-shadow:0 0 0 1px #226c4d}
+ .paintColor[aria-pressed="true"]:after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:var(--paint-ink,white);font-family:Arial,sans-serif;font-size:23px;font-weight:bold}
+ .paintPaletteMore{font-size:10px;line-height:14px;color:#315c47;background:#edf6eb;display:flex;flex-direction:column;align-items:center;justify-content:center}
+ .paintPaletteMore span{font-size:19px;line-height:21px}
+ .paintPalettePanel{display:none;position:absolute;bottom:calc(100% + 8px);left:0;right:0;max-height:min(60dvh,420px);padding:12px;background:#fffdf8;border:1px solid #dae8d7;border-radius:20px;box-shadow:0 10px 35px #20482c30;z-index:20}
+ body.ppPaletteOpen .paintPalettePanel{display:flex}
+ .paintPaletteHeading{font-size:15px;padding-bottom:4px}
+ .paintPaletteClose{display:block;width:44px;min-height:44px;padding:0;border-radius:12px;border:1px solid #dae8d7;background:#edf6eb;color:#315c47;font-size:12px;cursor:pointer}
+ body.ppPainting #palette{grid-template-columns:repeat(6,minmax(0,1fr))!important;max-height:calc(60dvh - 82px)!important;gap:10px 6px}
+}
+@media(max-width:350px) and (orientation:portrait){
+ body.ppPainting #studio .topbar{gap:0 4px}
+ body.ppPainting #picTitle{font-size:14px}
+ .paintQuickColors{gap:4px}
+ .paintColor:nth-child(6){display:none}
+ body.ppPainting #palette{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+}
+@media(max-height:500px) and (orientation:landscape){
+ body.ppPainting #studio .studioGrid{grid-template-columns:minmax(0,1fr) 192px!important;gap:8px}
+ body.ppPainting #studio .rack{padding:8px;gap:6px}
+ body.ppPainting #studio .tbtn{height:44px;min-height:44px}
+ body.ppPainting #studio .sizes .sizeRow{gap:4px}
+ body.ppPainting #studio .sizes .sizeBtn{height:36px}
+}
