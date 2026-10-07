@@ -293,7 +293,7 @@
 <link rel="stylesheet" href="learning-plus.css">
 
 <link rel="stylesheet" href="kids-cute-ui.css?v=20261007">
-<link rel="stylesheet" href="paint-studio.css?v=20261007b">
+<link rel="stylesheet" href="paint-studio.css?v=20261007c">
 </head>
 <body>
 <div class="wrap">
@@ -616,6 +616,7 @@
   </div>
 </div>
 
+<script src="paint-patterns.js?v=20261007c"></script>
 <script>
 /* ================= ภาพระบายสี (SVG) ================= */
 const S = (inner) => `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
@@ -2751,16 +2752,7 @@ const COLORS = [
   "#BE4BDB","#E64980","#F06595","#FF9FC5","#FFC9DE","#F8CBA6","#D9955B",
   "#A9714B","#8D6E63","#B0A8C0","#868E96","#343A40","#FFFFFF"
 ];
-const PATTERN_PAINTS = [
-  {value:"pattern:rainbow", name:"สายรุ้ง", preview:"linear-gradient(135deg,#FF6B6B 0 17%,#FFD43B 17% 34%,#51CF66 34% 51%,#3BC9DB 51% 68%,#845EF7 68% 84%,#F06595 84%)", tip:"#845EF7"},
-  {value:"pattern:dots", name:"ลายจุดลูกกวาด", preview:"radial-gradient(circle at 30% 30%,#fff 0 15%,transparent 16%),radial-gradient(circle at 70% 70%,#FFD43B 0 13%,transparent 14%),#FF8FB8", tip:"#FF8FB8"},
-  {value:"pattern:stripes", name:"ลายทางสดใส", preview:"repeating-linear-gradient(45deg,#4DABF7 0 8px,#fff 8px 14px,#FF6FA5 14px 22px)", tip:"#4DABF7"},
-  {value:"pattern:checker", name:"ตารางพาสเทล", preview:"conic-gradient(#CDBBFF 25%,#FFF 0 50%,#A7E9F5 0 75%,#FFF 0) 0 0/18px 18px", tip:"#9C6FF3"},
-  {value:"pattern:stars", name:"ดาววิบวับ", preview:"radial-gradient(circle,#FFD43B 0 22%,transparent 24%) 0 0/18px 18px,#7048E8", tip:"#FFD43B"},
-  {value:"pattern:hearts", name:"หัวใจชมพู", preview:"radial-gradient(circle at 35% 38%,#fff 0 18%,transparent 19%),radial-gradient(circle at 65% 38%,#fff 0 18%,transparent 19%),#F06595", tip:"#F06595"},
-  {value:"pattern:confetti", name:"คอนเฟตตี", preview:"repeating-linear-gradient(125deg,#FFF 0 7px,#FFD43B 7px 11px,#FF6B6B 11px 15px,#63E6BE 15px 20px,#845EF7 20px 25px)", tip:"#FF6B6B"},
-  {value:"pattern:ocean", name:"คลื่นทะเล", preview:"repeating-radial-gradient(ellipse at 50% 100%,#E3FAFF 0 5px,#3BC9DB 6px 11px,#4DABF7 12px 17px)", tip:"#3BC9DB"}
-];
+const PATTERN_PAINTS = window.PunPinPatterns.paints;
 
 /* ================= สถานะ ================= */
 const fills = {};        // fills[picId] = { regionIndex: color }  (สีจากถังสี)
@@ -2868,15 +2860,7 @@ function ensurePatternDefs(svg){
   if(svg.dataset.patternPrefix) return svg.dataset.patternPrefix;
   const prefix = `pp${++patternUid}`;
   const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-  defs.innerHTML = `
-    <pattern id="${prefix}-rainbow" width="60" height="60" patternUnits="userSpaceOnUse" patternTransform="rotate(25)"><rect width="10" height="60" fill="#FF6B6B"/><rect x="10" width="10" height="60" fill="#FFD43B"/><rect x="20" width="10" height="60" fill="#51CF66"/><rect x="30" width="10" height="60" fill="#3BC9DB"/><rect x="40" width="10" height="60" fill="#845EF7"/><rect x="50" width="10" height="60" fill="#F06595"/></pattern>
-    <pattern id="${prefix}-dots" width="38" height="38" patternUnits="userSpaceOnUse"><rect width="38" height="38" fill="#FF9FC5"/><circle cx="10" cy="10" r="6" fill="#fff"/><circle cx="29" cy="28" r="5" fill="#FFD43B"/></pattern>
-    <pattern id="${prefix}-stripes" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="34" height="34" fill="#fff"/><rect width="11" height="34" fill="#4DABF7"/><rect x="22" width="8" height="34" fill="#FF6FA5"/></pattern>
-    <pattern id="${prefix}-checker" width="36" height="36" patternUnits="userSpaceOnUse"><rect width="36" height="36" fill="#fff"/><rect width="18" height="18" fill="#CDBBFF"/><rect x="18" y="18" width="18" height="18" fill="#A7E9F5"/></pattern>
-    <pattern id="${prefix}-stars" width="46" height="46" patternUnits="userSpaceOnUse"><rect width="46" height="46" fill="#7048E8"/><path d="M23 7l4 10 11 1-8 7 3 11-10-6-10 6 3-11-8-7 11-1z" fill="#FFD43B"/></pattern>
-    <pattern id="${prefix}-hearts" width="46" height="42" patternUnits="userSpaceOnUse"><rect width="46" height="42" fill="#F06595"/><path d="M23 32C7 22 10 9 18 9c4 0 5 3 5 3s2-3 6-3c8 0 11 13-6 23z" fill="#fff"/></pattern>
-    <pattern id="${prefix}-confetti" width="44" height="44" patternUnits="userSpaceOnUse"><rect width="44" height="44" fill="#FFF9E8"/><rect x="5" y="6" width="6" height="14" rx="2" fill="#FF6B6B" transform="rotate(-25 8 13)"/><circle cx="31" cy="10" r="5" fill="#4DABF7"/><rect x="25" y="27" width="13" height="6" rx="2" fill="#51CF66" transform="rotate(20 31 30)"/><circle cx="10" cy="34" r="4" fill="#845EF7"/></pattern>
-    <pattern id="${prefix}-ocean" width="48" height="28" patternUnits="userSpaceOnUse"><rect width="48" height="28" fill="#DFF8FF"/><path d="M0 13Q12 2 24 13T48 13V28H0z" fill="#4DABF7"/><path d="M0 20Q12 9 24 20T48 20" fill="none" stroke="#fff" stroke-width="4"/></pattern>`;
+  defs.innerHTML = window.PunPinPatterns.svgPatterns(prefix);
   svg.prepend(defs);
   svg.dataset.patternPrefix = prefix;
   return prefix;
@@ -4308,22 +4292,14 @@ function drawSeg(st, p1, p2){
 function resolveStrokePaint(paint){
   if(!paint.startsWith("pattern:")) return paint;
   if(brushPatternCache.has(paint)) return brushPatternCache.get(paint);
-  const name = paint.slice(8), tile = document.createElement("canvas");
-  tile.width = tile.height = 54;
-  const x = tile.getContext("2d");
-  const stripes = (colors, vertical=false)=>{ colors.forEach((c,i)=>{x.fillStyle=c; const n=54/colors.length; vertical?x.fillRect(i*n,0,n,54):x.fillRect(0,i*n,54,n);}); };
-  if(name === "rainbow") stripes(["#FF6B6B","#FFD43B","#51CF66","#3BC9DB","#845EF7","#F06595"],true);
-  else if(name === "dots"){x.fillStyle="#FF9FC5";x.fillRect(0,0,54,54);x.fillStyle="#fff";x.beginPath();x.arc(14,14,8,0,7);x.fill();x.fillStyle="#FFD43B";x.beginPath();x.arc(41,39,7,0,7);x.fill();}
-  else if(name === "stripes") stripes(["#4DABF7","#fff","#FF6FA5"],true);
-  else if(name === "checker"){x.fillStyle="#fff";x.fillRect(0,0,54,54);x.fillStyle="#CDBBFF";x.fillRect(0,0,27,27);x.fillRect(27,27,27,27);x.fillStyle="#A7E9F5";x.fillRect(27,0,27,27);x.fillRect(0,27,27,27);}
-  else if(name === "stars"){x.fillStyle="#7048E8";x.fillRect(0,0,54,54);x.fillStyle="#FFD43B";x.font="28px sans-serif";x.fillText("★",13,37);}
-  else if(name === "hearts"){x.fillStyle="#F06595";x.fillRect(0,0,54,54);x.fillStyle="#fff";x.font="28px sans-serif";x.fillText("♥",13,37);}
-  else if(name === "confetti"){x.fillStyle="#FFF9E8";x.fillRect(0,0,54,54);["#FF6B6B","#4DABF7","#51CF66","#845EF7"].forEach((c,i)=>{x.fillStyle=c;x.fillRect(5+i*13,(i%2)*25+7,8,17);});}
-  else {stripes(["#DFF8FF","#3BC9DB","#4DABF7"]);}
-  const pattern = ctx.createPattern(tile,"repeat");
+  // SVG drawings use a 400-unit viewBox, while the brush canvas is 900 pixels.
+  const tile = window.PunPinPatterns.canvasTile(paint.slice(8), ctx.canvas.width / 400);
+  if(!tile) return COLORS[0];
+  const pattern = ctx.createPattern(tile, "repeat");
   brushPatternCache.set(paint, pattern);
   return pattern;
 }
+
 function redraw(){
   if(!ctx) return;
   const cv = ctx.canvas;
@@ -4454,8 +4430,8 @@ document.getElementById("saveBtn").onclick = ()=>{
 
 /* ================= สีเทียน ================= */
 const paletteEl = document.getElementById("palette");
-function addPaletteGroup(label){
-  const h = document.createElement("div"); h.className = "paletteGroup"; h.textContent = label; paletteEl.appendChild(h);
+function addPaletteGroup(label, kind){
+  const h = document.createElement("div"); h.className = "paletteGroup"; h.dataset.paintKind = kind; h.textContent = label; paletteEl.appendChild(h);
 }
 function addPaint(paint, i){
   const d = document.createElement("div");
@@ -4465,8 +4441,11 @@ function addPaint(paint, i){
   d.style.setProperty("--preview", paint.preview);
   d.style.setProperty("--tip", paint.tip || paint.preview);
   d.title = paint.name;
+  d.dataset.paint = paint.value;
+  d.dataset.paintKind = patterned ? "patterns" : "colors";
+  if(patterned) d.dataset.paintGroup = paint.group;
   d.setAttribute("role","button"); d.setAttribute("aria-label",`เลือก${paint.name}`); d.tabIndex = 0;
-  d.innerHTML = '<div class="band"></div>';
+  d.innerHTML = patterned ? `<span class="patternSwatch" aria-hidden="true"></span><span class="patternName">${paint.name}</span>` : '<div class="band"></div>';
   const choose = ()=>{
     currentColor = paint.value;
     document.querySelectorAll(".crayon").forEach(x=>x.classList.remove("on"));
@@ -4478,11 +4457,11 @@ function addPaint(paint, i){
   d.onkeydown = e=>{if(e.key === "Enter" || e.key === " "){e.preventDefault();choose();}};
   paletteEl.appendChild(d);
 }
-addPaletteGroup("สีพื้น 34 สี");
+addPaletteGroup(`สีพื้น ${COLORS.length} สี`, "colors");
 COLORS.forEach((c,i)=>{
   addPaint({value:c,name:`สี ${c}`,preview:c,tip:c},i);
 });
-addPaletteGroup("ลายพิเศษ 8 แบบ ✨");
+addPaletteGroup(`ลายพิเศษ ${PATTERN_PAINTS.length} แบบ`, "patterns");
 PATTERN_PAINTS.forEach((p,i)=>addPaint(p,COLORS.length+i));
 
 /* ================= ขยายเต็มจอ ================= */
@@ -4524,5 +4503,5 @@ showHome();
 <script src="learning-world.js"></script><script src="learning-plus.js"></script><script src="kids-world-v2.js?v=20261007"></script>
 <script src="grade-mode.js?v=20261007"></script>
 <script src="kids-sfx.js?v=2"></script>
-<script src="math-k3.js?v=2"></script><script src="playground-ui.js?v=20261007"></script><script src="paint-studio.js?v=20261007b"></script></body>
+<script src="math-k3.js?v=2"></script><script src="playground-ui.js?v=20261007"></script><script src="paint-studio.js?v=20261007c"></script></body>
 </html>

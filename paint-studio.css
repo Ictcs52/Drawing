@@ -33,11 +33,24 @@ body.ppPainting #studio .sizeBtn.on{transform:none}
 .paintPalettePanel{min-height:0;flex:1;display:flex;flex-direction:column}
 .paintPaletteHeading{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:none;font-size:13px;color:#3f6554;padding:0 0 6px}
 .paintPaletteClose{display:none}
+.paintPaletteControls{display:flex;flex-direction:column;gap:6px;padding-bottom:8px;flex:none}
+.paintPaletteTabs{display:flex;gap:4px;padding:3px;border-radius:14px;background:#eef3e9}
+.paintPaletteTabs button{flex:1;min-width:0;min-height:44px;padding:4px;border:0;border-radius:11px;font-size:11px;background:transparent;color:#52705a;box-shadow:none}
+.paintPaletteTabs button[aria-pressed="true"]{background:#fff;color:#286b59;box-shadow:0 2px 5px #2c513b14;font-weight:700}
+.paintPatternFilter{display:flex;align-items:center;gap:6px;min-width:0;color:#647961;font-size:10px}
+.paintPatternFilter select{flex:1;min-width:0;min-height:44px;padding:6px 4px;border:1px solid #d9e4d4;border-radius:10px;background:#fff;color:#315c47;font:inherit;font-size:11px}
 body.ppPainting #palette{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px 6px;min-height:0;max-height:none!important;overflow:auto;padding:8px 4px 12px;overscroll-behavior:contain;scrollbar-width:thin}
 body.ppPainting #palette .paletteGroup{grid-column:1/-1;font-size:11px;margin:0;padding:4px 0}
 body.ppPainting #palette .crayon{box-sizing:border-box;width:36px;height:42px;margin:10px auto 2px;flex:none;border-radius:6px 6px 10px 10px}
 body.ppPainting #palette .crayon:before{top:-10px;border-left-width:18px;border-right-width:18px;border-bottom-width:10px}
 body.ppPainting #palette .crayon.on{transform:none;outline:3px solid #287754;outline-offset:3px}
+body.ppPainting #palette.showPatterns{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px;padding:5px 4px 10px;align-content:start}
+body.ppPainting #palette.showPatterns .paletteGroup{display:none}
+body.ppPainting #palette .crayon.pattern{width:100%;min-height:76px;height:auto;margin:0;padding:4px;display:flex;flex-direction:column;gap:4px;align-items:stretch;justify-content:flex-start;border:1px solid #e5e9de;border-radius:12px;background:#fff;box-shadow:0 2px 0 #e8eadd;color:#47634f}
+body.ppPainting #palette .crayon.pattern:before{display:none}
+body.ppPainting #palette .crayon.pattern.on{box-shadow:0 2px 0 #e8eadd;outline-offset:0}
+.patternSwatch{display:block;height:48px;border-radius:8px;background-image:var(--preview);background-size:38px 38px;background-repeat:repeat;border:1px solid #00000008}
+.patternName{font-size:10px;line-height:1.5;font-weight:600;text-align:center;overflow-wrap:anywhere}
 .paintQuickColors{display:none}
 body.ppPainting #studio button:focus-visible,body.ppPainting #palette .crayon:focus-visible{outline:3px solid #1d6d51;outline-offset:2px}
 @media(max-width:760px) and (orientation:portrait){
@@ -55,11 +68,16 @@ body.ppPainting #studio button:focus-visible,body.ppPainting #palette .crayon:fo
  .paintColor[aria-pressed="true"]:after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:var(--paint-ink,white);font-family:Arial,sans-serif;font-size:23px;font-weight:bold}
  .paintPaletteMore{font-size:10px;line-height:14px;color:#315c47;background:#edf6eb;display:flex;flex-direction:column;align-items:center;justify-content:center}
  .paintPaletteMore span{font-size:19px;line-height:21px}
+ .paintPaletteMore.hasPaintPreview span{width:28px;height:24px;border-radius:6px;background-size:24px 24px;border:1px solid #ccdaca}
  .paintPalettePanel{display:none;position:absolute;bottom:calc(100% + 8px);left:0;right:0;max-height:min(60dvh,420px);padding:12px;background:#fffdf8;border:1px solid #dae8d7;border-radius:20px;box-shadow:0 10px 35px #20482c30;z-index:20}
  body.ppPaletteOpen .paintPalettePanel{display:flex}
  .paintPaletteHeading{font-size:15px;padding-bottom:4px}
  .paintPaletteClose{display:block;width:44px;min-height:44px;padding:0;border-radius:12px;border:1px solid #dae8d7;background:#edf6eb;color:#315c47;font-size:12px;cursor:pointer}
  body.ppPainting #palette{grid-template-columns:repeat(6,minmax(0,1fr))!important;max-height:calc(60dvh - 82px)!important;gap:10px 6px}
+ body.ppPainting #palette.showPatterns{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+ .paintPaletteTabs button{font-size:12px}
+ .paintPatternFilter{font-size:12px}
+ .paintPatternFilter select{font-size:12px;padding:6px 10px}
 }
 @media(max-width:350px) and (orientation:portrait){
  body.ppPainting #studio .topbar{gap:0 4px}
@@ -67,6 +85,7 @@ body.ppPainting #studio button:focus-visible,body.ppPainting #palette .crayon:fo
  .paintQuickColors{gap:4px}
  .paintColor:nth-child(6){display:none}
  body.ppPainting #palette{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+ body.ppPainting #palette.showPatterns{grid-template-columns:repeat(3,minmax(0,1fr))!important}
 }
 @media(max-height:500px) and (orientation:landscape){
  body.ppPainting #studio .studioGrid{grid-template-columns:minmax(0,1fr) 192px!important;gap:8px}
@@ -74,4 +93,15 @@ body.ppPainting #studio button:focus-visible,body.ppPainting #palette .crayon:fo
  body.ppPainting #studio .tbtn{height:44px;min-height:44px}
  body.ppPainting #studio .sizes .sizeRow{gap:4px}
  body.ppPainting #studio .sizes .sizeBtn{height:36px}
+ body.ppPainting #studio .sizeRow{padding:0}
+ .paintPaletteHeading{display:none}
+ .paintPaletteControls{gap:4px;padding-bottom:4px}
+}
+@media(max-height:360px) and (orientation:landscape){
+ .paintPalettePanel.paintPatternCatalog{position:absolute;inset:0;padding:8px;z-index:20;background:#fffdf8;border-radius:20px}
+ .paintPatternCatalog .paintPaletteHeading{display:flex;font-size:12px}
+ .paintPatternCatalog .paintPaletteClose{display:block;width:44px;min-height:44px;padding:0;border-radius:12px;border:1px solid #dae8d7;background:#edf6eb;font-size:11px}
+ body.ppPainting #palette .crayon.pattern{min-height:52px;padding:3px;gap:2px}
+ .patternSwatch{height:28px;background-size:28px 28px}
+ .patternName{font-size:9px;line-height:1.35}
 }
