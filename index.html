@@ -2,13 +2,13 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#8A5CF6">
+<meta name="theme-color" content="#286b59">
 <meta name="description" content="PUN&amp;PIN สนามเล่นสร้างสรรค์สำหรับเด็ก สนุกกับระบายสี จิ๊กซอว์ และเกมต่อภาพ">
 <title>PUN&amp;PIN | สนามเล่นสร้างสรรค์</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Mali:wght@500;600;700&family=Noto+Sans+Thai:wght@400;600&display=swap" rel="stylesheet">
+
+
 <style>
   :root{
     --ink:#3D3562;
@@ -290,15 +290,15 @@
 </style>
 <link rel="stylesheet" href="ui-polish.css?v=1">
 <link rel="stylesheet" href="premium-ui.css">
-<link rel="stylesheet" href="learning-plus.css"><link rel="stylesheet" href="kids-world-v2.css?v=7">
-<style id="pp-home-first-paint">#home{visibility:hidden}#home>.hero,#home>.sectionHead,#home>.activityGrid,#home .ppDash,#home .ppDaily,#home .ppMoreLearning{display:none!important}</style><script>window.addEventListener("load",()=>setTimeout(()=>{const h=document.getElementById("home");if(h&&getComputedStyle(h).visibility==="hidden")h.style.visibility="visible"},2500));</script>
-<link rel="stylesheet" href="kids-cute-ui.css?v=1">
+<link rel="stylesheet" href="learning-plus.css">
+
+<link rel="stylesheet" href="kids-cute-ui.css?v=20261007">
 </head>
 <body>
 <div class="wrap">
 
   <header class="appbar">
-    <div class="logo">P&amp;P</div>
+    <div class="logo" aria-hidden="true">P&amp;P</div>
     <div>
       <h1><span>PUN&amp;PIN</span></h1>
       <p id="appSubtitle">สนามเล่นสร้างสรรค์ เติมความสนุกให้ทุกจินตนาการ</p>
@@ -335,7 +335,7 @@
           <div class="activityIcon">🧩</div><div><h3>จิ๊กซอว์แสนสนุก</h3><p>เลือกหมวดโปรด แล้วต่อภาพให้สมบูรณ์</p></div><span class="go">→</span>
         </button>
         <button class="activity" id="dotsCard">
-          <div class="activityIcon">✏️</div><div><h3>ลากเส้นตามรอยปะ</h3><p>เลือกหมวดโปรด แล้วลากตามเส้นประให้ครบภาพ</p></div><span class="go">→</span>
+          <div class="activityIcon">✏️</div><div><h3>ลากเส้นตามรอยประ</h3><p>เลือกหมวดโปรด แล้วลากตามเส้นประให้ครบภาพ</p></div><span class="go">→</span>
         </button>
         <button class="activity" id="dressCard">
           <div class="activityIcon">👗</div><div><h3>แต่งตัวสุดสวย</h3><p>เลือกทรงผม ชุด และเครื่องประดับให้น้องหนู</p></div><span class="go">→</span>
@@ -423,7 +423,7 @@
       <div class="jigsawShell">
         <div class="mathBar">
           <button class="roundBack" id="dotsHomeBtn" aria-label="กลับหน้าแรก">←</button>
-          <div><h2>ลากเส้นตามรอยปะ</h2><p id="dotsSubHead">เลือกหมวดแล้วลากตามเส้นประให้ครบภาพ</p></div>
+          <div><h2>ลากเส้นตามรอยประ</h2><p id="dotsSubHead">เลือกหมวดแล้วลากตามเส้นประให้ครบภาพ</p></div>
         </div>
 
         <div id="dotsPicker">
@@ -3004,7 +3004,7 @@ function showDots(){
   memoryEl.style.display = "none";
   phonicsEl.style.display = "none";
   dotsEl.style.display = "block";
-  appSubtitle.textContent = "เลือกหมวดภาพ แล้วลากเส้นตามรอยปะให้ครบ";
+  appSubtitle.textContent = "เลือกหมวดภาพ แล้วลากเส้นตามรอยประให้ครบ";
   initDots();
   window.scrollTo({top:0, behavior:"smooth"});
 }
@@ -3064,10 +3064,10 @@ function initJigsaw(){
       };
       jigsawCatsEl.appendChild(b);
     });
-    document.querySelectorAll(".difficultyBtn").forEach(btn=>{
+    document.querySelectorAll("#jigsawGame .difficultyBtn").forEach(btn=>{
       btn.onclick = ()=>{
         puzzleSize = +btn.dataset.size;
-        document.querySelectorAll(".difficultyBtn").forEach(x=>x.classList.remove("on")); btn.classList.add("on");
+        document.querySelectorAll("#jigsawGame .difficultyBtn").forEach(x=>x.classList.remove("on")); btn.classList.add("on");
         startPuzzle(currentPuzzlePic || PICS[0]);
       };
     });
@@ -3195,7 +3195,7 @@ function nextPuzzlePic(){
   startPuzzle(sameCat[nextIndex]);
 }
 
-/* ================= ลากเส้นตามรอยปะ ================= */
+/* ================= ลากเส้นตามรอยประ ================= */
 let dotsReady = false, dotsCurrentPic = null, dotsColor = COLORS[0], dotsTool = "pen";
 let dotsCtx = null, dotsDrawing = false, dotsCurStroke = null;
 const dotsStrokesMap = {};
@@ -3270,7 +3270,7 @@ function initDots(){
     document.getElementById("dotsDoneBtn").onclick = ()=>{
       if(!dotsCurrentPic) return;
       showSuccessPopup({emoji:"✏️", title:"ลากเส้นสำเร็จ!",
-        message:`หนูลากเส้นตามรอยปะของ${dotsCurrentPic.name}เก่งมากเลย`,
+        message:`หนูลากเส้นตามรอยประของ${dotsCurrentPic.name}เก่งมากเลย`,
         onReplay:()=>{ dotsStrokesMap[dotsCurrentPic.id] = []; redrawDots(); },
         onNext:nextDotsPic});
     };
@@ -3290,7 +3290,7 @@ function renderDotsGallery(cat){
     card.className = "card";
     card.tabIndex = 0;
     card.setAttribute("role","button");
-    card.setAttribute("aria-label",`ลากเส้นตามรอยปะ ${p.name}`);
+    card.setAttribute("aria-label",`ลากเส้นตามรอยประ ${p.name}`);
     card.innerHTML = p.svg + `<div class="nm">${p.name}</div>`;
     card.onclick = ()=>showDotsPlay(p);
     card.onkeydown = e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); showDotsPlay(p); } };
@@ -4520,8 +4520,9 @@ document.addEventListener("webkitfullscreenchange", updFs);
 showHome();
 </script>
 <script src="home-vocabulary.js"></script>
-<script src="learning-world.js"></script><script src="learning-plus.js"></script><script src="kids-world-v2.js?v=11"></script>
-<script src="grade-mode.js?v=3"></script>
+<script src="learning-world.js"></script><script src="learning-plus.js"></script><script src="kids-world-v2.js?v=20261007"></script>
+<script src="grade-mode.js?v=20261007"></script>
 <script src="kids-sfx.js?v=2"></script>
-<script src="math-k3.js?v=2"></script></body>
+<script src="math-k3.js?v=2"></script><script src="playground-ui.js?v=20261007"></script></body>
 </html>
+

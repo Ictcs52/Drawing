@@ -52,40 +52,41 @@ def fail(message: str) -> None:
 def main() -> None:
     if not INDEX.exists():
         fail("index.html was not found")
-
-    text = INDEX.read_text(encoding="utf-8")
-    if "<!DOCTYPE html>" not in text[:200].upper():
-        fail("index.html is missing a DOCTYPE declaration")
-
-    parser = AuditParser()
-    try:
-        parser.feed(text)
+    html_files = sorted(ROOT.glob("*.html"))
+    script_count = 0
+    for page in html_files:
+        source = page.read_text(encoding="utf-8")
+        if "<!DOCTYPE HTML>" not in source[:200].upper():
+            fail(f"{page.name}: missing DOCTYPE declaration")
+        parser = AuditParser()
+        parser.feed(source)
         parser.close()
-    except Exception as exc:
-        fail(f"HTML parser failed: {exc}")
-
-    duplicates = sorted(k for k, v in Counter(parser.ids).items() if v > 1)
-    if duplicates:
-        fail("duplicate HTML id values: " + ", ".join(duplicates[:20]))
-
-    suspicious = re.findall(r"(?:src|href)=[\"'](?:/|\\)", text, flags=re.IGNORECASE)
-    if suspicious:
-        print("WARNING: root-relative asset paths detected; verify GitHub Pages compatibility")
-
-    scripts = [s for s in parser.scripts if s.strip()]
-    if not scripts:
-        fail("no embedded JavaScript was found")
-
-    combined = "\n;\n".join(scripts)
-    with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8", delete=False) as fh:
-        fh.write(combined)
-        js_path = fh.name
-
-    result = subprocess.run(["node", "--check", js_path], text=True)
-    if result.returncode != 0:
-        fail("JavaScript syntax validation failed")
-
-    print(f"OK: HTML parsed, {len(parser.ids)} ids checked, {len(scripts)} embedded script block(s) validated")
+        duplicates = sorted(k for k, v in Counter(parser.ids).items() if v > 1)
+        if duplicates:
+            fail(f"{page.name}: duplicate ids: " + ", ".join(duplicates[:20]))
+        for script in parser.scripts:
+            if not script.strip():
+                continue
+            with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8") as fh:
+                fh.write(script)
+                fh.flush()
+                result = subprocess.run(["node", "--check", fh.name], capture_output=True, text=True)
+            if result.returncode:
+                print(result.stderr)
+                fail(f"{page.name}: embedded JavaScript syntax check failed")
+            script_count += 1
+        for link in re.findall(r'(?:src|href)=["\']([^"\']+)', source):
+            if re.match(r"(?:https?:|data:|#|javascript:|mailto:)", link) or "${" in link:
+                continue
+            target = link.split("?", 1)[0].split("#", 1)[0]
+            if target and not (ROOT / target).exists():
+                fail(f"{page.name}: missing local asset {target}")
+    for script in sorted(ROOT.glob("*.js")):
+        result = subprocess.run(["node", "--check", str(script)], capture_output=True, text=True)
+        if result.returncode:
+            print(result.stderr)
+            fail(f"{script.name}: JavaScript syntax check failed")
+    print(f"OK: {len(html_files)} HTML pages, ids, local assets, {script_count} inline scripts and all JS files validated")
 
 
 if __name__ == "__main__":

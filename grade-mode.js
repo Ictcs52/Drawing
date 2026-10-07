@@ -73,16 +73,16 @@
   function apply(){
     const g=grade(),cfg=P[g];if(!cfg)return;style();
     const title=document.querySelector('.kwTitle h2'),sub=document.querySelector('.kwTitle p');
-    if(title)title.textContent='กิจกรรมสำหรับ '+names[g];
-    if(sub)sub.textContent='เลือกแล้วเข้าเรียนระดับ '+names[g]+' ได้ทันที ไม่ต้องเลือกระดับซ้ำ';
-    const ribbon=document.querySelector('.kwRibbon');if(ribbon)ribbon.textContent='⭐ เนื้อหา '+names[g];
+    if(title)title.textContent='อยากเล่นอะไรดี?';
+    if(sub)sub.textContent='ความสนุกสำหรับ '+names[g]+' · แตะภาพที่ชอบแล้วไปเล่นกัน';
+    const ribbon=document.querySelector('.kwRibbon');if(ribbon)ribbon.textContent='เลือกความสนุกของหนู';
     Object.keys(cfg).forEach(type=>{
       const z=document.querySelector('.kwZone.'+type);if(!z)return;
       const small=z.querySelector('small');if(small)small.textContent=cfg[type][0];
       badge(z,g);route(z,type);
     });
-    const mission=document.querySelector('.kwMissionTop span');if(mission)mission.textContent='📅 ฝึกเพิ่ม · '+names[g];
-    const missionSub=document.querySelector('.kwMissionTop b');if(missionSub)missionSub.textContent='ทุกปุ่มใช้ระดับ '+names[g]+' อัตโนมัติ';
+    const mission=document.querySelector('.kwMissionTop span');if(mission)mission.textContent='เล่นอีกนิดไหม?';
+    const missionSub=document.querySelector('.kwMissionTop b');if(missionSub)missionSub.textContent='เลือกตามใจหนู · '+names[g];
     const missionButtons=document.querySelectorAll('.kwMissionCard button');
     if(missionButtons[0])missionButtons[0].onclick=()=>location.href='vocabulary.html';
     if(missionButtons[1])missionButtons[1].onclick=()=>{if(g==='p2'||g==='p3')location.href='learning-today.html?subject=math';else click('mathCard')};
