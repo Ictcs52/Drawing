@@ -619,6 +619,7 @@
 
 <script src="princess-art.js?v=20261008"></script>
 <script src="animal-art.js?v=20261008natural"></script>
+<script src="dinosaur-art.js?v=20261008"></script>
 <script src="paint-patterns.js?v=20261007c"></script>
 <script>
 /* ================= ภาพระบายสี (SVG) ================= */
@@ -1032,35 +1033,11 @@ const PICS = [
   <rect class="r" x="146" y="326" width="34" height="48" rx="10"/><rect class="r" x="220" y="326" width="34" height="48" rx="10"/>
 `)},
 /* ---------- 🦕 ไดโนเสาร์ ---------- */
-{ id:"trex", cat:"dino", name:"ทีเร็กซ์", svg:S(`
-  <path class="r" d="M74 210 C92 114 190 78 286 116 L352 92 L316 156 C330 234 272 286 210 286 L176 348 H126 L152 274 C98 262 64 242 74 210 Z"/>
-  <path class="r" d="M270 138 L358 166 L286 206 Z"/><circle class="r" cx="274" cy="144" r="10"/>
-  <path class="r" d="M176 348 H226 L218 376 H164 Z"/><path class="r" d="M242 270 L286 332 H252 L212 286 Z"/>
-  <path class="r" d="M166 198 L116 174 L128 220 Z"/><path d="M294 180 L320 180 M306 190 L326 190" fill="none"/>
-`)},
-{ id:"triceratops", cat:"dino", name:"ไทรเซราทอปส์", svg:S(`
-  <ellipse class="r" cx="190" cy="246" rx="130" ry="82"/><path class="r" d="M250 164 Q338 106 364 204 Q332 270 258 256 Z"/>
-  <path class="r" d="M280 160 L298 74 L322 158 Z"/><path class="r" d="M326 176 L374 144 L346 208 Z"/><circle class="r" cx="318" cy="192" r="10"/>
-  <rect class="r" x="104" y="300" width="34" height="66" rx="12"/><rect class="r" x="218" y="300" width="34" height="66" rx="12"/>
-  <path class="r" d="M66 234 L20 194 L28 252 Z"/>
-`)},
-{ id:"stegosaurus", cat:"dino", name:"สเตโกซอรัส", svg:S(`
-  <ellipse class="r" cx="204" cy="250" rx="132" ry="78"/><path class="r" d="M80 236 L24 198 L34 264 Z"/><path class="r" d="M324 224 Q374 216 370 256 Q346 270 322 258 Z"/>
-  <path class="r" d="M104 192 L122 118 L154 188 Z"/><path class="r" d="M150 176 L188 92 L214 178 Z"/><path class="r" d="M210 178 L246 106 L272 194 Z"/>
-  <rect class="r" x="112" y="302" width="34" height="64" rx="10"/><rect class="r" x="256" y="302" width="34" height="64" rx="10"/><circle class="r" cx="342" cy="238" r="8"/>
-`)},
-{ id:"longneck", cat:"dino", name:"ไดโนเสาร์คอยาว", svg:S(`
-  <ellipse class="r" cx="174" cy="276" rx="122" ry="72"/><path class="r" d="M234 276 C248 196 250 98 304 72 C348 50 382 90 352 126 C326 154 304 136 290 162 L280 292 Z"/>
-  <circle class="r" cx="330" cy="96" r="10"/><path class="r" d="M62 264 L18 228 L28 284 Z"/>
-  <rect class="r" x="96" y="320" width="34" height="58" rx="10"/><rect class="r" x="210" y="320" width="34" height="58" rx="10"/>
-  <circle class="r" cx="130" cy="262" r="16"/><circle class="r" cx="190" cy="292" r="18"/>
-`)},
-{ id:"pterodactyl", cat:"dino", name:"เทอโรแดคทิล", svg:S(`
-  <path class="r" d="M190 186 L42 74 Q72 182 152 234 Z"/><path class="r" d="M210 186 L358 74 Q328 182 248 234 Z"/>
-  <path class="r" d="M200 118 C166 140 156 216 174 282 L200 350 L226 282 C244 216 234 140 200 118 Z"/>
-  <path class="r" d="M200 118 L260 84 L220 142 Z"/><circle class="r" cx="220" cy="120" r="8"/>
-  <path class="r" d="M182 282 L140 320 L178 310 Z"/><path class="r" d="M218 282 L260 320 L222 310 Z"/>
-`)}
+{ id:"trex", cat:"dino", name:"ทีเร็กซ์", svg:window.PunPinDinosaurArt.make("trex")},
+{ id:"triceratops", cat:"dino", name:"ไทรเซราทอปส์", svg:window.PunPinDinosaurArt.make("triceratops")},
+{ id:"stegosaurus", cat:"dino", name:"สเตโกซอรัส", svg:window.PunPinDinosaurArt.make("stegosaurus")},
+{ id:"longneck", cat:"dino", name:"ไดโนเสาร์คอยาว", svg:window.PunPinDinosaurArt.make("longneck")},
+{ id:"pterodactyl", cat:"dino", name:"เทอโรแดคทิล", svg:window.PunPinDinosaurArt.make("pterodactyl")}
 ];
 
 /* ภาพชุดเสริมสำหรับเด็ก 3-6 ขวบ: สร้างจากทรงใหญ่ แตะระบายง่าย */
@@ -1237,66 +1214,13 @@ const EXTRA_PICS = [
   <path d="M176 226 Q200 244 224 226" fill="none"/>
 `)},
 /* ---------- 🦕 ไดโนเสาร์ ---------- */
-{ id:"dn_anky", cat:"dino", name:"แองคิโลซอรัส", svg:S(`
-  <path class="r" d="M66 242 Q18 232 24 198 Q56 202 78 226 Z"/>
-  <circle class="r" cx="28" cy="190" r="22"/>
-  <ellipse class="r" cx="190" cy="256" rx="128" ry="66"/>
-  <circle class="r" cx="122" cy="206" r="16"/><circle class="r" cx="170" cy="194" r="16"/><circle class="r" cx="222" cy="194" r="16"/><circle class="r" cx="270" cy="206" r="16"/>
-  <circle class="r" cx="330" cy="232" r="34"/>
-  <rect class="r" x="120" y="302" width="30" height="58" rx="10"/><rect class="r" x="230" y="302" width="30" height="58" rx="10"/>
-  <circle cx="342" cy="224" r="6" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"dn_spino", cat:"dino", name:"สไปโนซอรัส", svg:S(`
-  <path class="r" d="M74 252 L20 228 L34 284 Z"/>
-  <path class="r" d="M94 234 Q112 132 192 120 Q272 132 290 234 Q192 198 94 234 Z"/>
-  <ellipse class="r" cx="190" cy="264" rx="120" ry="60"/>
-  <path class="r" d="M296 238 L376 220 L372 254 L300 266 Z"/>
-  <rect class="r" x="122" y="308" width="30" height="56" rx="10"/><rect class="r" x="226" y="308" width="30" height="56" rx="10"/>
-  <circle cx="316" cy="238" r="5" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"dn_para", cat:"dino", name:"พาราซอโรโลฟัส", svg:S(`
-  <path class="r" d="M66 264 L18 240 L30 294 Z"/>
-  <ellipse class="r" cx="180" cy="274" rx="118" ry="62"/>
-  <path class="r" d="M242 242 Q262 162 300 142 Q330 130 340 152 Q346 172 320 178 Q296 186 288 242 Z"/>
-  <path class="r" d="M312 138 Q350 92 378 96 Q372 130 336 150 Z"/>
-  <rect class="r" x="118" y="316" width="30" height="52" rx="10"/><rect class="r" x="212" y="316" width="30" height="52" rx="10"/>
-  <circle cx="318" cy="156" r="5" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"dn_pachy", cat:"dino", name:"แพคีเซฟาโลซอรัส", svg:S(`
-  <circle class="r" cx="196" cy="66" r="10"/><circle class="r" cx="230" cy="56" r="10"/><circle class="r" cx="264" cy="68" r="10"/>
-  <circle class="r" cx="230" cy="114" r="56"/>
-  <path class="r" d="M282 126 L332 144 L286 160 Z"/>
-  <path class="r" d="M156 268 Q86 274 62 238 Q104 220 160 234 Z"/>
-  <ellipse class="r" cx="196" cy="264" rx="80" ry="90"/>
-  <circle class="r" cx="126" cy="222" r="18"/>
-  <rect class="r" x="152" y="336" width="32" height="40" rx="10"/><rect class="r" x="212" y="336" width="32" height="40" rx="10"/>
-  <circle cx="244" cy="106" r="6" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"dn_raptor", cat:"dino", name:"เวโลซีแรปเตอร์", svg:S(`
-  <path class="r" d="M94 234 Q30 228 18 194 Q66 190 110 212 Z"/>
-  <ellipse class="r" cx="184" cy="238" rx="92" ry="52" transform="rotate(-8 184 238)"/>
-  <path class="r" d="M244 210 Q252 154 296 144 L348 134 L312 170 L344 178 L296 192 Q272 198 262 222 Z"/>
-  <path class="r" d="M150 280 L138 350 H170 L178 286 Z"/>
-  <path class="r" d="M216 276 L240 332 L270 324 L242 270 Z"/>
-  <path d="M154 214 Q170 200 186 212 M204 208 Q220 194 236 206" fill="none" stroke-width="4"/>
-  <circle cx="300" cy="158" r="5" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"dn_plesio", cat:"dino", name:"เพลสิโอซอรัส", svg:S(`
-  <ellipse class="r" cx="84" cy="148" rx="36" ry="26"/>
-  <path class="r" d="M120 300 Q60 272 60 192 Q60 160 88 160 Q112 162 108 194 Q108 248 154 274 Z"/>
-  <path class="r" d="M110 330 Q120 240 210 240 Q292 244 302 330 Z"/>
-  <ellipse class="r" cx="232" cy="322" rx="42" ry="16" transform="rotate(18 232 322)"/>
-  <path d="M20 336 Q45 320 70 336 T120 336 T170 336 T220 336 T270 336 T320 336 T370 336" fill="none" stroke-width="5"/>
-  <circle cx="72" cy="142" r="6" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"dn_baby", cat:"dino", name:"ลูกไดโนเสาร์", svg:S(`
-  <path class="r" d="M292 92 L310 120 L332 98 L346 128 L354 88 Q330 62 296 70 Z"/>
-  <circle class="r" cx="200" cy="172" r="66"/>
-  <path class="r" d="M170 118 L182 84 L198 114 Z"/><path class="r" d="M206 112 L222 82 L236 114 Z"/>
-  <path class="r" d="M110 222 L130 252 L152 224 L178 254 L200 226 L226 254 L250 224 L272 252 L290 222 Q304 332 200 338 Q96 332 110 222 Z"/>
-  <circle cx="180" cy="168" r="7" fill="#3D3562" stroke="none"/><circle cx="222" cy="168" r="7" fill="#3D3562" stroke="none"/>
-  <path d="M186 194 Q200 204 216 194" fill="none"/>
-`)},
+{ id:"dn_anky", cat:"dino", name:"แองคิโลซอรัส", svg:window.PunPinDinosaurArt.make("dn_anky")},
+{ id:"dn_spino", cat:"dino", name:"สไปโนซอรัส", svg:window.PunPinDinosaurArt.make("dn_spino")},
+{ id:"dn_para", cat:"dino", name:"พาราซอโรโลฟัส", svg:window.PunPinDinosaurArt.make("dn_para")},
+{ id:"dn_pachy", cat:"dino", name:"แพคีเซฟาโลซอรัส", svg:window.PunPinDinosaurArt.make("dn_pachy")},
+{ id:"dn_raptor", cat:"dino", name:"เวโลซีแรปเตอร์", svg:window.PunPinDinosaurArt.make("dn_raptor")},
+{ id:"dn_plesio", cat:"dino", name:"เพลสิโอซอรัส", svg:window.PunPinDinosaurArt.make("dn_plesio")},
+{ id:"dn_baby", cat:"dino", name:"ลูกไดโนเสาร์", svg:window.PunPinDinosaurArt.make("dn_baby")},
 /* ---------- 🚀 โลกอวกาศ ---------- */
 { id:"sp_saturn", cat:"space", name:"ดาวเสาร์", svg:S(`
   <circle class="r" cx="200" cy="206" r="112"/>
@@ -1712,66 +1636,14 @@ const MORE2_PICS = [
 { id:"p_warrior", cat:"princess", name:"เจ้าหญิงนักรบ", svg:window.PunPinPrincessArt.make("p_warrior")},
 { id:"p_autumn", cat:"princess", name:"เจ้าหญิงฤดูใบไม้ร่วง", svg:window.PunPinPrincessArt.make("p_autumn")},
 /* ---------- 🦕 ไดโนเสาร์ +8 ---------- */
-{ id:"dn_brachio", cat:"dino", name:"แบรคิโอซอรัส", svg:S(`
-  <ellipse class="r" cx="200" cy="290" rx="120" ry="58"/>
-  <path class="r" d="M240 280 C246 178 258 84 320 60 C356 46 372 78 344 100 C316 122 296 140 288 200 L262 288 Z"/>
-  <circle class="r" cx="320" cy="72" r="16"/>
-  <path class="r" d="M96 280 C90 320 88 350 88 360 L120 360 C122 336 128 306 132 284 Z"/>
-  <rect class="r" x="150" y="336" width="30" height="44" rx="10"/><rect class="r" x="250" y="336" width="30" height="44" rx="10"/>
-`)},
-{ id:"dn_allo", cat:"dino", name:"อัลโลซอรัส", svg:S(`
-  <path class="r" d="M92 240 Q30 232 20 196 Q64 192 108 216 Z"/>
-  <ellipse class="r" cx="182" cy="248" rx="96" ry="56" transform="rotate(-6 182 248)"/>
-  <path class="r" d="M244 226 Q256 168 300 156 L348 148 L316 182 L344 190 L300 202 Q276 208 266 234 Z"/>
-  <path class="r" d="M150 292 L138 356 H172 L180 298 Z"/>
-  <path class="r" d="M222 288 L246 342 L276 334 L248 282 Z"/>
-  <circle class="r" cx="304" cy="168" r="6"/>
-`)},
-{ id:"dn_diplo", cat:"dino", name:"ดิพลอโดคัส", svg:S(`
-  <ellipse class="r" cx="200" cy="264" rx="118" ry="54"/>
-  <path class="r" d="M254 250 C270 190 296 130 344 108 C368 98 378 118 358 132 C334 148 316 170 306 214 L282 258 Z"/>
-  <path class="r" d="M146 258 C112 260 76 274 40 302 C68 268 80 246 98 232 L142 240 Z"/>
-  <rect class="r" x="150" y="306" width="28" height="48" rx="9"/><rect class="r" x="240" y="306" width="28" height="48" rx="9"/>
-  <circle cx="352" cy="112" r="5" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"dn_iguan", cat:"dino", name:"อิกัวโนดอน", svg:S(`
-  <ellipse class="r" cx="180" cy="256" rx="108" ry="60"/>
-  <path class="r" d="M244 224 Q270 148 244 96 Q294 108 300 168 Q300 208 260 234 Z"/>
-  <circle class="r" cx="264" cy="128" r="8"/>
-  <path class="r" d="M92 258 L44 292 L56 236 Z"/>
-  <rect class="r" x="120" y="304" width="30" height="52" rx="10"/><rect class="r" x="220" y="304" width="30" height="52" rx="10"/>
-  <path class="r" d="M244 96 L256 62 L268 98 Z"/>
-`)},
-{ id:"dn_carno", cat:"dino", name:"คาร์โนทอรัส", svg:S(`
-  <ellipse class="r" cx="188" cy="256" rx="112" ry="58"/>
-  <circle class="r" cx="286" cy="212" r="58"/>
-  <path class="r" d="M270 168 L282 132 L300 172 Z"/><path class="r" d="M312 168 L328 132 L340 174 Z"/>
-  <path class="r" d="M96 268 L46 250 L58 300 Z"/>
-  <rect class="r" x="150" y="308" width="28" height="50" rx="9"/><rect class="r" x="238" y="308" width="28" height="50" rx="9"/>
-  <circle cx="308" cy="204" r="6" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"dn_kentro", cat:"dino", name:"เคนโทรซอรัส", svg:S(`
-  <ellipse class="r" cx="196" cy="256" rx="122" ry="56"/>
-  <path class="r" d="M82 236 L34 200 L44 262 Z"/>
-  <path class="r" d="M120 200 L134 150 L154 198 Z"/><path class="r" d="M164 194 L180 142 L200 192 Z"/><path class="r" d="M212 196 L230 148 L250 196 Z"/>
-  <path class="r" d="M296 224 L336 208 L340 240 L302 250 Z"/><path class="r" d="M300 250 L344 250 L336 280 L294 274 Z"/>
-  <rect class="r" x="126" y="304" width="28" height="48" rx="9"/><rect class="r" x="250" y="304" width="28" height="48" rx="9"/>
-`)},
-{ id:"dn_archaeo", cat:"dino", name:"อาร์คีออปเทอริกซ์", svg:S(`
-  <ellipse class="r" cx="200" cy="230" rx="70" ry="56"/>
-  <path class="r" d="M144 210 L60 168 L82 232 L60 288 L150 254 Z"/>
-  <path class="r" d="M256 210 L340 168 L318 232 L340 288 L250 254 Z"/>
-  <path class="r" d="M234 200 L280 178 L262 208 Z"/>
-  <circle class="r" cx="256" cy="192" r="8"/>
-  <path class="r" d="M198 282 L184 340 L216 340 L206 286 Z"/>
-`)},
-{ id:"dn_egg", cat:"dino", name:"ไข่ไดโนเสาร์", svg:S(`
-  <ellipse class="r" cx="150" cy="290" rx="180" ry="40"/>
-  <path class="r" d="M136 270 Q120 200 152 158 Q180 128 208 158 Q240 200 224 270 Q180 292 136 270 Z"/>
-  <path class="r" d="M232 288 Q222 232 248 202 Q270 178 292 202 Q316 232 306 288 Q270 302 232 288 Z"/>
-  <path class="r" d="M64 286 Q58 246 78 224 Q96 206 112 224 Q130 246 124 286 Q94 296 64 286 Z"/>
-  <path d="M172 190 L164 210 L178 210 L168 232" fill="none" stroke-width="4"/>
-`)},
+{ id:"dn_brachio", cat:"dino", name:"แบรคิโอซอรัส", svg:window.PunPinDinosaurArt.make("dn_brachio")},
+{ id:"dn_allo", cat:"dino", name:"อัลโลซอรัส", svg:window.PunPinDinosaurArt.make("dn_allo")},
+{ id:"dn_diplo", cat:"dino", name:"ดิพลอโดคัส", svg:window.PunPinDinosaurArt.make("dn_diplo")},
+{ id:"dn_iguan", cat:"dino", name:"อิกัวโนดอน", svg:window.PunPinDinosaurArt.make("dn_iguan")},
+{ id:"dn_carno", cat:"dino", name:"คาร์โนทอรัส", svg:window.PunPinDinosaurArt.make("dn_carno")},
+{ id:"dn_kentro", cat:"dino", name:"เคนโทรซอรัส", svg:window.PunPinDinosaurArt.make("dn_kentro")},
+{ id:"dn_archaeo", cat:"dino", name:"อาร์คีออปเทอริกซ์", svg:window.PunPinDinosaurArt.make("dn_archaeo")},
+{ id:"dn_egg", cat:"dino", name:"ไข่ไดโนเสาร์", svg:window.PunPinDinosaurArt.make("dn_egg")},
 /* ---------- 🏫 บ้านและโรงเรียน +12 ---------- */
 { id:"sc_ruler", cat:"school", name:"ไม้บรรทัด", svg:S(`
   <rect class="r" x="60" y="164" width="280" height="72" rx="10" transform="rotate(-14 200 200)"/>
@@ -2492,7 +2364,7 @@ function openPic(p){
   const svgs = wrap.querySelectorAll("svg");
   const base = svgs[0], top = svgs[1];
   top.classList.add("lineart");
-  if(p.cat === "princess" || p.cat === "animal"){
+  if(p.cat === "princess" || p.cat === "animal" || p.cat === "dino"){
     // Composite the white original first, then remove white. Hidden contours stay hidden.
     top.querySelectorAll(".r").forEach(el=>el.classList.remove("r"));
     const outlineDefs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
