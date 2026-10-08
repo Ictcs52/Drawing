@@ -1,0 +1,50 @@
+/* Three self-contained games. Thai speech uses the installed Thai voices. */
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const modes={listen:'ฟังแล้วเลือก',detective:'นักสืบภาพ',coding:'โค้ดดิ้งจิ๋ว'};
+const words=[['แมว','🐱'],['สุนัข','🐶'],['กระต่าย','🐰'],['ช้าง','🐘'],['ปลา','🐟'],['เต่า','🐢'],['ผีเสื้อ','🦋'],['ไก่','🐔'],['แอปเปิล','🍎'],['กล้วย','🍌'],['แตงโม','🍉'],['สตรอว์เบอร์รี','🍓'],['แครอท','🥕'],['ข้าวโพด','🌽'],['องุ่น','🍇'],['ส้ม','🍊'],['รถยนต์','🚗'],['รถไฟ','🚂'],['เครื่องบิน','✈️'],['จักรยาน','🚲'],['เรือ','⛵'],['รถพยาบาล','🚑'],['รถดับเพลิง','🚒'],['รถเมล์','🚌']];
+const groups=[words.slice(0,8),words.slice(8,16),words.slice(16)];
+const pairs=[['🐱','🐯'],['🍎','🍅'],['🌼','🌻'],['🐶','🐺'],['🍊','🍋'],['🦋','🐝'],['🌝','🌞'],['🐢','🐸'],['🚗','🚕'],['🍓','🍒'],['🦁','🐱'],['🐰','🐹']];
+// Each maze has a verified route; later levels introduce longer detours.
+const mazes=[
+ {s:20,g:4,w:[6,7,11,12]},
+ {s:0,g:24,w:[6,7,8,11,16]},
+ {s:22,g:2,w:[7,12,17]},
+ {s:20,g:4,w:[5,6,7,13,18]},
+ {s:0,g:19,w:[1,6,11,18,23]},
+ {s:24,g:0,w:[19,18,17,7,8]},
+ {s:20,g:4,w:[6,7,8,16,17,18]},
+ {s:0,g:24,w:[5,6,7,11,12,13,18]},
+ {s:22,g:2,w:[7,12,17,6,16]}
+];
+const delta={U:-5,D:5,L:-1,R:1},symbols={U:'↑',D:'↓',L:'←',R:'→'};
+let mode=modes[new URLSearchParams(location.search).get('mode')]?new URLSearchParams(location.search).get('mode'):'listen';
+const storedGrade=localStorage.getItem('punpin_grade_v1');
+let level=storedGrade==='p3'?2:storedGrade==='p1'||storedGrade==='p2'?1:0;
+let round=0,score=0,locked=false,running=false,session=0,sequence=[],position=0,maze=null,target=0,spoken='',deck=[],timer=null;
+let sound=localStorage.getItem('punpin_sound_v1')!=='off';
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function speak(text){spoken=text;if(!sound||!('speechSynthesis'in window))return;const synth=window.speechSynthesis; synth.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='th-TH';u.rate=.82;const voices=synth.getVoices().filter(v=>/^th(?:-|_)/i.test(v.lang));u.voice=voices.find(v=>/Premwadee|เปรมวดี|Google/i.test(v.name))||voices[0]||null;synth.speak(u)}
+function syncSound(){$('sound').textContent=sound?'🔊':'🔇';$('sound').setAttribute('aria-label',sound?'ปิดเสียง':'เปิดเสียง');$('sound').setAttribute('aria-pressed',String(sound))}
+function syncUrl(){const u=new URL(location.href);u.searchParams.set('mode',mode);history.replaceState(null,'',u)}
+function feedback(text,voice=true){$('feedback').textContent=text;if(voice)speak(text)}
+function total(){return mode==='coding'?3:8}
+function stop(){session++;clearTimeout(timer);running=false;if('speechSynthesis'in window)window.speechSynthesis.cancel()}
+function start(){stop();round=0;score=0;deck=shuffle(level===0?groups[0]:level===1?groups[1]:words);$('finish').hidden=true;$('game').hidden=false;$('difficulty').value=level;document.body.dataset.mode=mode;$('title').textContent=modes[mode];document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===mode)));syncUrl();render()}
+function button(emoji,label,onClick){const b=document.createElement('button');b.className='picture';b.setAttribute('aria-label',label);const e=document.createElement('span');e.className='emoji';e.setAttribute('aria-hidden','true');e.textContent=emoji;b.appendChild(e);b.onclick=()=>onClick(b);return b}
+function finishRound(b){locked=true;score++;if(b)b.classList.add('good');$('board').querySelectorAll('button').forEach(x=>x.disabled=true);$('next').hidden=false;feedback(round===total()-1?'เก่งมาก หนูทำครบแล้ว!':'เก่งมากเลย หนูทำได้แล้ว!')}
+function render(){stop();locked=false;sequence=[];$('next').hidden=true;$('next').textContent=round===total()-1?'รับดาว ⭐':'ข้อต่อไป →';$('feedback').textContent='';$('counter').textContent=`${round+1} / ${total()}`;$('board').replaceChildren();$('codeTools').hidden=mode!=='coding';$('sequence').hidden=mode!=='coding';$('board').style.gridTemplateColumns='';$('board').style.gridTemplateRows='';if(mode==='listen')listenRound();else if(mode==='detective')detectiveRound();else codingRound()}
+function listenRound(){const item=deck[round];const n=[2,4,6][level];const source=level===0?groups[0]:words;const choices=shuffle([item,...shuffle(source.filter(x=>x!==item)).slice(0,n-1)]);$('question').textContent='ฟังแล้วแตะภาพที่ได้ยิน';$('hint').textContent='แตะ 👂 เพื่อฟังคำ';$('board').style.gridTemplateColumns=`repeat(${n===2?2:2},1fr)`;$('board').style.gridTemplateRows=`repeat(${Math.ceil(n/2)},1fr)`;choices.forEach((x,i)=>$('board').appendChild(button(x[1],`ภาพตัวเลือก ${i+1}`,b=>{if(locked)return;if(x===item)finishRound(b);else{clearTimeout(timer);b.classList.add('bad');feedback('ไม่เป็นไรนะ ฟังอีกครั้ง แล้วลองเลือกใหม่');timer=setTimeout(()=>{b.classList.remove('bad');speak('แตะภาพ'+item[0])},1000)}})));spoken='แตะภาพ'+item[0]}
+function detectiveRound(){const n=[4,6,9][level];const p=pairs[(round+level*4)%pairs.length];target=Math.floor(Math.random()*n);$('question').textContent='ภาพไหนต่างจากเพื่อน?';$('hint').textContent='มองให้ดี แล้วแตะภาพที่ต่าง';const cols=level===0?2:3;$('board').style.gridTemplateColumns=`repeat(${cols},1fr)`;$('board').style.gridTemplateRows=`repeat(${Math.ceil(n/cols)},1fr)`;for(let i=0;i<n;i++)$('board').appendChild(button(p[i===target?1:0],`ภาพตัวเลือก ${i+1}`,b=>{if(locked)return;if(i===target)finishRound(b);else{clearTimeout(timer);b.classList.add('bad');feedback('ลองมองอีกครั้งนะ หาภาพที่ต่างจากเพื่อน');timer=setTimeout(()=>b.classList.remove('bad'),650)}}));spoken='ภาพไหนต่างจากเพื่อน ลองมองให้ดี แล้วแตะภาพที่ต่าง'}
+function codingRound(){maze=mazes[level*3+round];position=maze.s;$('question').textContent='พากระต่ายไปหาแครอท';$('hint').textContent='วางลูกศร แล้วกดเดินเลย · 🌳 ผ่านไม่ได้';const grid=document.createElement('div');grid.className='maze';for(let i=0;i<25;i++){const c=document.createElement('div');c.className='cell';c.dataset.cell=i;grid.appendChild(c)}$('board').appendChild(grid);drawMaze();updateSequence();spoken='วางลูกศรพากระต่ายไปหาแครอท หลีกเลี่ยงต้นไม้ แล้วกดเดินเลย';fitMaze()}
+function fitMaze(){const grid=document.querySelector('.maze');if(!grid)return;const r=$('board').getBoundingClientRect();grid.style.width=grid.style.height=Math.max(0,Math.min(r.width,r.height))+'px'}
+new ResizeObserver(fitMaze).observe($('board'));
+function drawMaze(){document.querySelectorAll('[data-cell]').forEach(c=>{const i=+c.dataset.cell;c.className='cell'+(maze.w.includes(i)?' wall':'')+(i===position?' rabbit':'');c.textContent=i===position?'🐰':i===maze.g?'🥕':maze.w.includes(i)?'🌳':'';c.setAttribute('aria-label',i===position?'กระต่าย':i===maze.g?'แครอท':maze.w.includes(i)?'ต้นไม้':'ทางเดิน')})}
+function updateSequence(){$('sequence').textContent=sequence.length?sequence.map(d=>symbols[d]).join(' '):'เลือก ↑ ← ↓ →';document.querySelectorAll('[data-dir]').forEach(b=>b.disabled=running||locked||sequence.length>=14);$('run').disabled=running||locked||!sequence.length;$('undo').disabled=running||locked||!sequence.length;$('clear').disabled=running||locked||!sequence.length}
+function step(pos,d){const to=pos+delta[d];if(to<0||to>=25||(d==='L'&&pos%5===0)||(d==='R'&&pos%5===4)||maze.w.includes(to))return null;return to}
+async function run(){if(running||locked||!sequence.length)return;running=true;position=maze.s;drawMaze();updateSequence();const token=session;let failed=false;for(const d of sequence){await new Promise(r=>setTimeout(r,280));if(token!==session)return;const to=step(position,d);if(to===null){failed=true;break}position=to;drawMaze()}running=false;if(token!==session)return;if(!failed&&position===maze.g){finishRound();updateSequence()}else{feedback(failed?'เจอต้นไม้หรือขอบทาง ลองแก้ลูกศรแล้วเดินใหม่':'ยังไม่ถึงแครอท ลองเพิ่มหรือแก้ลูกศรนะ');updateSequence()}}
+function finish(){stop();$('game').hidden=true;$('finish').hidden=false;$('summary').textContent=`รับ ${score} ดาว ⭐`;try{const key='punpin_discover_progress_v1';let p=JSON.parse(localStorage.getItem(key)||'{}');p[mode]={stars:(p[mode]?.stars||0)+score,completed:(p[mode]?.completed||0)+1,level};localStorage.setItem(key,JSON.stringify(p));const sharedKey='punpin_progress_v1',shared=JSON.parse(localStorage.getItem(sharedKey)||'{}');shared.stars=(shared.stars||0)+score;shared.plays=(shared.plays||0)+1;localStorage.setItem(sharedKey,JSON.stringify(shared))}catch{}speak('เย้ หนูเล่นครบแล้ว เก่งมากเลย');$('again').focus()}
+$('difficulty').onchange=()=>{level=+$('difficulty').value;start();speak(spoken)};document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;start();speak(spoken)});document.querySelectorAll('[data-dir]').forEach(b=>b.onclick=()=>{if(running||locked||sequence.length>=14)return;sequence.push(b.dataset.dir);updateSequence()});$('undo').onclick=()=>{if(running||locked)return;sequence.pop();updateSequence()};$('clear').onclick=()=>{if(running||locked)return;sequence=[];position=maze.s;drawMaze();updateSequence()};$('run').onclick=run;$('next').onclick=()=>{round++;if(round>=total())finish();else{render();speak(spoken)}};$('again').onclick=()=>{start();speak(spoken)};$('listen').onclick=()=>{if(mode==='listen'&&!$('game').hidden)speak('แตะภาพ'+deck[round][0]);else if(mode==='coding')speak('วางลูกศรพากระต่ายไปหาแครอท หลีกเลี่ยงต้นไม้ แล้วกดเดินเลย');else speak('หาภาพที่ต่างจากเพื่อน แล้วแตะภาพนั้น')};$('sound').onclick=()=>{sound=!sound;localStorage.setItem('punpin_sound_v1',sound?'on':'off');syncSound();if(sound)speak(spoken);else if('speechSynthesis'in window)window.speechSynthesis.cancel()};window.addEventListener('pagehide',stop);syncSound();start();
+window.PunPinDiscover={get state(){return{mode,level,round,score,locked,running,sequence:[...sequence],position,maze,spoken}},step};
+})();
