@@ -617,6 +617,7 @@
   </div>
 </div>
 
+<script src="princess-art.js?v=20261008"></script>
 <script src="paint-patterns.js?v=20261007c"></script>
 <script>
 /* ================= ภาพระบายสี (SVG) ================= */
@@ -665,170 +666,18 @@ function speakThai(text){
 
 const PICS = [
 /* ---------- 👑 เจ้าหญิง (12 แบบ) ---------- */
-{ id:"p_gown", cat:"princess", name:"เจ้าหญิงชุดราตรี", svg:S(`
-  <path class="r" d="M200 42 C145 42 120 85 122 135 C123 170 135 195 152 208 C142 160 148 118 200 118 C252 118 258 160 248 208 C265 195 277 170 278 135 C280 85 255 42 200 42 Z"/>
-  <circle class="r" cx="200" cy="135" r="48"/>
-  <path class="r" d="M176 58 L182 26 L200 46 L218 26 L224 58 Z"/>
-  <circle class="r" cx="140" cy="215" r="18"/><circle class="r" cx="260" cy="215" r="18"/>
-  <path class="r" d="M166 188 L234 188 L242 240 L158 240 Z"/>
-  <path class="r" d="M158 240 C132 288 118 324 112 352 L288 352 C282 324 268 288 242 240 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="132" r="5"/><circle cx="216" cy="132" r="5"/></g>
-  <path d="M188 152 Q200 162 212 152" fill="none"/>
-`)},
-{ id:"p_braid", cat:"princess", name:"เจ้าหญิงผมเปีย", svg:S(`
-  <path class="r" d="M200 42 C145 42 120 85 122 135 C123 170 135 195 152 208 C142 160 148 118 200 118 C252 118 258 160 248 208 C265 195 277 170 278 135 C280 85 255 42 200 42 Z"/>
-  <circle class="r" cx="136" cy="192" r="20"/><circle class="r" cx="130" cy="234" r="17"/>
-  <circle class="r" cx="126" cy="272" r="15"/><circle class="r" cx="124" cy="306" r="13"/>
-  <path class="r" d="M124 324 L98 310 L98 342 Z"/>
-  <path class="r" d="M124 324 L150 310 L150 342 Z"/>
-  <circle class="r" cx="200" cy="135" r="48"/>
-  <path class="r" d="M172 62 L179 32 L194 52 L200 28 L206 52 L221 32 L228 62 Z"/>
-  <circle class="r" cx="260" cy="215" r="18"/>
-  <path class="r" d="M168 188 L232 188 L240 238 L160 238 Z"/>
-  <path class="r" d="M160 238 C134 286 120 322 114 350 L286 350 C280 322 266 286 240 238 Z"/>
-  <path class="r" d="M180 238 L220 238 C225 288 223 320 217 348 L183 348 C177 320 175 288 180 238 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="132" r="5"/><circle cx="216" cy="132" r="5"/></g>
-  <path d="M188 152 Q200 162 212 152" fill="none"/>
-`)},
-{ id:"p_mermaid", cat:"princess", name:"เจ้าหญิงนางเงือก", svg:S(`
-  <path class="r" d="M200 38 C140 38 114 86 118 142 C120 188 130 232 122 266 C146 260 152 216 150 190 C147 152 154 110 200 110 C246 110 253 152 250 190 C248 216 254 260 278 266 C270 232 280 188 282 142 C286 86 260 38 200 38 Z"/>
-  <circle class="r" cx="200" cy="132" r="46"/>
-  <path class="r" d="M182 60 L189 38 L200 52 L211 38 L218 60 Z"/>
-  <path class="r" d="M172 178 L228 178 L236 242 L164 242 Z"/>
-  <circle class="r" cx="185" cy="198" r="13"/><circle class="r" cx="215" cy="198" r="13"/>
-  <path class="r" d="M164 242 C156 292 168 318 186 342 L214 342 C232 318 244 292 236 242 Z"/>
-  <path class="r" d="M186 342 C158 354 138 374 128 390 C158 386 178 384 200 376 C222 384 242 386 272 390 C262 374 242 354 214 342 Z"/>
-  <path d="M175 272 Q200 286 225 272 M172 302 Q200 316 228 302" fill="none" stroke-width="4"/>
-  <circle class="r" cx="320" cy="120" r="14"/><circle class="r" cx="345" cy="86" r="10"/><circle class="r" cx="303" cy="66" r="8"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="128" r="5"/><circle cx="216" cy="128" r="5"/></g>
-  <path d="M188 150 Q200 160 212 150" fill="none"/>
-`)},
-{ id:"p_flower", cat:"princess", name:"เจ้าหญิงดอกไม้", svg:S(`
-  <path class="r" d="M200 42 C145 42 120 85 122 135 C123 170 135 195 152 208 C142 160 148 118 200 118 C252 118 258 160 248 208 C265 195 277 170 278 135 C280 85 255 42 200 42 Z"/>
-  <circle class="r" cx="200" cy="135" r="48"/>
-  <circle class="r" cx="166" cy="68" r="12"/><circle class="r" cx="200" cy="56" r="12"/><circle class="r" cx="234" cy="68" r="12"/>
-  <circle class="r" cx="138" cy="212" r="20"/><circle class="r" cx="262" cy="212" r="20"/>
-  <path class="r" d="M168 188 L232 188 L240 240 L160 240 Z"/>
-  <path class="r" d="M158 240 C138 282 126 314 121 342 Q135 362 149 344 Q161 362 175 344 Q187 362 201 344 Q215 362 229 344 Q241 362 255 344 Q269 362 281 342 C275 314 263 282 242 240 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="132" r="5"/><circle cx="216" cy="132" r="5"/></g>
-  <path d="M188 152 Q200 162 212 152" fill="none"/>
-`)},
-{ id:"p_snow", cat:"princess", name:"เจ้าหญิงหิมะ", svg:S(`
-  <ellipse class="r" cx="200" cy="372" rx="170" ry="16"/>
-  <path class="r" d="M200 178 L96 356 L304 356 Z"/>
-  <path class="r" d="M200 42 C145 42 120 85 122 135 C123 170 135 195 152 208 C142 160 148 118 200 118 C252 118 258 160 248 208 C265 195 277 170 278 135 C280 85 255 42 200 42 Z"/>
-  <circle class="r" cx="200" cy="135" r="48"/>
-  <path class="r" d="M176 58 L182 26 L200 46 L218 26 L224 58 Z"/>
-  <circle class="r" cx="200" cy="26" r="9"/>
-  <circle class="r" cx="140" cy="215" r="18"/><circle class="r" cx="260" cy="215" r="18"/>
-  <path class="r" d="M166 188 L234 188 L240 240 L162 240 Z"/>
-  <path class="r" d="M162 240 C146 288 138 320 134 350 L266 350 C262 320 254 288 238 240 Z"/>
-  <path class="r" d="M84 92 L90 108 L106 114 L90 120 L84 136 L78 120 L62 114 L78 108 Z"/>
-  <path class="r" d="M314 128 L320 144 L336 150 L320 156 L314 172 L308 156 L292 150 L308 144 Z"/>
-  <path class="r" d="M66 222 L72 238 L88 244 L72 250 L66 266 L60 250 L44 244 L60 238 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="132" r="5"/><circle cx="216" cy="132" r="5"/></g>
-  <path d="M188 152 Q200 162 212 152" fill="none"/>
-`)},
-{ id:"p_fairy", cat:"princess", name:"เจ้าหญิงนางฟ้า", svg:S(`
-  <ellipse class="r" cx="118" cy="205" rx="55" ry="82" transform="rotate(20 118 205)"/>
-  <ellipse class="r" cx="282" cy="205" rx="55" ry="82" transform="rotate(-20 282 205)"/>
-  <ellipse class="r" cx="142" cy="292" rx="38" ry="52" transform="rotate(35 142 292)"/>
-  <ellipse class="r" cx="258" cy="292" rx="38" ry="52" transform="rotate(-35 258 292)"/>
-  <circle class="r" cx="200" cy="42" r="22"/>
-  <path class="r" d="M200 62 C152 62 132 96 134 136 C135 165 145 186 158 196 C150 158 156 122 200 122 C244 122 250 158 242 196 C255 186 265 165 266 136 C268 96 248 62 200 62 Z"/>
-  <circle class="r" cx="200" cy="138" r="46"/>
-  <circle class="r" cx="142" cy="212" r="17"/><circle class="r" cx="258" cy="212" r="17"/>
-  <path class="r" d="M168 190 L232 190 L238 238 L162 238 Z"/>
-  <path class="r" d="M162 238 C144 272 136 296 134 314 L266 314 C264 296 256 272 238 238 Z"/>
-  <rect class="r" x="178" y="314" width="12" height="42" rx="6"/>
-  <rect class="r" x="210" y="314" width="12" height="42" rx="6"/>
-  <ellipse class="r" cx="184" cy="362" rx="15" ry="8"/><ellipse class="r" cx="216" cy="362" rx="15" ry="8"/>
-  <path d="M258 212 L298 158" fill="none" stroke-width="5"/>
-  <path class="r" d="M300 136 L306 152 L322 158 L306 164 L300 180 L294 164 L278 158 L294 152 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="134" r="5"/><circle cx="216" cy="134" r="5"/></g>
-  <path d="M188 156 Q200 166 212 156" fill="none"/>
-`)},
-{ id:"p_ballet", cat:"princess", name:"เจ้าหญิงนักบัลเลต์", svg:S(`
-  <circle class="r" cx="200" cy="58" r="27"/>
-  <path class="r" d="M146 120 C146 70 170 50 200 50 C230 50 254 70 254 120 C254 154 244 178 230 190 C238 142 226 104 200 104 C174 104 162 142 170 190 C156 178 146 154 146 120 Z"/>
-  <circle class="r" cx="200" cy="130" r="44"/>
-  <path class="r" d="M176 65 L184 40 L200 57 L216 40 L224 65 Z"/>
-  <circle class="r" cx="137" cy="205" r="16"/><circle class="r" cx="263" cy="205" r="16"/>
-  <path class="r" d="M170 178 L230 178 L238 244 L162 244 Z"/>
-  <path class="r" d="M162 232 C130 245 116 264 112 280 C146 292 254 292 288 280 C284 264 270 245 238 232 Z"/>
-  <path class="r" d="M142 276 C158 292 176 296 200 296 C224 296 242 292 258 276 C246 310 228 320 200 320 C172 320 154 310 142 276 Z"/>
-  <path class="r" d="M178 316 L194 316 L188 366 L170 366 Z"/><path class="r" d="M206 316 L222 316 L230 366 L212 366 Z"/>
-  <ellipse class="r" cx="176" cy="372" rx="22" ry="9"/><ellipse class="r" cx="224" cy="372" rx="22" ry="9"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="128" r="5"/><circle cx="216" cy="128" r="5"/></g><path d="M188 148 Q200 158 212 148" fill="none"/>
-`)},
-{ id:"p_rainbow", cat:"princess", name:"เจ้าหญิงสายรุ้ง", svg:S(`
-  <path class="r" d="M38 178 C58 68 140 26 200 26 C260 26 342 68 362 178 L328 178 C310 92 248 60 200 60 C152 60 90 92 72 178 Z"/>
-  <path class="r" d="M72 178 C90 92 152 60 200 60 C248 60 310 92 328 178 L294 178 C278 118 236 94 200 94 C164 94 122 118 106 178 Z"/>
-  <path class="r" d="M106 178 C122 118 164 94 200 94 C236 94 278 118 294 178 L260 178 C248 145 220 130 200 130 C180 130 152 145 140 178 Z"/>
-  <path class="r" d="M150 92 C150 55 172 38 200 38 C228 38 250 55 250 92 C250 108 244 121 236 130 C232 100 220 82 200 82 C180 82 168 100 164 130 C156 121 150 108 150 92 Z"/>
-  <circle class="r" cx="200" cy="116" r="40"/>
-  <path class="r" d="M178 58 L186 34 L200 50 L214 34 L222 58 Z"/>
-  <path class="r" d="M170 160 L230 160 L238 220 L162 220 Z"/>
-  <path class="r" d="M162 220 C142 260 128 306 122 354 L278 354 C272 306 258 260 238 220 Z"/>
-  <path class="r" d="M145 300 Q200 334 255 300 L264 334 Q200 370 136 334 Z"/>
-  <circle class="r" cx="106" cy="228" r="18"/><circle class="r" cx="294" cy="228" r="18"/>
-  <g fill="#3D3562" stroke="none"><circle cx="185" cy="114" r="5"/><circle cx="215" cy="114" r="5"/></g><path d="M188 134 Q200 144 212 134" fill="none"/>
-`)},
-{ id:"p_starlight", cat:"princess", name:"เจ้าหญิงแสงดาว", svg:S(`
-  <path class="r" d="M70 48 L77 66 L96 73 L77 80 L70 99 L63 80 L44 73 L63 66 Z"/>
-  <path class="r" d="M326 78 L333 96 L352 103 L333 110 L326 129 L319 110 L300 103 L319 96 Z"/>
-  <path class="r" d="M316 240 L322 255 L338 261 L322 267 L316 283 L310 267 L294 261 L310 255 Z"/>
-  <path class="r" d="M200 42 C150 42 126 78 130 128 C132 162 143 188 158 202 C151 155 157 112 200 112 C243 112 249 155 242 202 C257 188 268 162 270 128 C274 78 250 42 200 42 Z"/>
-  <circle class="r" cx="200" cy="130" r="45"/>
-  <path class="r" d="M174 60 L183 28 L200 50 L217 28 L226 60 Z"/>
-  <path class="r" d="M168 178 L232 178 L240 236 L160 236 Z"/>
-  <path class="r" d="M160 236 C136 278 122 318 116 360 L284 360 C278 318 264 278 240 236 Z"/>
-  <path class="r" d="M200 253 L210 278 L237 280 L216 298 L223 324 L200 309 L177 324 L184 298 L163 280 L190 278 Z"/>
-  <circle class="r" cx="139" cy="210" r="18"/><circle class="r" cx="261" cy="210" r="18"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="128" r="5"/><circle cx="216" cy="128" r="5"/></g><path d="M188 149 Q200 159 212 149" fill="none"/>
-`)},
-{ id:"p_adventure", cat:"princess", name:"เจ้าหญิงนักผจญภัย", svg:S(`
-  <path class="r" d="M148 170 C104 208 88 270 92 338 L158 314 L174 190 Z"/>
-  <path class="r" d="M252 170 C296 208 312 270 308 338 L242 314 L226 190 Z"/>
-  <path class="r" d="M200 45 C154 45 132 76 134 120 C135 150 145 172 158 184 C152 144 159 105 200 105 C241 105 248 144 242 184 C255 172 265 150 266 120 C268 76 246 45 200 45 Z"/>
-  <circle class="r" cx="200" cy="125" r="44"/>
-  <path class="r" d="M175 62 L184 34 L200 52 L216 34 L225 62 Z"/>
-  <path class="r" d="M168 171 L232 171 L238 244 L162 244 Z"/>
-  <path class="r" d="M162 244 L238 244 L258 316 L142 316 Z"/>
-  <rect class="r" x="171" y="314" width="22" height="48" rx="8"/><rect class="r" x="207" y="314" width="22" height="48" rx="8"/>
-  <path class="r" d="M164 354 L198 354 L194 374 L154 374 Z"/><path class="r" d="M202 354 L236 354 L246 374 L206 374 Z"/>
-  <circle class="r" cx="143" cy="208" r="18"/><circle class="r" cx="257" cy="208" r="18"/>
-  <rect class="r" x="236" y="240" width="50" height="62" rx="14"/><path d="M248 240 Q260 216 274 240" fill="none"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="123" r="5"/><circle cx="216" cy="123" r="5"/></g><path d="M188 144 Q200 154 212 144" fill="none"/>
-`)},
-{ id:"p_spring", cat:"princess", name:"เจ้าหญิงฤดูใบไม้ผลิ", svg:S(`
-  <path class="r" d="M200 40 C148 40 124 78 126 128 C128 164 140 190 154 203 C148 155 156 110 200 110 C244 110 252 155 246 203 C260 190 272 164 274 128 C276 78 252 40 200 40 Z"/>
-  <circle class="r" cx="200" cy="130" r="45"/>
-  <circle class="r" cx="166" cy="60" r="14"/><circle class="r" cx="200" cy="49" r="14"/><circle class="r" cx="234" cy="60" r="14"/>
-  <circle class="r" cx="139" cy="210" r="18"/><circle class="r" cx="261" cy="210" r="18"/>
-  <path class="r" d="M168 177 L232 177 L239 235 L161 235 Z"/>
-  <path class="r" d="M161 235 C139 278 127 318 120 358 L280 358 C273 318 261 278 239 235 Z"/>
-  <circle class="r" cx="160" cy="282" r="14"/><circle class="r" cx="235" cy="304" r="14"/><circle class="r" cx="190" cy="336" r="14"/>
-  <path class="r" d="M86 264 C66 244 47 262 58 280 C35 286 44 312 66 306 C70 328 96 321 94 300 C116 304 122 278 102 272 Z"/>
-  <circle class="r" cx="82" cy="286" r="10"/>
-  <path d="M82 306 L82 360 M82 332 Q62 318 52 329 M82 342 Q101 326 112 338" fill="none"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="128" r="5"/><circle cx="216" cy="128" r="5"/></g><path d="M188 149 Q200 159 212 149" fill="none"/>
-`)},
-{ id:"p_space", cat:"princess", name:"เจ้าหญิงอวกาศ", svg:S(`
-  <circle class="r" cx="200" cy="130" r="100"/>
-  <circle class="r" cx="200" cy="130" r="78"/>
-  <path class="r" d="M200 65 C162 65 146 90 148 124 C149 149 157 167 168 176 C163 144 169 111 200 111 C231 111 237 144 232 176 C243 167 251 149 252 124 C254 90 238 65 200 65 Z"/>
-  <circle class="r" cx="200" cy="137" r="39"/>
-  <path class="r" d="M178 79 L186 55 L200 70 L214 55 L222 79 Z"/>
-  <path class="r" d="M152 214 L248 214 L270 326 L130 326 Z"/>
-  <rect class="r" x="174" y="232" width="52" height="40" rx="10"/>
-  <circle class="r" cx="187" cy="252" r="7"/><circle class="r" cx="213" cy="252" r="7"/>
-  <rect class="r" x="148" y="322" width="36" height="52" rx="12"/><rect class="r" x="216" y="322" width="36" height="52" rx="12"/>
-  <circle class="r" cx="112" cy="252" r="22"/><circle class="r" cx="288" cy="252" r="22"/>
-  <path class="r" d="M58 62 L64 78 L80 84 L64 90 L58 106 L52 90 L36 84 L52 78 Z"/>
-  <circle class="r" cx="332" cy="82" r="22"/><path class="r" d="M300 82 Q332 65 364 82 Q332 99 300 82 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="186" cy="135" r="5"/><circle cx="214" cy="135" r="5"/></g><path d="M189 153 Q200 162 211 153" fill="none"/>
-`)},
+{ id:"p_gown", cat:"princess", name:"เจ้าหญิงชุดราตรี", svg:window.PunPinPrincessArt.make("p_gown")},
+{ id:"p_braid", cat:"princess", name:"เจ้าหญิงผมเปีย", svg:window.PunPinPrincessArt.make("p_braid")},
+{ id:"p_mermaid", cat:"princess", name:"เจ้าหญิงนางเงือก", svg:window.PunPinPrincessArt.make("p_mermaid")},
+{ id:"p_flower", cat:"princess", name:"เจ้าหญิงดอกไม้", svg:window.PunPinPrincessArt.make("p_flower")},
+{ id:"p_snow", cat:"princess", name:"เจ้าหญิงหิมะ", svg:window.PunPinPrincessArt.make("p_snow")},
+{ id:"p_fairy", cat:"princess", name:"เจ้าหญิงนางฟ้า", svg:window.PunPinPrincessArt.make("p_fairy")},
+{ id:"p_ballet", cat:"princess", name:"เจ้าหญิงนักบัลเลต์", svg:window.PunPinPrincessArt.make("p_ballet")},
+{ id:"p_rainbow", cat:"princess", name:"เจ้าหญิงสายรุ้ง", svg:window.PunPinPrincessArt.make("p_rainbow")},
+{ id:"p_starlight", cat:"princess", name:"เจ้าหญิงแสงดาว", svg:window.PunPinPrincessArt.make("p_starlight")},
+{ id:"p_adventure", cat:"princess", name:"เจ้าหญิงนักผจญภัย", svg:window.PunPinPrincessArt.make("p_adventure")},
+{ id:"p_spring", cat:"princess", name:"เจ้าหญิงฤดูใบไม้ผลิ", svg:window.PunPinPrincessArt.make("p_spring")},
+{ id:"p_space", cat:"princess", name:"เจ้าหญิงอวกาศ", svg:window.PunPinPrincessArt.make("p_space")},
 /* ---------- 🐱 สัตว์ (20 ชนิด) ---------- */
 { id:"cat", cat:"animal", name:"แมวเหมียว", svg:S(`
   <path class="r" d="M292 322 C350 312 366 262 342 236 C331 228 318 236 323 249 C336 263 326 294 292 322 Z"/>
@@ -2042,72 +1891,14 @@ const MORE2_PICS = [
   <circle class="r" cx="216" cy="126" r="14"/>
 `)},
 /* ---------- 👑 เจ้าหญิง +8 ---------- */
-{ id:"p_japan", cat:"princess", name:"เจ้าหญิงญี่ปุ่น", svg:S(`
-  <circle class="r" cx="200" cy="120" r="50"/>
-  <path class="r" d="M150 92 Q150 56 200 52 Q250 56 250 92 Z"/>
-  <circle class="r" cx="252" cy="98" r="14"/>
-  <path class="r" d="M126 176 L146 176 L200 210 L254 176 L274 176 L300 356 L100 356 Z"/>
-  <path d="M170 260 Q200 244 230 260" fill="none" stroke-width="5"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="118" r="5"/><circle cx="216" cy="118" r="5"/></g>
-`)},
-{ id:"p_egypt", cat:"princess", name:"เจ้าหญิงอียิปต์", svg:S(`
-  <path class="r" d="M140 70 L200 30 L260 70 L260 200 L200 232 L140 200 Z"/>
-  <circle class="r" cx="200" cy="140" r="46"/>
-  <rect class="r" x="176" y="52" width="48" height="18" rx="6"/>
-  <path class="r" d="M156 200 L244 200 L264 356 L136 356 Z"/>
-  <path d="M156 236 H244 M156 268 H244 M156 300 H244" fill="none" stroke-width="4"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="136" r="5"/><circle cx="216" cy="136" r="5"/></g>
-`)},
-{ id:"p_thai", cat:"princess", name:"เจ้าหญิงไทย", svg:S(`
-  <path class="r" d="M200 30 L224 96 L182 96 Z"/>
-  <ellipse class="r" cx="200" cy="100" rx="36" ry="14"/>
-  <circle class="r" cx="200" cy="150" r="48"/>
-  <path class="r" d="M148 210 Q200 190 252 210 L268 356 H132 Z"/>
-  <path d="M150 260 H250 M158 296 H242" fill="none" stroke-width="4"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="148" r="5"/><circle cx="216" cy="148" r="5"/></g>
-`)},
-{ id:"p_christmas", cat:"princess", name:"เจ้าหญิงคริสต์มาส", svg:S(`
-  <circle class="r" cx="200" cy="122" r="48"/>
-  <path class="r" d="M154 84 Q200 30 246 84 L236 100 Q200 66 164 100 Z"/>
-  <circle class="r" cx="200" cy="46" r="14"/>
-  <path class="r" d="M158 170 L242 170 L268 356 H132 Z"/>
-  <ellipse class="r" cx="200" cy="176" rx="46" ry="14"/>
-  <ellipse class="r" cx="200" cy="352" rx="70" ry="14"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="120" r="5"/><circle cx="216" cy="120" r="5"/></g>
-`)},
-{ id:"p_ocean", cat:"princess", name:"เจ้าหญิงทะเล", svg:S(`
-  <circle class="r" cx="200" cy="118" r="48"/>
-  <path class="r" d="M160 78 L146 54 L172 66 L182 44 L200 68 L218 44 L228 66 L254 54 L240 78 Z"/>
-  <path class="r" d="M156 166 L244 166 L262 356 H138 Z"/>
-  <path d="M150 226 Q200 210 250 226 M144 268 Q200 250 256 268 M140 310 Q200 292 260 310" fill="none" stroke-width="4"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="116" r="5"/><circle cx="216" cy="116" r="5"/></g>
-`)},
-{ id:"p_butterfly", cat:"princess", name:"เจ้าหญิงผีเสื้อ", svg:S(`
-  <ellipse class="r" cx="112" cy="208" rx="58" ry="86" transform="rotate(24 112 208)"/>
-  <ellipse class="r" cx="288" cy="208" rx="58" ry="86" transform="rotate(-24 288 208)"/>
-  <circle class="r" cx="152" cy="312" r="26"/><circle class="r" cx="248" cy="312" r="26"/>
-  <circle class="r" cx="200" cy="120" r="48"/>
-  <path class="r" d="M164 172 L236 172 L246 226 L154 226 Z"/>
-  <path class="r" d="M154 226 C140 268 132 300 128 328 L272 328 C268 300 260 268 246 226 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="118" r="5"/><circle cx="216" cy="118" r="5"/></g>
-`)},
-{ id:"p_warrior", cat:"princess", name:"เจ้าหญิงนักรบ", svg:S(`
-  <circle class="r" cx="200" cy="112" r="46"/>
-  <path class="r" d="M162 76 Q200 44 238 76 L228 92 Q200 68 172 92 Z"/>
-  <path class="r" d="M160 160 H240 L254 296 H146 Z"/>
-  <path class="r" d="M64 176 Q64 246 100 276 Q136 246 136 176 Q100 160 64 176 Z"/>
-  <path d="M100 176 V264" fill="none" stroke-width="4"/>
-  <path class="r" d="M256 200 H300 M278 178 V222" fill="none"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="110" r="5"/><circle cx="216" cy="110" r="5"/></g>
-`)},
-{ id:"p_autumn", cat:"princess", name:"เจ้าหญิงฤดูใบไม้ร่วง", svg:S(`
-  <circle class="r" cx="200" cy="120" r="48"/>
-  <path class="r" d="M158 84 L172 56 L192 78 L200 46 L208 78 L228 56 L242 84 Z"/>
-  <path class="r" d="M158 168 L242 168 L266 356 H134 Z"/>
-  <path class="r" d="M150 238 L172 220 L186 244 L166 260 Z"/>
-  <path class="r" d="M230 262 L252 246 L266 268 L246 284 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="118" r="5"/><circle cx="216" cy="118" r="5"/></g>
-`)},
+{ id:"p_japan", cat:"princess", name:"เจ้าหญิงญี่ปุ่น", svg:window.PunPinPrincessArt.make("p_japan")},
+{ id:"p_egypt", cat:"princess", name:"เจ้าหญิงอียิปต์", svg:window.PunPinPrincessArt.make("p_egypt")},
+{ id:"p_thai", cat:"princess", name:"เจ้าหญิงไทย", svg:window.PunPinPrincessArt.make("p_thai")},
+{ id:"p_christmas", cat:"princess", name:"เจ้าหญิงคริสต์มาส", svg:window.PunPinPrincessArt.make("p_christmas")},
+{ id:"p_ocean", cat:"princess", name:"เจ้าหญิงทะเล", svg:window.PunPinPrincessArt.make("p_ocean")},
+{ id:"p_butterfly", cat:"princess", name:"เจ้าหญิงผีเสื้อ", svg:window.PunPinPrincessArt.make("p_butterfly")},
+{ id:"p_warrior", cat:"princess", name:"เจ้าหญิงนักรบ", svg:window.PunPinPrincessArt.make("p_warrior")},
+{ id:"p_autumn", cat:"princess", name:"เจ้าหญิงฤดูใบไม้ร่วง", svg:window.PunPinPrincessArt.make("p_autumn")},
 /* ---------- 🦕 ไดโนเสาร์ +8 ---------- */
 { id:"dn_brachio", cat:"dino", name:"แบรคิโอซอรัส", svg:S(`
   <ellipse class="r" cx="200" cy="290" rx="120" ry="58"/>
@@ -2889,7 +2680,16 @@ function openPic(p){
   const svgs = wrap.querySelectorAll("svg");
   const base = svgs[0], top = svgs[1];
   top.classList.add("lineart");
-  top.querySelectorAll(".r").forEach(el=>{ el.setAttribute("fill","none"); el.classList.remove("r"); });
+  if(p.cat === "princess"){
+    // Composite the white original first, then remove white. Hidden contours stay hidden.
+    top.querySelectorAll(".r").forEach(el=>el.classList.remove("r"));
+    const outlineDefs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    outlineDefs.innerHTML = '<filter id="princessOutline" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 .251 0 0 0 0 .216 0 0 0 0 .282 -1 -1 -1 3 0"/></filter>';
+    top.prepend(outlineDefs);
+    top.querySelector("g").setAttribute("filter", "url(#princessOutline)");
+  }else{
+    top.querySelectorAll(".r").forEach(el=>{ el.setAttribute("fill","none"); el.classList.remove("r"); });
+  }
 
   applyFills(base, p.id);
   regionEls = [...base.querySelectorAll(".r")];
