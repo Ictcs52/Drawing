@@ -618,9 +618,12 @@
 </div>
 
 <script src="princess-art.js?v=20261008"></script>
-<script src="animal-art.js?v=20261008refined"></script>
+<script src="animal-art.js?v=20261008audit"></script>
 <script src="dinosaur-art.js?v=20261008"></script>
 <script src="nature-art.js?v=20261008"></script>
+<script src="character-art.js?v=20261008"></script>
+<script src="sea-art.js?v=20261008"></script>
+<script src="coloring-refresh.js?v=20261008"></script>
 <script src="paint-patterns.js?v=20261007c"></script>
 <script>
 /* ================= ภาพระบายสี (SVG) ================= */
@@ -1222,189 +1225,32 @@ const EXTRA_PICS = [
   <path d="M120 320 L96 358 M280 320 L304 358" fill="none"/>
 `)},
 /* ---------- 🧑‍🚒 อาชีพในฝัน ---------- */
-{ id:"cr_doctor", cat:"career", name:"คุณหมอ", svg:S(KID+`
-  <circle class="r" cx="200" cy="74" r="17"/>
-  <path class="r" d="M156 224 H176 V238 H190 V254 H176 V268 H156 V254 H142 V238 H156 Z"/>
-  <path d="M238 200 Q254 244 234 262" fill="none" stroke-width="5"/>
-  <circle class="r" cx="228" cy="272" r="13"/>
-`)},
-{ id:"cr_police", cat:"career", name:"ตำรวจ", svg:S(KID+`
-  <path class="r" d="M144 92 Q200 42 256 92 V106 H144 Z"/>
-  <path class="r" d="M132 106 H268 L282 124 H118 Z"/>
-  <circle class="r" cx="200" cy="84" r="11"/>
-  <path class="r" d="M200 220 L210 240 L232 244 L216 260 L220 282 L200 270 L180 282 L184 260 L168 244 L190 240 Z"/>
-`)},
-{ id:"cr_fire", cat:"career", name:"นักดับเพลิง", svg:S(KID+`
-  <path class="r" d="M136 100 Q200 32 264 100 L264 112 H136 Z"/>
-  <ellipse class="r" cx="200" cy="112" rx="84" ry="14"/>
-  <rect class="r" x="184" y="60" width="32" height="32" rx="8"/>
-  <path d="M156 230 H244 M156 268 H244" fill="none" stroke-width="4"/>
-`)},
-{ id:"cr_chef", cat:"career", name:"เชฟ", svg:S(KID+`
-  <path class="r" d="M152 96 Q126 46 172 40 Q182 12 212 22 Q248 12 252 46 Q284 56 256 92 L252 96 Z"/>
-  <rect class="r" x="148" y="94" width="104" height="22" rx="9"/>
-  <path d="M300 208 L326 282" fill="none"/>
-  <path class="r" d="M280 164 Q322 150 332 192 Q322 216 290 208 Z"/>
-`)},
-{ id:"cr_teacher", cat:"career", name:"คุณครู", svg:S(KID+`
-  <circle class="r" cx="178" cy="126" r="19"/><circle class="r" cx="222" cy="126" r="19"/>
-  <path d="M197 126 H203" fill="none" stroke-width="4"/>
-  <rect class="r" x="64" y="252" width="62" height="48" rx="8"/>
-  <path d="M95 252 V300" fill="none" stroke-width="4"/>
-`)},
-{ id:"cr_farmer", cat:"career", name:"ชาวสวน", svg:S(KID+`
-  <ellipse class="r" cx="200" cy="96" rx="94" ry="18"/>
-  <path class="r" d="M152 92 Q200 34 248 92 Z"/>
-  <path d="M294 244 V310" fill="none"/>
-  <circle class="r" cx="276" cy="230" r="11"/><circle class="r" cx="312" cy="230" r="11"/><circle class="r" cx="294" cy="212" r="11"/><circle class="r" cx="294" cy="230" r="9"/>
-`)},
-{ id:"cr_pilot", cat:"career", name:"นักบิน", svg:S(KID+`
-  <path class="r" d="M144 92 Q200 42 256 92 V104 H144 Z"/>
-  <path class="r" d="M132 104 H268 L282 122 H118 Z"/>
-  <path class="r" d="M158 240 Q182 222 200 240 Q218 222 242 240 L228 258 H172 Z"/>
-  <circle class="r" cx="336" cy="76" r="9"/><circle class="r" cx="66" cy="66" r="12"/>
-`)},
-{ id:"cr_painter", cat:"career", name:"จิตรกร", svg:S(KID+`
-  <path class="r" d="M136 92 Q148 46 208 44 Q268 50 264 92 Q200 74 136 92 Z"/>
-  <circle class="r" cx="204" cy="42" r="10"/>
-  <ellipse class="r" cx="304" cy="274" rx="46" ry="34"/>
-  <circle class="r" cx="290" cy="260" r="8"/><circle class="r" cx="314" cy="256" r="8"/><circle class="r" cx="324" cy="282" r="8"/>
-`)},
+{ id:"cr_doctor", cat:"career", name:"คุณหมอ", svg:window.PunPinCharacterArt.make("cr_doctor")},
+{ id:"cr_police", cat:"career", name:"ตำรวจ", svg:window.PunPinCharacterArt.make("cr_police")},
+{ id:"cr_fire", cat:"career", name:"นักดับเพลิง", svg:window.PunPinCharacterArt.make("cr_fire")},
+{ id:"cr_chef", cat:"career", name:"เชฟ", svg:window.PunPinCharacterArt.make("cr_chef")},
+{ id:"cr_teacher", cat:"career", name:"คุณครู", svg:window.PunPinCharacterArt.make("cr_teacher")},
+{ id:"cr_farmer", cat:"career", name:"ชาวสวน", svg:window.PunPinCharacterArt.make("cr_farmer")},
+{ id:"cr_pilot", cat:"career", name:"นักบิน", svg:window.PunPinCharacterArt.make("cr_pilot")},
+{ id:"cr_painter", cat:"career", name:"จิตรกร", svg:window.PunPinCharacterArt.make("cr_painter")},
 /* ---------- 🎭 การ์ตูน ---------- */
-{ id:"ct_hero", cat:"cartoon", name:"ฮีโร่ตัวจิ๋ว", svg:S(`
-  <path class="r" d="M146 202 Q92 232 96 330 L150 292 Z"/>
-  <path class="r" d="M254 202 Q308 232 304 330 L250 292 Z"/>`+KID+`
-  <path class="r" d="M148 112 Q200 96 252 112 L252 138 Q200 124 148 138 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="180" cy="124" r="6"/><circle cx="220" cy="124" r="6"/></g>
-  <path class="r" d="M200 216 L212 240 L238 244 L219 262 L224 288 L200 274 L176 288 L181 262 L162 244 L188 240 Z"/>
-`)},
-{ id:"ct_wizard", cat:"cartoon", name:"นักเวทตัวน้อย", svg:S(KID+`
-  <path class="r" d="M154 90 L200 8 L246 90 Z"/>
-  <ellipse class="r" cx="200" cy="90" rx="66" ry="14"/>
-  <path class="r" d="M196 44 L202 58 L216 63 L202 68 L196 82 L190 68 L176 63 L190 58 Z"/>
-  <path d="M292 252 L340 184" fill="none"/>
-  <path class="r" d="M344 160 L351 178 L370 185 L351 192 L344 210 L337 192 L318 185 L337 178 Z"/>
-`)},
-{ id:"ct_fairy", cat:"cartoon", name:"นางฟ้าใจดี", svg:S(`
-  <ellipse class="r" cx="112" cy="222" rx="52" ry="78" transform="rotate(22 112 222)"/>
-  <ellipse class="r" cx="288" cy="222" rx="52" ry="78" transform="rotate(-22 288 222)"/>`+KID+`
-  <ellipse class="r" cx="200" cy="50" rx="46" ry="12"/>
-  <path class="r" d="M200 220 L209 238 L229 242 L214 256 L218 278 L200 267 L182 278 L186 256 L171 242 L191 238 Z"/>
-`)},
-{ id:"ct_knight", cat:"cartoon", name:"อัศวินตัวน้อย", svg:S(`
-  <path class="r" d="M196 60 Q184 20 216 12 Q238 10 232 42 Q224 60 206 60 Z"/>
-  <path class="r" d="M144 138 Q144 62 200 58 Q256 62 256 138 Z"/>
-  <rect class="r" x="162" y="104" width="76" height="20" rx="10"/>`+KBODY+`
-  <path class="r" d="M72 224 Q72 302 116 320 Q160 302 160 224 Q116 206 72 224 Z"/>
-  <path d="M116 218 V312 M82 260 H150" fill="none" stroke-width="4"/>
-`)},
-{ id:"ct_pirate", cat:"cartoon", name:"โจรสลัดตัวน้อย", svg:S(KID+`
-  <path class="r" d="M128 96 Q200 52 272 96 Q266 60 200 52 Q134 60 128 96 Z"/>
-  <circle class="r" cx="200" cy="74" r="10"/>
-  <path d="M156 106 Q200 90 246 114" fill="none" stroke-width="4"/>
-  <circle cx="222" cy="126" r="15" fill="#3D3562" stroke="none"/>
-  <path class="r" d="M292 250 L336 250 M314 228 V272" fill="none"/>
-  <circle class="r" cx="314" cy="292" r="16"/>
-`)},
-{ id:"ct_robot", cat:"cartoon", name:"เพื่อนหุ่นยนต์", svg:S(`
-  <path d="M200 46 V70" fill="none"/><circle class="r" cx="200" cy="32" r="13"/>
-  <rect class="r" x="134" y="70" width="132" height="88" rx="18"/>
-  <rect class="r" x="158" y="94" width="26" height="26" rx="6"/><rect class="r" x="216" y="94" width="26" height="26" rx="6"/>
-  <path d="M172 138 H228" fill="none" stroke-dasharray="10 8" stroke-width="5"/>
-  <rect class="r" x="78" y="182" width="34" height="82" rx="14"/><rect class="r" x="288" y="182" width="34" height="82" rx="14"/>
-  <rect class="r" x="120" y="170" width="160" height="122" rx="16"/>
-  <circle class="r" cx="200" cy="224" r="26"/><circle class="r" cx="152" cy="200" r="8"/><circle class="r" cx="248" cy="200" r="8"/>
-  <rect class="r" x="146" y="292" width="36" height="58" rx="10"/><rect class="r" x="218" y="292" width="36" height="58" rx="10"/>
-  <rect class="r" x="132" y="348" width="64" height="22" rx="10"/><rect class="r" x="204" y="348" width="64" height="22" rx="10"/>
-`)},
-{ id:"ct_monster", cat:"cartoon", name:"สัตว์ประหลาดขนฟู", svg:S(`
-  <path class="r" d="M140 114 L116 56 L172 92 Z"/><path class="r" d="M262 98 L296 48 L306 110 Z"/>
-  <path class="r" d="M96 328 Q56 220 120 142 Q160 80 240 94 Q330 110 330 212 Q336 296 282 328 Q240 312 220 334 Q196 314 168 336 Q140 316 118 336 Q104 334 96 328 Z"/>
-  <circle class="r" cx="170" cy="184" r="26"/><circle class="r" cx="248" cy="184" r="26"/>
-  <g fill="#3D3562" stroke="none"><circle cx="170" cy="188" r="9"/><circle cx="248" cy="188" r="9"/></g>
-  <path d="M150 252 L176 270 L202 252 L228 270 L254 252" fill="none"/>
-`)},
-{ id:"ct_ninja", cat:"cartoon", name:"นินจาตัวน้อย", svg:S(`
-  <circle class="r" cx="200" cy="128" r="62"/>
-  <ellipse class="r" cx="200" cy="134" rx="42" ry="22"/>
-  <rect class="r" x="140" y="86" width="120" height="20" rx="10"/>
-  <path class="r" d="M258 96 L320 74 L304 114 Z"/>`+KBODY+`
-  <rect class="r" x="158" y="248" width="84" height="18" rx="9"/>
-  <g fill="#3D3562" stroke="none"><circle cx="186" cy="132" r="6"/><circle cx="214" cy="132" r="6"/></g>
-`)},
+{ id:"ct_hero", cat:"cartoon", name:"ฮีโร่ตัวจิ๋ว", svg:window.PunPinCharacterArt.make("ct_hero")},
+{ id:"ct_wizard", cat:"cartoon", name:"นักเวทตัวน้อย", svg:window.PunPinCharacterArt.make("ct_wizard")},
+{ id:"ct_fairy", cat:"cartoon", name:"นางฟ้าใจดี", svg:window.PunPinCharacterArt.make("ct_fairy")},
+{ id:"ct_knight", cat:"cartoon", name:"อัศวินตัวน้อย", svg:window.PunPinCharacterArt.make("ct_knight")},
+{ id:"ct_pirate", cat:"cartoon", name:"โจรสลัดตัวน้อย", svg:window.PunPinCharacterArt.make("ct_pirate")},
+{ id:"ct_robot", cat:"cartoon", name:"เพื่อนหุ่นยนต์", svg:window.PunPinCharacterArt.make("ct_robot")},
+{ id:"ct_monster", cat:"cartoon", name:"สัตว์ประหลาดขนฟู", svg:window.PunPinCharacterArt.make("ct_monster")},
+{ id:"ct_ninja", cat:"cartoon", name:"นินจาตัวน้อย", svg:window.PunPinCharacterArt.make("ct_ninja")},
 /* ---------- 🐠 ใต้ทะเล ---------- */
-{ id:"sea_octo", cat:"sea", name:"ปลาหมึกยักษ์", svg:S(`
-  <path class="r" d="M110 202 Q110 82 200 82 Q290 82 290 202 V242 H110 Z"/>
-  <path class="r" d="M118 242 Q104 302 66 314 Q92 332 126 308 Q140 278 140 242 Z"/>
-  <path class="r" d="M164 242 Q160 312 130 346 Q166 354 186 314 Q192 276 190 242 Z"/>
-  <path class="r" d="M236 242 Q240 312 270 346 Q234 354 214 314 Q208 276 210 242 Z"/>
-  <path class="r" d="M282 242 Q296 302 334 314 Q308 332 274 308 Q260 278 260 242 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="172" cy="172" r="8"/><circle cx="228" cy="172" r="8"/></g>
-  <path d="M182 204 Q200 216 218 204" fill="none"/>
-  <circle class="r" cx="330" cy="94" r="13"/><circle class="r" cx="352" cy="56" r="9"/>
-`)},
-{ id:"sea_seahorse", cat:"sea", name:"ม้าน้ำ", svg:S(`
-  <path class="r" d="M158 98 L108 108 L158 124 Z"/>
-  <circle class="r" cx="198" cy="108" r="52"/>
-  <path class="r" d="M212 60 L232 24 L250 62 Z"/>
-  <path class="r" d="M214 154 Q270 192 260 260 Q252 320 198 332 Q160 338 152 308 Q178 318 198 302 Q230 282 226 238 Q222 198 186 174 Z"/>
-  <path class="r" d="M240 192 Q278 178 282 216 Q264 228 242 216 Z"/>
-  <circle class="r" cx="170" cy="320" r="20"/>
-  <path d="M196 214 Q214 222 224 214 M192 250 Q212 258 224 248" fill="none" stroke-width="4"/>
-  <circle cx="212" cy="100" r="6" fill="#3D3562" stroke="none"/>
-  <circle class="r" cx="90" cy="220" r="12"/><circle class="r" cx="66" cy="184" r="8"/>
-`)},
-{ id:"sea_star", cat:"sea", name:"ปลาดาว", svg:S(`
-  <path class="r" d="M200 40 L242 152 L360 158 L268 230 L298 346 L200 280 L102 346 L132 230 L40 158 L158 152 Z"/>
-  <circle class="r" cx="200" cy="120" r="9"/><circle class="r" cx="286" cy="182" r="9"/><circle class="r" cx="252" cy="278" r="9"/><circle class="r" cx="148" cy="278" r="9"/><circle class="r" cx="114" cy="182" r="9"/>
-  <g fill="#3D3562" stroke="none"><circle cx="184" cy="192" r="7"/><circle cx="216" cy="192" r="7"/></g>
-  <path d="M186 220 Q200 230 214 220" fill="none"/>
-`)},
-{ id:"sea_jelly", cat:"sea", name:"แมงกะพรุน", svg:S(`
-  <path class="r" d="M90 202 Q90 72 200 72 Q310 72 310 202 Q282 222 254 202 Q228 222 200 202 Q172 222 146 202 Q118 222 90 202 Z"/>
-  <path d="M140 226 Q128 280 148 332 M200 232 Q188 292 208 352 M260 226 Q272 280 252 332" fill="none" stroke-width="6"/>
-  <g fill="#3D3562" stroke="none"><circle cx="172" cy="142" r="7"/><circle cx="228" cy="142" r="7"/></g>
-  <path d="M182 170 Q200 182 218 170" fill="none"/>
-  <circle class="r" cx="340" cy="80" r="11"/><circle class="r" cx="60" cy="110" r="9"/>
-`)},
-{ id:"sea_crab", cat:"sea", name:"ปูก้ามโต", svg:S(`
-  <path d="M108 190 Q86 160 84 142 M292 190 Q314 160 316 142" fill="none"/>
-  <circle class="r" cx="76" cy="128" r="36"/><path class="r" d="M52 104 L26 66 L84 84 Z"/>
-  <circle class="r" cx="324" cy="128" r="36"/><path class="r" d="M348 104 L374 66 L316 84 Z"/>
-  <path d="M170 166 L158 120 M230 166 L242 120" fill="none"/>
-  <circle class="r" cx="154" cy="108" r="14"/><circle class="r" cx="246" cy="108" r="14"/>
-  <ellipse class="r" cx="200" cy="238" rx="110" ry="76"/>
-  <path d="M106 296 L64 336 M142 310 L114 358 M294 296 L336 336 M258 310 L286 358" fill="none"/>
-  <g fill="#3D3562" stroke="none"><circle cx="154" cy="106" r="5"/><circle cx="246" cy="106" r="5"/></g>
-  <path d="M178 250 Q200 266 222 250" fill="none"/>
-`)},
-{ id:"sea_shark", cat:"sea", name:"ฉลามยิ้ม", svg:S(`
-  <path class="r" d="M296 210 L366 158 L354 214 L366 268 Z"/>
-  <path class="r" d="M170 132 Q200 76 246 96 L212 148 Z"/>
-  <ellipse class="r" cx="180" cy="204" rx="130" ry="76"/>
-  <path class="r" d="M160 270 Q170 314 208 322 Q190 288 190 268 Z"/>
-  <path class="r" d="M64 196 Q52 172 62 152 Q86 162 96 184 Z"/>
-  <path d="M96 236 L120 250 L144 236 L168 250 L192 236" fill="none" stroke-width="4"/>
-  <circle cx="110" cy="180" r="7" fill="#3D3562" stroke="none"/>
-  <circle class="r" cx="330" cy="86" r="12"/><circle class="r" cx="300" cy="52" r="8"/>
-`)},
-{ id:"sea_shell", cat:"sea", name:"หอยมุก", svg:S(`
-  <path class="r" d="M200 328 L98 172 Q142 78 200 78 Q258 78 302 172 Z"/>
-  <path d="M200 328 L142 132 M200 328 L200 98 M200 328 L258 132" fill="none" stroke-width="5"/>
-  <rect class="r" x="168" y="322" width="64" height="30" rx="12"/>
-  <circle class="r" cx="200" cy="222" r="26"/>
-  <circle class="r" cx="330" cy="100" r="10"/><circle class="r" cx="70" cy="120" r="8"/>
-`)},
-{ id:"sea_clownfish", cat:"sea", name:"ปลาการ์ตูน", svg:S(`
-  <path class="r" d="M292 202 L356 152 L344 202 L356 252 Z"/>
-  <path class="r" d="M162 132 Q192 92 238 108 L202 140 Z"/>
-  <ellipse class="r" cx="186" cy="202" rx="116" ry="78"/>
-  <path class="r" d="M140 130 Q120 202 140 274 Q166 264 168 202 Q166 140 140 130 Z"/>
-  <path class="r" d="M234 136 Q218 202 234 268 Q258 254 260 202 Q258 150 234 136 Z"/>
-  <circle cx="112" cy="184" r="13" fill="#fff"/><circle cx="112" cy="184" r="6" fill="#3D3562" stroke="none"/>
-  <path d="M146 224 Q156 208 146 192" fill="none" stroke-width="4"/>
-  <circle class="r" cx="330" cy="88" r="12"/><circle class="r" cx="356" cy="56" r="8"/>
-`)},
+{ id:"sea_octo", cat:"sea", name:"ปลาหมึกยักษ์", svg:window.PunPinSeaArt.make("sea_octo")},
+{ id:"sea_seahorse", cat:"sea", name:"ม้าน้ำ", svg:window.PunPinSeaArt.make("sea_seahorse")},
+{ id:"sea_star", cat:"sea", name:"ปลาดาว", svg:window.PunPinSeaArt.make("sea_star")},
+{ id:"sea_jelly", cat:"sea", name:"แมงกะพรุน", svg:window.PunPinSeaArt.make("sea_jelly")},
+{ id:"sea_crab", cat:"sea", name:"ปูก้ามโต", svg:window.PunPinSeaArt.make("sea_crab")},
+{ id:"sea_shark", cat:"sea", name:"ฉลามยิ้ม", svg:window.PunPinSeaArt.make("sea_shark")},
+{ id:"sea_shell", cat:"sea", name:"หอยมุก", svg:window.PunPinSeaArt.make("sea_shell")},
+{ id:"sea_clownfish", cat:"sea", name:"ปลาการ์ตูน", svg:window.PunPinSeaArt.make("sea_clownfish")},
 /* ---------- 🎵 ดนตรี ---------- */
 { id:"mu_guitar", cat:"music", name:"กีตาร์", svg:S(`
   <path class="r" d="M318 72 L350 40 L376 66 L344 98 Z"/>
@@ -1588,233 +1434,44 @@ const MORE2_PICS = [
   <path class="r" d="M210 268 Q220 288 260 292 L206 268 Z"/>
 `)},
 /* ---------- 🧑‍🚒 อาชีพในฝัน +12 ---------- */
-{ id:"cr_nurse", cat:"career", name:"พยาบาล", svg:S(KID+`
-  <path class="r" d="M164 78 H236 V106 H164 Z"/>
-  <path d="M188 78 V106 M164 92 H236" fill="none" stroke-width="5"/>
-  <path d="M228 200 Q252 232 240 262" fill="none" stroke-width="5"/>
-  <circle class="r" cx="236" cy="270" r="12"/>
-`)},
-{ id:"cr_vet", cat:"career", name:"สัตวแพทย์", svg:S(KID+`
-  <path class="r" d="M156 92 Q140 60 168 50 Q180 74 176 96 Z"/>
-  <path class="r" d="M244 92 Q260 60 232 50 Q220 74 224 96 Z"/>
-  <ellipse class="r" cx="300" cy="270" rx="40" ry="28"/>
-  <circle class="r" cx="288" cy="258" r="7"/><circle class="r" cx="312" cy="258" r="7"/>
-`)},
-{ id:"cr_scientist", cat:"career", name:"นักวิทยาศาสตร์", svg:S(KID+`
-  <path class="r" d="M150 190 H250 L260 300 H140 Z"/>
-  <path d="M172 200 L172 260 M228 200 L228 260" fill="none" stroke-width="4"/>
-  <path class="r" d="M292 250 Q292 210 320 200 Q336 226 322 254 Q332 270 316 280 Q296 276 292 250 Z"/>
-`)},
-{ id:"cr_footballer", cat:"career", name:"นักฟุตบอล", svg:S(KID+`
-  <rect class="r" x="164" y="196" width="72" height="60" rx="10"/>
-  <path d="M164 216 H236 M200 196 V256" fill="none" stroke-width="4"/>
-  <circle class="r" cx="300" cy="300" r="32"/>
-`)},
-{ id:"cr_photographer", cat:"career", name:"ช่างภาพ", svg:S(KID+`
-  <rect class="r" x="150" y="218" width="100" height="72" rx="12"/>
-  <circle class="r" cx="200" cy="254" r="26"/>
-  <rect class="r" x="176" y="204" width="48" height="20" rx="6"/>
-`)},
-{ id:"cr_dancer", cat:"career", name:"นักเต้น", svg:S(`
-  <circle class="r" cx="200" cy="90" r="54"/>
-  <path class="r" d="M156 60 Q200 20 244 60 L232 78 Q200 48 168 78 Z"/>
-  <path class="r" d="M158 144 H242 L268 250 Q200 288 132 250 Z"/>
-  <path class="r" d="M96 210 Q60 170 40 200 Q70 236 108 240 Z"/>
-  <path class="r" d="M304 210 Q340 170 360 200 Q330 236 292 240 Z"/>
-  <path d="M170 300 L140 366 M230 300 L262 366" fill="none" stroke-width="6"/>
-`)},
-{ id:"cr_librarian", cat:"career", name:"บรรณารักษ์", svg:S(KID+`
-  <circle class="r" cx="132" cy="200" r="24"/><circle class="r" cx="268" cy="200" r="24"/>
-  <path d="M156 200 H244" fill="none" stroke-width="5"/>
-  <rect class="r" x="164" y="242" width="72" height="56" rx="8"/>
-  <path d="M200 242 V298" fill="none" stroke-width="4"/>
-`)},
-{ id:"cr_builder", cat:"career", name:"ช่างก่อสร้าง", svg:S(KID+`
-  <path class="r" d="M140 90 Q200 42 260 90 L260 108 H140 Z"/>
-  <path class="r" d="M296 234 L340 190 L354 204 L310 248 Z"/>
-  <rect class="r" x="292" y="244" width="30" height="20" rx="4"/>
-`)},
-{ id:"cr_traindriver", cat:"career", name:"คนขับรถไฟ", svg:S(KID+`
-  <path class="r" d="M142 94 H258 L258 118 H142 Z"/>
-  <path class="r" d="M150 118 H250 L262 138 H138 Z"/>
-  <rect class="r" x="160" y="224" width="80" height="24" rx="6"/>
-`)},
-{ id:"cr_explorer", cat:"career", name:"นักสำรวจ", svg:S(KID+`
-  <path class="r" d="M132 96 Q200 56 268 96 L268 112 Q200 78 132 112 Z"/>
-  <rect class="r" x="176" y="204" width="48" height="52" rx="8"/>
-  <circle class="r" cx="200" cy="230" r="14"/>
-`)},
-{ id:"cr_musician2", cat:"career", name:"นักดนตรี", svg:S(KID+`
-  <ellipse class="r" cx="228" cy="252" rx="52" ry="40" transform="rotate(-16 228 252)"/>
-  <circle class="r" cx="214" cy="248" r="17"/>
-  <path d="M258 218 L282 156" fill="none" stroke-width="4"/>
-`)},
-{ id:"cr_fisherman", cat:"career", name:"ชาวประมง", svg:S(KID+`
-  <path class="r" d="M150 92 Q200 60 250 92 L250 108 Q200 84 150 108 Z"/>
-  <path d="M262 200 L322 152" fill="none" stroke-width="4"/>
-  <path d="M322 152 Q340 180 322 210" fill="none" stroke-width="3"/>
-  <circle class="r" cx="322" cy="212" r="10"/>
-`)},
+{ id:"cr_nurse", cat:"career", name:"พยาบาล", svg:window.PunPinCharacterArt.make("cr_nurse")},
+{ id:"cr_vet", cat:"career", name:"สัตวแพทย์", svg:window.PunPinCharacterArt.make("cr_vet")},
+{ id:"cr_scientist", cat:"career", name:"นักวิทยาศาสตร์", svg:window.PunPinCharacterArt.make("cr_scientist")},
+{ id:"cr_footballer", cat:"career", name:"นักฟุตบอล", svg:window.PunPinCharacterArt.make("cr_footballer")},
+{ id:"cr_photographer", cat:"career", name:"ช่างภาพ", svg:window.PunPinCharacterArt.make("cr_photographer")},
+{ id:"cr_dancer", cat:"career", name:"นักเต้น", svg:window.PunPinCharacterArt.make("cr_dancer")},
+{ id:"cr_librarian", cat:"career", name:"บรรณารักษ์", svg:window.PunPinCharacterArt.make("cr_librarian")},
+{ id:"cr_builder", cat:"career", name:"ช่างก่อสร้าง", svg:window.PunPinCharacterArt.make("cr_builder")},
+{ id:"cr_traindriver", cat:"career", name:"คนขับรถไฟ", svg:window.PunPinCharacterArt.make("cr_traindriver")},
+{ id:"cr_explorer", cat:"career", name:"นักสำรวจ", svg:window.PunPinCharacterArt.make("cr_explorer")},
+{ id:"cr_musician2", cat:"career", name:"นักดนตรี", svg:window.PunPinCharacterArt.make("cr_musician2")},
+{ id:"cr_fisherman", cat:"career", name:"ชาวประมง", svg:window.PunPinCharacterArt.make("cr_fisherman")},
 /* ---------- 🎭 การ์ตูน +12 ---------- */
-{ id:"ct_stargirl", cat:"cartoon", name:"สาวน้อยพลังดาว", svg:S(KID+`
-  <path class="r" d="M150 96 Q200 66 250 96 L246 118 Q200 96 154 118 Z"/>
-  <path class="r" d="M200 40 L214 76 L252 76 L222 98 L234 134 L200 112 L166 134 L178 98 L148 76 L186 76 Z"/>
-  <path class="r" d="M96 220 Q56 236 60 276 Q100 268 118 236 Z"/><path class="r" d="M304 220 Q344 236 340 276 Q300 268 282 236 Z"/>
-`)},
-{ id:"ct_dragon", cat:"cartoon", name:"มังกรน้อยใจดี", svg:S(`
-  <path class="r" d="M138 118 L112 66 L164 96 Z"/><path class="r" d="M262 118 L288 66 L236 96 Z"/>
-  <circle class="r" cx="200" cy="150" r="72"/>
-  <path class="r" d="M270 170 Q330 176 330 226 Q290 236 262 202 Z"/>
-  <path class="r" d="M144 218 H256 L268 320 H132 Z"/>
-  <path class="r" d="M268 300 Q320 296 336 336 Q302 356 264 332 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="180" cy="146" r="8"/><circle cx="220" cy="146" r="8"/></g>
-  <path d="M186 176 Q200 186 214 176" fill="none"/>
-`)},
-{ id:"ct_werewolf", cat:"cartoon", name:"มนุษย์หมาป่าน้อย", svg:S(`
-  <path class="r" d="M136 100 L108 50 L166 88 Z"/><path class="r" d="M264 100 L292 50 L234 88 Z"/>
-  <ellipse class="r" cx="200" cy="158" rx="78" ry="70"/>
-  <ellipse class="r" cx="200" cy="182" rx="38" ry="30"/>
-  <g fill="#3D3562" stroke="none"><circle cx="168" cy="148" r="8"/><circle cx="232" cy="148" r="8"/></g>
-  <circle class="r" cx="200" cy="182" r="10"/>
-  <path class="r" d="M156 232 H244 L256 320 H144 Z"/>
-`)},
-{ id:"ct_unicornrider", cat:"cartoon", name:"นักขี่ยูนิคอร์น", svg:S(`
-  <path class="r" d="M96 230 Q60 158 132 130 Q188 108 232 148 Q276 156 268 200 Q296 216 268 244 Q244 280 190 260 Q140 270 118 240 Z"/>
-  <path class="r" d="M232 148 L256 96 L268 152 Z"/>
-  <circle class="r" cx="150" cy="176" r="16"/>
-  <circle class="r" cx="200" cy="196" r="34"/>
-  <g fill="#3D3562" stroke="none"><circle cx="188" cy="192" r="5"/><circle cx="212" cy="192" r="5"/></g>
-  <path d="M120 260 L104 320 M180 264 L172 324" fill="none" stroke-width="6"/>
-`)},
-{ id:"ct_cloud", cat:"cartoon", name:"วิญญาณเมฆยิ้ม", svg:S(`
-  <path class="r" d="M92 220 Q60 220 60 186 Q60 152 96 156 Q100 116 148 120 Q160 84 208 92 Q252 84 264 124 Q308 118 312 158 Q348 158 344 194 Q348 226 308 226 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="164" cy="176" r="9"/><circle cx="240" cy="176" r="9"/></g>
-  <path d="M168 206 Q200 228 232 206" fill="none"/>
-`)},
-{ id:"ct_snowman", cat:"cartoon", name:"มนุษย์หิมะแสนน่ารัก", svg:S(`
-  <circle class="r" cx="200" cy="120" r="62"/>
-  <circle class="r" cx="200" cy="250" r="92"/>
-  <path class="r" d="M200 128 L246 138 L200 148 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="180" cy="112" r="7"/><circle cx="220" cy="112" r="7"/><circle cx="200" cy="234" r="8"/><circle cx="200" cy="262" r="8"/><circle cx="200" cy="290" r="8"/></g>
-  <path class="r" d="M148 66 Q200 34 252 66 L252 84 Q200 56 148 84 Z"/>
-`)},
-{ id:"ct_genie", cat:"cartoon", name:"ยักษ์จินนี่ใจดี", svg:S(`
-  <path class="r" d="M160 320 Q120 260 148 200 Q120 170 148 140 Q170 116 200 132 Q230 116 252 140 Q280 170 252 200 Q280 260 240 320 Z"/>
-  <circle class="r" cx="200" cy="150" r="52"/>
-  <path class="r" d="M156 118 Q200 92 244 118 L236 138 Q200 116 164 138 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="182" cy="148" r="6"/><circle cx="218" cy="148" r="6"/></g>
-  <path d="M186 172 Q200 182 214 172" fill="none"/>
-  <path d="M160 320 Q140 350 160 372 M240 320 Q260 350 240 372" fill="none" stroke-width="5"/>
-`)},
-{ id:"ct_mummy", cat:"cartoon", name:"มัมมี่ตัวน้อย", svg:S(`
-  <ellipse class="r" cx="200" cy="216" rx="96" ry="132"/>
-  <path d="M112 150 Q200 170 288 150 M104 190 Q200 212 296 190 M108 232 Q200 254 292 232 M118 274 Q200 294 282 274 M132 312 Q200 330 268 312" fill="none" stroke-width="5"/>
-  <ellipse class="r" cx="168" cy="180" rx="16" ry="20"/><ellipse class="r" cx="232" cy="180" rx="16" ry="20"/>
-`)},
-{ id:"ct_ghost", cat:"cartoon", name:"ผีน้อยแสนซน", svg:S(`
-  <path class="r" d="M100 220 Q92 100 200 92 Q308 100 300 220 L300 320 Q276 296 252 320 Q228 296 204 320 Q180 296 156 320 Q132 296 100 320 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="164" cy="192" r="10"/><circle cx="236" cy="192" r="10"/></g>
-  <ellipse class="r" cx="200" cy="228" rx="14" ry="18"/>
-`)},
-{ id:"ct_treasurehunter", cat:"cartoon", name:"นักล่าสมบัติตัวน้อย", svg:S(KID+`
-  <path class="r" d="M140 96 Q200 54 260 96 L260 114 Q200 84 140 114 Z"/>
-  <rect class="r" x="150" y="220" width="100" height="70" rx="10"/>
-  <path class="r" d="M150 220 Q200 190 250 220 Z"/>
-  <circle class="r" cx="200" cy="248" r="16"/>
-`)},
-{ id:"ct_frogprince", cat:"cartoon", name:"เจ้าชายกบ", svg:S(`
-  <path class="r" d="M116 148 L100 96 L152 128 Q200 108 248 128 L300 96 L284 148 Q320 176 300 212 Q320 252 280 268 Q240 300 200 288 Q160 300 120 268 Q80 252 100 212 Q80 176 116 148 Z"/>
-  <circle class="r" cx="150" cy="152" r="34"/><circle class="r" cx="250" cy="152" r="34"/>
-  <g fill="#3D3562" stroke="none"><circle cx="150" cy="150" r="12"/><circle cx="250" cy="150" r="12"/></g>
-  <path d="M160 220 Q200 244 240 220" fill="none"/>
-  <path class="r" d="M170 78 L200 40 L230 78 Z"/>
-`)},
-{ id:"ct_sunkid", cat:"cartoon", name:"เด็กพระอาทิตย์", svg:S(`
-  <path class="r" d="M184 60 L200 20 L216 60 Z"/>
-  <path class="r" d="M184 60 L200 20 L216 60 Z" transform="rotate(60 200 150)"/>
-  <path class="r" d="M184 60 L200 20 L216 60 Z" transform="rotate(120 200 150)"/>
-  <path class="r" d="M184 60 L200 20 L216 60 Z" transform="rotate(180 200 150)"/>
-  <path class="r" d="M184 60 L200 20 L216 60 Z" transform="rotate(240 200 150)"/>
-  <path class="r" d="M184 60 L200 20 L216 60 Z" transform="rotate(300 200 150)"/>
-  <circle class="r" cx="200" cy="150" r="70"/>
-  <g fill="#3D3562" stroke="none"><circle cx="178" cy="142" r="7"/><circle cx="222" cy="142" r="7"/></g>
-  <path d="M180 170 Q200 188 220 170" fill="none"/>
-  <path class="r" d="M156 220 H244 L256 320 H144 Z"/>
-`)},
+{ id:"ct_stargirl", cat:"cartoon", name:"สาวน้อยพลังดาว", svg:window.PunPinCharacterArt.make("ct_stargirl")},
+{ id:"ct_dragon", cat:"cartoon", name:"มังกรน้อยใจดี", svg:window.PunPinCharacterArt.make("ct_dragon")},
+{ id:"ct_werewolf", cat:"cartoon", name:"มนุษย์หมาป่าน้อย", svg:window.PunPinCharacterArt.make("ct_werewolf")},
+{ id:"ct_unicornrider", cat:"cartoon", name:"นักขี่ยูนิคอร์น", svg:window.PunPinCharacterArt.make("ct_unicornrider")},
+{ id:"ct_cloud", cat:"cartoon", name:"วิญญาณเมฆยิ้ม", svg:window.PunPinCharacterArt.make("ct_cloud")},
+{ id:"ct_snowman", cat:"cartoon", name:"มนุษย์หิมะแสนน่ารัก", svg:window.PunPinCharacterArt.make("ct_snowman")},
+{ id:"ct_genie", cat:"cartoon", name:"ยักษ์จินนี่ใจดี", svg:window.PunPinCharacterArt.make("ct_genie")},
+{ id:"ct_mummy", cat:"cartoon", name:"มัมมี่ตัวน้อย", svg:window.PunPinCharacterArt.make("ct_mummy")},
+{ id:"ct_ghost", cat:"cartoon", name:"ผีน้อยแสนซน", svg:window.PunPinCharacterArt.make("ct_ghost")},
+{ id:"ct_treasurehunter", cat:"cartoon", name:"นักล่าสมบัติตัวน้อย", svg:window.PunPinCharacterArt.make("ct_treasurehunter")},
+{ id:"ct_frogprince", cat:"cartoon", name:"เจ้าชายกบ", svg:window.PunPinCharacterArt.make("ct_frogprince")},
+{ id:"ct_sunkid", cat:"cartoon", name:"เด็กพระอาทิตย์", svg:window.PunPinCharacterArt.make("ct_sunkid")},
 /* ---------- 🐠 ใต้ทะเล +12 ---------- */
-{ id:"sea_shrimp", cat:"sea", name:"กุ้งทะเล", svg:S(`
-  <path class="r" d="M80 220 Q80 120 176 100 Q260 88 300 140 Q320 168 296 190 Q330 200 320 232 Q300 250 272 226 Q240 260 190 250 Q120 240 80 220 Z"/>
-  <path class="r" d="M176 100 L160 66 L192 84 Z"/>
-  <path d="M92 200 L44 172 M100 220 L54 210" fill="none" stroke-width="4"/>
-  <circle cx="192" cy="118" r="6" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"sea_eel", cat:"sea", name:"ปลาไหลทะเล", svg:S(`
-  <path class="r" d="M60 300 Q100 220 60 160 Q140 180 140 260 Q220 240 200 160 Q280 190 260 260 Q330 240 340 180 Q360 220 330 260 Q290 320 200 300 Q120 340 60 300 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="76" cy="192" r="7"/></g>
-  <path d="M60 200 Q40 190 30 172" fill="none" stroke-width="4"/>
-`)},
-{ id:"sea_turtle", cat:"sea", name:"เต่าทะเล", svg:S(`
-  <ellipse class="r" cx="200" cy="220" rx="104" ry="80"/>
-  <circle class="r" cx="200" cy="140" r="40"/>
-  <path class="r" d="M96 190 L34 170 L46 220 L34 268 L96 250 Z"/>
-  <path class="r" d="M304 190 L366 170 L354 220 L366 268 L304 250 Z"/>
-  <path class="r" d="M160 292 L136 330 L172 322 Z"/><path class="r" d="M240 292 L264 330 L228 322 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="188" cy="134" r="6"/><circle cx="212" cy="134" r="6"/></g>
-`)},
-{ id:"sea_otter", cat:"sea", name:"นากทะเล", svg:S(`
-  <ellipse class="r" cx="200" cy="240" rx="120" ry="80"/>
-  <circle class="r" cx="150" cy="176" r="52"/>
-  <ellipse class="r" cx="150" cy="230" rx="46" ry="34"/>
-  <circle class="r" cx="260" cy="236" r="22"/><circle class="r" cx="300" cy="236" r="22"/>
-  <g fill="#3D3562" stroke="none"><circle cx="132" cy="168" r="6"/><circle cx="168" cy="168" r="6"/></g>
-  <path d="M138 190 Q150 200 162 190" fill="none"/>
-`)},
-{ id:"sea_seal", cat:"sea", name:"แมวน้ำ", svg:S(`
-  <path class="r" d="M120 340 Q60 300 76 220 Q84 140 160 108 Q220 84 268 130 Q316 150 296 202 Q332 224 300 264 Q312 310 254 330 Q180 366 120 340 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="164" cy="168" r="9"/><circle cx="212" cy="156" r="9"/></g>
-  <ellipse class="r" cx="186" cy="196" rx="12" ry="9"/>
-`)},
-{ id:"sea_urchin", cat:"sea", name:"หอยเม่นทะเล", svg:S(`
-  <circle class="r" cx="200" cy="220" r="86"/>
-  <path d="M200 134 V60 M200 306 V380 M114 220 H40 M286 220 H360 M140 156 L88 104 M260 156 L312 104 M140 284 L88 336 M260 284 L312 336" fill="none" stroke-width="6"/>
-  <g fill="#3D3562" stroke="none"><circle cx="180" cy="204" r="6"/><circle cx="220" cy="204" r="6"/></g>
-`)},
-{ id:"sea_seaweed", cat:"sea", name:"สาหร่ายทะเล", svg:S(`
-  <path class="r" d="M120 360 Q90 260 130 200 Q90 150 130 90 Q150 60 170 90 Q140 150 172 196 Q140 260 164 360 Z"/>
-  <path class="r" d="M240 360 Q270 250 232 190 Q272 140 232 84 Q214 56 194 84 Q224 144 194 190 Q226 250 204 360 Z"/>
-  <circle class="r" cx="300" cy="200" r="14"/><circle class="r" cx="90" cy="240" r="10"/>
-`)},
-{ id:"sea_hammerhead", cat:"sea", name:"ฉลามหัวค้อน", svg:S(`
-  <path class="r" d="M296 220 L366 168 L354 220 L366 276 Z"/>
-  <path class="r" d="M60 200 Q60 176 90 176 L310 176 Q340 176 340 200 Q340 224 310 224 L90 224 Q60 224 60 200 Z"/>
-  <ellipse class="r" cx="200" cy="248" rx="120" ry="60"/>
-  <circle class="r" cx="90" cy="192" r="9"/><circle class="r" cx="310" cy="192" r="9"/>
-`)},
-{ id:"sea_gull", cat:"sea", name:"นกนางนวล", svg:S(`
-  <path class="r" d="M200 180 Q120 130 40 150 Q120 168 176 200 Q120 210 60 250 Q140 240 200 210 Q260 240 340 250 Q280 210 224 200 Q280 168 360 150 Q280 130 200 180 Z"/>
-  <path class="r" d="M200 180 L228 200 L200 210 Z"/>
-  <circle cx="204" cy="188" r="5" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"sea_anchor", cat:"sea", name:"สมอเรือ", svg:S(`
-  <circle class="r" cx="200" cy="70" r="26"/>
-  <rect class="r" x="188" y="96" width="24" height="200" rx="8"/>
-  <rect class="r" x="140" y="150" width="120" height="24" rx="10"/>
-  <path class="r" d="M120 296 Q120 356 172 366 L164 336 Q140 328 140 296 Z"/>
-  <path class="r" d="M280 296 Q280 356 228 366 L236 336 Q260 328 260 296 Z"/>
-`)},
-{ id:"sea_babywhale", cat:"sea", name:"ลูกปลาวาฬ", svg:S(`
-  <path class="r" d="M96 240 Q80 160 176 140 Q272 130 312 200 Q300 220 320 232 Q300 250 316 268 Q272 268 250 244 Q200 268 140 250 Q100 244 96 240 Z"/>
-  <path class="r" d="M180 140 L200 96 L216 138 Z"/>
-  <g fill="#3D3562" stroke="none"><circle cx="150" cy="188" r="9"/></g>
-  <path d="M140 214 Q160 226 180 214" fill="none"/>
-`)},
-{ id:"sea_butterflyfish", cat:"sea", name:"ปลาผีเสื้อ", svg:S(`
-  <path class="r" d="M290 200 L350 160 L340 200 L350 244 Z"/>
-  <path class="r" d="M200 88 Q240 108 232 148 Q192 148 168 122 Z"/>
-  <ellipse class="r" cx="190" cy="212" rx="122" ry="88"/>
-  <path d="M150 170 Q190 200 150 254" fill="none" stroke-width="5"/>
-  <circle cx="118" cy="196" r="12" fill="#fff"/><circle cx="118" cy="196" r="6" fill="#3D3562" stroke="none"/>
-`)},
+{ id:"sea_shrimp", cat:"sea", name:"กุ้งทะเล", svg:window.PunPinSeaArt.make("sea_shrimp")},
+{ id:"sea_eel", cat:"sea", name:"ปลาไหลทะเล", svg:window.PunPinSeaArt.make("sea_eel")},
+{ id:"sea_turtle", cat:"sea", name:"เต่าทะเล", svg:window.PunPinSeaArt.make("sea_turtle")},
+{ id:"sea_otter", cat:"sea", name:"นากทะเล", svg:window.PunPinSeaArt.make("sea_otter")},
+{ id:"sea_seal", cat:"sea", name:"แมวน้ำ", svg:window.PunPinSeaArt.make("sea_seal")},
+{ id:"sea_urchin", cat:"sea", name:"หอยเม่นทะเล", svg:window.PunPinSeaArt.make("sea_urchin")},
+{ id:"sea_seaweed", cat:"sea", name:"สาหร่ายทะเล", svg:window.PunPinSeaArt.make("sea_seaweed")},
+{ id:"sea_hammerhead", cat:"sea", name:"ฉลามหัวค้อน", svg:window.PunPinSeaArt.make("sea_hammerhead")},
+{ id:"sea_gull", cat:"sea", name:"นกนางนวล", svg:window.PunPinSeaArt.make("sea_gull")},
+{ id:"sea_anchor", cat:"sea", name:"สมอเรือ", svg:window.PunPinSeaArt.make("sea_anchor")},
+{ id:"sea_babywhale", cat:"sea", name:"ลูกปลาวาฬ", svg:window.PunPinSeaArt.make("sea_babywhale")},
+{ id:"sea_butterflyfish", cat:"sea", name:"ปลาผีเสื้อ", svg:window.PunPinSeaArt.make("sea_butterflyfish")},
 /* ---------- 🚀 โลกอวกาศ +13 ---------- */
 { id:"sp_mars", cat:"space", name:"ดาวอังคาร", svg:S(`
   <circle class="r" cx="200" cy="210" r="128"/>
@@ -2081,6 +1738,8 @@ PICS.push(...MORE3_PICS);
 
 
 
+PICS.forEach(p=>{ p.svg = window.PunPinColoringRefresh.make(p); });
+
 const CATS = [
   {id:"all", name:"ทั้งหมด", emoji:"⭐", tint:"#FFF3C9"},
   {id:"princess", name:"เจ้าหญิง", emoji:"👑", tint:"#FFE3F0"},
@@ -2242,15 +1901,13 @@ function openPic(p){
   const svgs = wrap.querySelectorAll("svg");
   const base = svgs[0], top = svgs[1];
   top.classList.add("lineart");
-  if(p.cat === "princess" || p.cat === "animal" || p.cat === "dino" || p.cat === "nature"){
+  {
     // Composite the white original first, then remove white. Hidden contours stay hidden.
     top.querySelectorAll(".r").forEach(el=>el.classList.remove("r"));
     const outlineDefs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
     outlineDefs.innerHTML = '<filter id="princessOutline" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 .251 0 0 0 0 .216 0 0 0 0 .282 -1 -1 -1 3 0"/></filter>';
     top.prepend(outlineDefs);
     top.querySelector("g").setAttribute("filter", "url(#princessOutline)");
-  }else{
-    top.querySelectorAll(".r").forEach(el=>{ el.setAttribute("fill","none"); el.classList.remove("r"); });
   }
 
   applyFills(base, p.id);

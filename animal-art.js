@@ -179,6 +179,6 @@ frog:()=>
  r('M153 240 Q134 249 141 277 L148 307 L137 313 Q126 321 140 325 L159 317 L162 292 L177 258Z')+r('M221 241 Q244 248 237 272 L230 306 L242 314 Q254 322 240 325 L220 317 L213 290 L202 257Z')+
  eye(149,143,1.65)+eye(245,144,1.65)+l('M137 184 Q193 217 260 185 M174 172 l3 -1 M221 172 l3 1 M95 319 L101 324 M285 317 L280 323 M139 316 L145 321 M232 315 L227 321')+spot(136,229,.4)+spot(250,229,.4)
 };
-function make(id){if(!a[id])throw new Error('Unknown animal '+id);return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 45 400 325" role="img" aria-label="ภาพสัตว์สำหรับระบายสี"><g fill="#fff" stroke="${ink}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">${a[id]()}</g></svg>`;}
+function make(id){if(!a[id])throw new Error('Unknown animal '+id);return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 20 400 350" role="img" aria-label="ภาพสัตว์สำหรับระบายสี"><g fill="#fff" stroke="${ink}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">${a[id]()}</g></svg>`;}
 window.PunPinAnimalArt={make,ids:Object.keys(a)};
 })();
