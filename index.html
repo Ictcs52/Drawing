@@ -621,9 +621,10 @@
 <script src="animal-art.js?v=20261008audit"></script>
 <script src="dinosaur-art.js?v=20261008"></script>
 <script src="nature-art.js?v=20261008"></script>
-<script src="character-art.js?v=20261008"></script>
+<script src="character-art.js?v=20261008poses"></script>
 <script src="sea-art.js?v=20261008"></script>
-<script src="coloring-refresh.js?v=20261008"></script>
+<script src="coloring-refresh.js?v=20261008play"></script>
+<script src="playful-art.js?v=20261008"></script>
 <script src="paint-patterns.js?v=20261007c"></script>
 <script>
 /* ================= ภาพระบายสี (SVG) ================= */
@@ -727,138 +728,26 @@ const PICS = [
 { id:"forest", cat:"nature", name:"ป่าใหญ่", svg:window.PunPinNatureArt.make("forest")},
 { id:"autumn", cat:"nature", name:"ใบไม้ฤดูใบไม้ร่วง", svg:window.PunPinNatureArt.make("autumn")},
 /* ---------- 🚗 ยานพาหนะ (20 ประเภท) ---------- */
-{ id:"car", cat:"vehicle", name:"รถเก๋ง", svg:S(`
-  <path class="r" d="M55 250 L55 215 C55 200 65 195 80 195 L110 195 L140 150 C145 142 152 138 162 138 L250 138 C258 138 265 142 270 150 L296 195 L330 199 C345 201 350 210 350 222 L350 250 C350 258 344 262 336 262 L64 262 C58 262 55 258 55 250 Z"/>
-  <path class="r" d="M150 152 L200 152 L200 192 L124 192 Z"/>
-  <path class="r" d="M214 152 L248 152 L272 192 L214 192 Z"/>
-  <circle class="r" cx="115" cy="266" r="34"/><circle class="r" cx="290" cy="266" r="34"/>
-  <circle class="r" cx="115" cy="266" r="13"/><circle class="r" cx="290" cy="266" r="13"/>
-  <circle class="r" cx="68" cy="222" r="9"/>
-  <path d="M20 322 L380 322" fill="none" stroke-dasharray="18 14"/>
-`)},
-{ id:"rocket", cat:"vehicle", name:"จรวด", svg:S(`
-  <path class="r" d="M60 84 L68 104 L88 112 L68 120 L60 140 L52 120 L32 112 L52 104 Z"/>
-  <path class="r" d="M340 200 L346 214 L360 220 L346 226 L340 240 L334 226 L320 220 L334 214 Z"/>
-  <circle class="r" cx="330" cy="80" r="18"/>
-  <path class="r" d="M152 200 L102 288 L152 262 Z"/>
-  <path class="r" d="M248 200 L298 288 L248 262 Z"/>
-  <path class="r" d="M200 32 C158 86 148 170 152 256 L248 256 C252 170 242 86 200 32 Z"/>
-  <circle class="r" cx="200" cy="140" r="32"/>
-  <circle class="r" cx="200" cy="140" r="18"/>
-  <path class="r" d="M168 256 L232 256 L224 282 L176 282 Z"/>
-  <path class="r" d="M178 284 C178 322 200 350 200 350 C200 350 222 322 222 284 Z"/>
-`)},
-{ id:"boat", cat:"vehicle", name:"เรือใบ", svg:S(`
-  <path d="M200 282 L200 62" fill="none"/>
-  <path class="r" d="M188 92 L188 268 L84 268 Z"/>
-  <path class="r" d="M212 78 L318 268 L212 268 Z"/>
-  <path class="r" d="M200 62 L248 74 L200 88 Z"/>
-  <path class="r" d="M62 282 L338 282 L296 346 L104 346 Z"/>
-  <circle class="r" cx="60" cy="70" r="26"/>
-  <path d="M30 372 Q50 358 70 372 T110 372 T150 372 T190 372 T230 372 T270 372 T310 372 T350 372" fill="none" stroke-width="5"/>
-`)},
-{ id:"balloon", cat:"vehicle", name:"บอลลูน", svg:S(`
-  <path class="r" d="M200 28 C118 28 88 100 94 158 C100 214 152 248 176 272 L224 272 C248 248 300 214 306 158 C312 100 282 28 200 28 Z"/>
-  <path class="r" d="M172 32 C152 95 152 215 180 270 L220 270 C248 215 248 95 228 32 C219 30 181 30 172 32 Z"/>
-  <path d="M176 272 L180 304 M224 272 L220 304" fill="none" stroke-width="5"/>
-  <rect class="r" x="170" y="304" width="60" height="48" rx="10"/>
-  <path d="M170 322 L230 322 M190 304 L190 352 M210 304 L210 352" fill="none" stroke-width="4"/>
-  <path class="r" d="M40 330 C28 312 44 294 62 299 C67 282 93 279 102 293 C118 288 130 304 122 317 C126 328 116 336 105 333 L52 335 C44 335 42 333 40 330 Z"/>
-  <circle class="r" cx="340" cy="90" r="22"/>
-`)},
-{ id:"plane", cat:"vehicle", name:"เครื่องบิน", svg:S(`
-  <path class="r" d="M72 176 L44 108 L98 108 L120 176 Z"/>
-  <path class="r" d="M48 206 C54 184 82 174 112 174 L282 174 C322 177 352 194 360 207 C352 221 322 234 286 234 L106 234 C76 234 54 226 48 206 Z"/>
-  <path class="r" d="M168 208 L98 296 L164 296 L236 210 Z"/>
-  <circle class="r" cx="150" cy="196" r="10"/><circle class="r" cx="190" cy="196" r="10"/>
-  <circle class="r" cx="230" cy="196" r="10"/><circle class="r" cx="268" cy="196" r="10"/>
-  <path class="r" d="M302 183 L340 198 L332 213 L296 202 Z"/>
-  <path class="r" d="M300 320 C290 304 302 290 318 294 C322 280 346 278 354 290 C368 286 378 298 372 308 C376 317 368 324 359 322 L312 323 C305 323 302 322 300 320 Z"/>
-  <path class="r" d="M56 60 C48 48 58 36 70 39 C73 28 92 27 98 36 C109 33 117 42 112 50 C115 57 109 62 102 61 L66 62 C60 62 58 61 56 60 Z"/>
-`)},
-{ id:"bicycle", cat:"vehicle", name:"จักรยาน", svg:S(`
-  <circle class="r" cx="105" cy="278" r="67"/><circle class="r" cx="295" cy="278" r="67"/>
-  <path d="M105 278 L162 180 L224 278 L105 278 L188 226 L295 278 L246 166 M224 278 L188 226 M230 166 L270 166" fill="none"/>
-  <circle class="r" cx="224" cy="278" r="18"/><path class="r" d="M142 170 L194 170 L180 188 L150 188 Z"/>
-`)},
-{ id:"motorcycle", cat:"vehicle", name:"มอเตอร์ไซค์", svg:S(`
-  <circle class="r" cx="104" cy="284" r="54"/><circle class="r" cx="302" cy="284" r="54"/>
-  <path class="r" d="M104 284 L154 212 L238 212 L302 284 L210 284 L176 248 Z"/>
-  <path class="r" d="M220 212 L258 166 L300 166 L276 190 L244 190 Z"/><rect class="r" x="142" y="190" width="72" height="28" rx="12"/>
-  <circle class="r" cx="202" cy="272" r="30"/><path d="M264 166 L292 144" fill="none"/>
-`)},
-{ id:"bus", cat:"vehicle", name:"รถบัส", svg:S(`
-  <rect class="r" x="42" y="112" width="316" height="190" rx="32"/>
-  <rect class="r" x="68" y="138" width="54" height="70" rx="8"/><rect class="r" x="135" y="138" width="54" height="70" rx="8"/><rect class="r" x="202" y="138" width="54" height="70" rx="8"/><rect class="r" x="269" y="138" width="62" height="130" rx="8"/>
-  <circle class="r" cx="112" cy="308" r="34"/><circle class="r" cx="286" cy="308" r="34"/><circle class="r" cx="62" cy="250" r="10"/>
-`)},
-{ id:"truck", cat:"vehicle", name:"รถบรรทุก", svg:S(`
-  <rect class="r" x="38" y="126" width="208" height="150" rx="16"/><path class="r" d="M246 178 L306 178 L358 232 L358 276 L246 276 Z"/>
-  <rect class="r" x="270" y="196" width="45" height="40" rx="6"/>
-  <circle class="r" cx="104" cy="292" r="39"/><circle class="r" cx="288" cy="292" r="39"/><circle class="r" cx="340" cy="250" r="10"/>
-`)},
-{ id:"train", cat:"vehicle", name:"รถไฟ", svg:S(`
-  <rect class="r" x="62" y="100" width="276" height="208" rx="28"/>
-  <rect class="r" x="92" y="130" width="78" height="82" rx="12"/><rect class="r" x="190" y="130" width="78" height="82" rx="12"/><circle class="r" cx="301" cy="176" r="28"/>
-  <path class="r" d="M92 308 L72 350 L328 350 L308 308 Z"/><circle class="r" cx="128" cy="304" r="31"/><circle class="r" cx="272" cy="304" r="31"/>
-  <path d="M42 368 L358 368" fill="none"/>
-`)},
-{ id:"helicopter", cat:"vehicle", name:"เฮลิคอปเตอร์", svg:S(`
-  <path class="r" d="M72 224 C72 160 122 124 188 124 L268 124 C308 124 338 154 338 194 C338 234 306 258 264 258 L128 258 C92 258 72 248 72 224 Z"/>
-  <path class="r" d="M104 142 L52 92 L76 82 L158 126 Z"/><path class="r" d="M188 128 L216 70 L270 70 L280 128 Z"/>
-  <path d="M200 70 L200 38 M70 38 L330 38" fill="none"/><circle class="r" cx="170" cy="204" r="34"/>
-  <path d="M118 276 L290 276 M150 258 L130 292 M266 258 L286 292" fill="none"/>
-`)},
-{ id:"submarine", cat:"vehicle", name:"เรือดำน้ำ", svg:S(`
-  <ellipse class="r" cx="200" cy="226" rx="154" ry="76"/>
-  <path class="r" d="M162 150 L176 102 L238 102 L252 150 Z"/><path d="M208 102 L208 62 L258 62" fill="none"/>
-  <circle class="r" cx="132" cy="218" r="24"/><circle class="r" cx="202" cy="218" r="24"/><circle class="r" cx="272" cy="218" r="24"/>
-  <path class="r" d="M46 226 L18 184 L18 268 Z"/><circle class="r" cx="332" cy="94" r="12"/><circle class="r" cx="360" cy="62" r="8"/>
-`)},
-{ id:"firetruck", cat:"vehicle", name:"รถดับเพลิง", svg:S(`
-  <rect class="r" x="42" y="154" width="230" height="132" rx="18"/><path class="r" d="M272 190 L328 190 L360 232 L360 286 L272 286 Z"/>
-  <path class="r" d="M74 136 L274 70 L286 96 L86 162 Z"/><rect class="r" x="88" y="188" width="118" height="58" rx="10"/>
-  <circle class="r" cx="112" cy="298" r="36"/><circle class="r" cx="304" cy="298" r="36"/><circle class="r" cx="236" cy="168" r="18"/>
-`)},
-{ id:"ambulance", cat:"vehicle", name:"รถพยาบาล", svg:S(`
-  <path class="r" d="M42 152 H258 L306 202 H358 V286 H42 Z"/><rect class="r" x="270" y="176" width="46" height="46" rx="6"/>
-  <rect class="r" x="94" y="180" width="92" height="72" rx="10"/><path class="r" d="M126 192 H154 V208 H170 V236 H154 V252 H126 V236 H110 V208 H126 Z"/>
-  <circle class="r" cx="112" cy="296" r="36"/><circle class="r" cx="300" cy="296" r="36"/><rect class="r" x="198" y="126" width="44" height="26" rx="8"/>
-`)},
-{ id:"tractor", cat:"vehicle", name:"รถแทรกเตอร์", svg:S(`
-  <circle class="r" cx="116" cy="286" r="70"/><circle class="r" cx="310" cy="300" r="44"/>
-  <path class="r" d="M116 286 L150 168 H252 L288 286 Z"/><rect class="r" x="172" y="100" width="88" height="116" rx="12"/>
-  <rect class="r" x="192" y="122" width="48" height="60" rx="8"/><path class="r" d="M260 244 H346 V286 H286 Z"/><path d="M280 100 V54" fill="none"/>
-`)},
-{ id:"excavator", cat:"vehicle", name:"รถขุด", svg:S(`
-  <path class="r" d="M72 276 H282 L318 326 H52 Z"/><circle class="r" cx="112" cy="304" r="28"/><circle class="r" cx="242" cy="304" r="28"/>
-  <rect class="r" x="104" y="158" width="130" height="120" rx="18"/><rect class="r" x="132" y="180" width="72" height="58" rx="8"/>
-  <path class="r" d="M220 174 L274 92 L304 106 L252 206 Z"/><path class="r" d="M294 98 L336 44 L360 62 L320 124 Z"/>
-  <path class="r" d="M320 116 Q374 140 354 210 L310 192 Z"/>
-`)},
-{ id:"scooter", cat:"vehicle", name:"สกูตเตอร์", svg:S(`
-  <circle class="r" cx="112" cy="310" r="42"/><circle class="r" cx="302" cy="310" r="42"/>
-  <path class="r" d="M112 310 H244 L276 270 H178 L146 230 Z"/><path d="M276 270 L252 108 H306 M252 108 L226 108" fill="none"/>
-  <rect class="r" x="144" y="214" width="86" height="28" rx="12"/><circle class="r" cx="274" cy="158" r="20"/>
-`)},
-{ id:"taxi", cat:"vehicle", name:"รถแท็กซี่", svg:S(`
-  <path class="r" d="M48 260 V218 Q48 200 72 196 L116 190 L150 140 H254 L294 190 L334 198 Q352 202 352 222 V260 Z"/>
-  <path class="r" d="M158 152 H198 V188 H132 Z"/><path class="r" d="M212 152 H246 L272 188 H212 Z"/>
-  <rect class="r" x="178" y="112" width="48" height="28" rx="8"/><circle class="r" cx="112" cy="270" r="36"/><circle class="r" cx="292" cy="270" r="36"/>
-  <path class="r" d="M70 214 H94 V238 H70 Z"/>
-`)},
-{ id:"police", cat:"vehicle", name:"รถตำรวจ", svg:S(`
-  <path class="r" d="M48 260 V218 Q48 200 72 196 L116 190 L150 140 H254 L294 190 L334 198 Q352 202 352 222 V260 Z"/>
-  <path class="r" d="M158 152 H198 V188 H132 Z"/><path class="r" d="M212 152 H246 L272 188 H212 Z"/>
-  <rect class="r" x="168" y="108" width="64" height="32" rx="10"/><circle class="r" cx="112" cy="270" r="36"/><circle class="r" cx="292" cy="270" r="36"/>
-  <path class="r" d="M200 202 L210 224 L234 226 L216 242 L222 266 L200 252 L178 266 L184 242 L166 226 L190 224 Z"/>
-`)},
-{ id:"cablecar", cat:"vehicle", name:"กระเช้าลอยฟ้า", svg:S(`
-  <path d="M30 74 Q200 24 370 74 M200 56 V112" fill="none"/>
-  <path class="r" d="M92 112 H308 L330 292 Q200 344 70 292 Z"/>
-  <rect class="r" x="112" y="144" width="72" height="76" rx="12"/><rect class="r" x="216" y="144" width="72" height="76" rx="12"/>
-  <path class="r" d="M88 246 H312 L304 286 Q200 322 96 286 Z"/><circle class="r" cx="200" cy="78" r="22"/>
-`)},
+{ id:"car", cat:"vehicle", name:"รถเก๋ง", svg:window.PunPinPlayfulArt.make("vehicle","car")},
+{ id:"rocket", cat:"vehicle", name:"จรวด", svg:window.PunPinPlayfulArt.make("vehicle","rocket")},
+{ id:"boat", cat:"vehicle", name:"เรือใบ", svg:window.PunPinPlayfulArt.make("vehicle","boat")},
+{ id:"balloon", cat:"vehicle", name:"บอลลูน", svg:window.PunPinPlayfulArt.make("vehicle","balloon")},
+{ id:"plane", cat:"vehicle", name:"เครื่องบิน", svg:window.PunPinPlayfulArt.make("vehicle","plane")},
+{ id:"bicycle", cat:"vehicle", name:"จักรยาน", svg:window.PunPinPlayfulArt.make("vehicle","bicycle")},
+{ id:"motorcycle", cat:"vehicle", name:"มอเตอร์ไซค์", svg:window.PunPinPlayfulArt.make("vehicle","motorcycle")},
+{ id:"bus", cat:"vehicle", name:"รถบัส", svg:window.PunPinPlayfulArt.make("vehicle","bus")},
+{ id:"truck", cat:"vehicle", name:"รถบรรทุก", svg:window.PunPinPlayfulArt.make("vehicle","truck")},
+{ id:"train", cat:"vehicle", name:"รถไฟ", svg:window.PunPinPlayfulArt.make("vehicle","train")},
+{ id:"helicopter", cat:"vehicle", name:"เฮลิคอปเตอร์", svg:window.PunPinPlayfulArt.make("vehicle","helicopter")},
+{ id:"submarine", cat:"vehicle", name:"เรือดำน้ำ", svg:window.PunPinPlayfulArt.make("vehicle","submarine")},
+{ id:"firetruck", cat:"vehicle", name:"รถดับเพลิง", svg:window.PunPinPlayfulArt.make("vehicle","firetruck")},
+{ id:"ambulance", cat:"vehicle", name:"รถพยาบาล", svg:window.PunPinPlayfulArt.make("vehicle","ambulance")},
+{ id:"tractor", cat:"vehicle", name:"รถแทรกเตอร์", svg:window.PunPinPlayfulArt.make("vehicle","tractor")},
+{ id:"excavator", cat:"vehicle", name:"รถขุด", svg:window.PunPinPlayfulArt.make("vehicle","excavator")},
+{ id:"scooter", cat:"vehicle", name:"สกูตเตอร์", svg:window.PunPinPlayfulArt.make("vehicle","scooter")},
+{ id:"taxi", cat:"vehicle", name:"รถแท็กซี่", svg:window.PunPinPlayfulArt.make("vehicle","taxi")},
+{ id:"police", cat:"vehicle", name:"รถตำรวจ", svg:window.PunPinPlayfulArt.make("vehicle","police")},
+{ id:"cablecar", cat:"vehicle", name:"กระเช้าลอยฟ้า", svg:window.PunPinPlayfulArt.make("vehicle","cablecar")},
 /* ---------- 🍎 ของกิน ---------- */
 { id:"cupcake", cat:"food", name:"คัพเค้ก", svg:S(`
   <path class="r" d="M112 196 H288 L266 350 H134 Z"/><path class="r" d="M102 196 C78 172 92 132 126 132 C120 92 162 64 198 86 C230 58 282 88 274 132 C310 130 326 174 298 196 Z"/>
@@ -886,33 +775,11 @@ const PICS = [
   <circle class="r" cx="160" cy="206" r="12"/><circle class="r" cx="240" cy="206" r="12"/><path d="M174 248 Q200 270 226 248" fill="none"/>
 `)},
 /* ---------- 🧸 ของเล่น ---------- */
-{ id:"teddy", cat:"toy", name:"ตุ๊กตาหมี", svg:S(`
-  <circle class="r" cx="116" cy="102" r="50"/><circle class="r" cx="284" cy="102" r="50"/><circle class="r" cx="200" cy="160" r="100"/>
-  <ellipse class="r" cx="200" cy="290" rx="92" ry="76"/><circle class="r" cx="112" cy="276" r="34"/><circle class="r" cx="288" cy="276" r="34"/>
-  <ellipse class="r" cx="200" cy="194" rx="48" ry="36"/><circle class="r" cx="164" cy="150" r="12"/><circle class="r" cx="236" cy="150" r="12"/><path class="r" d="M184 180 L216 180 L200 198 Z"/>
-`)},
-{ id:"ball", cat:"toy", name:"ลูกบอล", svg:S(`
-  <circle class="r" cx="200" cy="210" r="156"/><path class="r" d="M200 54 L246 118 L220 190 H180 L154 118 Z"/>
-  <path class="r" d="M44 210 L116 184 L180 210 L154 280 L82 292 Z"/><path class="r" d="M356 210 L284 184 L220 210 L246 280 L318 292 Z"/>
-  <path class="r" d="M82 292 L154 280 L200 328 L154 360 Q108 344 82 292 Z"/><path class="r" d="M318 292 L246 280 L200 328 L246 360 Q292 344 318 292 Z"/>
-`)},
-{ id:"kite", cat:"toy", name:"ว่าว", svg:S(`
-  <path class="r" d="M200 34 L328 170 L200 294 L72 170 Z"/><path class="r" d="M200 34 V294 M72 170 H328" fill="none"/>
-  <path d="M200 294 Q260 326 204 352 Q160 374 222 390" fill="none"/><path class="r" d="M198 318 L166 304 L170 338 Z"/><path class="r" d="M212 352 L244 336 L242 370 Z"/>
-`)},
-{ id:"blocks", cat:"toy", name:"บล็อกตัวต่อ", svg:S(`
-  <rect class="r" x="54" y="226" width="118" height="118" rx="10"/><circle class="r" cx="88" cy="220" r="16"/><circle class="r" cx="138" cy="220" r="16"/>
-  <rect class="r" x="172" y="174" width="118" height="170" rx="10"/><circle class="r" cx="206" cy="168" r="16"/><circle class="r" cx="256" cy="168" r="16"/>
-  <rect class="r" x="290" y="252" width="64" height="92" rx="10"/><circle class="r" cx="322" cy="246" r="16"/>
-  <path class="r" d="M210 230 L232 202 L254 230 L244 266 H220 Z"/>
-`)},
-{ id:"robot", cat:"toy", name:"หุ่นยนต์", svg:S(`
-  <rect class="r" x="110" y="70" width="180" height="130" rx="24"/><circle class="r" cx="158" cy="126" r="20"/><circle class="r" cx="242" cy="126" r="20"/>
-  <path d="M200 70 V36 M178 164 H222" fill="none"/><circle class="r" cx="200" cy="28" r="14"/>
-  <rect class="r" x="126" y="200" width="148" height="126" rx="18"/><circle class="r" cx="200" cy="246" r="24"/>
-  <rect class="r" x="64" y="218" width="62" height="30" rx="14"/><rect class="r" x="274" y="218" width="62" height="30" rx="14"/>
-  <rect class="r" x="146" y="326" width="34" height="48" rx="10"/><rect class="r" x="220" y="326" width="34" height="48" rx="10"/>
-`)},
+{ id:"teddy", cat:"toy", name:"ตุ๊กตาหมี", svg:window.PunPinPlayfulArt.make("toy","teddy")},
+{ id:"ball", cat:"toy", name:"ลูกบอล", svg:window.PunPinPlayfulArt.make("toy","ball")},
+{ id:"kite", cat:"toy", name:"ว่าว", svg:window.PunPinPlayfulArt.make("toy","kite")},
+{ id:"blocks", cat:"toy", name:"บล็อกตัวต่อ", svg:window.PunPinPlayfulArt.make("toy","blocks")},
+{ id:"robot", cat:"toy", name:"หุ่นยนต์", svg:window.PunPinPlayfulArt.make("toy","robot")},
 /* ---------- 🦕 ไดโนเสาร์ ---------- */
 { id:"trex", cat:"dino", name:"ทีเร็กซ์", svg:window.PunPinDinosaurArt.make("trex")},
 { id:"triceratops", cat:"dino", name:"ไทรเซราทอปส์", svg:window.PunPinDinosaurArt.make("triceratops")},
@@ -1013,87 +880,17 @@ const EXTRA_PICS = [
   <rect class="r" x="72" y="264" width="256" height="46" rx="20"/>
 `)},
 /* ---------- 🧸 ของเล่น ---------- */
-{ id:"t_car", cat:"toy", name:"รถของเล่น", svg:S(`
-  <path class="r" d="M58 270 V222 L118 210 L152 160 H256 L294 210 L342 220 V270 Z"/>
-  <rect class="r" x="166" y="174" width="72" height="38" rx="8"/>
-  <circle class="r" cx="120" cy="280" r="38"/><circle class="r" cx="286" cy="280" r="38"/>
-  <circle class="r" cx="120" cy="280" r="14"/><circle class="r" cx="286" cy="280" r="14"/>
-`)},
-{ id:"t_yoyo", cat:"toy", name:"โยโย่", svg:S(`
-  <circle class="r" cx="180" cy="226" r="100"/><circle class="r" cx="180" cy="226" r="34"/>
-  <path d="M180 126 Q262 62 322 94" fill="none"/>
-  <circle class="r" cx="334" cy="100" r="16"/>
-`)},
-{ id:"t_drum", cat:"toy", name:"กลอง", svg:S(`
-  <path d="M124 62 L188 132 M276 62 L212 132" fill="none"/>
-  <circle class="r" cx="116" cy="54" r="14"/><circle class="r" cx="284" cy="54" r="14"/>
-  <path class="r" d="M80 152 V282 Q200 332 320 282 V152 Z"/>
-  <ellipse class="r" cx="200" cy="152" rx="120" ry="42"/>
-  <path d="M80 204 L140 254 L200 204 L260 254 L320 204" fill="none" stroke-width="5"/>
-`)},
-{ id:"t_top", cat:"toy", name:"ลูกข่าง", svg:S(`
-  <circle class="r" cx="200" cy="72" r="16"/>
-  <rect class="r" x="188" y="86" width="24" height="30"/>
-  <path class="r" d="M110 152 Q200 98 290 152 L200 344 Z"/>
-  <path class="r" d="M118 190 Q200 230 282 190 L264 238 Q200 272 136 238 Z"/>
-`)},
-{ id:"t_train", cat:"toy", name:"รถไฟของเล่น", svg:S(`
-  <circle class="r" cx="322" cy="92" r="20"/><circle class="r" cx="352" cy="58" r="14"/>
-  <rect class="r" x="284" y="130" width="30" height="72" rx="8"/>
-  <rect class="r" x="60" y="150" width="120" height="112" rx="12"/>
-  <rect class="r" x="86" y="176" width="64" height="44" rx="8"/>
-  <rect class="r" x="180" y="198" width="150" height="64" rx="10"/>
-  <path class="r" d="M330 262 L376 302 H310 Z"/>
-  <circle class="r" cx="110" cy="302" r="30"/><circle class="r" cx="220" cy="302" r="26"/><circle class="r" cx="298" cy="302" r="26"/>
-`)},
-{ id:"t_marbles", cat:"toy", name:"ลูกแก้ว", svg:S(`
-  <circle class="r" cx="130" cy="172" r="66"/><path d="M96 152 Q130 124 164 152" fill="none" stroke-width="5"/>
-  <circle class="r" cx="270" cy="150" r="56"/><path d="M242 134 Q270 110 298 134" fill="none" stroke-width="5"/>
-  <circle class="r" cx="200" cy="292" r="70"/><path d="M164 270 Q200 240 236 270" fill="none" stroke-width="5"/>
-  <circle class="r" cx="318" cy="272" r="40"/>
-`)},
-{ id:"t_rockinghorse", cat:"toy", name:"ม้าโยก", svg:S(`
-  <path class="r" d="M108 210 Q64 198 58 238 Q88 246 112 230 Z"/>
-  <rect class="r" x="122" y="240" width="22" height="80" rx="8"/><rect class="r" x="256" y="240" width="22" height="80" rx="8"/>
-  <ellipse class="r" cx="200" cy="222" rx="95" ry="52"/>
-  <path class="r" d="M262 198 Q280 122 330 110 Q368 106 358 142 Q348 170 316 166 Q296 188 292 218 Z"/>
-  <path class="r" d="M320 110 L330 78 L346 106 Z"/>
-  <circle class="r" cx="286" cy="136" r="16"/><circle class="r" cx="272" cy="166" r="13"/>
-  <path class="r" d="M164 178 H238 L230 216 H172 Z"/>
-  <path class="r" d="M60 332 Q200 398 340 332 L332 308 Q200 368 68 308 Z"/>
-  <circle cx="332" cy="132" r="6" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"t_xylophone", cat:"toy", name:"ระนาดของเล่น", svg:S(`
-  <path d="M124 62 L172 132 M276 62 L228 132" fill="none"/>
-  <circle class="r" cx="116" cy="52" r="14"/><circle class="r" cx="284" cy="52" r="14"/>
-  <path class="r" d="M62 172 H338 L300 334 H100 Z"/>
-  <rect class="r" x="86" y="194" width="228" height="26" rx="11"/>
-  <rect class="r" x="96" y="230" width="208" height="26" rx="11"/>
-  <rect class="r" x="106" y="266" width="188" height="26" rx="11"/>
-  <rect class="r" x="116" y="302" width="168" height="24" rx="11"/>
-`)},
-{ id:"t_plane", cat:"toy", name:"เครื่องบินของเล่น", svg:S(`
-  <path class="r" d="M84 192 L48 130 H100 L124 184 Z"/>
-  <ellipse class="r" cx="200" cy="212" rx="130" ry="56"/>
-  <path class="r" d="M158 164 Q200 118 242 164 Z"/>
-  <path class="r" d="M150 228 L60 302 H150 L216 234 Z"/>
-  <circle class="r" cx="182" cy="202" r="12"/><circle class="r" cx="230" cy="202" r="12"/>
-  <ellipse class="r" cx="334" cy="168" rx="12" ry="34"/><ellipse class="r" cx="334" cy="256" rx="12" ry="34"/>
-  <circle class="r" cx="334" cy="212" r="14"/>
-`)},
-{ id:"t_duck", cat:"toy", name:"เป็ดยาง", svg:S(`
-  <ellipse class="r" cx="212" cy="272" rx="130" ry="72"/>
-  <path class="r" d="M330 244 Q368 220 358 262 Q346 276 326 266 Z"/>
-  <circle class="r" cx="120" cy="162" r="58"/>
-  <path class="r" d="M66 160 L20 178 L66 192 Z"/>
-  <ellipse class="r" cx="242" cy="272" rx="52" ry="34" transform="rotate(-20 242 272)"/>
-  <circle cx="132" cy="150" r="7" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"t_puzzle", cat:"toy", name:"จิ๊กซอว์", svg:S(`
-  <path class="r" d="M110 110 H180 Q170 68 200 68 Q230 68 220 110 H290 V180 Q332 170 332 200 Q332 230 290 220 V290 H220 Q230 332 200 332 Q170 332 180 290 H110 V220 Q68 230 68 200 Q68 170 110 180 Z"/>
-  <circle cx="172" cy="182" r="7" fill="#3D3562" stroke="none"/><circle cx="228" cy="182" r="7" fill="#3D3562" stroke="none"/>
-  <path d="M176 226 Q200 244 224 226" fill="none"/>
-`)},
+{ id:"t_car", cat:"toy", name:"รถของเล่น", svg:window.PunPinPlayfulArt.make("toy","t_car")},
+{ id:"t_yoyo", cat:"toy", name:"โยโย่", svg:window.PunPinPlayfulArt.make("toy","t_yoyo")},
+{ id:"t_drum", cat:"toy", name:"กลอง", svg:window.PunPinPlayfulArt.make("toy","t_drum")},
+{ id:"t_top", cat:"toy", name:"ลูกข่าง", svg:window.PunPinPlayfulArt.make("toy","t_top")},
+{ id:"t_train", cat:"toy", name:"รถไฟของเล่น", svg:window.PunPinPlayfulArt.make("toy","t_train")},
+{ id:"t_marbles", cat:"toy", name:"ลูกแก้ว", svg:window.PunPinPlayfulArt.make("toy","t_marbles")},
+{ id:"t_rockinghorse", cat:"toy", name:"ม้าโยก", svg:window.PunPinPlayfulArt.make("toy","t_rockinghorse")},
+{ id:"t_xylophone", cat:"toy", name:"ระนาดของเล่น", svg:window.PunPinPlayfulArt.make("toy","t_xylophone")},
+{ id:"t_plane", cat:"toy", name:"เครื่องบินของเล่น", svg:window.PunPinPlayfulArt.make("toy","t_plane")},
+{ id:"t_duck", cat:"toy", name:"เป็ดยาง", svg:window.PunPinPlayfulArt.make("toy","t_duck")},
+{ id:"t_puzzle", cat:"toy", name:"จิ๊กซอว์", svg:window.PunPinPlayfulArt.make("toy","t_puzzle")},
 /* ---------- 🦕 ไดโนเสาร์ ---------- */
 { id:"dn_anky", cat:"dino", name:"แองคิโลซอรัส", svg:window.PunPinDinosaurArt.make("dn_anky")},
 { id:"dn_spino", cat:"dino", name:"สไปโนซอรัส", svg:window.PunPinDinosaurArt.make("dn_spino")},
@@ -1103,63 +900,13 @@ const EXTRA_PICS = [
 { id:"dn_plesio", cat:"dino", name:"เพลสิโอซอรัส", svg:window.PunPinDinosaurArt.make("dn_plesio")},
 { id:"dn_baby", cat:"dino", name:"ลูกไดโนเสาร์", svg:window.PunPinDinosaurArt.make("dn_baby")},
 /* ---------- 🚀 โลกอวกาศ ---------- */
-{ id:"sp_saturn", cat:"space", name:"ดาวเสาร์", svg:S(`
-  <circle class="r" cx="200" cy="206" r="112"/>
-  <ellipse class="r" cx="200" cy="206" rx="172" ry="40" transform="rotate(-15 200 206)"/>
-  <circle class="r" cx="164" cy="172" r="20"/><circle class="r" cx="244" cy="238" r="16"/>
-  <path class="r" d="M64 60 L72 80 L92 88 L72 96 L64 116 L56 96 L36 88 L56 80 Z"/>
-  <circle class="r" cx="340" cy="66" r="13"/>
-`)},
-{ id:"sp_earth", cat:"space", name:"โลกของเรา", svg:S(`
-  <circle class="r" cx="200" cy="204" r="130"/>
-  <path class="r" d="M120 144 Q160 110 202 134 Q216 164 186 180 Q138 188 120 144 Z"/>
-  <path class="r" d="M232 214 Q288 200 302 244 Q282 290 234 276 Q212 244 232 214 Z"/>
-  <path class="r" d="M150 254 Q182 248 188 278 Q170 300 144 286 Z"/>
-  <path class="r" d="M330 54 L337 72 L356 79 L337 86 L330 105 L323 86 L304 79 L323 72 Z"/>
-`)},
-{ id:"sp_astronaut", cat:"space", name:"นักบินอวกาศ", svg:S(`
-  <circle class="r" cx="200" cy="118" r="70"/>
-  <rect class="r" x="152" y="90" width="96" height="60" rx="28"/>
-  <path class="r" d="M150 188 H250 L268 308 H132 Z"/>
-  <rect class="r" x="176" y="212" width="48" height="34" rx="8"/>
-  <circle class="r" cx="152" cy="264" r="9"/><circle class="r" cx="248" cy="264" r="9"/>
-  <circle class="r" cx="116" cy="234" r="22"/><circle class="r" cx="284" cy="234" r="22"/>
-  <rect class="r" x="152" y="304" width="34" height="58" rx="12"/><rect class="r" x="214" y="304" width="34" height="58" rx="12"/>
-  <path class="r" d="M60 76 L67 94 L86 101 L67 108 L60 126 L53 108 L34 101 L53 94 Z"/>
-  <circle class="r" cx="336" cy="64" r="12"/>
-`)},
-{ id:"sp_ufo", cat:"space", name:"จานบิน", svg:S(`
-  <path class="r" d="M140 160 Q200 84 260 160 Z"/>
-  <ellipse class="r" cx="200" cy="184" rx="150" ry="44"/>
-  <circle class="r" cx="120" cy="190" r="12"/><circle class="r" cx="200" cy="200" r="12"/><circle class="r" cx="280" cy="190" r="12"/>
-  <path class="r" d="M162 222 L122 336 H278 L238 222 Z"/>
-  <path class="r" d="M330 70 L337 88 L356 95 L337 102 L330 121 L323 102 L304 95 L323 88 Z"/>
-  <circle cx="184" cy="136" r="5" fill="#3D3562" stroke="none"/><circle cx="216" cy="136" r="5" fill="#3D3562" stroke="none"/>
-`)},
-{ id:"sp_telescope", cat:"space", name:"กล้องดูดาว", svg:S(`
-  <path class="r" d="M96 224 L268 110 L302 160 L130 274 Z"/>
-  <path class="r" d="M282 98 L330 66 L354 102 L306 134 Z"/>
-  <path d="M170 254 L120 364 M202 244 L202 364 M216 250 L282 364" fill="none"/>
-  <path class="r" d="M70 74 L77 92 L96 99 L77 106 L70 124 L63 106 L44 99 L63 92 Z"/>
-  <circle class="r" cx="352" cy="196" r="12"/><circle class="r" cx="316" cy="34" r="9"/>
-`)},
-{ id:"sp_comet", cat:"space", name:"ดาวหาง", svg:S(`
-  <path class="r" d="M214 150 Q100 182 30 242 Q132 226 202 186 Z"/>
-  <path class="r" d="M238 182 Q124 242 44 342 Q146 302 214 242 Z"/>
-  <path class="r" d="M282 62 L304 120 L366 124 L318 164 L334 226 L282 192 L230 226 L246 164 L198 124 L260 120 Z"/>
-  <circle class="r" cx="88" cy="120" r="11"/><circle class="r" cx="330" cy="300" r="9"/>
-`)},
-{ id:"sp_alien", cat:"space", name:"มนุษย์ต่างดาว", svg:S(`
-  <path d="M160 66 Q150 40 130 34 M240 66 Q250 40 270 34" fill="none"/>
-  <circle class="r" cx="122" cy="28" r="13"/><circle class="r" cx="278" cy="28" r="13"/>
-  <ellipse class="r" cx="200" cy="146" rx="88" ry="74"/>
-  <ellipse class="r" cx="168" cy="146" rx="22" ry="30"/><ellipse class="r" cx="232" cy="146" rx="22" ry="30"/>
-  <g fill="#3D3562" stroke="none"><ellipse cx="168" cy="152" rx="9" ry="13"/><ellipse cx="232" cy="152" rx="9" ry="13"/></g>
-  <path d="M184 196 Q200 208 216 196" fill="none"/>
-  <path class="r" d="M162 218 H238 L254 322 H146 Z"/>
-  <circle class="r" cx="120" cy="252" r="18"/><circle class="r" cx="280" cy="252" r="18"/>
-  <rect class="r" x="164" y="318" width="28" height="46" rx="10"/><rect class="r" x="208" y="318" width="28" height="46" rx="10"/>
-`)},
+{ id:"sp_saturn", cat:"space", name:"ดาวเสาร์", svg:window.PunPinPlayfulArt.make("space","sp_saturn")},
+{ id:"sp_earth", cat:"space", name:"โลกของเรา", svg:window.PunPinPlayfulArt.make("space","sp_earth")},
+{ id:"sp_astronaut", cat:"space", name:"นักบินอวกาศ", svg:window.PunPinPlayfulArt.make("space","sp_astronaut")},
+{ id:"sp_ufo", cat:"space", name:"จานบิน", svg:window.PunPinPlayfulArt.make("space","sp_ufo")},
+{ id:"sp_telescope", cat:"space", name:"กล้องดูดาว", svg:window.PunPinPlayfulArt.make("space","sp_telescope")},
+{ id:"sp_comet", cat:"space", name:"ดาวหาง", svg:window.PunPinPlayfulArt.make("space","sp_comet")},
+{ id:"sp_alien", cat:"space", name:"มนุษย์ต่างดาว", svg:window.PunPinPlayfulArt.make("space","sp_alien")},
 /* ---------- 🏫 บ้านและโรงเรียน ---------- */
 { id:"sc_home", cat:"school", name:"บ้านของฉัน", svg:S(`
   <rect class="r" x="252" y="88" width="32" height="66" rx="6"/>
@@ -1318,38 +1065,10 @@ const MORE2_PICS = [
   <path d="M124 100 Q160 132 124 180 M276 100 Q240 132 276 180" fill="none" stroke-width="4"/>
 `)},
 /* ---------- 🧸 ของเล่น +4 ---------- */
-{ id:"t_balloon", cat:"toy", name:"ลูกโป่ง", svg:S(`
-  <path class="r" d="M200 40 C130 40 106 108 112 158 C118 208 158 236 178 254 L178 276 L222 276 L222 254 C242 236 282 208 288 158 C294 108 270 40 200 40 Z"/>
-  <path class="r" d="M186 276 L200 296 L214 276 Z"/>
-  <path d="M200 296 Q200 330 176 350" fill="none"/>
-`)},
-{ id:"t_pinwheel", cat:"toy", name:"กังหันลม", svg:S(`
-  <path class="r" d="M200 130 L130 78 Q118 118 158 138 Z"/>
-  <path class="r" d="M200 130 L270 78 Q282 118 242 138 Z"/>
-  <path class="r" d="M200 130 L270 182 Q258 222 218 202 Z"/>
-  <path class="r" d="M200 130 L130 182 Q142 222 182 202 Z"/>
-  <circle class="r" cx="200" cy="130" r="18"/>
-  <path d="M200 148 V360" fill="none" stroke-width="6"/>
-  <circle class="r" cx="200" cy="360" r="14"/>
-`)},
-{ id:"t_ragdoll", cat:"toy", name:"ตุ๊กตาผ้า", svg:S(`
-  <circle class="r" cx="200" cy="110" r="58"/>
-  <path d="M156 90 L136 60 M244 90 L264 60" fill="none" stroke-width="5"/>
-  <path class="r" d="M150 168 H250 L262 300 H138 Z"/>
-  <path class="r" d="M118 190 L150 180 L156 220 L124 232 Z"/>
-  <path class="r" d="M282 190 L250 180 L244 220 L276 232 Z"/>
-  <rect class="r" x="152" y="296" width="34" height="52" rx="10"/><rect class="r" x="214" y="296" width="34" height="52" rx="10"/>
-  <g fill="#3D3562" stroke="none"><circle cx="182" cy="106" r="6"/><circle cx="218" cy="106" r="6"/></g>
-  <path d="M186 132 Q200 140 214 132" fill="none"/>
-`)},
-{ id:"t_whistle", cat:"toy", name:"นกหวีด", svg:S(`
-  <ellipse class="r" cx="130" cy="220" rx="72" ry="46"/>
-  <rect class="r" x="192" y="198" width="120" height="44" rx="20"/>
-  <circle class="r" cx="296" cy="220" r="30"/>
-  <circle class="r" cx="120" cy="220" r="14"/>
-  <path d="M182 176 Q182 140 210 132" fill="none"/>
-  <circle class="r" cx="216" cy="126" r="14"/>
-`)},
+{ id:"t_balloon", cat:"toy", name:"ลูกโป่ง", svg:window.PunPinPlayfulArt.make("toy","t_balloon")},
+{ id:"t_pinwheel", cat:"toy", name:"กังหันลม", svg:window.PunPinPlayfulArt.make("toy","t_pinwheel")},
+{ id:"t_ragdoll", cat:"toy", name:"ตุ๊กตาผ้า", svg:window.PunPinPlayfulArt.make("toy","t_ragdoll")},
+{ id:"t_whistle", cat:"toy", name:"นกหวีด", svg:window.PunPinPlayfulArt.make("toy","t_whistle")},
 /* ---------- 👑 เจ้าหญิง +8 ---------- */
 { id:"p_japan", cat:"princess", name:"เจ้าหญิงญี่ปุ่น", svg:window.PunPinPrincessArt.make("p_japan")},
 { id:"p_egypt", cat:"princess", name:"เจ้าหญิงอียิปต์", svg:window.PunPinPrincessArt.make("p_egypt")},
@@ -1473,87 +1192,19 @@ const MORE2_PICS = [
 { id:"sea_babywhale", cat:"sea", name:"ลูกปลาวาฬ", svg:window.PunPinSeaArt.make("sea_babywhale")},
 { id:"sea_butterflyfish", cat:"sea", name:"ปลาผีเสื้อ", svg:window.PunPinSeaArt.make("sea_butterflyfish")},
 /* ---------- 🚀 โลกอวกาศ +13 ---------- */
-{ id:"sp_mars", cat:"space", name:"ดาวอังคาร", svg:S(`
-  <circle class="r" cx="200" cy="210" r="128"/>
-  <circle class="r" cx="160" cy="170" r="20"/><circle class="r" cx="240" cy="230" r="26"/><circle class="r" cx="180" cy="264" r="14"/>
-  <path class="r" d="M330 60 L337 78 L356 85 L337 92 L330 110 L323 92 L304 85 L323 78 Z"/>
-`)},
-{ id:"sp_rainbow", cat:"space", name:"ดาวเคราะห์สีรุ้ง", svg:S(`
-  <circle class="r" cx="200" cy="200" r="110"/>
-  <ellipse class="r" cx="200" cy="200" rx="170" ry="34" transform="rotate(-18 200 200)"/>
-  <ellipse class="r" cx="200" cy="200" rx="170" ry="14" transform="rotate(-18 200 200)"/>
-  <circle class="r" cx="80" cy="90" r="10"/><circle class="r" cx="330" cy="300" r="10"/>
-`)},
-{ id:"sp_rocket2", cat:"space", name:"จรวดสำรวจ", svg:S(`
-  <path class="r" d="M200 30 C160 76 152 156 158 240 L242 240 C248 156 240 76 200 30 Z"/>
-  <circle class="r" cx="200" cy="130" r="30"/>
-  <path class="r" d="M158 210 L100 270 L158 254 Z"/><path class="r" d="M242 210 L300 270 L242 254 Z"/>
-  <path class="r" d="M172 240 L228 240 L220 268 L180 268 Z"/>
-  <path class="r" d="M180 270 C180 306 200 332 200 332 C200 332 220 306 220 270 Z"/>
-`)},
-{ id:"sp_lander", cat:"space", name:"ยานลงดวงจันทร์", svg:S(`
-  <path class="r" d="M140 180 H260 L280 240 H120 Z"/>
-  <rect class="r" x="168" y="120" width="64" height="72" rx="10"/>
-  <circle class="r" cx="200" cy="150" r="20"/>
-  <path d="M120 240 L80 300 M280 240 L320 300 M150 240 L120 300 M250 240 L280 300" fill="none" stroke-width="6"/>
-  <rect class="r" x="60" y="300" width="40" height="14" rx="4"/><rect class="r" x="300" y="300" width="40" height="14" rx="4"/>
-`)},
-{ id:"sp_moon", cat:"space", name:"ดวงจันทร์เต็มดวง", svg:S(`
-  <circle class="r" cx="200" cy="210" r="130"/>
-  <circle class="r" cx="150" cy="160" r="24"/><circle class="r" cx="250" cy="200" r="32"/><circle class="r" cx="180" cy="266" r="18"/><circle class="r" cx="264" cy="284" r="14"/>
-`)},
-{ id:"sp_stars", cat:"space", name:"กลุ่มดาว", svg:S(`
-  <path class="r" d="M100 100 L108 120 L128 128 L108 136 L100 156 L92 136 L72 128 L92 120 Z"/>
-  <path class="r" d="M300 130 L308 150 L328 158 L308 166 L300 186 L292 166 L272 158 L292 150 Z"/>
-  <path class="r" d="M200 240 L210 264 L234 272 L210 280 L200 304 L190 280 L166 272 L190 264 Z"/>
-  <path class="r" d="M120 300 L126 314 L140 320 L126 326 L120 340 L114 326 L100 320 L114 314 Z"/>
-  <path d="M108 130 L200 250 M120 148 L302 148 M212 260 L128 316" fill="none" stroke-width="3" stroke-dasharray="6 8"/>
-`)},
-{ id:"sp_helmet", cat:"space", name:"หมวกอวกาศ", svg:S(`
-  <circle class="r" cx="200" cy="200" r="128"/>
-  <circle class="r" cx="200" cy="200" r="92"/>
-  <ellipse class="r" cx="176" cy="176" rx="26" ry="18"/>
-  <rect class="r" x="164" y="316" width="72" height="30" rx="10"/>
-  <circle class="r" cx="80" cy="140" r="14"/>
-`)},
-{ id:"sp_rover", cat:"space", name:"รถสำรวจดวงจันทร์", svg:S(`
-  <rect class="r" x="110" y="176" width="180" height="90" rx="14"/>
-  <circle class="r" cx="150" cy="286" r="34"/><circle class="r" cx="250" cy="286" r="34"/>
-  <rect class="r" x="150" y="130" width="70" height="46" rx="8"/>
-  <path d="M290 200 L340 176 M340 176 L340 140" fill="none" stroke-width="5"/>
-  <circle class="r" cx="340" cy="132" r="12"/>
-`)},
-{ id:"sp_station", cat:"space", name:"สถานีอวกาศ", svg:S(`
-  <circle class="r" cx="200" cy="200" r="70"/>
-  <rect class="r" x="40" y="182" width="90" height="36" rx="8"/><rect class="r" x="270" y="182" width="90" height="36" rx="8"/>
-  <path d="M130 182 V218 M270 182 V218" fill="none" stroke-width="4"/>
-  <rect class="r" x="186" y="90" width="28" height="60" rx="8"/><rect class="r" x="186" y="250" width="28" height="60" rx="8"/>
-  <circle class="r" cx="200" cy="200" r="24"/>
-`)},
-{ id:"sp_satellite", cat:"space", name:"ดาวเทียม", svg:S(`
-  <rect class="r" x="160" y="170" width="80" height="70" rx="10"/>
-  <rect class="r" x="40" y="150" width="100" height="70" rx="8" transform="rotate(-18 90 185)"/>
-  <rect class="r" x="260" y="150" width="100" height="70" rx="8" transform="rotate(18 310 185)"/>
-  <path d="M240 190 L300 130" fill="none" stroke-width="5"/>
-  <path class="r" d="M300 130 Q330 100 300 70 Q280 90 288 112 Z"/>
-`)},
-{ id:"sp_galaxy", cat:"space", name:"กาแล็กซีหมุนวน", svg:S(`
-  <path class="r" d="M200 200 Q200 80 300 100 Q380 116 360 200 Q340 270 260 260 Q210 252 210 200 Q210 168 246 168 Q272 168 268 194 Z"/>
-  <circle class="r" cx="200" cy="200" r="30"/>
-  <circle class="r" cx="90" cy="120" r="10"/><circle class="r" cx="320" cy="320" r="12"/><circle class="r" cx="60" cy="300" r="8"/>
-`)},
-{ id:"sp_meteor", cat:"space", name:"ฝนดาวตก", svg:S(`
-  <path class="r" d="M320 60 L360 100 L326 96 L336 130 L296 92 L302 66 Z"/>
-  <path class="r" d="M180 130 L212 162 L188 160 L196 186 L166 158 L170 138 Z"/>
-  <path class="r" d="M80 220 L104 244 L88 242 L94 262 L72 242 L76 226 Z"/>
-  <path d="M320 60 Q260 20 200 40 M180 130 Q140 100 90 108 M80 220 Q46 200 20 210" fill="none" stroke-width="3" stroke-dasharray="4 6"/>
-`)},
-{ id:"sp_blackhole", cat:"space", name:"หลุมดำจิ๋ว", svg:S(`
-  <ellipse class="r" cx="200" cy="210" rx="150" ry="60"/>
-  <circle class="r" cx="200" cy="210" r="60"/>
-  <path d="M60 210 Q200 260 340 210 M80 190 Q200 150 320 190" fill="none" stroke-width="4"/>
-  <circle class="r" cx="90" cy="120" r="9"/><circle class="r" cx="320" cy="130" r="9"/>
-`)},
+{ id:"sp_mars", cat:"space", name:"ดาวอังคาร", svg:window.PunPinPlayfulArt.make("space","sp_mars")},
+{ id:"sp_rainbow", cat:"space", name:"ดาวเคราะห์สีรุ้ง", svg:window.PunPinPlayfulArt.make("space","sp_rainbow")},
+{ id:"sp_rocket2", cat:"space", name:"จรวดสำรวจ", svg:window.PunPinPlayfulArt.make("space","sp_rocket2")},
+{ id:"sp_lander", cat:"space", name:"ยานลงดวงจันทร์", svg:window.PunPinPlayfulArt.make("space","sp_lander")},
+{ id:"sp_moon", cat:"space", name:"ดวงจันทร์เต็มดวง", svg:window.PunPinPlayfulArt.make("space","sp_moon")},
+{ id:"sp_stars", cat:"space", name:"กลุ่มดาว", svg:window.PunPinPlayfulArt.make("space","sp_stars")},
+{ id:"sp_helmet", cat:"space", name:"หมวกอวกาศ", svg:window.PunPinPlayfulArt.make("space","sp_helmet")},
+{ id:"sp_rover", cat:"space", name:"รถสำรวจดวงจันทร์", svg:window.PunPinPlayfulArt.make("space","sp_rover")},
+{ id:"sp_station", cat:"space", name:"สถานีอวกาศ", svg:window.PunPinPlayfulArt.make("space","sp_station")},
+{ id:"sp_satellite", cat:"space", name:"ดาวเทียม", svg:window.PunPinPlayfulArt.make("space","sp_satellite")},
+{ id:"sp_galaxy", cat:"space", name:"กาแล็กซีหมุนวน", svg:window.PunPinPlayfulArt.make("space","sp_galaxy")},
+{ id:"sp_meteor", cat:"space", name:"ฝนดาวตก", svg:window.PunPinPlayfulArt.make("space","sp_meteor")},
+{ id:"sp_blackhole", cat:"space", name:"หลุมดำจิ๋ว", svg:window.PunPinPlayfulArt.make("space","sp_blackhole")},
 /* ---------- 🎵 ดนตรี +14 ---------- */
 { id:"mu_violin", cat:"music", name:"ไวโอลิน", svg:S(`
   <path class="r" d="M160 190 Q120 190 124 240 Q120 300 168 320 Q200 334 232 320 Q280 300 276 240 Q280 190 240 190 Q230 150 200 150 Q170 150 160 190 Z"/>
