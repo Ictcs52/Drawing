@@ -620,6 +620,7 @@
 <script src="princess-art.js?v=20261008"></script>
 <script src="animal-art.js?v=20261008refined"></script>
 <script src="dinosaur-art.js?v=20261008"></script>
+<script src="nature-art.js?v=20261008"></script>
 <script src="paint-patterns.js?v=20261007c"></script>
 <script>
 /* ================= ภาพระบายสี (SVG) ================= */
@@ -702,149 +703,26 @@ const PICS = [
 { id:"whale", cat:"animal", name:"วาฬ", svg:window.PunPinAnimalArt.make("whale")},
 { id:"frog", cat:"animal", name:"กบ", svg:window.PunPinAnimalArt.make("frog")},
 /* ---------- 🌈 ธรรมชาติ (20 แบบ) ---------- */
-{ id:"flower", cat:"nature", name:"ดอกไม้", svg:S(`
-  <rect class="r" x="192" y="212" width="16" height="140" rx="8"/>
-  <ellipse class="r" cx="150" cy="304" rx="44" ry="20" transform="rotate(-28 150 304)"/>
-  <ellipse class="r" cx="250" cy="304" rx="44" ry="20" transform="rotate(28 250 304)"/>
-  <ellipse class="r" cx="200" cy="94" rx="32" ry="52"/>
-  <ellipse class="r" cx="200" cy="94" rx="32" ry="52" transform="rotate(60 200 150)"/>
-  <ellipse class="r" cx="200" cy="94" rx="32" ry="52" transform="rotate(120 200 150)"/>
-  <ellipse class="r" cx="200" cy="94" rx="32" ry="52" transform="rotate(180 200 150)"/>
-  <ellipse class="r" cx="200" cy="94" rx="32" ry="52" transform="rotate(240 200 150)"/>
-  <ellipse class="r" cx="200" cy="94" rx="32" ry="52" transform="rotate(300 200 150)"/>
-  <circle class="r" cx="200" cy="150" r="36"/>
-  <g fill="#3D3562" stroke="none"><circle cx="190" cy="146" r="4"/><circle cx="210" cy="146" r="4"/></g>
-  <path d="M191 160 Q200 168 209 160" fill="none"/>
-`)},
-{ id:"rainbow", cat:"nature", name:"สายรุ้ง", svg:S(`
-  <circle class="r" cx="338" cy="74" r="30"/>
-  <path d="M338 22 L338 6 M296 32 L284 20 M380 32 L392 20 M390 74 L399 74" fill="none" stroke-width="5"/>
-  <path class="r" d="M40 290 A160 160 0 0 1 360 290 L328 290 A128 128 0 0 0 72 290 Z"/>
-  <path class="r" d="M72 290 A128 128 0 0 1 328 290 L296 290 A96 96 0 0 0 104 290 Z"/>
-  <path class="r" d="M104 290 A96 96 0 0 1 296 290 L264 290 A64 64 0 0 0 136 290 Z"/>
-  <path class="r" d="M136 290 A64 64 0 0 1 264 290 L232 290 A32 32 0 0 0 168 290 Z"/>
-  <path class="r" d="M16 322 C4 300 22 278 44 284 C50 262 82 258 94 276 C114 268 132 288 122 306 C128 320 114 332 100 328 L34 330 C24 330 18 328 16 322 Z"/>
-  <path class="r" d="M282 322 C270 300 288 278 310 284 C316 262 348 258 360 276 C380 268 398 288 388 306 C394 320 380 332 366 328 L300 330 C290 330 284 328 282 322 Z"/>
-`)},
-{ id:"tree", cat:"nature", name:"ต้นไม้", svg:S(`
-  <ellipse class="r" cx="200" cy="342" rx="150" ry="26"/>
-  <path class="r" d="M178 190 L172 322 L228 322 L222 190 Z"/>
-  <path class="r" d="M110 190 C70 190 55 145 85 120 C75 80 120 50 155 68 C165 30 235 30 245 68 C280 50 325 80 315 120 C345 145 330 190 290 190 Z"/>
-  <circle class="r" cx="140" cy="130" r="14"/><circle class="r" cx="205" cy="95" r="14"/><circle class="r" cx="262" cy="140" r="14"/>
-`)},
-{ id:"mushroom", cat:"nature", name:"เห็ดยิ้ม", svg:S(`
-  <ellipse class="r" cx="200" cy="345" rx="140" ry="22"/>
-  <path class="r" d="M155 205 C155 262 148 302 138 332 L262 332 C252 302 245 262 245 205 Z"/>
-  <path class="r" d="M60 205 C60 110 135 58 200 58 C265 58 340 110 340 205 Z"/>
-  <circle class="r" cx="140" cy="120" r="18"/><circle class="r" cx="230" cy="95" r="15"/>
-  <circle class="r" cx="275" cy="160" r="14"/><circle class="r" cx="120" cy="170" r="12"/>
-  <g fill="#3D3562" stroke="none"><circle cx="180" cy="258" r="5"/><circle cx="220" cy="258" r="5"/></g>
-  <path d="M186 278 Q200 288 214 278" fill="none"/>
-`)},
-{ id:"sun", cat:"nature", name:"พระอาทิตย์", svg:S(`
-  <path class="r" d="M184 66 L200 8 L216 66 Z"/>
-  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(45 200 180)"/>
-  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(90 200 180)"/>
-  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(135 200 180)"/>
-  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(180 200 180)"/>
-  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(225 200 180)"/>
-  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(270 200 180)"/>
-  <path class="r" d="M184 66 L200 8 L216 66 Z" transform="rotate(315 200 180)"/>
-  <circle class="r" cx="200" cy="180" r="85"/>
-  <g fill="#3D3562" stroke="none"><circle cx="172" cy="170" r="7"/><circle cx="228" cy="170" r="7"/></g>
-  <path d="M176 205 Q200 226 224 205" fill="none"/>
-  <path class="r" d="M292 330 C282 312 296 296 314 300 C319 284 345 281 354 295 C370 290 382 304 375 316 C380 326 371 334 361 331 L306 333 C298 333 294 331 292 330 Z"/>
-`)},
-{ id:"mountain", cat:"nature", name:"ภูเขา", svg:S(`
-  <path class="r" d="M18 338 L154 112 L290 338 Z"/><path class="r" d="M154 112 L94 212 L134 198 L154 226 L178 194 L214 212 Z"/>
-  <path class="r" d="M166 338 L282 166 L390 338 Z"/><path class="r" d="M282 166 L238 232 L270 220 L288 242 L308 220 L330 236 Z"/>
-  <circle class="r" cx="322" cy="78" r="40"/><path class="r" d="M28 92 C18 70 38 52 58 60 C70 32 110 44 110 70 C140 68 148 104 120 112 H48 C36 112 30 104 28 92 Z"/>
-`)},
-{ id:"waterfall", cat:"nature", name:"น้ำตก", svg:S(`
-  <path class="r" d="M30 338 L104 92 L296 92 L370 338 Z"/><path class="r" d="M164 92 H236 L252 290 Q200 340 148 290 Z"/>
-  <path class="r" d="M44 338 Q100 298 156 338 T268 338 T380 338 Z"/>
-  <circle class="r" cx="104" cy="126" r="34"/><circle class="r" cx="294" cy="132" r="42"/><circle class="r" cx="78" cy="192" r="28"/>
-  <path d="M178 124 Q200 148 222 124 M170 186 Q200 214 230 186 M162 248 Q200 278 238 248" fill="none"/>
-`)},
-{ id:"ocean", cat:"nature", name:"ท้องทะเล", svg:S(`
-  <circle class="r" cx="310" cy="84" r="40"/><path class="r" d="M0 210 Q50 170 100 210 T200 210 T300 210 T400 210 V400 H0 Z"/>
-  <path class="r" d="M0 270 Q50 230 100 270 T200 270 T300 270 T400 270 V400 H0 Z"/>
-  <path class="r" d="M0 330 Q50 290 100 330 T200 330 T300 330 T400 330 V400 H0 Z"/>
-  <path class="r" d="M70 160 L110 92 L150 160 Z"/><path class="r" d="M110 92 V176 L188 176 Z"/>
-`)},
-{ id:"beach", cat:"nature", name:"ชายหาด", svg:S(`
-  <path class="r" d="M0 220 Q80 190 160 220 T320 220 T480 220 V400 H0 Z"/><path class="r" d="M0 300 Q100 258 200 300 T400 300 V400 H0 Z"/>
-  <circle class="r" cx="320" cy="80" r="42"/><path class="r" d="M110 282 Q112 152 196 118 Q168 176 156 286 Z"/>
-  <path class="r" d="M196 118 Q132 70 88 116 Q144 118 196 118 Z"/><path class="r" d="M196 118 Q212 62 270 82 Q226 106 196 118 Z"/>
-  <path class="r" d="M64 330 Q104 286 144 330 Z"/><circle class="r" cx="88" cy="324" r="12"/>
-`)},
-{ id:"island", cat:"nature", name:"เกาะกลางทะเล", svg:S(`
-  <path class="r" d="M34 330 Q92 286 150 330 T266 330 T382 330 V390 H34 Z"/><ellipse class="r" cx="210" cy="306" rx="116" ry="42"/>
-  <path class="r" d="M188 294 Q190 164 252 112 Q218 194 230 306 Z"/>
-  <path class="r" d="M252 112 Q184 64 142 112 Q204 110 252 112 Z"/><path class="r" d="M252 112 Q270 54 328 78 Q280 104 252 112 Z"/>
-  <path class="r" d="M252 112 Q312 96 336 140 Q292 126 252 112 Z"/><circle class="r" cx="80" cy="82" r="38"/>
-`)},
-{ id:"volcano", cat:"nature", name:"ภูเขาไฟ", svg:S(`
-  <path class="r" d="M54 354 L146 154 H254 L346 354 Z"/><path class="r" d="M146 154 Q200 190 254 154 L232 220 Q200 240 168 220 Z"/>
-  <path class="r" d="M166 154 Q132 106 164 74 Q184 104 190 150 Z"/><path class="r" d="M204 154 Q184 90 218 42 Q244 96 230 158 Z"/>
-  <path class="r" d="M236 158 Q246 102 286 90 Q280 134 258 172 Z"/><path class="r" d="M112 354 Q200 320 288 354 Z"/>
-`)},
-{ id:"moon", cat:"nature", name:"พระจันทร์", svg:S(`
-  <path class="r" d="M260 54 C164 70 110 160 142 246 C174 332 274 364 346 306 C246 326 168 246 190 150 C200 108 224 76 260 54 Z"/>
-  <path class="r" d="M72 86 L80 108 L102 116 L80 124 L72 146 L64 124 L42 116 L64 108 Z"/>
-  <path class="r" d="M92 252 L98 268 L114 274 L98 280 L92 296 L86 280 L70 274 L86 268 Z"/>
-  <path class="r" d="M318 106 L324 122 L340 128 L324 134 L318 150 L312 134 L296 128 L312 122 Z"/>
-  <circle class="r" cx="254" cy="180" r="18"/><circle class="r" cx="292" cy="258" r="14"/>
-`)},
-{ id:"cloud", cat:"nature", name:"ก้อนเมฆ", svg:S(`
-  <path class="r" d="M50 238 C28 192 66 150 112 162 C124 104 198 82 236 128 C282 94 340 126 338 180 C382 188 386 250 342 262 H92 C70 262 58 252 50 238 Z"/>
-  <path class="r" d="M108 286 C94 306 88 322 88 334 C88 354 104 366 122 366 C140 366 156 354 156 334 C156 322 146 306 132 286 Z"/>
-  <path class="r" d="M190 286 C176 306 170 322 170 334 C170 354 186 366 204 366 C222 366 238 354 238 334 C238 322 228 306 214 286 Z"/>
-  <path class="r" d="M274 286 C260 306 254 322 254 334 C254 354 270 366 288 366 C306 366 322 354 322 334 C322 322 312 306 298 286 Z"/>
-`)},
-{ id:"snowflake", cat:"nature", name:"เกล็ดหิมะ", svg:S(`
-  <circle class="r" cx="200" cy="200" r="32"/><path d="M200 30 V370 M52 115 L348 285 M52 285 L348 115" fill="none"/>
-  <path class="r" d="M200 30 L178 68 L200 58 L222 68 Z"/><path class="r" d="M200 370 L178 332 L200 342 L222 332 Z"/>
-  <path class="r" d="M52 115 L96 116 L76 128 L74 152 Z"/><path class="r" d="M348 285 L304 284 L324 272 L326 248 Z"/>
-  <path class="r" d="M52 285 L74 248 L76 272 L96 284 Z"/><path class="r" d="M348 115 L326 152 L324 128 L304 116 Z"/>
-`)},
-{ id:"leaf", cat:"nature", name:"ใบไม้", svg:S(`
-  <path class="r" d="M62 318 C56 162 158 54 344 58 C338 236 220 342 62 318 Z"/>
-  <path d="M74 310 Q174 208 326 78 M142 244 L118 154 M198 190 L190 102 M136 246 L232 260 M202 188 L290 194" fill="none"/>
-  <path class="r" d="M62 318 Q44 340 32 374 L72 374 Q76 342 96 316 Z"/>
-`)},
-{ id:"cactus", cat:"nature", name:"กระบองเพชร", svg:S(`
-  <path class="r" d="M154 330 V118 C154 76 184 54 214 70 C234 80 244 98 244 122 V330 Z"/>
-  <path class="r" d="M154 204 H116 V150 C116 128 96 118 80 128 C68 136 64 150 68 166 L78 242 H154 Z"/>
-  <path class="r" d="M244 242 H292 L306 168 C310 144 290 130 272 142 C262 148 258 158 258 172 V202 H244 Z"/>
-  <path class="r" d="M110 330 H288 L270 374 H128 Z"/><circle class="r" cx="198" cy="70" r="20"/><circle class="r" cx="92" cy="130" r="16"/>
-  <path d="M180 126 V150 M216 174 V200 M176 246 V270 M90 178 V202 M276 188 V212" fill="none"/>
-`)},
-{ id:"lotus", cat:"nature", name:"ดอกบัว", svg:S(`
-  <path class="r" d="M200 294 C126 246 126 170 200 92 C274 170 274 246 200 294 Z"/>
-  <path class="r" d="M198 294 C126 304 72 250 82 166 C150 184 194 224 198 294 Z"/>
-  <path class="r" d="M202 294 C274 304 328 250 318 166 C250 184 206 224 202 294 Z"/>
-  <path class="r" d="M178 292 C120 326 68 304 42 244 C112 236 158 252 178 292 Z"/>
-  <path class="r" d="M222 292 C280 326 332 304 358 244 C288 236 242 252 222 292 Z"/>
-  <ellipse class="r" cx="200" cy="342" rx="154" ry="30"/>
-`)},
-{ id:"coral", cat:"nature", name:"ปะการัง", svg:S(`
-  <path class="r" d="M164 350 V236 L118 190 L132 166 L174 204 L174 118 H204 V210 L250 154 L270 174 L218 234 V350 Z"/>
-  <path class="r" d="M72 350 Q60 268 106 238 Q126 294 112 350 Z"/><path class="r" d="M286 350 Q268 258 324 218 Q350 294 330 350 Z"/>
-  <path class="r" d="M34 350 Q64 314 94 350 Z"/><path class="r" d="M250 350 Q292 306 346 350 Z"/>
-  <circle class="r" cx="84" cy="126" r="18"/><circle class="r" cx="326" cy="92" r="14"/><circle class="r" cx="354" cy="54" r="9"/>
-`)},
-{ id:"forest", cat:"nature", name:"ป่าใหญ่", svg:S(`
-  <path class="r" d="M84 72 L22 198 H58 L18 280 H150 L110 198 H146 Z"/><rect class="r" x="72" y="280" width="30" height="70"/>
-  <path class="r" d="M214 40 L142 184 H182 L130 286 H298 L246 184 H286 Z"/><rect class="r" x="198" y="286" width="32" height="64"/>
-  <path class="r" d="M322 102 L268 208 H296 L258 286 H386 L348 208 H376 Z"/><rect class="r" x="310" y="286" width="26" height="64"/>
-  <path class="r" d="M18 350 Q100 318 182 350 T346 350 T510 350 V390 H18 Z"/>
-`)},
-{ id:"autumn", cat:"nature", name:"ใบไม้ฤดูใบไม้ร่วง", svg:S(`
-  <path class="r" d="M200 344 L188 238 L102 286 L126 222 L58 196 L122 164 L88 96 L166 126 L200 42 L234 126 L312 96 L278 164 L342 196 L274 222 L298 286 L212 238 Z"/>
-  <path d="M200 82 V364 M200 188 L130 148 M200 222 L278 168 M200 266 L130 242 M200 298 L270 260" fill="none"/>
-  <path class="r" d="M184 342 H216 L226 382 H174 Z"/>
-`)},
+{ id:"flower", cat:"nature", name:"ดอกไม้", svg:window.PunPinNatureArt.make("flower")},
+{ id:"rainbow", cat:"nature", name:"สายรุ้ง", svg:window.PunPinNatureArt.make("rainbow")},
+{ id:"tree", cat:"nature", name:"ต้นไม้", svg:window.PunPinNatureArt.make("tree")},
+{ id:"mushroom", cat:"nature", name:"เห็ดยิ้ม", svg:window.PunPinNatureArt.make("mushroom")},
+{ id:"sun", cat:"nature", name:"พระอาทิตย์", svg:window.PunPinNatureArt.make("sun")},
+{ id:"mountain", cat:"nature", name:"ภูเขา", svg:window.PunPinNatureArt.make("mountain")},
+{ id:"waterfall", cat:"nature", name:"น้ำตก", svg:window.PunPinNatureArt.make("waterfall")},
+{ id:"ocean", cat:"nature", name:"ท้องทะเล", svg:window.PunPinNatureArt.make("ocean")},
+{ id:"beach", cat:"nature", name:"ชายหาด", svg:window.PunPinNatureArt.make("beach")},
+{ id:"island", cat:"nature", name:"เกาะกลางทะเล", svg:window.PunPinNatureArt.make("island")},
+{ id:"volcano", cat:"nature", name:"ภูเขาไฟ", svg:window.PunPinNatureArt.make("volcano")},
+{ id:"moon", cat:"nature", name:"พระจันทร์", svg:window.PunPinNatureArt.make("moon")},
+{ id:"cloud", cat:"nature", name:"ก้อนเมฆ", svg:window.PunPinNatureArt.make("cloud")},
+{ id:"snowflake", cat:"nature", name:"เกล็ดหิมะ", svg:window.PunPinNatureArt.make("snowflake")},
+{ id:"leaf", cat:"nature", name:"ใบไม้", svg:window.PunPinNatureArt.make("leaf")},
+{ id:"cactus", cat:"nature", name:"กระบองเพชร", svg:window.PunPinNatureArt.make("cactus")},
+{ id:"lotus", cat:"nature", name:"ดอกบัว", svg:window.PunPinNatureArt.make("lotus")},
+{ id:"coral", cat:"nature", name:"ปะการัง", svg:window.PunPinNatureArt.make("coral")},
+{ id:"forest", cat:"nature", name:"ป่าใหญ่", svg:window.PunPinNatureArt.make("forest")},
+{ id:"autumn", cat:"nature", name:"ใบไม้ฤดูใบไม้ร่วง", svg:window.PunPinNatureArt.make("autumn")},
 /* ---------- 🚗 ยานพาหนะ (20 ประเภท) ---------- */
 { id:"car", cat:"vehicle", name:"รถเก๋ง", svg:S(`
   <path class="r" d="M55 250 L55 215 C55 200 65 195 80 195 L110 195 L140 150 C145 142 152 138 162 138 L250 138 C258 138 265 142 270 150 L296 195 L330 199 C345 201 350 210 350 222 L350 250 C350 258 344 262 336 262 L64 262 C58 262 55 258 55 250 Z"/>
@@ -2364,7 +2242,7 @@ function openPic(p){
   const svgs = wrap.querySelectorAll("svg");
   const base = svgs[0], top = svgs[1];
   top.classList.add("lineart");
-  if(p.cat === "princess" || p.cat === "animal" || p.cat === "dino"){
+  if(p.cat === "princess" || p.cat === "animal" || p.cat === "dino" || p.cat === "nature"){
     // Composite the white original first, then remove white. Hidden contours stay hidden.
     top.querySelectorAll(".r").forEach(el=>el.classList.remove("r"));
     const outlineDefs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
