@@ -2783,6 +2783,7 @@ function showSuccessPopup({emoji="🎉",title="เก่งมาก!",message="
   document.getElementById("successReplayBtn").textContent = replayLabel;
   document.getElementById("successNextBtn").textContent = nextLabel;
   successReplayAction = onReplay; successNextAction = onNext;
+  window.PunPinFeedback?.hide();
   successPopupEl.hidden = false;
   sfx.win();
   setTimeout(()=>document.getElementById("successNextBtn").focus(),80);
@@ -2932,6 +2933,7 @@ function showGallery(rerender=true){
   window.scrollTo({top:0, behavior:"smooth"});
 }
 function showHome(){
+  window.PunPinFeedback?.hide();
   studio.style.display = "none";
   collectionEl.style.display = "none";
   mathEl.style.display = "none";
@@ -3161,6 +3163,7 @@ function placePuzzlePiece(piece,slotIndex){
   if(piece===slotIndex){
     puzzlePlaced[slotIndex]=piece; selectedPuzzlePiece=null;
     sfx.good();
+    window.PunPinFeedback?.correct({title:"วางถูกแล้ว!",text:"หนูต่อภาพได้อีกชิ้นแล้ว"});
     document.getElementById("puzzleFeedback").textContent="วางถูกแล้ว! ⭐";
     renderPuzzle();
     if(puzzlePlaced.every(x=>x!==null)){
@@ -3171,6 +3174,7 @@ function placePuzzlePiece(piece,slotIndex){
   } else {
     selectedPuzzlePiece=piece;
     sfx.try();
+    window.PunPinFeedback?.wrong({text:"ยังไม่ใช่ช่องนี้ ลองอีกครั้งนะ"});
     document.getElementById("puzzleFeedback").textContent="ยังไม่ใช่ช่องนี้ ลองอีกครั้งนะ 💪";
     renderPuzzle();
   }
@@ -3860,6 +3864,7 @@ function flipMemCard(i, el){
     const tiles = memGridEl.children;
     if(memCards[a].key === memCards[b].key){
       sfx.good();
+      window.PunPinFeedback?.correct({title:"จับคู่ถูกแล้ว!",text:"สองภาพนี้เป็นคู่กัน"});
       tiles[a].classList.add("matched");
       tiles[b].classList.add("matched");
       memMatchedCount++;
@@ -3875,6 +3880,7 @@ function flipMemCard(i, el){
       }
     } else {
       sfx.try();
+      window.PunPinFeedback?.wrong({text:"สองภาพนี้ยังไม่เหมือนกัน ลองหาคู่ใหม่"});
       setTimeout(()=>{
         tiles[a].classList.remove("flipped");
         tiles[b].classList.remove("flipped");
@@ -4503,6 +4509,6 @@ showHome();
 <script src="home-vocabulary.js"></script>
 <script src="learning-world.js"></script><script src="learning-plus.js"></script><script src="kids-world-v2.js?v=20261008discover"></script>
 <script src="grade-mode.js?v=20261007"></script>
-<script src="kids-sfx.js?v=2"></script>
-<script src="math-k3.js?v=2"></script><script src="playground-ui.js?v=20261007"></script><script src="paint-studio.js?v=20261007c"></script><script src="activity-viewport.js?v=20261007d"></script></body>
+<script src="kids-sfx.js?v=20261008popup"></script>
+<script src="math-k3.js?v=20261008popup"></script><script src="playground-ui.js?v=20261007"></script><script src="paint-studio.js?v=20261007c"></script><script src="activity-viewport.js?v=20261007d"></script></body>
 </html>

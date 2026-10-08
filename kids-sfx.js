@@ -1,7 +1,7 @@
 (()=>{
   const KEY='punpin_sound_v1';
   let enabled=localStorage.getItem(KEY)!=='off';
-  let ctx=null,lastFeedback=0,lastClick=0,popupTimer=null;
+  let ctx=null,lastFeedback=0,lastClick=0,popupTimer=null,popupResetTimer=null;
   const AC=window.AudioContext||window.webkitAudioContext;
 
   function audio(){
@@ -80,7 +80,7 @@
   function showPopup(kind='correct',custom={}){
     addPopupUI();
     const box=document.getElementById('ppFeedback');if(!box)return;
-    clearTimeout(popupTimer);
+    clearTimeout(popupTimer);clearTimeout(popupResetTimer);
     const m=kind==='wrong'?pick(wrongMsgs):kind==='reward'?pick(rewardMsgs):pick(correctMsgs);
     document.getElementById('ppFeedbackEmoji').textContent=custom.emoji||m[0];
     document.getElementById('ppFeedbackTitle').textContent=custom.title||m[1];
@@ -88,9 +88,10 @@
     document.getElementById('ppFeedbackStars').style.display=kind==='wrong'?'none':'block';
     box.className=kind+' on';
     const duration=custom.duration||(kind==='reward'?1750:kind==='wrong'?850:1100);
-    popupTimer=setTimeout(()=>{box.classList.remove('on');setTimeout(()=>{box.className=''},180)},duration);
+    popupTimer=setTimeout(()=>{box.classList.remove('on');popupResetTimer=setTimeout(()=>{box.className=''},180)},duration);
   }
-  window.PunPinFeedback={show:showPopup,correct:(o)=>showPopup('correct',o),wrong:(o)=>showPopup('wrong',o),reward:(o)=>showPopup('reward',o)};
+  function hidePopup(){clearTimeout(popupTimer);clearTimeout(popupResetTimer);const box=document.getElementById('ppFeedback');if(box)box.className='';}
+  window.PunPinFeedback={hide:hidePopup,show:showPopup,correct:(o)=>showPopup('correct',o),wrong:(o)=>showPopup('wrong',o),reward:(o)=>showPopup('reward',o)};
 
   function syncButtons(){document.querySelectorAll('#sndBtn,[data-sound-toggle],.ppSoundToggle').forEach(b=>{b.textContent=enabled?'🔊':'🔇';b.title=enabled?'ปิดเสียง':'เปิดเสียง';b.setAttribute('aria-label',enabled?'ปิดเสียง':'เปิดเสียง')})}
   function isSoundButton(el){return !!el.closest?.('#sndBtn,[data-sound-toggle],.ppSoundToggle')}
@@ -114,7 +115,7 @@
   const mo=new MutationObserver(ms=>{
     for(const m of ms){
       if(m.type!=='attributes'||m.attributeName!=='class')continue;
-      const el=m.target,k=feedbackFor(el);if(!k)continue;
+      const el=m.target;if(el.closest('#ppFeedback,[data-feedback-manual]'))continue;const k=feedbackFor(el);if(!k){seen.delete(el);continue;}
       const signature=el.className;if(seen.get(el)===signature)continue;seen.set(el,signature);
       const now=performance.now();if(k!=='reward'&&now-lastFeedback<120)continue;lastFeedback=now;
       SFX[k]();showPopup(k);

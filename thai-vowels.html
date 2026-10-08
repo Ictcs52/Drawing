@@ -54,5 +54,5 @@ function nextQ(){locked=false;num++;document.getElementById('qnum').textContent=
 function answer(btn,ok){if(locked)return;if(ok){locked=true;btn.classList.add('correct');score++;document.getElementById('score').textContent=score;feedback.textContent='เก่งมาก! ⭐ สระ '+current.n;choices.querySelectorAll('button').forEach(x=>x.disabled=true);nextBtn.classList.add('show');speak('เก่งมาก ถูกต้อง สระ '+current.n)}else{btn.classList.add('wrong');btn.disabled=true;feedback.textContent='ลองอีกครั้งนะ 💪'}}
 quizTab.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));quizTab.classList.add('on');document.getElementById('learnArea').style.display='none';quiz.classList.add('on');score=0;num=0;document.getElementById('score').textContent='0';nextQ()};nextBtn.onclick=nextQ;
 </script>
-<script src="kids-sfx.js?v=2"></script>
+<script src="kids-sfx.js?v=20261008popup"></script>
 <script src="playground-ui.js?v=20261007"></script><script src="activity-viewport.js?v=20261007d"></script></body></html>
