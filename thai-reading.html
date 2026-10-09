@@ -48,5 +48,5 @@ function addStar(){try{const k='punpin_progress_v1',p=JSON.parse(localStorage.ge
 $('nextBtn').onclick=()=>{const len=DATA[step].items.length;if(idx<len-1)idx++;else if(step<DATA.length-1){step++;idx=0;window.PunPinSFX?.reward();window.PunPinFeedback?.reward({title:'ผ่านด่านแล้ว! 🎉',text:'ไปฝึกขั้นต่อไปกันเลย'})}render()};$('prevBtn').onclick=()=>{if(idx>0)idx--;render()};document.querySelectorAll('.path button').forEach(b=>b.onclick=()=>{step=+b.dataset.step;idx=0;render()});render();
 </script>
 <script src="kids-sfx.js?v=20261008popup"></script>
-<script src="playground-ui.js?v=20261007"></script><script src="activity-viewport.js?v=20261007d"></script><script src="thai-category-cards.js?v=20261009"></script><script src="alphabet-cards.js?v=20261009"></script></body>
+<script src="playground-ui.js?v=20261007"></script><script src="activity-viewport.js?v=20261009scroll"></script><script src="thai-category-cards.js?v=20261009"></script><script src="alphabet-cards.js?v=20261009"></script></body>
 </html>

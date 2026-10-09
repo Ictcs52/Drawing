@@ -69,24 +69,17 @@
   function layoutGrid(state){
     const{grid,pager,kind}=state;
     if(!grid.isConnected){pager.remove();grids.delete(grid);return;}
-    const items=[...grid.children];
-    const absent=grid.style.display==='none'||!items.length;
-    grid.classList.toggle('avCatalogHidden',absent);pager.hidden=absent;
+    const items=[...grid.children],absent=grid.style.display==='none'||!items.length;
+    grid.classList.toggle('avCatalogHidden',absent);
+    pager.hidden=true;pager.style.setProperty('display','none','important');
+    items.forEach(item=>item.classList.remove('avPageHidden'));
+    state.page=0;state.perPage=Math.max(1,items.length);
     if(absent||!grid.getClientRects().length)return;
-    const r=grid.getBoundingClientRect();
     const minWidth={picture:130,letter:100,word:140,sentence:260,story:150,swatch:65,category:135,vowel:130}[kind]||130;
-    const minHeight={picture:155,letter:105,word:160,sentence:170,story:165,swatch:64,category:155,vowel:135}[kind]||140;
-    const cols=Math.max(1,Math.min(kind==='swatch'?6:5,Math.floor((r.width+8)/(minWidth+8))));
-    const rows=Math.max(1,Math.min(kind==='swatch'?2:4,Math.floor((r.height+8)/(minHeight+8))));
-    state.perPage=cols*rows;
-    const pages=Math.max(1,Math.ceil(items.length/state.perPage));
-    state.page=Math.max(0,Math.min(pages-1,state.page));
-    const columns=`repeat(${cols},minmax(0,1fr))`,rowSizes=`repeat(${rows},minmax(0,1fr))`;
-    if(grid.style.gridTemplateColumns!==columns||grid.style.getPropertyPriority('grid-template-columns')!=='important')grid.style.setProperty('grid-template-columns',columns,'important');
-    if(grid.style.gridTemplateRows!==rowSizes||grid.style.getPropertyPriority('grid-template-rows')!=='important')grid.style.setProperty('grid-template-rows',rowSizes,'important');
-    items.forEach((item,i)=>item.classList.toggle('avPageHidden',i<state.page*state.perPage||i>=(state.page+1)*state.perPage));
-    const[previous,next]=pager.querySelectorAll('button');previous.disabled=state.page===0;next.disabled=state.page===pages-1;
-    text(pager.querySelector('span'),`${state.page+1} / ${pages}`);
+    const minHeight={picture:180,letter:115,word:180,sentence:190,story:185,swatch:90,category:185,vowel:145}[kind]||160;
+    const cols=Math.max(1,Math.min(kind==='swatch'?6:5,Math.floor((grid.clientWidth+8)/(minWidth+8))));
+    const values={'grid-template-columns':`repeat(${cols},minmax(0,1fr))`,'grid-template-rows':'none','grid-auto-rows':`${minHeight}px`,'align-content':'start','overflow-y':'auto','overflow-x':'hidden','overscroll-behavior':'contain'};
+    for(const[key,value]of Object.entries(values))if(grid.style.getPropertyValue(key)!==value||grid.style.getPropertyPriority(key)!=='important')grid.style.setProperty(key,value,'important');
   }
   function fitSquare(element,width,height){
     if(!element||!element.getClientRects().length)return;
