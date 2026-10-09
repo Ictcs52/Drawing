@@ -7,7 +7,8 @@
   const text=(el,value)=>{if(el.textContent!==value)el.textContent=value;};
   function schedule(){if(!queued){queued=true;requestAnimationFrame(()=>{queued=false;sync();});}}
   function selectFor(source,label){
-    if(!source||selectors.has(source))return;
+    if(!source||selectors.has(source)||source.classList.contains('acSource')||source.id==='dressCats')return;
+    if(label!=='ระดับจิ๊กซอว์'){source.classList.add('acInlineCards');return;}
     const field=document.createElement('label');field.className='avSelect';
     const caption=document.createElement('span');caption.textContent=label;
     const select=document.createElement('select');select.setAttribute('aria-label',label);
