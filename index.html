@@ -618,6 +618,7 @@
   </div>
 </div>
 
+<script src="coloring-extra.js?v=20261009collections"></script>
 <script src="princess-art.js?v=20261008"></script>
 <script src="animal-art.js?v=20261008audit"></script>
 <script src="dinosaur-art.js?v=20261008"></script>
@@ -1409,6 +1410,9 @@ const CATS = [
   {id:"music", name:"ดนตรี", emoji:"🎵", tint:"#FFE8CF"},
   {id:"shape", name:"รูปทรงพื้นฐาน", emoji:"🔺", tint:"#E9F2FF"}
 ];
+
+CATS.push(...window.PunPinExtraColoring.cats);
+PICS.push(...window.PunPinExtraColoring.pics);
 
 const COLORS = [
   "#FF3B5C","#FF6B6B","#FF8E72","#FF922B","#FFB84D","#FFD43B","#FFF06A",
@@ -2243,6 +2247,12 @@ function initMemory(){
         document.querySelectorAll("#memCats .chip").forEach(x=>x.classList.remove("on"));
         b.classList.add("on");
         memCurrentCat = c.id;
+        const availablePairs = PICS.filter(p=>c.id==='all'||p.cat===c.id).length;
+        if(memDifficulty>availablePairs) memDifficulty=availablePairs>=8?8:6;
+        document.querySelectorAll('#memoryGame .difficultyBtn').forEach(btn=>{
+          btn.disabled=+btn.dataset.pairs>availablePairs;
+          btn.classList.toggle('on',+btn.dataset.pairs===memDifficulty);
+        });
       };
       memCatsEl.appendChild(b);
     });
