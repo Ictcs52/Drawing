@@ -124,3 +124,26 @@ body.ppLesson .hero,body.ppLesson .intro{position:relative}body.ppLesson .hero>.
 @media(max-width:540px){.ppHome .grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.ppHome .card .nm{font-size:14px!important}}
 
 .kwMoreSounds[open] summary span{transform:rotate(45deg)}
+
+/* Illustrated activity cards in the little artist corner. */
+.kwCreativeShelf{padding:24px!important;background:linear-gradient(125deg,#fff9ee,#f6f0fa)!important;border:1px solid #eee2df!important;border-radius:32px!important}
+.kwCreativeShelf .kwQuickGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.kwCreativeShelf .kwQuickGrid button{--card-bg:#e9e0f4;--card-ink:#786098;position:relative;display:flex!important;flex-direction:column;align-items:stretch;gap:0;min-width:0;min-height:230px;padding:12px 12px 20px!important;background:#fffdf8!important;border:2px solid #fff!important;border-radius:26px!important;box-shadow:0 5px 0 #e9ddd9,0 12px 25px #80648012;text-align:left;overflow:hidden;transition:transform .18s,box-shadow .18s}
+.kwCreativeShelf .kwQuickGrid button:nth-child(2){--card-bg:#f8e8bd;--card-ink:#9d793d}
+.kwCreativeShelf .kwQuickGrid button:nth-child(3){--card-bg:#f4dce7;--card-ink:#a65d82}
+.kwCreativeShelf .kwQuickGrid button:nth-child(4){--card-bg:#dceddf;--card-ink:#5c8872}
+.kwCreativeShelf .kwQuickGrid button>span{position:relative;display:flex;width:100%!important;height:150px!important;align-items:center;justify-content:center;background:var(--card-bg);border-radius:20px;margin-bottom:16px;isolation:isolate}
+.kwCreativeShelf .kwQuickGrid button>span:before,.kwCreativeShelf .kwQuickGrid button>span:after{content:"";position:absolute;width:100px;height:100px;border-radius:50%;background:#ffffff55;z-index:-1}
+.kwCreativeShelf .kwQuickGrid button>span:before{left:-30px;top:-30px}.kwCreativeShelf .kwQuickGrid button>span:after{right:-35px;bottom:-45px;width:130px;height:130px}
+.kwCreativeShelf .kwQuickGrid .kwDrawnIcon{width:85%;height:130px;max-width:185px;filter:drop-shadow(0 5px 0 #ffffff60);transform:rotate(-3deg)}
+.kwCreativeShelf .kwQuickGrid button:nth-child(even) .kwDrawnIcon{transform:rotate(3deg)}
+.kwCreativeShelf .kwQuickGrid button>b{font-size:17px!important;line-height:1.5;color:#655064;padding-left:5px;padding-right:30px}
+.kwCreativeShelf .kwQuickGrid button>i{display:flex!important;position:absolute;right:15px;bottom:19px;width:29px;height:29px;background:var(--card-bg);color:var(--card-ink);border-radius:50%;align-items:center;justify-content:center;font-size:18px}
+.kwCreativeShelf .kwQuickGrid button:hover{transform:translateY(-4px);box-shadow:0 7px 0 #e9ddd9,0 16px 25px #80648020}
+.kwCreativeShelf .kwQuickGrid button:active{transform:translateY(2px)}
+.kwCreativeShelf .kwQuickGrid button:focus-visible{outline:3px solid #8970a8;outline-offset:4px}
+@media(max-width:1050px){.kwCreativeShelf .kwQuickGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.kwCreativeShelf{padding:15px!important;border-radius:26px!important;margin-top:24px}.kwCreativeShelf .kwQuickGrid{gap:12px}.kwCreativeShelf .kwQuickGrid button{min-height:196px;padding:9px 9px 19px!important;border-radius:22px!important}.kwCreativeShelf .kwQuickGrid button>span{height:126px!important;margin-bottom:12px;border-radius:16px}.kwCreativeShelf .kwQuickGrid .kwDrawnIcon{height:112px;width:96%}.kwCreativeShelf .kwQuickGrid button>b{font-size:13px!important;padding-left:2px;padding-right:19px}.kwCreativeShelf .kwQuickGrid button>i{right:10px;bottom:18px;width:22px;height:22px;font-size:15px}}
+@media(prefers-reduced-motion:reduce){.kwCreativeShelf .kwQuickGrid button{transition:none}}
+
+.kwCreativeShelf .kwShelfTitle>span{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:#efe1ef;color:#9575ac;font-size:0;flex:none}.kwCreativeShelf .kwShelfTitle>span:after{content:'✦';font-size:26px}
