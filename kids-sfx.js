@@ -78,6 +78,7 @@
   ];
   function pick(a){return a[Math.floor(Math.random()*a.length)]}
   function showPopup(kind='correct',custom={}){
+    if(document.getElementById('ppComplete')?.open)return;
     addPopupUI();
     const box=document.getElementById('ppFeedback');if(!box)return;
     clearTimeout(popupTimer);clearTimeout(popupResetTimer);
@@ -91,7 +92,29 @@
     popupTimer=setTimeout(()=>{box.classList.remove('on');popupResetTimer=setTimeout(()=>{box.className=''},180)},duration);
   }
   function hidePopup(){clearTimeout(popupTimer);clearTimeout(popupResetTimer);const box=document.getElementById('ppFeedback');if(box)box.className='';}
-  window.PunPinFeedback={hide:hidePopup,show:showPopup,correct:(o)=>showPopup('correct',o),wrong:(o)=>showPopup('wrong',o),reward:(o)=>showPopup('reward',o)};
+
+  function completeRound(custom={}){
+    hidePopup();
+    let d=document.getElementById('ppComplete');
+    if(!d){
+      const css=document.createElement('style');css.textContent=`
+#ppComplete{box-sizing:border-box;width:min(440px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;border:5px solid white;border-radius:36px;padding:28px;text-align:center;background:linear-gradient(145deg,#fff9c9,#ffe3f0 48%,#e3f4ff);color:#625879;box-shadow:0 35px 80px -20px #31225e99;font-family:Mali,'Noto Sans Thai',sans-serif}
+#ppComplete::backdrop{background:#35285e6b;backdrop-filter:blur(7px)}
+#ppComplete .ppCompleteIcon{font-size:64px;line-height:1.2}#ppComplete h2{font-size:clamp(24px,6vw,34px);color:#6e4ad8;margin:12px 0 8px}#ppComplete p{line-height:1.6;margin:0 0 20px}#ppComplete button{font:700 17px Mali,sans-serif;min-height:48px;border:0;border-radius:999px;padding:12px 28px;color:white;background:linear-gradient(135deg,#8a5cf6,#ff6fa5);box-shadow:0 5px 0 #6842be;cursor:pointer}
+@media(max-height:450px){#ppComplete{padding:14px 22px}#ppComplete .ppCompleteIcon{font-size:40px}#ppComplete h2{margin:6px 0}#ppComplete p{margin-bottom:10px}}
+`;document.head.appendChild(css);
+      d=document.createElement('dialog');d.id='ppComplete';d.setAttribute('aria-labelledby','ppCompleteTitle');d.innerHTML='<div class="ppCompleteIcon" aria-hidden="true">🏆</div><h2 id="ppCompleteTitle"></h2><p></p><button type="button">เล่นต่อ</button>';document.body.appendChild(d);
+      d.querySelector('button').onclick=()=>d.close();
+      d.addEventListener('close',()=>{const cb=d._after;d._after=null;cb?.();});
+    }
+    d.querySelector('.ppCompleteIcon').textContent=custom.emoji||'🏆';
+    d.querySelector('h2').textContent=custom.title||'ทำครบแล้ว เก่งมาก!';
+    d.querySelector('p').textContent=custom.text||'หนูตั้งใจและทำได้ดีมาก';
+    d.querySelector('button').textContent=custom.label||'เล่นต่อ';
+    d._after=custom.onContinue;
+    SFX.reward();if(!d.open)d.showModal();
+  }
+  window.PunPinFeedback={complete:completeRound,hide:hidePopup,show:showPopup,correct:(o)=>showPopup('correct',o),wrong:(o)=>showPopup('wrong',o),reward:(o)=>showPopup('reward',o)};
 
   function syncButtons(){document.querySelectorAll('#sndBtn,[data-sound-toggle],.ppSoundToggle').forEach(b=>{b.textContent=enabled?'🔊':'🔇';b.title=enabled?'ปิดเสียง':'เปิดเสียง';b.setAttribute('aria-label',enabled?'ปิดเสียง':'เปิดเสียง')})}
   function isSoundButton(el){return !!el.closest?.('#sndBtn,[data-sound-toggle],.ppSoundToggle')}
