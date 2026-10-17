@@ -3,7 +3,7 @@ const KEY='punpin_grade_v1';
 const grade=localStorage.getItem(KEY)||'k';
 const gradeNames={k:'อนุบาล',p1:'ป.1',p2:'ป.2',p3:'ป.3'};
 
-/* PUN&PIN vocabulary curriculum
+/* ปุณณ์ปฤณ เพลินเรียน vocabulary curriculum
    Each grade owns its categories. Words are not inherited from another grade.
    Format: [english, thai reading, thai meaning, emoji]
 */

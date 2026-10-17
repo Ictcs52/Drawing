@@ -16,7 +16,7 @@
   // Dynamic title text also describes the current sound/fullscreen state to assistive technology.
   for(const id of ['sndBtn','fsBtn','soundBtn']){const b=document.getElementById(id);if(!b)continue;const sync=()=>{b.setAttribute('aria-label',b.title||'เปิดหรือปิดเสียง');if(id==='sndBtn')b.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/>'+((b.title||'').startsWith('เปิด')?'<path d="m17 9 5 6m0-6-5 6"/>':'<path d="M16 8q5 4 0 8m3-11q7 7 0 14"/>')+'</svg>';if(id==='fsBtn')b.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9V4h5m6 0h5v5m0 6v5h-5M9 20H4v-5"/></svg>';};sync();new MutationObserver(sync).observe(b,{attributes:true,attributeFilter:['title']})}
   document.querySelectorAll('.wrap>footer').forEach(x=>x.remove());
-  const footer=document.createElement('footer');footer.className='ppFooter';footer.innerHTML='<b>PUN&PIN</b> · เล่นทีละนิด เติบโตทีละก้าว 🌱';document.querySelector('.wrap')?.appendChild(footer);
+  const footer=document.createElement('footer');footer.className='ppFooter';footer.innerHTML='<b>ปุณณ์ปฤณ เพลินเรียน</b> · เล่นทีละนิด เติบโตทีละก้าว 🌱';document.querySelector('.wrap')?.appendChild(footer);
   // Keep keyboard focus inside the existing dialogs without changing their actions.
   let active=null,previous=null;
   const dialogs=[...document.querySelectorAll('.ppParentModal,.successPopup,.askPopup')];
