@@ -5,7 +5,6 @@ const icons={"english": "<svg class='kwDrawnIcon' viewBox='0 0 150 115' xmlns='h
 const click=id=>document.getElementById(id)?.click();
 function build(){
  const home=document.getElementById('home');if(!home||home.querySelector('.kwWelcome'))return;
- let grade=localStorage.getItem(GKEY);if(!names[grade])grade='k';
  home.classList.add('ppHomeReady');
  home.querySelectorAll(':scope > *').forEach(x=>x.classList.add('kwLegacyHidden'));
  const welcome=document.createElement('section');welcome.className='kwWelcome kwTodayLaunch';
@@ -16,9 +15,6 @@ function build(){
  <g transform="rotate(-18 232 240)"><rect x="222" y="202" width="19" height="80" rx="4" fill="#ef8c86"/><path d="M222 202l9.5-20 9.5 20" fill="#f9d6ab"/><path d="M228 189l3.5-7 3.5 7" fill="#474440"/><path d="M222 258h19" stroke="#f8b6a7" stroke-width="15"/></g><g fill="#efb542"><path d="M79 53l4 12 12 4-12 4-4 12-4-12-12-4 12-4z"/><path d="M388 70l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/><circle cx="361" cy="37" r="4"/><circle cx="57" cy="245" r="5"/></g><g fill="#a4ba9e"><path d="M382 280q-5-36 12-53 13 20-12 53"/><path d="M378 280q-33-8-33-27 25-3 33 27"/><path d="M79 282q-10-26 4-41 14 16-4 41"/></g></svg><span class="kwArtSticker">✦ ลองได้ ไม่ต้องกลัวผิด</span></div>`;
  home.appendChild(welcome);
  welcome.querySelector('.kwTodayBtn').onclick=()=>location.href='learning-today.html';
- const gradeBox=document.createElement('section');gradeBox.className='kwGrade';
- gradeBox.innerHTML='<div class="kwGradeHead"><h3>🎒 ระดับของหนู</h3><small>เลือกแล้ว เราจะจำไว้ให้</small></div><div class="kwGradeBtns" aria-label="เลือกระดับชั้น">'+Object.entries(names).map(([g,n],i)=>`<button data-g="${g}" aria-pressed="false"><span aria-hidden="true">${['🐣','🌱','🌿','🌳'][i]}</span> ${n}</button>`).join('')+'</div>';
- home.appendChild(gradeBox);
  icons.alphabetThai=icons.thai;icons.alphabetEnglish=icons.english;icons.phonics=icons.speaking;
  const data=[['english','ภาษาอังกฤษ','🔤','language','engCard'],['math','คิดเลขสนุก','🔢','thinking','mathCard'],['thai','ภาษาไทย','ก','language','thaiCard'],['brain','เกมฝึกสมอง','🧩','thinking','memoryCard'],['world','โลกรอบตัว','🌍','thinking',''],['creative','ระบายสี','🎨','creative','coloringCard'],['stories','ฟังนิทาน','📚','language',''],['speaking','ฟังแล้วพูด','🎤','language',''],['listen','ฟังแล้วเลือก','👂','language',''],['detective','นักสืบภาพ','🔎','thinking',''],['coding','โค้ดดิ้งจิ๋ว','🐰','thinking',''],['phonics','ฝึกเสียง Phonics','ABC','language','phonicsCard']];
  const zones=document.createElement('section');zones.className='kwZones';zones.id='playActivities';
@@ -34,10 +30,8 @@ function build(){
  overview.innerHTML=`<div class="kwProgressCard"><div class="kwCardLabel">⭐ ดาวดวงเล็ก ๆ ของหนู</div><div class="kwStats"><div><b data-pp-stars>${p.stars||0}</b><small>ดาวสะสม</small></div><div><b data-pp-streak>${p.streak||0}</b><small>วันที่มาเล่นต่อเนื่อง</small></div><div><b data-pp-plays>${p.plays||0}</b><small>กิจกรรมที่ลอง</small></div></div><p class="kwEncourage">ทุกครั้งที่ลอง คืออีกก้าวที่เก่งขึ้น 🌱</p></div>`;
  overview.style.setProperty('grid-template-columns','1fr','important');home.appendChild(overview);
  const ach=home.querySelector('.ppAchievements');if(ach){ach.classList.remove('kwLegacyHidden');home.appendChild(ach)}
- function setGrade(g){grade=names[g]?g:'k';localStorage.setItem(GKEY,grade);gradeBox.querySelectorAll('button').forEach(b=>{const on=b.dataset.g===grade;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});document.querySelectorAll('[data-kw-grade]').forEach(x=>x.textContent=names[grade]);document.dispatchEvent(new CustomEvent('punpin:grade',{detail:{grade}}))}
- gradeBox.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>setGrade(b.dataset.g));
  const appbar=document.querySelector('.appbar');if(appbar&&!appbar.querySelector('.kwParentTop')){const b=document.createElement('button');b.className='kwParentTop';b.innerHTML='<span aria-hidden="true">♡</span><b>ผู้ปกครอง</b>';b.setAttribute('aria-label','ดูความก้าวหน้าสำหรับผู้ปกครอง');b.onclick=()=>click('parentModeBtn');appbar.appendChild(b)}
- setGrade(grade);home.style.visibility='visible';
+ home.style.visibility='visible';
 }
 document.addEventListener('DOMContentLoaded',build);
 })();
